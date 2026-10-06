@@ -1,0 +1,27 @@
+# Ozeonix Infinity
+
+> Ozeonix Infinity builds custom CRM, ERP, LMS, websites and mobile apps for businesses and educational institutions. Shape The Thought. Power Tomorrow.
+
+## Pages
+
+- [/](/): Custom CRM, ERP, LMS, website and mobile app development.
+- [/services](/services): Full list of software development services, including web, mobile, CRM, ERP, UI/UX and cloud.
+- [/services/erp-development](/services/erp-development): Custom ERP development for manufacturing, retail and growing businesses.
+- [/services/crm-solutions](/services/crm-solutions): Custom CRM solutions and sales software for growing teams.
+- [/services/lms-platforms](/services/lms-platforms): LMS development for schools, colleges and educational institutions.
+- [/products](/products): Ready-to-tailor product suites for education, business, retail, healthcare and AI automation.
+- [/industries](/industries): Industries served — schools, colleges, startups, SMEs, healthcare, retail and more.
+- [/about](/about): Company story, mission and values.
+- [/process](/process): How projects run from discovery to launch and support.
+- [/portfolio](/portfolio): Selected work and demo builds.
+- [/faq](/faq): Common questions about services, process and pricing.
+- [/contact](/contact): Contact form, WhatsApp and location details.
+- [/careers](/careers): Open roles and team culture.
+- [/privacy](/privacy): Privacy policy.
+- [/terms](/terms): Terms and conditions.
+- [/refund](/refund): Refund policy.
+- [/cookies](/cookies): Cookie policy.
+
+## Optional
+
+- Legal pages and policies are provided for transparency and compliance.
