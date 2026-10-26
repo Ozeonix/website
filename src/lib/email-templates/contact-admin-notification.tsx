@@ -69,13 +69,13 @@ export const template = {
 } satisfies TemplateEntry
 
 const styles = {
-  body: { backgroundColor: '#ffffff', color: '#04284a', fontFamily: 'Arial, sans-serif', margin: 0 },
-  container: { border: '1px solid #d9e2e8', borderRadius: '8px', margin: '32px auto', maxWidth: '620px', overflow: 'hidden' as const },
-  header: { backgroundColor: '#04284a', padding: '24px 28px' },
-  brand: { color: '#fee232', fontSize: '13px', fontWeight: 700, margin: '0 0 8px' },
-  heading: { color: '#ffffff', fontSize: '26px', margin: 0 },
+  body: { backgroundColor: '#FFFFFF', color: '#06294B', fontFamily: 'Arial, sans-serif', margin: 0 },
+  container: { border: '1px solid #E5E7EB', borderRadius: '8px', margin: '32px auto', maxWidth: '620px', overflow: 'hidden' as const },
+  header: { backgroundColor: '#06294B', padding: '24px 28px' },
+  brand: { color: '#FF6900', fontSize: '13px', fontWeight: 700, margin: '0 0 8px' },
+  heading: { color: '#FFFFFF', fontSize: '26px', margin: 0 },
   content: { padding: '24px 28px' },
-  detail: { color: '#20394f', fontSize: '15px', lineHeight: '22px', margin: '0 0 8px' },
-  messageLabel: { color: '#04284a', fontSize: '15px', fontWeight: 700, margin: '22px 0 6px' },
-  message: { backgroundColor: '#f3f7f8', borderLeft: '4px solid #01b088', color: '#20394f', fontSize: '15px', lineHeight: '23px', margin: 0, padding: '16px', whiteSpace: 'pre-wrap' as const },
+  detail: { color: '#4B5563', fontSize: '15px', lineHeight: '22px', margin: '0 0 8px' },
+  messageLabel: { color: '#06294B', fontSize: '15px', fontWeight: 700, margin: '22px 0 6px' },
+  message: { backgroundColor: '#F4F7FA', borderLeft: '4px solid #00A982', color: '#06294B', fontSize: '15px', lineHeight: '23px', margin: 0, padding: '16px', whiteSpace: 'pre-wrap' as const },
 }

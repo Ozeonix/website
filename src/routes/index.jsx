@@ -360,7 +360,7 @@ function Home() {
                   />
                   <div className="oz-process-hero-caption" style={{ position: "absolute", left: 20, right: 20, bottom: 20, color: "#fff" }}>
                     <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 12px", borderRadius: 999, background: "rgba(255,255,255,0.14)", backdropFilter: "blur(6px)", fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                      <span style={{ width: 8, height: 8, borderRadius: 999, background: "#22c55e", boxShadow: "0 0 0 4px rgba(34,197,94,0.25)" }} />
+                      <span style={{ width: 8, height: 8, borderRadius: 999, background: "var(--brand-green, #00A982)", boxShadow: "0 0 0 4px color-mix(in oklab, var(--brand-green) 25%, transparent)" }} />
                       Structured delivery, from discovery to launch
                     </div>
                     <p style={{ margin: "12px 0 0", fontSize: 15, lineHeight: 1.5, opacity: 0.92 }}>

@@ -276,7 +276,7 @@ function AdminPanel() {
           ))}
         </AccessibleTabs>
 
-        {error && <p role="alert" style={{ color: "#dc2626" }}>{error}</p>}
+        {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{error}</p>}
 
         {tab === "referrals" && (
           <>
@@ -420,7 +420,7 @@ function AdminPanel() {
                 Export CSV
               </button>
             </div>
-            {leadsError && <p role="alert" style={{ color: "#dc2626" }}>{leadsError}</p>}
+            {leadsError && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{leadsError}</p>}
             {leads.length === 0 && !leadsError ? <p className="oz-muted">Loading contact leads…</p> : (
               <div className="oz-table-scroll">
                 <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 900 }}>
@@ -521,7 +521,7 @@ function AdminPanel() {
                             <td style={td}>{p.method || "—"}</td>
                             <td style={td}>{p.reference || "—"}</td>
                             <td style={td}>
-                              <span style={{ color: p.status === "paid" ? "#16a34a" : "#b45309", fontWeight: 700, textTransform: "uppercase", fontSize: 13 }}>{p.status}</span>
+                              <span style={{ color: p.status === "paid" ? "#15803D" : "#B45309", fontWeight: 700, textTransform: "uppercase", fontSize: 13 }}>{p.status}</span>
                             </td>
                             <td style={td}>
                               <button

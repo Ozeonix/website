@@ -200,7 +200,7 @@ function PayPage() {
           {referral && (
             <p className="oz-muted" style={{ margin: 0, fontSize: 14 }}>Referral code applied: <strong>{referral}</strong></p>
           )}
-          {error && <p role="alert" style={{ color: "#dc2626", margin: 0 }}>{error}</p>}
+          {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)", margin: 0 }}>{error}</p>}
 
           <div className="oz-form-actions">
             <button type="submit" className="oz-btn oz-btn--primary" disabled={busy || (mode === "package" && !slug)}>

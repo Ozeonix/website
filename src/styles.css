@@ -6,38 +6,121 @@
    Colors are exact HSL values. No gradients anywhere.
    ========================================================= */
 
+@theme {
+  --color-brand-orange: #FF6900;
+  --color-brand-orange-hover: #E85F00;
+  --color-brand-orange-light: #FFF0E5;
+
+  --color-brand-green: #00A982;
+  --color-brand-green-hover: #008F6E;
+  --color-brand-green-light: #E6F7F2;
+
+  --color-brand-navy: #06294B;
+  --color-brand-navy-hover: #0A3B68;
+  --color-brand-navy-light: #EAF0F7;
+
+  --color-background: #FFFFFF;
+  --color-background-muted: #F4F7FA;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F8FAFC;
+
+  --color-text-primary: #06294B;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-text-inverse: #FFFFFF;
+
+  --color-border: #E5E7EB;
+  --color-border-strong: #CBD5E1;
+  --color-focus-ring: #FF6900;
+
+  --color-success: #15803D;
+  --color-warning: #B45309;
+  --color-danger: #B91C1C;
+  --color-info: #1D4ED8;
+}
+
 :root {
-  --oz-primary: #04284a;
-  --oz-primary-strong: #021c35;
-  --oz-primary-soft: #0a3b68;
-  --oz-primary-foreground: hsl(0 0% 100%);
-  --oz-accent: #fee232;
-  --oz-accent-strong: #e4c600;
-  --oz-accent-foreground: #04284a;
-  --oz-action: #01b088;
-  --oz-action-strong: #008e6d;
-  --oz-action-foreground: #04284a;
-  --oz-background: hsl(0 0% 100%);
-  --oz-foreground: #04284a;
-  --oz-secondary: #f3f8f7;
-  --oz-secondary-foreground: #04284a;
-  --oz-muted: #f3f8f7;
-  --oz-muted-foreground: #40566b;
-  --oz-border: #d7e2e0;
-  --oz-border-strong: #9eb4b0;
-  --oz-destructive: hsl(0 84.2% 60.2%);
+  /* Official Brand Colors */
+  --brand-orange: #FF6900;
+  --brand-orange-hover: #E85F00;
+  --brand-orange-light: #FFF0E5;
+
+  --brand-green: #00A982;
+  --brand-green-hover: #008F6E;
+  --brand-green-light: #E6F7F2;
+
+  --brand-navy: #06294B;
+  --brand-navy-hover: #0A3B68;
+  --brand-navy-light: #EAF0F7;
+
+  /* Backgrounds and Surfaces */
+  --background: #FFFFFF;
+  --background-muted: #F4F7FA;
+  --surface: #FFFFFF;
+  --surface-hover: #F8FAFC;
+
+  /* Text */
+  --text-primary: #06294B;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --text-inverse: #FFFFFF;
+
+  /* Borders and Focus */
+  --border: #E5E7EB;
+  --border-strong: #CBD5E1;
+  --focus-ring: #FF6900;
+
+  /* Semantic Colors — Keep Separate From Brand Colors */
+  --success: #15803D;
+  --warning: #B45309;
+  --danger: #B91C1C;
+  --info: #1D4ED8;
+
+  /* Radius and Elevation */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-sm: 0 1px 3px rgba(6, 41, 75, 0.06);
+  --shadow-md: 0 4px 12px rgba(6, 41, 75, 0.08);
+  --shadow-lg: 0 12px 32px rgba(6, 41, 75, 0.12);
+
+  /* Ozeonix Infinity Token Aliases (Backwards-compatibility mapped to canonical tokens) */
+  --oz-primary: var(--brand-navy);
+  --oz-primary-strong: #03182d;
+  --oz-primary-soft: var(--brand-navy-hover);
+  --oz-primary-foreground: var(--text-inverse);
+
+  --oz-accent: var(--brand-green);
+  --oz-accent-strong: var(--brand-green-hover);
+  --oz-accent-foreground: var(--text-inverse);
+
+  --oz-action: var(--brand-orange);
+  --oz-action-strong: var(--brand-orange-hover);
+  --oz-action-foreground: var(--text-inverse);
+
+  --oz-background: var(--background);
+  --oz-foreground: var(--text-primary);
+  --oz-secondary: var(--background-muted);
+  --oz-secondary-foreground: var(--text-primary);
+  --oz-muted: var(--background-muted);
+  --oz-muted-foreground: var(--text-secondary);
+  --oz-border: var(--border);
+  --oz-border-strong: var(--border-strong);
+  --oz-destructive: var(--danger);
 
   --oz-border-width: 1px;
   --oz-border-width-strong: 2px;
-  --oz-radius-sm: clamp(0.375rem, 0.3rem + 0.2vw, 0.5rem);
-  --oz-radius: clamp(0.625rem, 0.52rem + 0.3vw, 0.75rem);
-  --oz-radius-lg: clamp(0.875rem, 0.7rem + 0.5vw, 1.125rem);
+  --oz-radius-sm: var(--radius-sm);
+  --oz-radius: var(--radius-md);
+  --oz-radius-lg: var(--radius-lg);
 
-  --oz-shadow-sm: 0 1px 2px hsl(240 30% 20% / 0.06);
-  --oz-shadow: 0 6px 20px hsl(240 30% 20% / 0.08);
-  --oz-shadow-lg: 0 20px 40px hsl(240 30% 20% / 0.12);
-  --oz-neu-surface: #eef3f3;
-  --oz-neu-shadow-dark: #c9d3d2;
+  --oz-shadow-sm: var(--shadow-sm);
+  --oz-shadow: var(--shadow-md);
+  --oz-shadow-lg: var(--shadow-lg);
+  --oz-neu-surface: var(--background-muted);
+  --oz-neu-shadow-dark: #d1dbe5;
   --oz-neu-shadow-light: #ffffff;
   --oz-neu-raised: 10px 10px 24px color-mix(in oklab, var(--oz-neu-shadow-dark) 78%, transparent), -10px -10px 24px color-mix(in oklab, var(--oz-neu-shadow-light) 88%, transparent);
   --oz-neu-inset: inset 5px 5px 10px color-mix(in oklab, var(--oz-neu-shadow-dark) 76%, transparent), inset -5px -5px 10px color-mix(in oklab, var(--oz-neu-shadow-light) 92%, transparent);
@@ -301,48 +384,66 @@ p { margin: 0 0 var(--oz-mb-p); }
 .oz-btn:active { transform: translateY(1px); }
 
 .oz-btn--primary {
-  background-color: var(--oz-primary);
-  color: var(--oz-primary-foreground);
+  background-color: var(--brand-orange);
+  color: var(--text-inverse);
+  border-color: var(--brand-orange);
 }
 .oz-btn--primary:hover {
-  background-color: var(--oz-primary-strong);
-  box-shadow: var(--oz-shadow);
+  background-color: var(--brand-orange-hover);
+  border-color: var(--brand-orange-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.oz-btn--secondary {
+  background-color: var(--brand-navy);
+  color: var(--text-inverse);
+  border-color: var(--brand-navy);
+}
+.oz-btn--secondary:hover {
+  background-color: var(--brand-navy-hover);
+  border-color: var(--brand-navy-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .oz-btn--accent {
-  background-color: var(--oz-action);
-  color: var(--oz-action-foreground);
+  background-color: var(--brand-green);
+  color: var(--text-inverse);
+  border-color: var(--brand-green);
 }
 .oz-btn--accent:hover {
-  background-color: var(--oz-action-strong);
-  color: var(--oz-primary-foreground);
-  box-shadow: var(--oz-shadow);
+  background-color: var(--brand-green-hover);
+  border-color: var(--brand-green-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .oz-btn--outline {
   background-color: transparent;
-  color: var(--oz-primary);
-  border-color: var(--oz-primary);
+  color: var(--brand-navy);
+  border-color: var(--border-strong);
 }
 .oz-btn--outline:hover {
-  background-color: var(--oz-primary);
-  color: var(--oz-primary-foreground);
+  background-color: var(--brand-navy-light);
+  color: var(--brand-navy);
+  border-color: var(--brand-navy);
 }
 
 .oz-btn--ghost {
   background-color: transparent;
-  color: var(--oz-primary);
+  color: var(--text-primary);
 }
-.oz-btn--ghost:hover { color: var(--oz-primary-strong); }
+.oz-btn--ghost:hover {
+  background-color: var(--surface-hover);
+  color: var(--brand-navy);
+}
 
 .oz-btn--on-dark {
   background-color: transparent;
-  color: var(--oz-primary-foreground);
-  border-color: hsl(0 0% 100% / 0.35);
+  color: var(--text-inverse);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 .oz-btn--on-dark:hover {
-  background-color: var(--oz-primary-foreground);
-  color: var(--oz-primary);
+  background-color: var(--text-inverse);
+  color: var(--brand-navy);
 }
 
 /* Card */
@@ -577,10 +678,10 @@ p { margin: 0 0 var(--oz-mb-p); }
   isolation: isolate;
   /* Static base gradient — always painted, GPU compositor only. */
   background-image:
-    radial-gradient(60% 55% at 15% 20%, color-mix(in oklab, var(--oz-primary) 18%, transparent) 0%, transparent 60%),
-    radial-gradient(50% 50% at 85% 10%, color-mix(in oklab, #22d3ee 14%, transparent) 0%, transparent 60%),
-    radial-gradient(55% 60% at 80% 90%, color-mix(in oklab, #c084fc 16%, transparent) 0%, transparent 65%),
-    radial-gradient(45% 50% at 10% 90%, color-mix(in oklab, #f97316 12%, transparent) 0%, transparent 60%);
+    radial-gradient(60% 55% at 15% 20%, color-mix(in oklab, var(--brand-navy) 14%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 50% at 85% 10%, color-mix(in oklab, var(--brand-green) 12%, transparent) 0%, transparent 60%),
+    radial-gradient(55% 60% at 80% 90%, color-mix(in oklab, var(--brand-navy-hover) 12%, transparent) 0%, transparent 65%),
+    radial-gradient(45% 50% at 10% 90%, color-mix(in oklab, var(--brand-orange) 10%, transparent) 0%, transparent 60%);
 }
 .oz-hero > .oz-container { position: relative; z-index: 3; }
 
@@ -588,9 +689,9 @@ p { margin: 0 0 var(--oz-mb-p); }
 .oz-hero__bg {
   position: absolute; inset: -10%; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(35% 35% at 30% 40%, color-mix(in oklab, var(--oz-primary) 35%, transparent) 0%, transparent 70%),
-    radial-gradient(30% 30% at 70% 30%, color-mix(in oklab, #22d3ee 30%, transparent) 0%, transparent 70%),
-    radial-gradient(35% 35% at 70% 75%, color-mix(in oklab, #c084fc 32%, transparent) 0%, transparent 70%);
+    radial-gradient(35% 35% at 30% 40%, color-mix(in oklab, var(--brand-navy) 25%, transparent) 0%, transparent 70%),
+    radial-gradient(30% 30% at 70% 30%, color-mix(in oklab, var(--brand-green) 20%, transparent) 0%, transparent 70%),
+    radial-gradient(35% 35% at 70% 75%, color-mix(in oklab, var(--brand-orange) 18%, transparent) 0%, transparent 70%);
   filter: blur(40px);
   will-change: transform;
   transform: translate3d(0, 0, 0);
@@ -617,9 +718,9 @@ p { margin: 0 0 var(--oz-mb-p); }
 .oz-wavelines--hero { opacity: 0.55; }
 .oz-wavelines--pipeline { opacity: 0.4; }
 .oz-wavelines path { fill: none; stroke-width: 1.3; vector-effect: non-scaling-stroke; }
-.oz-wavelines .w1 { stroke: color-mix(in oklab, var(--oz-primary) 55%, transparent); }
-.oz-wavelines .w2 { stroke: color-mix(in oklab, #22d3ee 55%, transparent); }
-.oz-wavelines .w3 { stroke: color-mix(in oklab, #c084fc 55%, transparent); }
+.oz-wavelines .w1 { stroke: color-mix(in oklab, var(--brand-navy) 55%, transparent); }
+.oz-wavelines .w2 { stroke: color-mix(in oklab, var(--brand-green) 55%, transparent); }
+.oz-wavelines .w3 { stroke: color-mix(in oklab, var(--brand-orange) 55%, transparent); }
 /* Transform-only translate — GPU-accelerated, no repaints. */
 .oz-wavelines__g {
   will-change: transform;
@@ -1882,7 +1983,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    Digital Marketing Solutions section (home)
    ============================================================ */
-.oz-marketing { background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%); }
+.oz-marketing { background: var(--brand-navy); }
 .oz-marketing__grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -1893,13 +1994,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(2rem, 3.4vw, 3rem);
   line-height: 1.05;
   margin: 0 0 12px;
-  color: #fff;
+  color: var(--text-inverse);
 }
 .oz-marketing__rule {
   display: block;
   width: 96px;
   height: 3px;
-  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  background: var(--brand-orange);
   border-radius: 999px;
   margin-bottom: 20px;
 }
@@ -2361,7 +2462,7 @@ a.oz-btn,
 }
 .oz-whatsapp:hover { filter: brightness(1.05); transform: translateY(-2px); }
 .oz-whatsapp:focus-visible {
-  outline: 3px solid var(--oz-accent, #fee232);
+  outline: 3px solid var(--focus-ring, #FF6900);
   outline-offset: 3px;
 }
 @media (max-width: 1119px) {

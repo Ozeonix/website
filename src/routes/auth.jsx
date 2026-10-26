@@ -138,8 +138,8 @@ function AuthPage() {
             />
           </label>
 
-          {error && <p role="alert" style={{ color: "#dc2626", fontSize: 14, margin: 0 }}>{error}</p>}
-          {notice && <p role="status" style={{ color: "#166534", fontSize: 14, margin: 0 }}>{notice}</p>}
+          {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)", fontSize: 14, margin: 0 }}>{error}</p>}
+          {notice && <p role="status" style={{ color: "var(--success, #15803D)", fontSize: 14, margin: 0 }}>{notice}</p>}
 
           <button className="oz-btn oz-btn--primary" type="submit" disabled={status === "busy"} style={{ width: "100%" }}>
             {status === "busy" ? "Please wait…" : mode === "signin" ? "Sign in" : "Create profile"}

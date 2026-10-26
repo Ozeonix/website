@@ -53,7 +53,7 @@ function PaymentSuccess() {
         <span className="oz-eyebrow">eSewa</span>
         <h1 style={{ margin: 0 }}>{heading}</h1>
 
-        {error && <p role="alert" style={{ color: "#dc2626" }}>{error}</p>}
+        {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{error}</p>}
 
         {result?.state === "complete" && (
           <div style={{ border: "1px solid rgba(0,0,0,0.14)", borderRadius: 16, padding: 20, background: "#fff" }}>

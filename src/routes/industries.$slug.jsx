@@ -201,7 +201,7 @@ function IndustryDetail() {
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 12 }}>
                   {detail.solutions.map((s) => (
                     <li key={s} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                      <CheckCircle2 size={18} strokeWidth={2} style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-accent, #4f46e5)" }} aria-hidden="true" />
+                      <CheckCircle2 size={18} strokeWidth={2} style={{ flexShrink: 0, marginTop: 2, color: "var(--brand-green, #00A982)" }} aria-hidden="true" />
                       <span>{s}</span>
                     </li>
                   ))}

@@ -18,11 +18,11 @@ export const Route = createFileRoute("/_authenticated/partner")({
 });
 
 const STATUS_COLORS = {
-  new: "#64748b",
-  approved: "#2563eb",
-  won: "#16a34a",
-  lost: "#b45309",
-  rejected: "#dc2626",
+  new: "#6B7280",
+  approved: "#1D4ED8",
+  won: "#15803D",
+  lost: "#B45309",
+  rejected: "#B91C1C",
 };
 
 function money(n) {
@@ -156,8 +156,8 @@ function PartnerDashboard() {
           </div>
         </header>
 
-        {error && <p role="alert" style={{ color: "#dc2626" }}>{error}</p>}
-        {saved && <p role="status" style={{ color: "#166534" }}>{saved}</p>}
+        {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{error}</p>}
+        {saved && <p role="status" style={{ color: "var(--success, #15803D)" }}>{saved}</p>}
 
         <div className="oz-grid oz-grid-4">
           {[
@@ -274,7 +274,7 @@ function PartnerDashboard() {
                       <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{p.method || "—"}</td>
                       <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{p.reference || "—"}</td>
                       <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>
-                        <span style={{ color: p.status === "paid" ? "#16a34a" : "#b45309", fontWeight: 700, textTransform: "uppercase", fontSize: 13 }}>{p.status}</span>
+                        <span style={{ color: p.status === "paid" ? "#15803D" : "#B45309", fontWeight: 700, textTransform: "uppercase", fontSize: 13 }}>{p.status}</span>
                       </td>
                     </tr>
                   ))}
