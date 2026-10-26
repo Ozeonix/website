@@ -1,0 +1,279 @@
+name: Lighthouse Performance
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches: [main]
+
+# Needed for the PR-comment step and the auto-baseline-commit step.
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history + head ref so we can push refreshed baselines back to the PR branch.
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      # ----- Threshold selection -----
+      # Default: strict. Apply the `perf-relax` label to a PR to loosen
+      # thresholds AND auto-refresh visual baselines (commits back to the PR).
+      - name: Resolve mode (label-aware)
+        id: thresholds
+        env:
+          HAS_RELAX_LABEL: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'perf-relax') }}
+        run: |
+          if [ "$HAS_RELAX_LABEL" = "true" ]; then
+            echo "mode=relaxed"                    >> "$GITHUB_OUTPUT"
+            echo "PERF_MIN=0.70"                   >> "$GITHUB_OUTPUT"
+            echo "CLS_MAX=0.25"                    >> "$GITHUB_OUTPUT"
+            echo "IMG_FORMATS_MIN=0.7"             >> "$GITHUB_OUTPUT"
+            echo "IMG_SIZING_MIN=0.7"              >> "$GITHUB_OUTPUT"
+            echo "IMG_SAVINGS_MAX_KB=250"          >> "$GITHUB_OUTPUT"
+            echo "VISUAL_MAX_DIFF_RATIO=0.02"      >> "$GITHUB_OUTPUT"
+            echo "AUTO_UPDATE_BASELINES=true"      >> "$GITHUB_OUTPUT"
+            echo "::warning::perf-relax label active — thresholds loosened and visual baselines will be auto-refreshed on this PR."
+          else
+            echo "mode=strict"                     >> "$GITHUB_OUTPUT"
+            echo "PERF_MIN=0.85"                   >> "$GITHUB_OUTPUT"
+            echo "CLS_MAX=0.1"                     >> "$GITHUB_OUTPUT"
+            echo "IMG_FORMATS_MIN=0.9"             >> "$GITHUB_OUTPUT"
+            echo "IMG_SIZING_MIN=0.9"              >> "$GITHUB_OUTPUT"
+            echo "IMG_SAVINGS_MAX_KB=50"           >> "$GITHUB_OUTPUT"
+            echo "VISUAL_MAX_DIFF_RATIO=0.002"     >> "$GITHUB_OUTPUT"
+            echo "AUTO_UPDATE_BASELINES=false"     >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun install (global + node_modules)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'package.json') }}
+          restore-keys: |
+            bun-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+
+      - name: Install Playwright Chromium
+        run: bunx playwright install --with-deps chromium
+
+      - name: Cache Vite build output
+        uses: actions/cache@v4
+        with:
+          path: |
+            dist
+            node_modules/.vite
+          key: vite-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'vite.config.ts') }}-${{ hashFiles('src/**', 'index.html', 'public/**') }}
+          restore-keys: |
+            vite-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'vite.config.ts') }}-
+            vite-${{ runner.os }}-
+
+      - name: Build app
+        run: bun run build
+
+      - name: Start preview server
+        run: |
+          bun run preview --port 8080 &
+          echo $! > .preview.pid
+          for i in {1..40}; do
+            if curl -sf http://localhost:8080 > /dev/null; then
+              echo "Preview ready"; exit 0
+            fi
+            sleep 1
+          done
+          echo "Preview failed to start"; exit 1
+
+      - name: Run Lighthouse (per-audit thresholds)
+        id: lighthouse
+        continue-on-error: true
+        env:
+          PERF_MIN: ${{ steps.thresholds.outputs.PERF_MIN }}
+          CLS_MAX: ${{ steps.thresholds.outputs.CLS_MAX }}
+          IMG_FORMATS_MIN: ${{ steps.thresholds.outputs.IMG_FORMATS_MIN }}
+          IMG_SIZING_MIN: ${{ steps.thresholds.outputs.IMG_SIZING_MIN }}
+          IMG_SAVINGS_MAX_KB: ${{ steps.thresholds.outputs.IMG_SAVINGS_MAX_KB }}
+        run: bun run perf:ci http://localhost:8080
+
+      # When perf-relax is on, capture fresh baselines instead of comparing.
+      - name: Refresh visual baselines (perf-relax)
+        if: steps.thresholds.outputs.AUTO_UPDATE_BASELINES == 'true'
+        env:
+          BASE_URL: http://localhost:8080
+        run: bun run visual:update
+
+      - name: Visual regression check
+        id: visual
+        if: steps.thresholds.outputs.AUTO_UPDATE_BASELINES != 'true'
+        continue-on-error: true
+        env:
+          BASE_URL: http://localhost:8080
+          VISUAL_MAX_DIFF_RATIO: ${{ steps.thresholds.outputs.VISUAL_MAX_DIFF_RATIO }}
+        run: bun run visual
+
+      - name: GPU animation regression check (mobile)
+        id: gpu
+        continue-on-error: true
+        env:
+          PREVIEW_URL: http://localhost:8080
+        run: bun run gpu:check
+
+      - name: Accessibility regression check
+        id: accessibility
+        continue-on-error: true
+        env:
+          BASE_URL: http://localhost:8080
+        run: bun run a11y:check
+
+      - name: Collect visual artifacts
+        if: always()
+        run: |
+          mkdir -p reports/visual
+          if [ -d tests/visual/current ]; then cp -r tests/visual/current reports/visual/; fi
+          if [ -d tests/visual/diff ];    then cp -r tests/visual/diff    reports/visual/; fi
+          if [ -d tests/visual/baseline ]; then cp -r tests/visual/baseline reports/visual/; fi
+
+      - name: Stop preview server
+        if: always()
+        run: |
+          if [ -f .preview.pid ]; then kill "$(cat .preview.pid)" || true; fi
+
+      - name: Upload reports artifact
+        id: upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-reports-${{ steps.thresholds.outputs.mode }}
+          path: reports/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # Commit refreshed baselines back to the PR branch on perf-relax.
+      - name: Commit refreshed baselines
+        if: >
+          steps.thresholds.outputs.AUTO_UPDATE_BASELINES == 'true' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/visual/baseline
+          if git diff --cached --quiet; then
+            echo "No baseline changes to commit."
+          else
+            git commit -m "chore(visual): refresh baselines via perf-relax label [skip ci]"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
+
+      # Post/update a single sticky PR comment with results.
+      - name: Post PR summary comment
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        env:
+          MODE: ${{ steps.thresholds.outputs.mode }}
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          LH_OUTCOME: ${{ steps.lighthouse.outcome }}
+          VIS_OUTCOME: ${{ steps.visual.outcome }}
+          AUTO_UPDATE: ${{ steps.thresholds.outputs.AUTO_UPDATE_BASELINES }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const read = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; } };
+            const lh  = read('reports/lighthouse-summary.json');
+            const vis = read('reports/visual-summary.json');
+
+            const badge = (ok) => ok ? '✅ pass' : '❌ fail';
+            const pct = (n) => (n == null ? '—' : Math.round(n * 100));
+            const artifactUrl = process.env.ARTIFACT_URL || process.env.RUN_URL;
+            const auto = process.env.AUTO_UPDATE === 'true';
+
+            let body = `## 🔬 Performance & visual check — \`${process.env.MODE}\`\n\n`;
+            body += `[Run](${process.env.RUN_URL}) · [Download report artifact](${artifactUrl})\n\n`;
+
+            if (lh) {
+              body += `### Lighthouse ${badge(lh.passed)}\n`;
+              body += `| Metric | Value | Threshold |\n|---|---|---|\n`;
+              body += `| Performance | **${pct(lh.metrics.performanceScore)}** | ≥ ${pct(lh.thresholds.PERF_MIN)} |\n`;
+              body += `| CLS | **${lh.metrics.cls.toFixed(3)}** | ≤ ${lh.thresholds.CLS_MAX} |\n`;
+              body += `| LCP | ${lh.metrics.lcp} | — |\n`;
+              body += `| Modern image formats | ${pct(lh.imageAudits.modernFormats.score)} (save ${lh.imageAudits.modernFormats.savingsKb} KB) | ≥ ${pct(lh.thresholds.IMG_FORMATS_MIN)} |\n`;
+              body += `| Responsive sizing | ${pct(lh.imageAudits.responsiveSizing.score)} (save ${lh.imageAudits.responsiveSizing.savingsKb} KB) | ≥ ${pct(lh.thresholds.IMG_SIZING_MIN)} |\n\n`;
+              if (lh.failures.length) body += `**Failures:**\n${lh.failures.map(f => `- ${f}`).join('\n')}\n\n`;
+            } else {
+              body += `### Lighthouse\n_No summary produced (step outcome: ${process.env.LH_OUTCOME})._\n\n`;
+            }
+
+            if (auto) {
+              body += `### Visual baselines 🔄\n\`perf-relax\` label detected — visual baselines were refreshed and pushed back to this PR. Review the new baselines under \`tests/visual/baseline/\`.\n\n`;
+            } else if (vis) {
+              body += `### Visual regression ${badge(vis.passed)}\n`;
+              body += `Max diff ratio: **${(vis.maxDiffRatio * 100).toFixed(3)}%**\n\n`;
+              body += `| Page | Path | Status | Pixels changed | Images |\n|---|---|---|---|---|\n`;
+              for (const p of vis.pages) {
+                const ok = p.status === 'passed' || p.status.startsWith('baseline-');
+                const links = [];
+                if (p.baselineImage) links.push(`[baseline](${artifactUrl})`);
+                if (p.currentImage)  links.push(`[current](${artifactUrl})`);
+                if (p.diffImage)     links.push(`[**diff**](${artifactUrl})`);
+                body += `| \`${p.name}\` | \`${p.path}\` | ${ok ? '✅' : '❌'} ${p.status} | ${(p.diffRatio * 100).toFixed(3)}% | ${links.join(' · ') || '—'} |\n`;
+              }
+              body += `\n> Image links open the workflow-run artifact zip; extract \`visual/diff/\` to view per-page overlays.\n`;
+              body += `> To refresh baselines, apply the **\`perf-relax\`** label to this PR — CI will regenerate and commit them.\n`;
+            } else {
+              body += `### Visual regression\n_No summary produced (step outcome: ${process.env.VIS_OUTCOME})._\n`;
+            }
+
+            const marker = '<!-- perf-report-comment -->';
+            body = `${marker}\n${body}`;
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      # Fail the job if either check failed (unless we auto-refreshed baselines).
+      - name: Enforce results
+        if: always()
+        env:
+          LH: ${{ steps.lighthouse.outcome }}
+          VIS: ${{ steps.visual.outcome }}
+          GPU: ${{ steps.gpu.outcome }}
+          A11Y: ${{ steps.accessibility.outcome }}
+          AUTO: ${{ steps.thresholds.outputs.AUTO_UPDATE_BASELINES }}
+        run: |
+          fail=0
+          [ "$LH" = "failure" ] && fail=1
+          if [ "$AUTO" != "true" ] && [ "$VIS" = "failure" ]; then fail=1; fi
+          [ "$GPU" = "failure" ] && fail=1
+          [ "$A11Y" = "failure" ] && fail=1
+          exit $fail
