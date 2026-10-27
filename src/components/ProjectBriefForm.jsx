@@ -91,7 +91,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
       aria-label="Contact Ozeonix Infinity"
     >
       {heading && (
-        <div className="oz-form__heading oz-field--full">
+        <header className="oz-form__heading oz-field--full">
           <div className="oz-form__brand-icon" aria-hidden="true">
             <Send size={20} strokeWidth={2.2} />
           </div>
@@ -99,7 +99,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
             <h2>Tell us about your project</h2>
             <p>Share the essentials and we’ll reply within one business day.</p>
           </div>
-        </div>
+        </header>
       )}
       {status === "success" && (
         <div className="oz-field oz-field--full" role="status" aria-live="polite">
@@ -123,6 +123,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           name="name"
           autoComplete="name"
           placeholder="e.g. Priya Sharma"
+          required
+          aria-required="true"
           aria-invalid={!!errors.name}
           aria-describedby={describedBy("name")}
           onChange={() => clearError("name")}
@@ -137,6 +139,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           type="email"
           autoComplete="email"
           placeholder="you@company.com"
+          required
+          aria-required="true"
           aria-invalid={!!errors.email}
           aria-describedby={describedBy("email")}
           onChange={() => clearError("email")}
@@ -181,6 +185,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           name="country"
           autoComplete="country-name"
           defaultValue=""
+          required
+          aria-required="true"
           aria-invalid={!!errors.country}
           aria-describedby={describedBy("country")}
           onChange={() => clearError("country")}
@@ -201,6 +207,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           name="city"
           autoComplete="address-level2"
           defaultValue=""
+          required
+          aria-required="true"
           aria-invalid={!!errors.city}
           aria-describedby={describedBy("city")}
           onChange={() => clearError("city")}
@@ -220,6 +228,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           id={id("requirements")}
           name="requirements"
           defaultValue=""
+          required
+          aria-required="true"
           aria-invalid={!!errors.requirements}
           aria-describedby={describedBy("requirements")}
           onChange={() => clearError("requirements")}
@@ -239,6 +249,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           id={id("start_time")}
           name="start_time"
           defaultValue=""
+          required
+          aria-required="true"
           aria-invalid={!!errors.start_time}
           aria-describedby={describedBy("start_time")}
           onChange={() => clearError("start_time")}
@@ -261,6 +273,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           inputMode="text"
           maxLength={80}
           placeholder="e.g. Rs 2,00,000 or Not sure yet"
+          required
+          aria-required="true"
           aria-invalid={!!errors.budget}
           aria-describedby={describedBy("budget")}
           onChange={() => clearError("budget")}
@@ -275,6 +289,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           rows="5"
           maxLength={1200}
           placeholder="What do you want to build, who is it for, and what should it improve?"
+          required
+          aria-required="true"
           aria-invalid={!!errors.message}
           aria-describedby={describedBy("message")}
           onChange={() => clearError("message")}
@@ -287,7 +303,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           <strong>Please correct the highlighted fields.</strong>
         </div>
       )}
-      <div className="oz-field oz-field--full oz-form__submit-row">
+      <footer className="oz-field oz-field--full oz-form__submit-row">
         <span className="oz-form__privacy">
           <ShieldCheck size={16} aria-hidden="true" /> Your details stay private.
         </span>
@@ -304,7 +320,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
             </>
           )}
         </button>
-      </div>
+      </footer>
     </form>
   );
 }

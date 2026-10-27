@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="oz-footer oz-footer--upgraded">
       <div className="oz-container oz-footer__content">
         {/* Top Header Row — Logo + Branding + Interactive Social Circles */}
-        <div className="oz-footer__header">
+        <header className="oz-footer__header">
           <div className="oz-footer__header-brand">
             <img
               className="oz-brand__logo oz-brand__logo--footer oz-footer__header-logo"
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="oz-footer__socials" aria-label="Ozeonix Infinity social profiles">
+          <nav className="oz-footer__socials" aria-label="Social media profiles">
             <a
               href="https://www.facebook.com/ozeonix.infinity"
               target="_blank"
@@ -119,8 +119,8 @@ export default function Footer() {
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.82-6.82l1.97-1.57c.27-.27.35-.65.24-1.01A11.36 11.36 0 018.64 4c0-.55-.45-1-1-1H4.15c-.55 0-1 .45-1 1 0 9.39 7.63 17.02 17.02 17.02.55 0 1-.45 1-1v-3.64c0-.55-.45-1-1-1z" />
               </svg>
             </a>
-          </div>
-        </div>
+          </nav>
+        </header>
 
         {/* 4 Columns Grid */}
         <div className="oz-footer__grid oz-footer__grid--4col">
@@ -170,43 +170,45 @@ export default function Footer() {
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot">●</span> Solutions
             </h4>
-            <ul className="oz-footer__nav-list">
-              <li>
-                <Link to="/services" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/industries" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> Industries
-                </Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/crm-solutions" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> CRM Systems
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/erp-development" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> ERP Platforms
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/lms-platforms" className="oz-footer__nav-link">
-                  <span className="oz-footer__arrow">→</span> LMS Solutions
-                </Link>
-              </li>
-            </ul>
+            <nav aria-label="Solutions">
+              <ul className="oz-footer__nav-list">
+                <li>
+                  <Link to="/services" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/products" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> Products
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/industries" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> Industries
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/portfolio" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> Portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/crm-solutions" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> CRM Systems
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/erp-development" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> ERP Platforms
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/lms-platforms" className="oz-footer__nav-link">
+                    <span className="oz-footer__arrow">→</span> LMS Solutions
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           {/* Column 3: Contact & Hours */}
@@ -214,7 +216,7 @@ export default function Footer() {
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot">●</span> Contact Us
             </h4>
-            <div className="oz-footer__contact-items">
+            <address className="oz-footer__contact-items">
               <div className="oz-footer__contact-row">
                 <span className="oz-footer__contact-icon">📍</span>
                 <span className="oz-footer__contact-text">
@@ -238,7 +240,7 @@ export default function Footer() {
                   WhatsApp: +977-7483509984
                 </a>
               </div>
-            </div>
+            </address>
 
             <h5 className="oz-footer__sub-title">Office &amp; Support</h5>
             <ul className="oz-footer__hours-list">
@@ -297,12 +299,12 @@ export default function Footer() {
             © {year} <span className="oz-footer__brand-strong">Ozeonix Infinity</span>. All rights
             reserved.
           </p>
-          <div className="oz-footer__legal-links">
+          <nav className="oz-footer__legal-links" aria-label="Legal">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms &amp; Conditions</Link>
             <Link to="/refund">Refund Policy</Link>
             <Link to="/cookies">Cookie Policy</Link>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
