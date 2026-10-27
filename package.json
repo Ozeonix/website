@@ -15,7 +15,8 @@
     "visual": "node scripts/visual-check.mjs",
     "visual:update": "node scripts/visual-check.mjs --update",
     "gpu:check": "node scripts/gpu-animation-check.mjs",
-    "a11y:check": "node scripts/accessibility-check.mjs"
+    "a11y:check": "node scripts/accessibility-check.mjs",
+    "skill:check": "node scripts/check-skill-updates.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+  "branch": "main",
+  "commit": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
+  "installed_at_utc": "2026-10-26T19:59:00Z",
+  "update_policy": "Upstream updates require explicit review and verification before being applied. Upstream files must never overwrite local brand design system tokens or application source code."
+}
