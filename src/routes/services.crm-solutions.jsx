@@ -47,16 +47,25 @@ export const Route = createFileRoute("/services/crm-solutions")({
   head: () => ({
     meta: [
       { title: "Custom CRM Solutions | Custom CRM Development | Ozeonix Infinity" },
-      { name: "description", content: "Custom CRM software for lead management, sales pipelines, invoicing and team follow-ups. Request a free demo from Ozeonix Infinity." },
-      { property: "og:title", content: "Custom CRM Solutions | Custom CRM Development | Ozeonix Infinity" },
-      { property: "og:description", content: "Custom CRM software with lead management, sales pipelines and WhatsApp integration. Request a free demo." },
+      {
+        name: "description",
+        content:
+          "Custom CRM software for lead management, sales pipelines, invoicing and team follow-ups. Request a free demo from Ozeonix Infinity.",
+      },
+      {
+        property: "og:title",
+        content: "Custom CRM Solutions | Custom CRM Development | Ozeonix Infinity",
+      },
+      {
+        property: "og:description",
+        content:
+          "Custom CRM software with lead management, sales pipelines and WhatsApp integration. Request a free demo.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ozeonix.com/services/crm-solutions" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://ozeonix.com/services/crm-solutions" },
-    ],
+    links: [{ rel: "canonical", href: "https://ozeonix.com/services/crm-solutions" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(SERVICE_JSONLD) },
       { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
@@ -66,10 +75,26 @@ export const Route = createFileRoute("/services/crm-solutions")({
 });
 
 const FEATURES = [
-  { icon: Users, title: "Lead & Contact Management", desc: "Capture, assign and track leads from first call to final invoice." },
-  { icon: Phone, title: "Follow-Up Automation", desc: "Scheduled reminders, WhatsApp messages and email sequences that keep deals moving." },
-  { icon: BarChart3, title: "Sales Pipeline & Reports", desc: "Visual pipelines, revenue forecasts and team performance dashboards." },
-  { icon: ShieldCheck, title: "Quotations & Invoicing", desc: "Create professional quotes and invoices, track payments and reduce manual work." },
+  {
+    icon: Users,
+    title: "Lead & Contact Management",
+    desc: "Capture, assign and track leads from first call to final invoice.",
+  },
+  {
+    icon: Phone,
+    title: "Follow-Up Automation",
+    desc: "Scheduled reminders, WhatsApp messages and email sequences that keep deals moving.",
+  },
+  {
+    icon: BarChart3,
+    title: "Sales Pipeline & Reports",
+    desc: "Visual pipelines, revenue forecasts and team performance dashboards.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Quotations & Invoicing",
+    desc: "Create professional quotes and invoices, track payments and reduce manual work.",
+  },
 ];
 
 function CrmSolutions() {
@@ -87,12 +112,16 @@ function CrmSolutions() {
             <Reveal index={1}>
               <div>
                 <p className="oz-open__lead">
-                  We build tailored CRM platforms for sales teams, service businesses and distributors—so every lead,
-                  customer conversation and next step stays visible.
+                  We build tailored CRM platforms for sales teams, service businesses and
+                  distributors—so every lead, customer conversation and next step stays visible.
                 </p>
                 <div className="oz-open__actions">
-                  <Link to="/contact" className="oz-btn oz-btn--accent">Get a free demo</Link>
-                  <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--outline">WhatsApp us</a>
+                  <Link to="/contact" className="oz-btn oz-btn--primary">
+                    Get a free demo
+                  </Link>
+                  <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--outline">
+                    WhatsApp us
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -104,8 +133,12 @@ function CrmSolutions() {
       <section className="oz-section" aria-label="Features">
         <div className="oz-container">
           <div className="oz-section-head">
-            <Reveal><span className="oz-eyebrow">Features</span></Reveal>
-            <Reveal index={1} as="h2">CRM features built for how you sell.</Reveal>
+            <Reveal>
+              <span className="oz-eyebrow">Features</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              CRM features built for how you sell.
+            </Reveal>
           </div>
           <div className="oz-grid oz-grid-2">
             {FEATURES.map((m, i) => {
@@ -113,7 +146,13 @@ function CrmSolutions() {
               return (
                 <Reveal key={m.title} index={i % 2}>
                   <article className="oz-card">
-                    <span className="oz-card__icon" style={{ background: "var(--oz-primary)", color: "var(--oz-primary-foreground)" }}>
+                    <span
+                      className="oz-card__icon"
+                      style={{
+                        background: "var(--oz-primary)",
+                        color: "var(--oz-primary-foreground)",
+                      }}
+                    >
                       <Icon size={22} strokeWidth={1.75} />
                     </span>
                     <h3>{m.title}</h3>
@@ -129,8 +168,12 @@ function CrmSolutions() {
       <section className="oz-section oz-section--muted" aria-label="Why us">
         <div className="oz-container" style={{ maxWidth: 820 }}>
           <div className="oz-section-head">
-            <Reveal><span className="oz-eyebrow">Why us</span></Reveal>
-            <Reveal index={1} as="h2">Why growing sales teams choose us.</Reveal>
+            <Reveal>
+              <span className="oz-eyebrow">Why us</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              Why growing sales teams choose us.
+            </Reveal>
           </div>
           <Reveal>
             <ul className="oz-checklist">
@@ -147,8 +190,12 @@ function CrmSolutions() {
       <section className="oz-section" aria-label="FAQ">
         <div className="oz-container" style={{ maxWidth: 820 }}>
           <div className="oz-section-head">
-            <Reveal><span className="oz-eyebrow">FAQ</span></Reveal>
-            <Reveal index={1} as="h2">Common CRM questions.</Reveal>
+            <Reveal>
+              <span className="oz-eyebrow">FAQ</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              Common CRM questions.
+            </Reveal>
           </div>
           <div className="oz-faq">
             {FAQS.map((f, i) => (
@@ -163,14 +210,29 @@ function CrmSolutions() {
         </div>
       </section>
 
-      <section className="oz-section oz-section--dark" aria-label="Stop losing leads. Start closing more deals.">
+      <section
+        className="oz-section oz-section--dark"
+        aria-label="Stop losing leads. Start closing more deals."
+      >
         <div className="oz-container oz-center">
           <Reveal>
             <h2>Stop losing leads. Start closing more deals.</h2>
             <p className="oz-muted">Get a custom CRM built around your sales process.</p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 24, flexWrap: "wrap" }}>
-              <Link to="/contact" className="oz-btn oz-btn--accent">Request a free demo</Link>
-              <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--on-dark">WhatsApp</a>
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+                justifyContent: "center",
+                marginTop: 24,
+                flexWrap: "wrap",
+              }}
+            >
+              <Link to="/contact" className="oz-btn oz-btn--primary">
+                Request a free demo
+              </Link>
+              <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--on-dark">
+                WhatsApp
+              </a>
             </div>
           </Reveal>
         </div>

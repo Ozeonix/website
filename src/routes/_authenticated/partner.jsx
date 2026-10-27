@@ -10,7 +10,10 @@ export const Route = createFileRoute("/_authenticated/partner")({
   head: () => ({
     meta: [
       { title: "Partner Dashboard — Ozeonix Infinity" },
-      { name: "description", content: "Track referred clients, referral link and 10% commission earnings." },
+      {
+        name: "description",
+        content: "Track referred clients, referral link and 10% commission earnings.",
+      },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -57,7 +60,9 @@ function PartnerDashboard() {
     setLoading(false);
   }, [user]);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const totals = useMemo(() => {
     const won = referrals.filter((x) => x.status === "won");
@@ -134,13 +139,28 @@ function PartnerDashboard() {
         payout_details: String(fd.get("payout_details") || "") || null,
       })
       .eq("id", user.id);
-    if (err) { setError(err.message); return; }
+    if (err) {
+      setError(err.message);
+      return;
+    }
     setSaved("Profile updated.");
     load();
   };
 
-  const input = { width: "100%", minHeight: 48, padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(0,0,0,0.2)", fontSize: 16 };
-  const card = { border: "1px solid rgba(0,0,0,0.14)", borderRadius: 16, padding: 20, background: "#fff" };
+  const input = {
+    width: "100%",
+    minHeight: 48,
+    padding: "12px 14px",
+    borderRadius: 10,
+    border: "1px solid rgba(0,0,0,0.2)",
+    fontSize: 16,
+  };
+  const card = {
+    border: "1px solid rgba(0,0,0,0.14)",
+    borderRadius: 16,
+    padding: 20,
+    background: "#fff",
+  };
 
   return (
     <section className="oz-section oz-app-page oz-dashboard" aria-label="Partner dashboard">
@@ -148,16 +168,32 @@ function PartnerDashboard() {
         <header className="oz-dashboard-header">
           <div>
             <span className="oz-eyebrow">Partner Program</span>
-            <h1 style={{ margin: 0 }}>Welcome{profile?.full_name ? `, ${profile.full_name}` : ""}</h1>
+            <h1 style={{ margin: 0 }}>
+              Welcome{profile?.full_name ? `, ${profile.full_name}` : ""}
+            </h1>
           </div>
           <div className="oz-dashboard-actions">
-            {isAdmin && <Link to="/admin" className="oz-btn oz-btn--outline">Admin panel</Link>}
-            <button type="button" className="oz-btn oz-btn--outline" onClick={signOut}>Sign out</button>
+            {isAdmin && (
+              <Link to="/admin" className="oz-btn oz-btn--outline">
+                Admin panel
+              </Link>
+            )}
+            <button type="button" className="oz-btn oz-btn--outline" onClick={signOut}>
+              Sign out
+            </button>
           </div>
         </header>
 
-        {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{error}</p>}
-        {saved && <p role="status" style={{ color: "var(--success, #15803D)" }}>{saved}</p>}
+        {error && (
+          <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>
+            {error}
+          </p>
+        )}
+        {saved && (
+          <p role="status" style={{ color: "var(--success, #15803D)" }}>
+            {saved}
+          </p>
+        )}
 
         <div className="oz-grid oz-grid-4">
           {[
@@ -169,7 +205,9 @@ function PartnerDashboard() {
             ["Awaiting payout", money(totals.outstanding)],
           ].map(([label, value]) => (
             <div key={label} style={card}>
-              <p className="oz-muted" style={{ margin: 0, fontSize: 13 }}>{label}</p>
+              <p className="oz-muted" style={{ margin: 0, fontSize: 13 }}>
+                {label}
+              </p>
               <p style={{ margin: "6px 0 0", fontSize: 26, fontWeight: 800 }}>{value}</p>
             </div>
           ))}
@@ -177,33 +215,70 @@ function PartnerDashboard() {
 
         <div style={card}>
           <h2 style={{ marginTop: 0 }}>Your referral link</h2>
-          <p className="oz-muted">Share this link. Anyone who submits our contact form through it is tagged to you automatically.</p>
+          <p className="oz-muted">
+            Share this link. Anyone who submits our contact form through it is tagged to you
+            automatically.
+          </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-            <code style={{ padding: "10px 12px", background: "rgba(0,0,0,0.06)", borderRadius: 8, wordBreak: "break-all" }}>{referralLink || "—"}</code>
+            <code
+              style={{
+                padding: "10px 12px",
+                background: "rgba(0,0,0,0.06)",
+                borderRadius: 8,
+                wordBreak: "break-all",
+              }}
+            >
+              {referralLink || "—"}
+            </code>
             {referralLink && (
-              <button type="button" className="oz-btn oz-btn--accent" onClick={() => navigator.clipboard?.writeText(referralLink)}>
+              <button
+                type="button"
+                className="oz-btn oz-btn--primary"
+                onClick={() => navigator.clipboard?.writeText(referralLink)}
+              >
                 Copy link
               </button>
             )}
           </div>
-          <p style={{ marginTop: 10, fontSize: 14 }}>Referral code: <strong>{profile?.referral_code || "—"}</strong></p>
+          <p style={{ marginTop: 10, fontSize: 14 }}>
+            Referral code: <strong>{profile?.referral_code || "—"}</strong>
+          </p>
         </div>
 
         <div style={card}>
           <h2 style={{ marginTop: 0 }}>Submit a lead manually</h2>
           <form onSubmit={addReferral} className="oz-auto-grid">
-            <label style={{ display: "grid", gap: 6 }}><span>Client name *</span><input name="client_name" style={input} required /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Client email *</span><input name="client_email" type="email" style={input} required /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Client phone</span><input name="client_phone" style={input} /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Company</span><input name="client_company" style={input} /></label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Client name *</span>
+              <input name="client_name" style={input} required />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Client email *</span>
+              <input name="client_email" type="email" style={input} required />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Client phone</span>
+              <input name="client_phone" style={input} />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Company</span>
+              <input name="client_company" style={input} />
+            </label>
             <label style={{ display: "grid", gap: 6 }}>
               <span>Requirement</span>
               <select name="requirements" style={input} defaultValue="">
                 <option value="">Select…</option>
-                {REQUIREMENTS.map((r) => <option key={r} value={r}>{r}</option>)}
+                {REQUIREMENTS.map((r) => (
+                  <option key={r} value={r}>
+                    {r}
+                  </option>
+                ))}
               </select>
             </label>
-            <label style={{ display: "grid", gap: 6, gridColumn: "1 / -1" }}><span>Notes</span><textarea name="notes" rows={3} style={{ ...input, minHeight: 90 }} /></label>
+            <label style={{ display: "grid", gap: 6, gridColumn: "1 / -1" }}>
+              <span>Notes</span>
+              <textarea name="notes" rows={3} style={{ ...input, minHeight: 90 }} />
+            </label>
             <div style={{ gridColumn: "1 / -1" }}>
               <button className="oz-btn oz-btn--primary" type="submit" disabled={submitting}>
                 {submitting ? "Submitting…" : "Submit lead"}
@@ -223,25 +298,94 @@ function PartnerDashboard() {
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 720 }}>
                 <thead>
                   <tr style={{ textAlign: "left" }}>
-                    {["Client", "Requirement", "Source", "Status", "Project value", "Your 10%", "Payout"].map((h) => (
-                      <th key={h} style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.12)", fontSize: 13 }}>{h}</th>
+                    {[
+                      "Client",
+                      "Requirement",
+                      "Source",
+                      "Status",
+                      "Project value",
+                      "Your 10%",
+                      "Payout",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.12)",
+                          fontSize: 13,
+                        }}
+                      >
+                        {h}
+                      </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {referrals.map((r) => (
                     <tr key={r.id}>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-                        <strong>{r.client_name}</strong><br /><span className="oz-muted" style={{ fontSize: 13 }}>{r.client_email}</span>
+                      <td
+                        style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
+                      >
+                        <strong>{r.client_name}</strong>
+                        <br />
+                        <span className="oz-muted" style={{ fontSize: 13 }}>
+                          {r.client_email}
+                        </span>
                       </td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{r.requirements || "—"}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{r.source}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-                        <span style={{ color: STATUS_COLORS[r.status], fontWeight: 700, fontSize: 13, textTransform: "uppercase" }}>{r.status}</span>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        {r.requirements || "—"}
                       </td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>{money(r.project_value)}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>{money(r.commission_amount)} <span className="oz-muted" style={{ fontSize: 12 }}>({r.commission_rate}%)</span></td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{r.payout_status}</td>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        {r.source}
+                      </td>
+                      <td
+                        style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
+                      >
+                        <span
+                          style={{
+                            color: STATUS_COLORS[r.status],
+                            fontWeight: 700,
+                            fontSize: 13,
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          {r.status}
+                        </span>
+                      </td>
+                      <td
+                        style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
+                      >
+                        {money(r.project_value)}
+                      </td>
+                      <td
+                        style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
+                      >
+                        {money(r.commission_amount)}{" "}
+                        <span className="oz-muted" style={{ fontSize: 12 }}>
+                          ({r.commission_rate}%)
+                        </span>
+                      </td>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        {r.payout_status}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -253,28 +397,84 @@ function PartnerDashboard() {
         <div style={card}>
           <h2 style={{ marginTop: 0 }}>Payout history</h2>
           {payouts.length === 0 ? (
-            <p className="oz-muted">No payouts recorded yet. Commission is released once a referred project is marked won.</p>
+            <p className="oz-muted">
+              No payouts recorded yet. Commission is released once a referred project is marked won.
+            </p>
           ) : (
             <div className="oz-table-scroll">
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 620 }}>
                 <thead>
                   <tr style={{ textAlign: "left" }}>
                     {["Date", "Amount", "Method", "Reference", "Status"].map((h) => (
-                      <th key={h} style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.12)", fontSize: 13 }}>{h}</th>
+                      <th
+                        key={h}
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.12)",
+                          fontSize: 13,
+                        }}
+                      >
+                        {h}
+                      </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {payouts.map((p) => (
                     <tr key={p.id}>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
                         {new Date(p.paid_at || p.created_at).toLocaleDateString("en-IN")}
                       </td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 700 }}>{money(p.amount)}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{p.method || "—"}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>{p.reference || "—"}</td>
-                      <td style={{ padding: "10px 8px", borderBottom: "1px solid rgba(0,0,0,0.06)", fontSize: 14 }}>
-                        <span style={{ color: p.status === "paid" ? "#15803D" : "#B45309", fontWeight: 700, textTransform: "uppercase", fontSize: 13 }}>{p.status}</span>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontWeight: 700,
+                        }}
+                      >
+                        {money(p.amount)}
+                      </td>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        {p.method || "—"}
+                      </td>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        {p.reference || "—"}
+                      </td>
+                      <td
+                        style={{
+                          padding: "10px 8px",
+                          borderBottom: "1px solid rgba(0,0,0,0.06)",
+                          fontSize: 14,
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: p.status === "paid" ? "#15803D" : "#B45309",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            fontSize: 13,
+                          }}
+                        >
+                          {p.status}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -284,21 +484,42 @@ function PartnerDashboard() {
           )}
         </div>
 
-
         <div style={card}>
           <h2 style={{ marginTop: 0 }}>Your profile & payout details</h2>
           <form onSubmit={saveProfile} className="oz-auto-grid">
-            <label style={{ display: "grid", gap: 6 }}><span>Full name</span><input name="full_name" style={input} defaultValue={profile?.full_name || ""} /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Phone / WhatsApp</span><input name="phone" style={input} defaultValue={profile?.phone || ""} /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Company</span><input name="company" style={input} defaultValue={profile?.company || ""} /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>City</span><input name="city" style={input} defaultValue={profile?.city || ""} /></label>
-            <label style={{ display: "grid", gap: 6 }}><span>Country</span><input name="country" style={input} defaultValue={profile?.country || ""} /></label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Full name</span>
+              <input name="full_name" style={input} defaultValue={profile?.full_name || ""} />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Phone / WhatsApp</span>
+              <input name="phone" style={input} defaultValue={profile?.phone || ""} />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Company</span>
+              <input name="company" style={input} defaultValue={profile?.company || ""} />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>City</span>
+              <input name="city" style={input} defaultValue={profile?.city || ""} />
+            </label>
+            <label style={{ display: "grid", gap: 6 }}>
+              <span>Country</span>
+              <input name="country" style={input} defaultValue={profile?.country || ""} />
+            </label>
             <label style={{ display: "grid", gap: 6, gridColumn: "1 / -1" }}>
               <span>Payout details (bank / eSewa / Khalti)</span>
-              <textarea name="payout_details" rows={3} style={{ ...input, minHeight: 90 }} defaultValue={profile?.payout_details || ""} />
+              <textarea
+                name="payout_details"
+                rows={3}
+                style={{ ...input, minHeight: 90 }}
+                defaultValue={profile?.payout_details || ""}
+              />
             </label>
             <div style={{ gridColumn: "1 / -1" }}>
-              <button className="oz-btn oz-btn--primary" type="submit">Save profile</button>
+              <button className="oz-btn oz-btn--primary" type="submit">
+                Save profile
+              </button>
             </div>
           </form>
         </div>

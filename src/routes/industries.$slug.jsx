@@ -28,7 +28,7 @@ const DETAILS = {
     ],
     outcomes: ["Faster dispatch", "Repeat orders", "Operational control"],
   },
-  "fitness": {
+  fitness: {
     tagline: "Software for gyms, coaches & studios",
     lead: "Bookings, membership renewals, workout plans and progress tracking — one branded app for your members and a clean admin for your team.",
     solutions: [
@@ -40,7 +40,7 @@ const DETAILS = {
     ],
     outcomes: ["More renewals", "Less admin work", "Stronger community"],
   },
-  "payments": {
+  payments: {
     tagline: "Fintech flows built to clear compliance",
     lead: "Wallets, subscriptions, split payouts, KYC — we build the parts of a payment product that regulators, auditors and users all care about.",
     solutions: [
@@ -52,7 +52,7 @@ const DETAILS = {
     ],
     outcomes: ["Audit-ready books", "Fewer failed payments", "Faster onboarding"],
   },
-  "entertainment": {
+  entertainment: {
     tagline: "Streaming, media & fan platforms",
     lead: "OTT, podcasts, ticketed live streams, fan communities — media apps live and die by playback quality and content ops. We handle both.",
     solutions: [
@@ -64,7 +64,7 @@ const DETAILS = {
     ],
     outcomes: ["Smoother playback", "Higher watch time", "Scalable content ops"],
   },
-  "education": {
+  education: {
     tagline: "LMS, coaching & school platforms",
     lead: "From a single coaching centre to a multi-branch institute, we build the ERP, LMS, parent app and student portal — connected, not siloed.",
     solutions: [
@@ -76,7 +76,7 @@ const DETAILS = {
     ],
     outcomes: ["Better parent trust", "Less paperwork", "Higher enrolment"],
   },
-  "event": {
+  event: {
     tagline: "Ticketing & event management",
     lead: "Concerts, conferences, weddings, meetups — we build the ticketing, check-in, and attendee experience end to end.",
     solutions: [
@@ -88,7 +88,7 @@ const DETAILS = {
     ],
     outcomes: ["Faster check-in", "Higher ticket sales", "Sponsor ROI"],
   },
-  "restaurant": {
+  restaurant: {
     tagline: "POS, online ordering & delivery",
     lead: "One system for the counter, the kitchen, the delivery driver and the customer's phone — with reports the owner can actually read.",
     solutions: [
@@ -100,7 +100,7 @@ const DETAILS = {
     ],
     outcomes: ["More direct orders", "Lower food cost", "Repeat customers"],
   },
-  "health": {
+  health: {
     tagline: "Clinics, hospitals & telehealth",
     lead: "Appointments, EHR, lab reports, teleconsults — we build healthcare software that respects patient privacy and doctor workflows.",
     solutions: [
@@ -144,15 +144,20 @@ export const Route = createFileRoute("/industries/$slug")({
         { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [
-        { rel: "canonical", href: url },
-      ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: IndustryDetail,
   notFoundComponent: IndustryNotFound,
   errorComponent: ({ reset }) => (
-    <section className="oz-section" aria-label="Industry not found"><div className="oz-container"><p>Something went wrong loading this page.</p><button className="oz-btn" onClick={reset}>Retry</button></div></section>
+    <section className="oz-section" aria-label="Industry not found">
+      <div className="oz-container">
+        <p>Something went wrong loading this page.</p>
+        <button className="oz-btn" onClick={reset}>
+          Retry
+        </button>
+      </div>
+    </section>
   ),
 });
 
@@ -161,7 +166,9 @@ function IndustryNotFound() {
     <section className="oz-section" aria-label="Industry not found">
       <div className="oz-container">
         <h1>Industry not found</h1>
-        <p>We couldn't find that industry. <Link to="/industries">See all industries</Link>.</p>
+        <p>
+          We couldn't find that industry. <Link to="/industries">See all industries</Link>.
+        </p>
       </div>
     </section>
   );
@@ -201,7 +208,16 @@ function IndustryDetail() {
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 12 }}>
                   {detail.solutions.map((s) => (
                     <li key={s} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                      <CheckCircle2 size={18} strokeWidth={2} style={{ flexShrink: 0, marginTop: 2, color: "var(--brand-green, #00A982)" }} aria-hidden="true" />
+                      <CheckCircle2
+                        size={18}
+                        strokeWidth={2}
+                        style={{
+                          flexShrink: 0,
+                          marginTop: 2,
+                          color: "var(--brand-green, #00A982)",
+                        }}
+                        aria-hidden="true"
+                      />
                       <span>{s}</span>
                     </li>
                   ))}
@@ -214,7 +230,14 @@ function IndustryDetail() {
                 <h2 style={{ marginTop: 0 }}>Outcomes you can expect</h2>
                 <div style={{ display: "grid", gap: 12, marginBottom: "var(--oz-space-5)" }}>
                   {detail.outcomes.map((o) => (
-                    <div key={o} style={{ padding: "14px 16px", borderRadius: 12, background: "var(--oz-surface-2, rgba(255,255,255,0.04))" }}>
+                    <div
+                      key={o}
+                      style={{
+                        padding: "14px 16px",
+                        borderRadius: 12,
+                        background: "var(--oz-surface-2, rgba(255,255,255,0.04))",
+                      }}
+                    >
                       <strong>{o}</strong>
                     </div>
                   ))}
@@ -223,7 +246,7 @@ function IndustryDetail() {
                   Every {item.label.toLowerCase()} build starts with a free 30-minute discovery call
                   so we can size the work honestly before quoting.
                 </p>
-                <Link to="/contact" className="oz-btn oz-btn--accent" style={{ marginTop: 8 }}>
+                <Link to="/contact" className="oz-btn oz-btn--primary" style={{ marginTop: 8 }}>
                   Start a project <ArrowRight size={16} />
                 </Link>
               </div>
