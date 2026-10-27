@@ -1669,39 +1669,6 @@ p {
   border-top: 4px solid var(--brand-orange, #ff6900);
 }
 
-.oz-footer__bg-figure {
-  position: absolute;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.oz-footer__bg-figure--left {
-  left: 0;
-  margin-top: -2rem;
-  margin-left: -2.25rem;
-  color: #9ca3af;
-}
-
-.oz-footer__svg-curve {
-  opacity: 0.14;
-  display: block;
-}
-
-.oz-footer__bg-figure--right {
-  right: 0;
-  margin-top: -2rem;
-  margin-right: -2.25rem;
-  color: #93c5fd;
-}
-
-.oz-footer__svg-grid {
-  opacity: 0.8;
-  display: block;
-}
-
 .oz-footer__content {
   position: relative;
   z-index: 10;
