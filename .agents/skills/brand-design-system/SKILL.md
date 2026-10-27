@@ -6,40 +6,33 @@ description: Enforces the permanent canonical Ozeonix Infinity brand color syste
 # Brand Design System Skill — Ozeonix Infinity
 
 ## Mandate for Agents & Developers
+
 Every UI modification, new feature, page, or component in this repository MUST strictly comply with the canonical design system tokens defined in [docs/design-system.md](file:///home/bhola-dev58/Ozeonix/ozeonix-website/docs/design-system.md).
 
-### 1. Canonical Tokens
-- **Primary Action (Orange)**:
-  - Base: `#FF6900` (`var(--brand-orange)`)
-  - Hover: `#E85F00` (`var(--brand-orange-hover)`)
-  - Light Surface: `#FFF0E5` (`var(--brand-orange-light)`)
-  - Focus Ring: `#FF6900` (`var(--focus-ring)`)
-- **Secondary Brand & Accents (Emerald Green)**:
-  - Base: `#00A982` (`var(--brand-green)`)
-  - Hover: `#008F6E` (`var(--brand-green-hover)`)
-  - Light Surface: `#E6F7F2` (`var(--brand-green-light)`)
-- **Structural Base & Text (Deep Navy)**:
-  - Base: `#06294B` (`var(--brand-navy)`)
-  - Hover: `#0A3B68` (`var(--brand-navy-hover)`)
-  - Light: `#EAF0F7` (`var(--brand-navy-light)`)
-  - Text Primary: `#06294B` (`var(--text-primary)`)
-- **Surfaces & Borders**:
-  - Background: `#FFFFFF` (`var(--background)`)
-  - Background Muted: `#F4F7FA` (`var(--background-muted)`)
-  - Surface: `#FFFFFF` (`var(--surface)`)
-  - Surface Hover: `#F8FAFC` (`var(--surface-hover)`)
-  - Border: `#E5E7EB` (`var(--border)`)
-  - Border Strong: `#CBD5E1` (`var(--border-strong)`)
-- **Semantics**:
-  - Success: `#15803D`
-  - Warning: `#B45309`
-  - Danger: `#B91C1C`
-  - Info: `#1D4ED8`
+### 1. Canonical Color Palette Breakdown
 
-### 2. Implementation Rules
-1. **Primary Buttons**: Always use `.oz-btn--primary` which renders in `--brand-orange` with white text.
-2. **Secondary Buttons**: Use `.oz-btn--outline` or `.oz-btn--secondary` styled with `--brand-navy`.
-3. **Badges / Highlights**: Use `--brand-green` and `--brand-green-light` for positive, growth, or accent metrics.
-4. **Typography**: All headings use `--brand-navy`. Body text uses `--text-primary` or `--text-secondary`.
-5. **No Arbitrary Colors**: Do NOT write raw hex codes (`#xxx`), RGB values, or conflicting Tailwind color utilities. Always reference tokens via `var(--brand-...)` or semantic CSS variables.
-6. **Accessibility**: All interactive elements must maintain WCAG AA contrast (minimum 4.5:1 for normal text) and show visible focus rings with `var(--focus-ring)`.
+This project utilizes an **Orange & Neutral Education/Institute Theme with subtle Cyan/Blue geometric accents**:
+
+| Role                     | Tailwind Class             | Hex Code              | Usage                                                     |
+| :----------------------- | :------------------------- | :-------------------- | :-------------------------------------------------------- |
+| **Primary Brand**        | `orange-600`               | `#ea580c`             | Primary CTA buttons, key headings, active link highlights |
+| **Primary Hover**        | `orange-700`               | `#c2410c`             | Hover state for buttons and links                         |
+| **Brand Accent / Bar**   | `orange-500`               | `#f97316`             | Announcement tickers, badge accents, logo border          |
+| **Brand Deep**           | `orange-800`               | `#9a3412`             | Prominent logo text, bold title headings                  |
+| **Brand Surface / Tint** | `orange-50` / `orange-100` | `#fff7ed` / `#ffedd5` | Active tab backgrounds, soft hover highlight states       |
+| **Secondary Accent**     | `blue-300` / `blue-600`    | `#93c5fd` / `#2563eb` | Background decorative SVGs, secondary badges              |
+| **Glow / Shadow Accent** | `indigo-600`               | `#4f46e5`             | Subtle glow shadows (`rgba(79, 70, 229, 0.4)`)            |
+| **Light Background**     | `gray-50` / `white`        | `#f9fafb` / `#ffffff` | Page body background and card surfaces                    |
+| **Dark Background**      | `gray-800` / `gray-900`    | `#1f2937` / `#111827` | Dark mode body and card surfaces                          |
+| **Light Text**           | `gray-900` / `gray-700`    | `#111827` / `#374151` | High contrast headings and body text                      |
+| **Dark Text**            | `gray-100` / `gray-300`    | `#f3f4f6` / `#d1d5db` | Dark mode text elements                                   |
+| **Borders**              | `gray-200` / `gray-700`    | `#e5e7eb` / `#374151` | Subtle divider lines and card borders                     |
+
+### 2. Implementation Rules for Agents
+
+1. **Primary Buttons**: Always use `orange-600` (`#ea580c`, `.oz-btn--primary` or `.btn-primary`) with white text and `orange-700` (`#c2410c`) hover state.
+2. **Secondary Buttons**: Use `.btn-secondary` or `.oz-btn--outline` with neutral borders and orange hover tints (`orange-50` / `#fff7ed`).
+3. **Badges / Highlights**: Use `orange-500` (`#f97316`) for announcement bars or `blue-300`/`blue-600` (`#93c5fd`/`#2563eb`) for secondary accents.
+4. **Cards**: Standard cards use `.card` or `.oz-card` with light background (`#ffffff` / `#f9fafb`) or dark background (`#1f2937` / `#111827`) with subtle border (`#e5e7eb` / `#374151`).
+5. **No Random or Arbitrary Colors**: Do NOT write unapproved hex codes, arbitrary RGB values, or conflicting external Tailwind color utilities. Always use the specified palette tokens.
+6. **Accessibility**: All interactive elements must maintain WCAG AA contrast (minimum 4.5:1 for normal text) and show visible focus rings with `var(--focus-ring)` (`#f97316` / `#ea580c`).

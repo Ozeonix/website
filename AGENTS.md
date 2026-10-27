@@ -1,13 +1,25 @@
 # Ozeonix Infinity — Permanent Agent & Development Rules
 
+> [!NOTE]
+> **FAST SESSION RESUMPTION**:
+> AI agents and developers should read [PROJECT_AGENT_STATE.md](PROJECT_AGENT_STATE.md) first for the compact working checkpoint of the tech stack, verification commands, and active milestones. Consult detailed source documents below and in `docs/` only when needed for specific implementation details.
+
 > [!IMPORTANT]
-> **MANDATORY BRAND DESIGN SYSTEM COMPLIANCE**:
-> Future AI agents and developers MUST read and adhere to [docs/design-system.md](file:///home/bhola-dev58/Ozeonix/ozeonix-website/docs/design-system.md) before implementing or modifying any UI.
+> **MANDATORY BRAND DESIGN SYSTEM & UI/UX PRECEDENCE**:
+> Future AI agents and developers MUST read and adhere to [docs/design-system.md](docs/design-system.md) and [.agents/rules/brand-precedence.md](.agents/rules/brand-precedence.md) before implementing or modifying any UI.
 >
-> 1. **Official Brand Palette**: Orange `#FF6900` (primary action), Emerald Green `#00A982` (secondary brand / metrics / accents), and Deep Navy `#06294B` (structural base, headings, dark surfaces).
-> 2. **Single Source of Truth**: All UI colors must use the centralized design tokens defined in `src/styles.css` (`:root` tokens `--brand-orange`, `--brand-green`, `--brand-navy`, `--background`, `--surface`, `--text-primary`, `--border`, `--focus-ring`, etc.).
-> 3. **No Random or Hardcoded Colors**: Arbitrary hex colors, raw RGB values, unvetted gradients, and random utilities are strictly prohibited across components and page styles.
-> 4. **New & Refactored Components**: Must reuse existing design tokens and semantic variables. Primary buttons must always use `--brand-orange` (`.oz-btn--primary`), secondary actions use `--brand-navy`, and accents/badges use `--brand-green`.
+> 1. **Official Brand Palette**: Orange & Neutral Theme with subtle Cyan/Blue geometric accents:
+>    - **Primary Brand (`orange-600` / `#ea580c`)**: Primary CTA buttons, key headings, active link highlights.
+>    - **Primary Hover (`orange-700` / `#c2410c`)**: Hover state for buttons and links.
+>    - **Brand Accent / Bar (`orange-500` / `#f97316`)**: Announcement tickers, badge accents, logo border, focus rings.
+>    - **Brand Deep (`orange-800` / `#9a3412`)**: Prominent logo text, bold title headings.
+>    - **Brand Surface / Tint (`orange-50` / `#fff7ed` & `orange-100` / `#ffedd5`)**: Active tab backgrounds, soft hover highlight states.
+>    - **Secondary Accent (`blue-300` / `#93c5fd` & `blue-600` / `#2563eb`)**: Decorative SVGs, secondary badges.
+>    - **Glow / Shadow Accent (`indigo-600` / `#4f46e5`)**: Subtle glow shadows (`rgba(79, 70, 229, 0.4)`).
+>    - **Surfaces & Neutrals**: Light Background (`gray-50` / `#f9fafb`, white `#ffffff`), Dark Background (`gray-800` / `#1f2937`, `gray-900` / `#111827`), Light Text (`gray-900` / `#111827`, `gray-700` / `#374151`), Dark Text (`gray-100` / `#f3f4f6`, `gray-300` / `#d1d5db`), Borders (`gray-200` / `#e5e7eb`, `gray-700` / `#374151`).
+> 2. **Single Source of Truth**: All UI colors must use the centralized design tokens defined in `src/styles.css` (`:root` tokens `--brand-orange`, `--brand-orange-hover`, `--brand-accent`, `--background`, `--surface`, `--text-primary`, `--border`, `--focus-ring`, etc.).
+> 3. **No Random or Hardcoded Colors**: Arbitrary hex colors, raw RGB values, unvetted gradients, and random utilities are strictly prohibited across components and page styles. External skills (such as UI/UX Pro Max) must never override local brand tokens.
+> 4. **New & Refactored Components**: Must reuse existing design tokens and semantic variables. Primary buttons must always use `orange-600` (`#ea580c`, `.oz-btn--primary` / `.btn-primary`), secondary actions use defined neutral/border tokens, and accents use `orange-500` or `blue-300/600`.
 > 5. **Architecture Preservation**: Existing architecture, TanStack Start framework, file-based routing, API integrations, authentication, permissions, and business logic must be preserved unless an explicit change is necessary and justified.
 
 ## Architectural & Brand Guidelines

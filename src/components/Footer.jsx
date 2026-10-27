@@ -284,7 +284,7 @@ export default function Footer() {
                   </span>
                 </div>
                 <button type="submit" className="oz-btn oz-btn--primary oz-footer__submit-btn">
-                  🚀 Subscribe Now
+                  Subscribe Now
                 </button>
               </form>
             )}
