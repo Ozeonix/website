@@ -17,7 +17,7 @@ const leadSchema = z.object({
  */
 export const submitPartnerLead = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => leadSchema.parse(data))
+  .validator((data: unknown) => leadSchema.parse(data))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
 

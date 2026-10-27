@@ -27,7 +27,7 @@ function originFromRequest(): string {
 
 /** Creates a pending payment row and returns the exact fields to POST to eSewa. */
 export const createEsewaPayment = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => createSchema.parse(data))
+  .validator((data: unknown) => createSchema.parse(data))
   .handler(async ({ data }) => {
     const { getEsewaConfig, sign, buildSignedMessage, newTransactionUuid } = await import("./esewa.server");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -106,7 +106,7 @@ const verifySchema = z.object({
  * the base64 payload signature is checked and then confirmed server-to-server.
  */
 export const verifyEsewaPayment = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => verifySchema.parse(input))
+  .validator((input: unknown) => verifySchema.parse(input))
   .handler(async ({ data }) => {
     const { getEsewaConfig, sign, buildSignedMessage, safeEqual, checkStatus } = await import("./esewa.server");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
