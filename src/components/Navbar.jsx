@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   ChevronDown,
@@ -11,6 +11,19 @@ import {
   CalendarDays,
   UtensilsCrossed,
   HeartPulse,
+  Users,
+  GitMerge,
+  Briefcase,
+  Layers,
+  Target,
+  Cpu,
+  Globe,
+  Package,
+  FolderGit2,
+  HelpCircle,
+  Handshake,
+  LogIn,
+  LayoutDashboard,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
@@ -39,30 +52,38 @@ const MENUS = [
   {
     label: "Company",
     children: [
-      { to: "/about", label: "About Us", d: "Our mission, vision & team" },
-      { to: "/process", label: "Our Process", d: "How we deliver projects" },
-      { to: "/careers", label: "Careers", d: "Join our growing team" },
+      { to: "/about", label: "About Us", d: "Our mission, vision & team", Icon: Users },
+      { to: "/process", label: "Our Process", d: "How we deliver projects", Icon: GitMerge },
+      { to: "/careers", label: "Careers", d: "Join our growing team", Icon: Briefcase },
     ],
   },
   {
     label: "Services",
     children: [
-      { to: "/services", label: "All Services", d: "Explore our capabilities" },
-      { to: "/services/crm-solutions", label: "CRM Solutions", d: "Sales and customer platforms" },
+      { to: "/services", label: "All Services", d: "Explore our capabilities", Icon: Layers },
+      {
+        to: "/services/crm-solutions",
+        label: "CRM Solutions",
+        d: "Sales and customer platforms",
+        Icon: Target,
+      },
       {
         to: "/services/erp-development",
         label: "ERP Development",
         d: "Connected business operations",
+        Icon: Cpu,
       },
       {
         to: "/services/lms-platforms",
         label: "LMS Platforms",
         d: "Learning for schools and teams",
+        Icon: GraduationCap,
       },
     ],
   },
   {
     label: "Industries",
+    wide: true,
     children: INDUSTRY_ITEMS.map((i) => ({
       to: "/industries/$slug",
       params: { slug: i.slug },
@@ -74,32 +95,49 @@ const MENUS = [
   {
     label: "Solutions",
     children: [
-      { to: "/industries", label: "All Industries", d: "Verticals we serve" },
-      { to: "/products", label: "Products", d: "Ready-to-deploy platforms" },
-      { to: "/portfolio", label: "Portfolio", d: "Selected work & demos" },
+      { to: "/industries", label: "All Industries", d: "Verticals we serve", Icon: Globe },
+      { to: "/products", label: "Products", d: "Ready-to-deploy platforms", Icon: Package },
+      { to: "/portfolio", label: "Portfolio", d: "Selected work & demos", Icon: FolderGit2 },
     ],
   },
   {
     label: "Resources",
-    children: [{ to: "/faq", label: "FAQ", d: "Common questions answered" }],
+    children: [{ to: "/faq", label: "FAQ", d: "Common questions answered", Icon: HelpCircle }],
   },
   {
     label: "Partners",
     children: [
-      { to: "/partner-program", label: "Partner Program", d: "Earn 10% per referred project" },
-      { to: "/auth", label: "Partner Login", d: "Sign in to your dashboard" },
+      {
+        to: "/partner-program",
+        label: "Partner Program",
+        d: "Earn 10% per referred project",
+        Icon: Handshake,
+      },
+      { to: "/auth", label: "Partner Login", d: "Sign in to your dashboard", Icon: LogIn },
     ],
   },
 ];
 
 export default function Navbar() {
   const { user } = useAuth();
+  const location = useLocation();
+  const currentPath = location.pathname;
   const [open, setOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState(null);
   const [desktopMenu, setDesktopMenu] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const menuRefs = useRef({});
   const triggerRefs = useRef({});
   const mobileToggleRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const close = () => {
@@ -137,7 +175,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="oz-nav">
+    <header className={`oz-nav ${scrolled ? "is-scrolled" : ""}`}>
       <div className="oz-container oz-nav__inner">
         <Link
           to="/"
@@ -162,13 +200,35 @@ export default function Navbar() {
               m.label === "Partners" && user
                 ? [
                     ...m.children,
-                    { to: "/partner", label: "My Dashboard", d: "Referrals & commission" },
+                    {
+                      to: "/partner",
+                      label: "My Dashboard",
+                      d: "Referrals & commission",
+                      Icon: LayoutDashboard,
+                    },
                   ]
                 : m.children;
+
+            const isChildActive = children
+              ? children.some((c) =>
+                  c.params?.slug
+                    ? currentPath.includes(c.params.slug)
+                    : c.to === "/"
+                      ? currentPath === "/"
+                      : currentPath === c.to || currentPath.startsWith(c.to + "/"),
+                )
+              : false;
+
+            const isDirectActive = m.to
+              ? m.to === "/"
+                ? currentPath === "/"
+                : currentPath === m.to || currentPath.startsWith(m.to + "/")
+              : false;
+
             return children ? (
               <div
                 key={m.label}
-                className={`oz-navitem ${desktopMenu === m.label ? "is-open" : ""}`}
+                className={`oz-navitem ${desktopMenu === m.label ? "is-open" : ""} ${isChildActive ? "is-active" : ""}`}
                 onBlur={(event) => {
                   if (!event.currentTarget.contains(event.relatedTarget)) setDesktopMenu(null);
                 }}
@@ -196,12 +256,19 @@ export default function Navbar() {
                     } else if (event.key === "Escape") setDesktopMenu(null);
                   }}
                 >
-                  {m.label}
-                  <ChevronDown size={14} strokeWidth={2.4} />
+                  <span>{m.label}</span>
+                  <ChevronDown
+                    size={14}
+                    strokeWidth={2.4}
+                    style={{
+                      transform: desktopMenu === m.label ? "rotate(180deg)" : "none",
+                      transition: "transform 0.2s ease",
+                    }}
+                  />
                 </button>
                 <div
                   id={`nav-menu-${m.label.toLowerCase()}`}
-                  className="oz-dropdown"
+                  className={`oz-dropdown ${m.wide ? "oz-dropdown--wide" : ""}`}
                   role="menu"
                   aria-hidden={desktopMenu !== m.label}
                 >
@@ -223,17 +290,15 @@ export default function Navbar() {
                           onKeyDown={(event) => onMenuKeyDown(event, m.label, children.indexOf(c))}
                           onClick={() => setDesktopMenu(null)}
                         >
-                          <span className="oz-dropdown__title">
-                            {Icon ? (
-                              <Icon
-                                size={14}
-                                strokeWidth={2}
-                                style={{ marginRight: 8, verticalAlign: "-2px" }}
-                              />
-                            ) : null}
-                            {c.label}
-                          </span>
-                          <span className="oz-dropdown__desc">{c.d}</span>
+                          {Icon ? (
+                            <span className="oz-dropdown__icon-wrap" aria-hidden="true">
+                              <Icon size={16} strokeWidth={2} />
+                            </span>
+                          ) : null}
+                          <div className="oz-dropdown__content">
+                            <span className="oz-dropdown__title">{c.label}</span>
+                            <span className="oz-dropdown__desc">{c.d}</span>
+                          </div>
                         </Link>
                       );
                     })}
@@ -244,6 +309,7 @@ export default function Navbar() {
               <Link
                 key={m.to}
                 to={m.to}
+                className={isDirectActive ? "active" : ""}
                 activeProps={{ className: "active" }}
                 activeOptions={{ exact: m.to === "/" }}
               >
@@ -327,7 +393,12 @@ export default function Navbar() {
                 m.label === "Partners" && user
                   ? [
                       ...m.children,
-                      { to: "/partner", label: "My Dashboard", d: "Referrals & commission" },
+                      {
+                        to: "/partner",
+                        label: "My Dashboard",
+                        d: "Referrals & commission",
+                        Icon: LayoutDashboard,
+                      },
                     ]
                   : m.children;
               return children ? (
@@ -338,7 +409,7 @@ export default function Navbar() {
                     onClick={() => setMobileGroup(mobileGroup === m.label ? null : m.label)}
                     aria-expanded={mobileGroup === m.label}
                   >
-                    {m.label}
+                    <span>{m.label}</span>
                     <ChevronDown
                       size={16}
                       style={{
@@ -349,16 +420,25 @@ export default function Navbar() {
                   </button>
                   {mobileGroup === m.label && (
                     <div className="oz-nav__mgroup-list">
-                      {children.map((c) => (
-                        <Link
-                          key={c.label + (c.params?.slug ?? c.to)}
-                          to={c.to}
-                          params={c.params}
-                          onClick={() => setOpen(false)}
-                        >
-                          {c.label}
-                        </Link>
-                      ))}
+                      {children.map((c) => {
+                        const Icon = c.Icon;
+                        return (
+                          <Link
+                            key={c.label + (c.params?.slug ?? c.to)}
+                            to={c.to}
+                            params={c.params}
+                            onClick={() => setOpen(false)}
+                            className="oz-nav__mgroup-item"
+                          >
+                            {Icon ? (
+                              <span className="oz-nav__mgroup-icon" aria-hidden="true">
+                                <Icon size={16} strokeWidth={2} />
+                              </span>
+                            ) : null}
+                            <span>{c.label}</span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
