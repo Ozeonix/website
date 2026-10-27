@@ -50,7 +50,10 @@ await rm(DIFF_DIR, { recursive: true, force: true });
 await mkdir(CURRENT_DIR, { recursive: true });
 await mkdir(DIFF_DIR, { recursive: true });
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({
+  headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+});
 const context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
 const page = await context.newPage();
 
@@ -58,73 +61,118 @@ const failures = [];
 const summary = [];
 const pageResults = [];
 
-for (const { name, path } of PAGES) {
-  const url = `${BASE_URL}${path}`;
-  await page.goto(url, { waitUntil: "networkidle", timeout: 30_000 });
-  // Wait for fonts and defer any lazy image work that would otherwise land
-  // mid-screenshot and produce false-positive diffs.
-  await page.evaluate(() => document.fonts?.ready);
-  await page.waitForTimeout(500);
+try {
+  for (const { name, path } of PAGES) {
+    const url = `${BASE_URL}${path}`;
+    console.log(`Checking ${name} (${url})...`);
+    try {
+      await page.goto(url, { waitUntil: "load", timeout: 20_000 });
+      await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
+      // Wait for fonts and defer any lazy image work with a safe upper bound
+      await Promise.race([
+        page.evaluate(() => document.fonts?.ready),
+        new Promise((resolve) => setTimeout(resolve, 3_000)),
+      ]).catch(() => {});
+      await page.waitForTimeout(400);
 
-  const currentPath = `${CURRENT_DIR}/${name}.png`;
-  await page.screenshot({ path: currentPath, fullPage: true, animations: "disabled" });
-  const baselinePath = `${BASELINE_DIR}/${name}.png`;
+      const currentPath = `${CURRENT_DIR}/${name}.png`;
+      await page.screenshot({ path: currentPath, fullPage: true, animations: "disabled" });
+      const baselinePath = `${BASELINE_DIR}/${name}.png`;
 
-  if (UPDATE || !existsSync(baselinePath)) {
-    await cp(currentPath, baselinePath);
-    summary.push(`  ${name.padEnd(12)} baseline ${UPDATE ? "updated" : "created"}`);
-    pageResults.push({ name, path, status: UPDATE ? "baseline-updated" : "baseline-created", diffRatio: 0, diffImage: null });
-    continue;
+      if (UPDATE || !existsSync(baselinePath)) {
+        await cp(currentPath, baselinePath);
+        summary.push(`  ${name.padEnd(12)} baseline ${UPDATE ? "updated" : "created"}`);
+        pageResults.push({
+          name,
+          path,
+          status: UPDATE ? "baseline-updated" : "baseline-created",
+          diffRatio: 0,
+          diffImage: null,
+        });
+        continue;
+      }
+
+      const baseline = PNG.sync.read(await readFile(baselinePath));
+      const current = PNG.sync.read(await readFile(currentPath));
+      if (baseline.width !== current.width || baseline.height !== current.height) {
+        failures.push(
+          `${name}: size mismatch (baseline ${baseline.width}x${baseline.height}, current ${current.width}x${current.height})`,
+        );
+        await cp(currentPath, `${DIFF_DIR}/${name}.png`);
+        pageResults.push({
+          name,
+          path,
+          status: "size-mismatch",
+          diffRatio: 1,
+          diffImage: `${DIFF_DIR}/${name}.png`,
+          currentImage: currentPath,
+          baselineImage: baselinePath,
+        });
+        continue;
+      }
+
+      const { width, height } = baseline;
+      const diff = new PNG({ width, height });
+      const mismatched = pixelmatch(baseline.data, current.data, diff.data, width, height, {
+        threshold: PIXEL_THRESHOLD,
+      });
+      const ratio = mismatched / (width * height);
+      const ratioStr = (ratio * 100).toFixed(3) + "%";
+      summary.push(
+        `  ${name.padEnd(12)} diff ${ratioStr} (max ${(MAX_DIFF_RATIO * 100).toFixed(3)}%)`,
+      );
+      const failed = ratio > MAX_DIFF_RATIO;
+      let diffPath = null;
+      if (failed) {
+        diffPath = `${DIFF_DIR}/${name}.png`;
+        await writeFile(diffPath, PNG.sync.write(diff));
+        failures.push(
+          `${name}: ${ratioStr} pixels changed > max ${(MAX_DIFF_RATIO * 100).toFixed(3)}%`,
+        );
+      }
+      pageResults.push({
+        name,
+        path,
+        status: failed ? "failed" : "passed",
+        diffRatio: ratio,
+        diffImage: diffPath,
+        currentImage: currentPath,
+        baselineImage: baselinePath,
+      });
+    } catch (pageError) {
+      console.error(`Error checking ${name}:`, pageError);
+      failures.push(`${name}: failed to render or capture (${pageError.message})`);
+      pageResults.push({
+        name,
+        path,
+        status: "error",
+        diffRatio: 1,
+        diffImage: null,
+        currentImage: null,
+        baselineImage: null,
+      });
+    }
   }
-
-  const baseline = PNG.sync.read(await readFile(baselinePath));
-  const current = PNG.sync.read(await readFile(currentPath));
-  if (baseline.width !== current.width || baseline.height !== current.height) {
-    failures.push(
-      `${name}: size mismatch (baseline ${baseline.width}x${baseline.height}, current ${current.width}x${current.height})`
-    );
-    await cp(currentPath, `${DIFF_DIR}/${name}.png`);
-    pageResults.push({ name, path, status: "size-mismatch", diffRatio: 1, diffImage: `${DIFF_DIR}/${name}.png`, currentImage: currentPath, baselineImage: baselinePath });
-    continue;
-  }
-
-  const { width, height } = baseline;
-  const diff = new PNG({ width, height });
-  const mismatched = pixelmatch(baseline.data, current.data, diff.data, width, height, {
-    threshold: PIXEL_THRESHOLD,
-  });
-  const ratio = mismatched / (width * height);
-  const ratioStr = (ratio * 100).toFixed(3) + "%";
-  summary.push(`  ${name.padEnd(12)} diff ${ratioStr} (max ${(MAX_DIFF_RATIO * 100).toFixed(3)}%)`);
-  const failed = ratio > MAX_DIFF_RATIO;
-  let diffPath = null;
-  if (failed) {
-    diffPath = `${DIFF_DIR}/${name}.png`;
-    await writeFile(diffPath, PNG.sync.write(diff));
-    failures.push(`${name}: ${ratioStr} pixels changed > max ${(MAX_DIFF_RATIO * 100).toFixed(3)}%`);
-  }
-  pageResults.push({
-    name, path,
-    status: failed ? "failed" : "passed",
-    diffRatio: ratio,
-    diffImage: diffPath,
-    currentImage: currentPath,
-    baselineImage: baselinePath,
-  });
+} finally {
+  await browser.close();
 }
 
 await mkdir("reports", { recursive: true });
-await writeFile("reports/visual-summary.json", JSON.stringify({
-  baseUrl: BASE_URL,
-  mode: UPDATE ? "update" : "compare",
-  maxDiffRatio: MAX_DIFF_RATIO,
-  passed: failures.length === 0,
-  failures,
-  pages: pageResults,
-}, null, 2));
-
-
-await browser.close();
+await writeFile(
+  "reports/visual-summary.json",
+  JSON.stringify(
+    {
+      baseUrl: BASE_URL,
+      mode: UPDATE ? "update" : "compare",
+      maxDiffRatio: MAX_DIFF_RATIO,
+      passed: failures.length === 0,
+      failures,
+      pages: pageResults,
+    },
+    null,
+    2,
+  ),
+);
 
 console.log(`\nVisual check — ${BASE_URL}`);
 for (const s of summary) console.log(s);

@@ -98,10 +98,10 @@ jobs:
 
       - name: Start preview server
         run: |
-          bun run preview --port 8080 &
+          bun run preview --host 0.0.0.0 --port 8080 &
           echo $! > .preview.pid
           for i in {1..40}; do
-            if curl -sf http://localhost:8080 > /dev/null; then
+            if curl -sf http://127.0.0.1:8080 > /dev/null; then
               echo "Preview ready"; exit 0
             fi
             sleep 1
@@ -117,13 +117,13 @@ jobs:
           IMG_FORMATS_MIN: ${{ steps.thresholds.outputs.IMG_FORMATS_MIN }}
           IMG_SIZING_MIN: ${{ steps.thresholds.outputs.IMG_SIZING_MIN }}
           IMG_SAVINGS_MAX_KB: ${{ steps.thresholds.outputs.IMG_SAVINGS_MAX_KB }}
-        run: bun run perf:ci http://localhost:8080
+        run: bun run perf:ci http://127.0.0.1:8080
 
       # When perf-relax is on, capture fresh baselines instead of comparing.
       - name: Refresh visual baselines (perf-relax)
         if: steps.thresholds.outputs.AUTO_UPDATE_BASELINES == 'true'
         env:
-          BASE_URL: http://localhost:8080
+          BASE_URL: http://127.0.0.1:8080
         run: bun run visual:update
 
       - name: Visual regression check
@@ -131,7 +131,7 @@ jobs:
         if: steps.thresholds.outputs.AUTO_UPDATE_BASELINES != 'true'
         continue-on-error: true
         env:
-          BASE_URL: http://localhost:8080
+          BASE_URL: http://127.0.0.1:8080
           VISUAL_MAX_DIFF_RATIO: ${{ steps.thresholds.outputs.VISUAL_MAX_DIFF_RATIO }}
         run: bun run visual
 
@@ -139,14 +139,14 @@ jobs:
         id: gpu
         continue-on-error: true
         env:
-          PREVIEW_URL: http://localhost:8080
+          PREVIEW_URL: http://127.0.0.1:8080
         run: bun run gpu:check
 
       - name: Accessibility regression check
         id: accessibility
         continue-on-error: true
         env:
-          BASE_URL: http://localhost:8080
+          BASE_URL: http://127.0.0.1:8080
         run: bun run a11y:check
 
       - name: Collect visual artifacts

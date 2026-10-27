@@ -48,13 +48,15 @@ async function assertDecorativeWaves(page, scope) {
       hasTitle: !!el.querySelector("title"),
       hasDesc: !!el.querySelector("desc"),
       hasAriaLabel: el.hasAttribute("aria-label") || el.hasAttribute("aria-labelledby"),
-    }))
+    })),
   );
   for (const [i, s] of svgs.entries()) {
     if (s.ariaHidden !== "true") record(scope, `wave svg #${i} missing aria-hidden="true"`);
     if (s.focusable !== "false") record(scope, `wave svg #${i} missing focusable="false"`);
-    if (s.role && s.role !== "presentation" && s.role !== "none") record(scope, `wave svg #${i} has non-decorative role=${s.role}`);
-    if (s.hasTitle || s.hasDesc || s.hasAriaLabel) record(scope, `wave svg #${i} has SR-visible label/title/desc`);
+    if (s.role && s.role !== "presentation" && s.role !== "none")
+      record(scope, `wave svg #${i} has non-decorative role=${s.role}`);
+    if (s.hasTitle || s.hasDesc || s.hasAriaLabel)
+      record(scope, `wave svg #${i} has SR-visible label/title/desc`);
   }
 }
 
@@ -63,23 +65,32 @@ async function assertGpuAnimations(page, scope) {
     els.map((el) => {
       const cs = getComputedStyle(el);
       return { animationName: cs.animationName, willChange: cs.willChange };
-    })
+    }),
   );
   for (const [i, g] of groups.entries()) {
-    if (!/oz-wave-slide/.test(g.animationName)) record(scope, `wave <g> #${i} anim=${g.animationName} (expected oz-wave-slide)`);
-    if (!/transform/.test(g.willChange)) record(scope, `wave <g> #${i} will-change=${g.willChange} (expected transform)`);
+    if (!/oz-wave-slide/.test(g.animationName))
+      record(scope, `wave <g> #${i} anim=${g.animationName} (expected oz-wave-slide)`);
+    if (!/transform/.test(g.willChange))
+      record(scope, `wave <g> #${i} will-change=${g.willChange} (expected transform)`);
   }
   const pathAnims = await page.$$eval(".oz-wavelines path", (els) =>
-    els.map((el) => getComputedStyle(el).animationName).filter((n) => n && n !== "none")
+    els.map((el) => getComputedStyle(el).animationName).filter((n) => n && n !== "none"),
   );
-  if (pathAnims.length) record(scope, `wave <path> animations found (${pathAnims.join(",")}) — must live on <g>`);
+  if (pathAnims.length)
+    record(scope, `wave <path> animations found (${pathAnims.join(",")}) — must live on <g>`);
 }
 
 async function assertHeroBg(page, scope) {
-  const bg = await page.$eval(".oz-hero__bg", (el) => {
-    const cs = getComputedStyle(el);
-    return { animationName: cs.animationName, willChange: cs.willChange, transform: cs.transform };
-  }).catch(() => null);
+  const bg = await page
+    .$eval(".oz-hero__bg", (el) => {
+      const cs = getComputedStyle(el);
+      return {
+        animationName: cs.animationName,
+        willChange: cs.willChange,
+        transform: cs.transform,
+      };
+    })
+    .catch(() => null);
   if (!bg) return record(scope, ".oz-hero__bg not found");
   if (!/oz-hero-drift/.test(bg.animationName)) record(scope, `hero bg anim=${bg.animationName}`);
   if (!/transform/.test(bg.willChange)) record(scope, `hero bg will-change=${bg.willChange}`);
@@ -90,22 +101,26 @@ async function assertAllAnimationsStopped(page, scope) {
     const nodes = document.querySelectorAll(".oz-wavelines__g, .oz-hero__bg");
     return Array.from(nodes)
       .map((el) => ({
-        cls: (el.getAttribute("class") || ""),
+        cls: el.getAttribute("class") || "",
         name: getComputedStyle(el).animationName,
         transform: getComputedStyle(el).transform,
       }))
       .filter((r) => r.name && r.name !== "none");
   });
   if (running.length) {
-    record(scope, `${running.length} animation(s) still running: ${running.map((r) => `${r.cls}=${r.name}`).join("; ")}`);
+    record(
+      scope,
+      `${running.length} animation(s) still running: ${running.map((r) => `${r.cls}=${r.name}`).join("; ")}`,
+    );
   }
   // Sanity: transforms should still resolve (static translate3d(0,0,0) or matrix).
   const transformsMissing = await page.evaluate(() =>
     Array.from(document.querySelectorAll(".oz-wavelines__g, .oz-hero__bg"))
       .filter((el) => getComputedStyle(el).transform === "none")
-      .map((el) => el.getAttribute("class"))
+      .map((el) => el.getAttribute("class")),
   );
-  if (transformsMissing.length) record(scope, `elements with no transform baseline: ${transformsMissing.join(", ")}`);
+  if (transformsMissing.length)
+    record(scope, `elements with no transform baseline: ${transformsMissing.join(", ")}`);
 }
 
 // ---------- Runners ----------
@@ -118,7 +133,8 @@ async function runNormal(browser, path, vp) {
     deviceScaleFactor: vp.isMobile ? 2 : 1,
   });
   const page = await ctx.newPage();
-  await page.goto(`${BASE}${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE}${path}`, { waitUntil: "load", timeout: 20_000 });
+  await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
 
   await assertDecorativeWaves(page, scope);
   await assertGpuAnimations(page, scope);
@@ -143,7 +159,8 @@ async function runReducedMotion(browser, path, vp) {
     isMobile: vp.isMobile,
   });
   const page = await ctx.newPage();
-  await page.goto(`${BASE}${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE}${path}`, { waitUntil: "load", timeout: 20_000 });
+  await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
   await assertAllAnimationsStopped(page, scope);
   await ctx.close();
 }
@@ -160,14 +177,27 @@ async function runSaveData(browser, path, vp) {
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "deviceMemory", { value: 1, configurable: true });
     Object.defineProperty(navigator, "connection", {
-      value: { saveData: true, effectiveType: "2g", downlink: 0.3, rtt: 800, addEventListener() {}, removeEventListener() {} },
+      value: {
+        saveData: true,
+        effectiveType: "2g",
+        downlink: 0.3,
+        rtt: 800,
+        addEventListener() {},
+        removeEventListener() {},
+      },
       configurable: true,
     });
   });
-  await page.goto(`${BASE}${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE}${path}`, { waitUntil: "load", timeout: 20_000 });
+  await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
   // Give the useEffect a tick to add the class.
-  await page.waitForFunction(() => document.documentElement.classList.contains("oz-lite"), { timeout: 3000 })
-    .catch(() => record(scope, "expected <html>.oz-lite class not applied under save-data/low-memory"));
+  await page
+    .waitForFunction(() => document.documentElement.classList.contains("oz-lite"), {
+      timeout: 3000,
+    })
+    .catch(() =>
+      record(scope, "expected <html>.oz-lite class not applied under save-data/low-memory"),
+    );
   await assertAllAnimationsStopped(page, scope);
   await ctx.close();
 }
@@ -176,7 +206,9 @@ async function runSaveData(browser, path, vp) {
 
 function diffScreenshots() {
   if (!existsSync(BASE_DIR)) {
-    console.log(`ℹ️  No baseline at ${BASE_DIR} — skipping visual diff. Copy reports/gpu/current to reports/gpu/baseline to set one.`);
+    console.log(
+      `ℹ️  No baseline at ${BASE_DIR} — skipping visual diff. Copy reports/gpu/current to reports/gpu/baseline to set one.`,
+    );
     return;
   }
   const baselineFiles = readdirSync(BASE_DIR).filter((f) => f.endsWith(".png"));
@@ -199,7 +231,10 @@ function diffScreenshots() {
 
 // ---------- Main ----------
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({
+  headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+});
 try {
   for (const path of PAGES) {
     for (const vp of VIEWPORTS) {
@@ -214,9 +249,13 @@ try {
 }
 
 if (failures.length) {
-  console.error(`❌ GPU animation check failed (${failures.length} issue${failures.length > 1 ? "s" : ""}):`);
+  console.error(
+    `❌ GPU animation check failed (${failures.length} issue${failures.length > 1 ? "s" : ""}):`,
+  );
   for (const f of failures) console.error("  - " + f);
   process.exit(1);
 }
-console.log(`✅ GPU animation check passed: ${PAGES.length} page(s) × ${VIEWPORTS.length} viewport(s) × 3 modes (normal, reduced-motion, save-data).`);
+console.log(
+  `✅ GPU animation check passed: ${PAGES.length} page(s) × ${VIEWPORTS.length} viewport(s) × 3 modes (normal, reduced-motion, save-data).`,
+);
 console.log(`   Screenshots: ${CUR_DIR}`);
