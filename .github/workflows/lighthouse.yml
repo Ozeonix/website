@@ -21,8 +21,8 @@ jobs:
         with:
           # Full history + head ref so we can push refreshed baselines back to the PR branch.
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
 
       # ----- Threshold selection -----
       # Default: strict. Apply the `perf-relax` label to a PR to loosen
@@ -64,7 +64,7 @@ jobs:
           path: |
             ~/.bun/install/cache
             node_modules
-          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'package.json') }}
+          key: bun-${{ runner.os }}-${{ hashFiles('package-lock.json', 'bun.lock', 'bun.lockb', 'package.json') }}
           restore-keys: |
             bun-${{ runner.os }}-
 
@@ -75,7 +75,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb') }}
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json', 'bun.lock', 'bun.lockb') }}
           restore-keys: |
             playwright-${{ runner.os }}-
 
@@ -88,9 +88,9 @@ jobs:
           path: |
             dist
             node_modules/.vite
-          key: vite-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'vite.config.ts') }}-${{ hashFiles('src/**', 'index.html', 'public/**') }}
+          key: vite-${{ runner.os }}-${{ hashFiles('package-lock.json', 'bun.lock', 'bun.lockb', 'vite.config.ts') }}-${{ hashFiles('src/**', 'index.html', 'public/**') }}
           restore-keys: |
-            vite-${{ runner.os }}-${{ hashFiles('bun.lock', 'bun.lockb', 'vite.config.ts') }}-
+            vite-${{ runner.os }}-${{ hashFiles('package-lock.json', 'bun.lock', 'bun.lockb', 'vite.config.ts') }}-
             vite-${{ runner.os }}-
 
       - name: Build app
@@ -98,15 +98,18 @@ jobs:
 
       - name: Start preview server
         run: |
-          bun run preview --host 0.0.0.0 --port 8080 &
+          nohup bun run preview --host 0.0.0.0 --port 8080 > .preview.log 2>&1 &
           echo $! > .preview.pid
+          disown
           for i in {1..40}; do
             if curl -sf http://127.0.0.1:8080 > /dev/null; then
               echo "Preview ready"; exit 0
             fi
             sleep 1
           done
-          echo "Preview failed to start"; exit 1
+          echo "Preview failed to start"
+          cat .preview.log
+          exit 1
 
       - name: Run Lighthouse (per-audit thresholds)
         id: lighthouse
@@ -161,6 +164,7 @@ jobs:
         if: always()
         run: |
           if [ -f .preview.pid ]; then kill "$(cat .preview.pid)" || true; fi
+          if [ -f .preview.log ]; then cat .preview.log; fi
 
       - name: Upload reports artifact
         id: upload
