@@ -10,7 +10,7 @@ import { COUNTRIES, CITIES, REQUIREMENTS, START_TIMES } from "@/lib/constants";
 // Placed under /api/public/* so the published site allows unauthenticated POSTs.
 // Security in-handler: strict schema, length caps, basic in-memory rate limit.
 
-const phoneRegex = /^\+?[0-9\s()\-]{7,20}$/;
+const phoneRegex = /^\+?[0-9\s()-]{7,20}$/;
 
 function oneOf(values: readonly string[], message: string) {
   return z.string().refine((v) => values.includes(v), { message });
@@ -19,10 +19,13 @@ function oneOf(values: readonly string[], message: string) {
 const bodySchema = z.object({
   name: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(255),
-  phone: z.string().trim().max(30).optional().or(z.literal("")).refine(
-    (v) => !v || phoneRegex.test(v),
-    { message: "Invalid phone" },
-  ),
+  phone: z
+    .string()
+    .trim()
+    .max(30)
+    .optional()
+    .or(z.literal(""))
+    .refine((v) => !v || phoneRegex.test(v), { message: "Invalid phone" }),
   company: z.string().trim().max(120).optional().or(z.literal("")),
   country: oneOf(COUNTRIES, "Please select a country."),
   city: oneOf(CITIES, "Please select a city / region."),
@@ -30,7 +33,13 @@ const bodySchema = z.object({
   start_time: oneOf(START_TIMES, "Please select when you want to start."),
   budget: z.string().trim().min(1, "Please enter your approximate budget.").max(80),
   message: z.string().trim().min(10).max(1200),
-  referral_code: z.string().trim().max(20).regex(/^[A-Za-z0-9]*$/).optional().or(z.literal("")),
+  referral_code: z
+    .string()
+    .trim()
+    .max(20)
+    .regex(/^[A-Za-z0-9]*$/)
+    .optional()
+    .or(z.literal("")),
 });
 
 // Simple sliding-window per-IP rate limit (per worker instance).
@@ -83,24 +92,31 @@ export const Route = createFileRoute("/api/public/contact")({
         try {
           const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
           const referralCode = (data.referral_code || "").toUpperCase();
-          const { data: submission, error } = await supabaseAdmin.from("contact_submissions").insert({
-            name: data.name,
-            email: data.email,
-            phone: data.phone || null,
-            company: data.company || null,
-            country: data.country,
-            city: data.city,
-            requirements: data.requirements,
-            start_time: data.start_time,
-            budget: data.budget,
-            message: data.message,
-            referral_code: referralCode || null,
-            source_ip: ip,
-            user_agent: request.headers.get("user-agent") || null,
-          } as any).select("id").single();
+          const { data: submission, error } = await supabaseAdmin
+            .from("contact_submissions")
+            .insert({
+              name: data.name,
+              email: data.email,
+              phone: data.phone || null,
+              company: data.company || null,
+              country: data.country,
+              city: data.city,
+              requirements: data.requirements,
+              start_time: data.start_time,
+              budget: data.budget,
+              message: data.message,
+              referral_code: referralCode || null,
+              source_ip: ip,
+              user_agent: request.headers.get("user-agent") || null,
+            } as any)
+            .select("id")
+            .single();
           if (error || !submission?.id) {
             console.error("[contact] db insert failed:", error);
-            return Response.json({ ok: false, error: "We could not save your brief. Please try again." }, { status: 503 });
+            return Response.json(
+              { ok: false, error: "We could not save your brief. Please try again." },
+              { status: 503 },
+            );
           }
           submissionId = submission.id;
 
@@ -153,16 +169,26 @@ export const Route = createFileRoute("/api/public/contact")({
           }
         } catch (err) {
           console.error("[contact] db unavailable:", err);
-          return Response.json({ ok: false, error: "We could not save your brief. Please try again." }, { status: 503 });
+          return Response.json(
+            { ok: false, error: "We could not save your brief. Please try again." },
+            { status: 503 },
+          );
         }
 
         const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
         const templateData = {
-          name: data.name, email: data.email, phone: data.phone || undefined,
-          company: data.company || undefined, country: data.country, city: data.city,
-          requirements: data.requirements, startTime: data.start_time,
-          budget: data.budget, message: data.message,
-          referralCode: data.referral_code || undefined, source: "Website project brief",
+          name: data.name,
+          email: data.email,
+          phone: data.phone || undefined,
+          company: data.company || undefined,
+          country: data.country,
+          city: data.city,
+          requirements: data.requirements,
+          startTime: data.start_time,
+          budget: data.budget,
+          message: data.message,
+          referralCode: data.referral_code || undefined,
+          source: "Website project brief",
         };
 
         const sendResults = await Promise.allSettled([
@@ -179,7 +205,8 @@ export const Route = createFileRoute("/api/public/contact")({
           ...(partnerNotification ? [partnerNotification] : []),
         ]);
         sendResults.forEach((result, index) => {
-          if (result.status === "rejected") console.error(`[contact] email ${index + 1} failed:`, result.reason);
+          if (result.status === "rejected")
+            console.error(`[contact] email ${index + 1} failed:`, result.reason);
         });
 
         return Response.json({ ok: true, submissionId });
