@@ -20,24 +20,26 @@ export default function ResponsiveImage({
   const safeWidths = [...new Set(widths)]
     .filter((value) => Number.isFinite(value) && value > 0)
     .sort((a, b) => a - b);
-  const isOptimizableRemote = typeof src === "string" && /^https:\/\/images\.unsplash\.com\//.test(src);
+  const isOptimizableRemote =
+    typeof src === "string" && /^https:\/\/images\.unsplash\.com\//.test(src);
   const base = typeof src === "string" ? src.split("?")[0] : src;
   const build = (fm) =>
-    safeWidths
-      .map((w) => `${base}?auto=format&fit=crop&q=70&w=${w}&fm=${fm} ${w}w`)
-      .join(", ");
+    safeWidths.map((w) => `${base}?auto=format&fit=crop&q=70&w=${w}&fm=${fm} ${w}w`).join(", ");
   const fallback = isOptimizableRemote
     ? `${base}?auto=format&fit=crop&q=70&w=${safeWidths[safeWidths.length - 1] || 1200}`
     : src;
   const responsiveSources = isOptimizableRemote ? build("jpg") : srcSet;
-  const intrinsicStyle = width && height
-    ? { aspectRatio: `${width} / ${height}`, ...style }
-    : style;
+  const intrinsicStyle =
+    width && height ? { aspectRatio: `${width} / ${height}`, ...style } : style;
 
   return (
     <picture className={pictureClassName}>
-      {isOptimizableRemote ? <source type="image/avif" srcSet={build("avif")} sizes={sizes} /> : null}
-      {isOptimizableRemote ? <source type="image/webp" srcSet={build("webp")} sizes={sizes} /> : null}
+      {isOptimizableRemote ? (
+        <source type="image/avif" srcSet={build("avif")} sizes={sizes} />
+      ) : null}
+      {isOptimizableRemote ? (
+        <source type="image/webp" srcSet={build("webp")} sizes={sizes} />
+      ) : null}
       <img
         src={fallback}
         srcSet={responsiveSources}

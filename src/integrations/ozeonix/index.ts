@@ -11,7 +11,8 @@ type SignInOptions = {
 export const ozeonix = {
   auth: {
     signInWithOAuth: async (provider: OAuthProvider, opts?: SignInOptions) => {
-      const redirectTo = opts?.redirect_uri || (typeof window !== "undefined" ? window.location.origin : undefined);
+      const redirectTo =
+        opts?.redirect_uri || (typeof window !== "undefined" ? window.location.origin : undefined);
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: provider as Provider,
         options: {

@@ -13,7 +13,13 @@ const createSchema = z.object({
   payer_email: z.string().trim().email().max(255),
   payer_phone: z.string().trim().max(30).optional().or(z.literal("")),
   note: z.string().trim().max(500).optional().or(z.literal("")),
-  referral_code: z.string().trim().max(20).regex(/^[A-Za-z0-9]*$/).optional().or(z.literal("")),
+  referral_code: z
+    .string()
+    .trim()
+    .max(20)
+    .regex(/^[A-Za-z0-9]*$/)
+    .optional()
+    .or(z.literal("")),
 });
 
 function originFromRequest(): string {
@@ -29,7 +35,8 @@ function originFromRequest(): string {
 export const createEsewaPayment = createServerFn({ method: "POST" })
   .validator((data: unknown) => createSchema.parse(data))
   .handler(async ({ data }) => {
-    const { getEsewaConfig, sign, buildSignedMessage, newTransactionUuid } = await import("./esewa.server");
+    const { getEsewaConfig, sign, buildSignedMessage, newTransactionUuid } =
+      await import("./esewa.server");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const config = getEsewaConfig();
 
@@ -44,7 +51,8 @@ export const createEsewaPayment = createServerFn({ method: "POST" })
         .select("slug, price, is_active")
         .eq("slug", slug)
         .maybeSingle();
-      if (error || !pkg || !(pkg as any).is_active) throw new Error("That package is not available.");
+      if (error || !pkg || !(pkg as any).is_active)
+        throw new Error("That package is not available.");
       amount = Number((pkg as any).price);
       packageSlug = (pkg as any).slug;
     } else {
@@ -70,7 +78,10 @@ export const createEsewaPayment = createServerFn({ method: "POST" })
       failure_url: `${origin}/payment/failed`,
       signed_field_names: "total_amount,transaction_uuid,product_code",
     };
-    fields["signature"] = sign(buildSignedMessage(fields, fields["signed_field_names"]!), config.secretKey);
+    fields["signature"] = sign(
+      buildSignedMessage(fields, fields["signed_field_names"]!),
+      config.secretKey,
+    );
 
     const { error: insertError } = await supabaseAdmin.from("payments").insert({
       transaction_uuid: transactionUuid,
@@ -108,7 +119,8 @@ const verifySchema = z.object({
 export const verifyEsewaPayment = createServerFn({ method: "POST" })
   .validator((input: unknown) => verifySchema.parse(input))
   .handler(async ({ data }) => {
-    const { getEsewaConfig, sign, buildSignedMessage, safeEqual, checkStatus } = await import("./esewa.server");
+    const { getEsewaConfig, sign, buildSignedMessage, safeEqual, checkStatus } =
+      await import("./esewa.server");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const config = getEsewaConfig();
 
@@ -123,7 +135,11 @@ export const verifyEsewaPayment = createServerFn({ method: "POST" })
       }
     }
 
-    if (payload && typeof payload["signed_field_names"] === "string" && typeof payload["signature"] === "string") {
+    if (
+      payload &&
+      typeof payload["signed_field_names"] === "string" &&
+      typeof payload["signature"] === "string"
+    ) {
       const stringFields: Record<string, string> = {};
       for (const [k, v] of Object.entries(payload)) stringFields[k] = String(v ?? "");
       const expected = sign(
@@ -211,7 +227,8 @@ export const listServicePackages = createServerFn({ method: "GET" }).handler(asy
     global: {
       fetch: (input, init) => {
         const h = new Headers(init?.headers);
-        if (key.startsWith("sb_") && h.get("Authorization") === `Bearer ${key}`) h.delete("Authorization");
+        if (key.startsWith("sb_") && h.get("Authorization") === `Bearer ${key}`)
+          h.delete("Authorization");
         h.set("apikey", key);
         return fetch(input, { ...init, headers: h });
       },

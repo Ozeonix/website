@@ -40,9 +40,14 @@ export async function notifyNewReferralLead(lead: LeadPayload): Promise<void> {
       templateName: "contact-admin-notification",
       subject: `New referral lead: ${lead.clientName}`,
       templateData: {
-        name: lead.clientName, email: lead.clientEmail, phone: lead.clientPhone,
-        company: lead.clientCompany, requirements: lead.requirements,
-        message: lead.notes, referralCode: lead.referralCode, source: lead.source,
+        name: lead.clientName,
+        email: lead.clientEmail,
+        phone: lead.clientPhone,
+        company: lead.clientCompany,
+        requirements: lead.requirements,
+        message: lead.notes,
+        referralCode: lead.referralCode,
+        source: lead.source,
       },
       replyTo: lead.clientEmail,
     });
@@ -56,8 +61,10 @@ export async function notifyNewReferralLead(lead: LeadPayload): Promise<void> {
       templateName: "referral-partner-notification",
       subject: `Your referral was received: ${lead.clientName}`,
       templateData: {
-        partnerName: lead.partnerName, clientName: lead.clientName,
-        requirements: lead.requirements, commissionRate: rate,
+        partnerName: lead.partnerName,
+        clientName: lead.clientName,
+        requirements: lead.requirements,
+        commissionRate: rate,
       },
     });
   }

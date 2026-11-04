@@ -1,4 +1,12 @@
-import { Children, cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { trackCTA } from "../lib/analytics";
 
 /**
@@ -88,8 +96,7 @@ export default function CTAGroup({
   const onClickCapture = (i) => (e) => {
     const target = e.target;
     // Only track meaningful clicks (link/button inside the card, or the card itself).
-    const actionable =
-      target.closest?.("a, button") || target === refs.current[i];
+    const actionable = target.closest?.("a, button") || target === refs.current[i];
     if (!actionable) return;
     const el = refs.current[i];
     if (!el) return;

@@ -13,7 +13,8 @@ export function getEsewaConfig(): EsewaConfig {
   const productCode = process.env["ESEWA_PRODUCT_CODE"] || "EPAYTEST";
   // UAT (test) sandbox secret published by eSewa; production uses ESEWA_SECRET_KEY.
   const secretKey = process.env["ESEWA_SECRET_KEY"] || "8gBm/:&EnhH.1/q";
-  const environment = (process.env["ESEWA_ENVIRONMENT"] || "uat") === "production" ? "production" : "uat";
+  const environment =
+    (process.env["ESEWA_ENVIRONMENT"] || "uat") === "production" ? "production" : "uat";
 
   return {
     environment,
@@ -35,7 +36,10 @@ export function sign(message: string, secretKey: string): string {
 }
 
 /** Builds `key=value,key=value` in the exact order of signed_field_names. */
-export function buildSignedMessage(fields: Record<string, string>, signedFieldNames: string): string {
+export function buildSignedMessage(
+  fields: Record<string, string>,
+  signedFieldNames: string,
+): string {
   return signedFieldNames
     .split(",")
     .map((k) => `${k}=${fields[k] ?? ""}`)
@@ -52,8 +56,14 @@ export function safeEqual(a: string, b: string): boolean {
 /** Unique, alphanumeric + hyphen only, fresh on every attempt. */
 export function newTransactionUuid(): string {
   const now = new Date();
-  const stamp = now.toISOString().replace(/[^0-9]/g, "").slice(2, 14);
-  const rand = Math.random().toString(36).replace(/[^a-z0-9]/g, "").slice(0, 6);
+  const stamp = now
+    .toISOString()
+    .replace(/[^0-9]/g, "")
+    .slice(2, 14);
+  const rand = Math.random()
+    .toString(36)
+    .replace(/[^a-z0-9]/g, "")
+    .slice(0, 6);
   return `OZ-${stamp}-${rand}`;
 }
 

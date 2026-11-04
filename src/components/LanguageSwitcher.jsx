@@ -12,7 +12,9 @@ export default function LanguageSwitcher({ className = "" }) {
 
   useEffect(() => {
     if (!open) return;
-    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const onDoc = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
     document.addEventListener("mousedown", onDoc);
     return () => document.removeEventListener("mousedown", onDoc);
   }, [open]);
@@ -32,7 +34,16 @@ export default function LanguageSwitcher({ className = "" }) {
       close();
       return;
     }
-    const next = event.key === "ArrowDown" ? index + 1 : event.key === "ArrowUp" ? index - 1 : event.key === "Home" ? 0 : event.key === "End" ? LANGUAGES.length - 1 : null;
+    const next =
+      event.key === "ArrowDown"
+        ? index + 1
+        : event.key === "ArrowUp"
+          ? index - 1
+          : event.key === "Home"
+            ? 0
+            : event.key === "End"
+              ? LANGUAGES.length - 1
+              : null;
     if (next === null) return;
     event.preventDefault();
     optionRefs.current[(next + LANGUAGES.length) % LANGUAGES.length]?.focus();
@@ -63,14 +74,19 @@ export default function LanguageSwitcher({ className = "" }) {
           {LANGUAGES.map((l) => (
             <li key={l.code}>
               <button
-                ref={(element) => { optionRefs.current[LANGUAGES.indexOf(l)] = element; }}
+                ref={(element) => {
+                  optionRefs.current[LANGUAGES.indexOf(l)] = element;
+                }}
                 type="button"
                 role="option"
                 aria-selected={l.code === lang}
                 className={l.code === lang ? "is-active" : ""}
                 tabIndex={l.code === lang ? 0 : -1}
                 onKeyDown={(event) => onOptionKeyDown(event, LANGUAGES.indexOf(l))}
-                onClick={() => { setLang(l.code); close(); }}
+                onClick={() => {
+                  setLang(l.code);
+                  close();
+                }}
               >
                 <span className="oz-lang__code">{l.short}</span>
                 <span>{l.label}</span>

@@ -7,10 +7,16 @@ export const Route = createFileRoute("/payment/success")({
   head: () => ({
     meta: [
       { title: "Payment Confirmation | Ozeonix Infinity" },
-      { name: "description", content: "Your eSewa payment result and reference number for Ozeonix Infinity services." },
+      {
+        name: "description",
+        content: "Your eSewa payment result and reference number for Ozeonix Infinity services.",
+      },
       { name: "robots", content: "noindex" },
       { property: "og:title", content: "Payment Confirmation — Ozeonix Infinity" },
-      { property: "og:description", content: "eSewa payment confirmation for Ozeonix Infinity services." },
+      {
+        property: "og:description",
+        content: "eSewa payment confirmation for Ozeonix Infinity services.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -53,29 +59,57 @@ function PaymentSuccess() {
         <span className="oz-eyebrow">eSewa</span>
         <h1 style={{ margin: 0 }}>{heading}</h1>
 
-        {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>{error}</p>}
+        {error && (
+          <p role="alert" style={{ color: "var(--danger, #B91C1C)" }}>
+            {error}
+          </p>
+        )}
 
         {result?.state === "complete" && (
-          <div style={{ border: "1px solid rgba(0,0,0,0.14)", borderRadius: 16, padding: 20, background: "#fff" }}>
+          <div
+            style={{
+              border: "1px solid rgba(0,0,0,0.14)",
+              borderRadius: 16,
+              padding: 20,
+              background: "#fff",
+            }}
+          >
             <p style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>{money(result.amount)}</p>
             <p className="oz-muted" style={{ margin: "8px 0 0", fontSize: 14 }}>
               Reference: <strong>{result.transactionUuid}</strong>
-              {result.refId ? <> · eSewa ref: <strong>{result.refId}</strong></> : null}
+              {result.refId ? (
+                <>
+                  {" "}
+                  · eSewa ref: <strong>{result.refId}</strong>
+                </>
+              ) : null}
             </p>
             <p style={{ margin: "12px 0 0" }}>
-              Our team will email you a receipt and next steps. Keep this reference for your records.
+              Our team will email you a receipt and next steps. Keep this reference for your
+              records.
             </p>
           </div>
         )}
 
-        {(result?.state === "pending" || result?.state === "failed" || result?.state === "unknown") && (
-          <p>{result.message}{result.transactionUuid ? ` Reference: ${result.transactionUuid}.` : ""}</p>
+        {(result?.state === "pending" ||
+          result?.state === "failed" ||
+          result?.state === "unknown") && (
+          <p>
+            {result.message}
+            {result.transactionUuid ? ` Reference: ${result.transactionUuid}.` : ""}
+          </p>
         )}
 
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          <Link to="/" className="oz-btn oz-btn--primary">Back to home</Link>
-          <Link to="/pay" className="oz-btn oz-btn--outline">Make another payment</Link>
-          <Link to="/contact" className="oz-btn oz-btn--outline">Contact support</Link>
+          <Link to="/" className="oz-btn oz-btn--primary">
+            Back to home
+          </Link>
+          <Link to="/pay" className="oz-btn oz-btn--outline">
+            Make another payment
+          </Link>
+          <Link to="/contact" className="oz-btn oz-btn--outline">
+            Contact support
+          </Link>
         </div>
       </div>
     </section>

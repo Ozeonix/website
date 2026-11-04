@@ -43,7 +43,13 @@ export default function Reveal({
     setMounted(true);
     if (debugOn) {
       // eslint-disable-next-line no-console
-      console.debug("[Reveal]", { index, preset, direction: dir, delay: `${delay}s`, duration: `${duration}s` });
+      console.debug("[Reveal]", {
+        index,
+        preset,
+        direction: dir,
+        delay: `${delay}s`,
+        duration: `${duration}s`,
+      });
     }
     const io = new IntersectionObserver(
       (entries) => {
@@ -54,7 +60,7 @@ export default function Reveal({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" },
     );
     io.observe(el);
     return () => io.disconnect();

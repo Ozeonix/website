@@ -44,7 +44,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/industries/health", changefreq: "monthly", priority: "0.6" },
         ];
 
-
         const urls = entries.map((e) =>
           [
             `  <url>`,

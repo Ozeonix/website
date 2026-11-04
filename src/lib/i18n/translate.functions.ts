@@ -23,7 +23,9 @@ export const translateBatch = createServerFn({ method: "POST" })
 
     const endpoint =
       process.env.AI_GATEWAY_URL ||
-      (process.env.OPENAI_API_KEY ? "https://api.openai.com/v1/chat/completions" : "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions");
+      (process.env.OPENAI_API_KEY
+        ? "https://api.openai.com/v1/chat/completions"
+        : "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions");
 
     const system =
       `You are a professional website translator. Translate each string from English to ${NAMES[data.target]}. ` +
@@ -33,7 +35,8 @@ export const translateBatch = createServerFn({ method: "POST" })
 
     const user = JSON.stringify({ items: data.texts });
 
-    const model = process.env.AI_MODEL || (process.env.OPENAI_API_KEY ? "gpt-4o-mini" : "gemini-2.0-flash");
+    const model =
+      process.env.AI_MODEL || (process.env.OPENAI_API_KEY ? "gpt-4o-mini" : "gemini-2.0-flash");
 
     const res = await fetch(endpoint, {
       method: "POST",
@@ -53,7 +56,9 @@ export const translateBatch = createServerFn({ method: "POST" })
     });
 
     if (!res.ok) {
-      console.warn(`[translateBatch] AI translation service error ${res.status}. Falling back to source texts.`);
+      console.warn(
+        `[translateBatch] AI translation service error ${res.status}. Falling back to source texts.`,
+      );
       return { translations: data.texts };
     }
 
@@ -62,7 +67,11 @@ export const translateBatch = createServerFn({ method: "POST" })
     };
     const content = json.choices?.[0]?.message?.content ?? "{}";
     let parsed: { translations?: unknown } = {};
-    try { parsed = JSON.parse(content); } catch { parsed = {}; }
+    try {
+      parsed = JSON.parse(content);
+    } catch {
+      parsed = {};
+    }
     const arr = Array.isArray(parsed.translations) ? parsed.translations : [];
     const translations = data.texts.map((src, i) =>
       typeof arr[i] === "string" && (arr[i] as string).trim().length > 0 ? (arr[i] as string) : src,

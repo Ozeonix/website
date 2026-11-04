@@ -16,7 +16,10 @@ export const REVEAL_PRESETS = ["left", "right", "up", "fade", "auto"];
 export const REVEAL_DIRECTIONS = ["left", "right", "up", "fade", "none", "auto"];
 
 export function mergeRevealConfig(overrides = {}) {
-  return { ...revealConfig, ...Object.fromEntries(Object.entries(overrides).filter(([, v]) => v != null)) };
+  return {
+    ...revealConfig,
+    ...Object.fromEntries(Object.entries(overrides).filter(([, v]) => v != null)),
+  };
 }
 
 export function revealCssVars(cfg) {

@@ -33,11 +33,9 @@ export function useAuth() {
       setIsAdmin(false);
       return;
     }
-    supabase
-      .rpc("has_role", { _user_id: session.user.id, _role: "admin" })
-      .then(({ data }) => {
-        if (active) setIsAdmin(data === true);
-      });
+    supabase.rpc("has_role", { _user_id: session.user.id, _role: "admin" }).then(({ data }) => {
+      if (active) setIsAdmin(data === true);
+    });
     return () => {
       active = false;
     };

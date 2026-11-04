@@ -27,7 +27,9 @@ function NotFoundComponent() {
           <span className="oz-eyebrow">404</span>
           <h1>We couldn’t find that page</h1>
           <p className="oz-muted">The link may be broken, or the page may have moved.</p>
-          <a href="/" className="oz-btn oz-btn--primary" style={{ marginTop: 16 }}>Go home</a>
+          <a href="/" className="oz-btn oz-btn--primary" style={{ marginTop: 16 }}>
+            Go home
+          </a>
         </div>
       </section>
       <Footer />
@@ -53,11 +55,16 @@ function ErrorComponent({ error, reset }) {
           <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 16 }}>
             <button
               className="oz-btn oz-btn--primary"
-              onClick={() => { router.invalidate(); reset(); }}
+              onClick={() => {
+                router.invalidate();
+                reset();
+              }}
             >
               Try again
             </button>
-            <a href="/" className="oz-btn oz-btn--outline">Go home</a>
+            <a href="/" className="oz-btn oz-btn--outline">
+              Go home
+            </a>
           </div>
         </div>
       </section>
@@ -107,16 +114,27 @@ export const Route = createRootRouteWithContext()({
           "custom software development, CRM development, ERP software, learning management systems, website development, mobile app development, Flutter development, e-commerce platforms, POS software, HRMS software, business automation, Ozeonix Infinity",
       },
       { name: "author", content: "Ozeonix Infinity" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { property: "og:title", content: "Ozeonix Infinity | Shape The Thought. Power Tomorrow" },
-      { property: "og:description", content: "Custom CRM, ERP, LMS, website and mobile app development for businesses, schools and growing teams." },
+      {
+        property: "og:description",
+        content:
+          "Custom CRM, ERP, LMS, website and mobile app development for businesses, schools and growing teams.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_NP" },
       { property: "og:site_name", content: "Ozeonix Infinity" },
       { property: "og:url", content: "https://ozeonix.com/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Ozeonix Infinity | Shape The Thought. Power Tomorrow" },
-      { name: "twitter:description", content: "Custom CRM, ERP, LMS, websites and mobile apps built around the way your team works." },
+      {
+        name: "twitter:description",
+        content:
+          "Custom CRM, ERP, LMS, websites and mobile apps built around the way your team works.",
+      },
     ],
 
     links: [
@@ -169,11 +187,16 @@ function RootShell({ children }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  useEffect(() => { applyRevealConfig(); captureReferralCode(); }, []);
+  useEffect(() => {
+    applyRevealConfig();
+    captureReferralCode();
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <a href="#main-content" className="oz-skip-link">Skip to main content</a>
+        <a href="#main-content" className="oz-skip-link">
+          Skip to main content
+        </a>
         <Navbar />
         <main id="main-content" tabIndex={-1}>
           <Outlet />
@@ -185,4 +208,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

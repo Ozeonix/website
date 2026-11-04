@@ -8,9 +8,17 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Partner Login & Signup — Ozeonix Infinity Referral Program" },
-      { name: "description", content: "Create your Ozeonix Infinity partner profile, refer clients and earn 10% commission on every project you bring in." },
+      {
+        name: "description",
+        content:
+          "Create your Ozeonix Infinity partner profile, refer clients and earn 10% commission on every project you bring in.",
+      },
       { property: "og:title", content: "Partner Login & Signup — Ozeonix Infinity" },
-      { property: "og:description", content: "Sign in to your partner dashboard, track referred clients and your 10% commission." },
+      {
+        property: "og:description",
+        content:
+          "Sign in to your partner dashboard, track referred clients and your 10% commission.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
@@ -54,7 +62,9 @@ function AuthPage() {
         if (err) throw err;
         trackConversion("partner_signup", { method: "email" });
         if (!data.session) {
-          setNotice("Almost done — check your email and click the confirmation link to activate your partner profile.");
+          setNotice(
+            "Almost done — check your email and click the confirmation link to activate your partner profile.",
+          );
           setStatus("idle");
           return;
         }
@@ -99,12 +109,20 @@ function AuthPage() {
     <section className="oz-section oz-app-page oz-auth-page" aria-label="Partner login and signup">
       <div className="oz-container oz-auth-shell">
         <span className="oz-eyebrow">Partner Program</span>
-        <h1 style={{ marginBottom: 8 }}>{mode === "signin" ? "Partner login" : "Create your partner profile"}</h1>
+        <h1 style={{ marginBottom: 8 }}>
+          {mode === "signin" ? "Partner login" : "Create your partner profile"}
+        </h1>
         <p className="oz-muted" style={{ marginBottom: 20 }}>
-          Refer a client to Ozeonix Infinity and earn <strong>10% commission</strong> on each project they sign.
+          Refer a client to Ozeonix Infinity and earn <strong>10% commission</strong> on each
+          project they sign.
         </p>
 
-        <button type="button" className="oz-btn oz-btn--outline" style={{ width: "100%", marginBottom: 16 }} onClick={google}>
+        <button
+          type="button"
+          className="oz-btn oz-btn--outline"
+          style={{ width: "100%", marginBottom: 16 }}
+          onClick={google}
+        >
           Continue with Google
         </button>
 
@@ -113,17 +131,36 @@ function AuthPage() {
             <>
               <label style={{ display: "grid", gap: 6 }}>
                 <span>Full name</span>
-                <input style={inputStyle} value={fullName} onChange={(e) => setFullName(e.target.value)} required minLength={2} autoComplete="name" />
+                <input
+                  style={inputStyle}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                  minLength={2}
+                  autoComplete="name"
+                />
               </label>
               <label style={{ display: "grid", gap: 6 }}>
                 <span>Phone / WhatsApp</span>
-                <input style={inputStyle} value={phone} onChange={(e) => setPhone(e.target.value)} autoComplete="tel" />
+                <input
+                  style={inputStyle}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
+                />
               </label>
             </>
           )}
           <label style={{ display: "grid", gap: 6 }}>
             <span>Email</span>
-            <input style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
+            <input
+              style={inputStyle}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
           </label>
           <label style={{ display: "grid", gap: 6 }}>
             <span>Password</span>
@@ -138,10 +175,23 @@ function AuthPage() {
             />
           </label>
 
-          {error && <p role="alert" style={{ color: "var(--danger, #B91C1C)", fontSize: 14, margin: 0 }}>{error}</p>}
-          {notice && <p role="status" style={{ color: "var(--success, #15803D)", fontSize: 14, margin: 0 }}>{notice}</p>}
+          {error && (
+            <p role="alert" style={{ color: "var(--danger, #B91C1C)", fontSize: 14, margin: 0 }}>
+              {error}
+            </p>
+          )}
+          {notice && (
+            <p role="status" style={{ color: "var(--success, #15803D)", fontSize: 14, margin: 0 }}>
+              {notice}
+            </p>
+          )}
 
-          <button className="oz-btn oz-btn--primary" type="submit" disabled={status === "busy"} style={{ width: "100%" }}>
+          <button
+            className="oz-btn oz-btn--primary"
+            type="submit"
+            disabled={status === "busy"}
+            style={{ width: "100%" }}
+          >
             {status === "busy" ? "Please wait…" : mode === "signin" ? "Sign in" : "Create profile"}
           </button>
         </form>
@@ -150,8 +200,19 @@ function AuthPage() {
           {mode === "signin" ? "New partner? " : "Already a partner? "}
           <button
             type="button"
-            onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setError(""); setNotice(""); }}
-            style={{ background: "none", border: "none", color: "var(--oz-primary)", fontWeight: 700, cursor: "pointer", padding: 4 }}
+            onClick={() => {
+              setMode(mode === "signin" ? "signup" : "signin");
+              setError("");
+              setNotice("");
+            }}
+            style={{
+              background: "none",
+              border: "none",
+              color: "var(--oz-primary)",
+              fontWeight: 700,
+              cursor: "pointer",
+              padding: 4,
+            }}
           >
             {mode === "signin" ? "Create an account" : "Sign in"}
           </button>

@@ -1,15 +1,15 @@
-import type { ComponentType } from 'react'
-import { template as contactAdminNotification } from './contact-admin-notification'
-import { template as contactConfirmation } from './contact-confirmation'
-import { template as referralPartnerNotification } from './referral-partner-notification'
+import type { ComponentType } from "react";
+import { template as contactAdminNotification } from "./contact-admin-notification";
+import { template as contactConfirmation } from "./contact-confirmation";
+import { template as referralPartnerNotification } from "./referral-partner-notification";
 
 export interface TemplateEntry {
-  component: ComponentType<any>
-  subject: string | ((data: Record<string, any>) => string)
-  displayName?: string
-  previewData?: Record<string, any>
+  component: ComponentType<any>;
+  subject: string | ((data: Record<string, any>) => string);
+  displayName?: string;
+  previewData?: Record<string, any>;
   /** Fixed recipient — overrides caller-provided recipientEmail when set. */
-  to?: string
+  to?: string;
 }
 
 /**
@@ -21,7 +21,7 @@ export interface TemplateEntry {
  *   // then add to TEMPLATES: 'welcome': welcomeTemplate
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
-  'contact-admin-notification': contactAdminNotification,
-  'contact-confirmation': contactConfirmation,
-  'referral-partner-notification': referralPartnerNotification,
-}
+  "contact-admin-notification": contactAdminNotification,
+  "contact-confirmation": contactConfirmation,
+  "referral-partner-notification": referralPartnerNotification,
+};

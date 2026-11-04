@@ -5,8 +5,19 @@ import { useLang } from "@/lib/i18n/LanguageContext";
 import { translateBatch } from "@/lib/i18n/translate.functions";
 
 const SKIP_TAGS = new Set([
-  "SCRIPT", "STYLE", "NOSCRIPT", "CODE", "PRE", "TEXTAREA", "INPUT",
-  "SELECT", "OPTION", "IFRAME", "SVG", "PATH", "CANVAS",
+  "SCRIPT",
+  "STYLE",
+  "NOSCRIPT",
+  "CODE",
+  "PRE",
+  "TEXTAREA",
+  "INPUT",
+  "SELECT",
+  "OPTION",
+  "IFRAME",
+  "SVG",
+  "PATH",
+  "CANVAS",
 ]);
 
 function isTranslatable(text) {
@@ -34,10 +45,18 @@ function collectTextNodes(root) {
 }
 
 function loadCache(lang) {
-  try { return JSON.parse(localStorage.getItem(`oz.i18n.${lang}`) || "{}"); } catch { return {}; }
+  try {
+    return JSON.parse(localStorage.getItem(`oz.i18n.${lang}`) || "{}");
+  } catch {
+    return {};
+  }
 }
 function saveCache(lang, cache) {
-  try { localStorage.setItem(`oz.i18n.${lang}`, JSON.stringify(cache)); } catch { /* ignore quota */ }
+  try {
+    localStorage.setItem(`oz.i18n.${lang}`, JSON.stringify(cache));
+  } catch {
+    /* ignore quota */
+  }
 }
 
 /**
@@ -132,7 +151,9 @@ export default function PageTranslator() {
     };
 
     run();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [lang, pathname, translate]);
 
   return null;

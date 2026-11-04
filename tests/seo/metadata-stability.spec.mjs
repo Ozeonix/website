@@ -28,33 +28,23 @@ async function snapshotHead(page) {
         .filter(Boolean);
     return {
       title: document.title,
-      description:
-        document.querySelector('meta[name="description"]')?.content || null,
-      canonical:
-        document.querySelector('link[rel="canonical"]')?.href || null,
+      description: document.querySelector('meta[name="description"]')?.content || null,
+      canonical: document.querySelector('link[rel="canonical"]')?.href || null,
       canonicalCount: document.querySelectorAll('link[rel="canonical"]').length,
-      ogTitle:
-        document.querySelector('meta[property="og:title"]')?.content || null,
-      ogDescription:
-        document.querySelector('meta[property="og:description"]')?.content ||
-        null,
-      ogUrl:
-        document.querySelector('meta[property="og:url"]')?.content || null,
-      ogType:
-        document.querySelector('meta[property="og:type"]')?.content || null,
-      twitterCard:
-        document.querySelector('meta[name="twitter:card"]')?.content || null,
-      jsonLd: Array.from(
-        document.querySelectorAll('script[type="application/ld+json"]'),
-      ).map((s) => s.textContent || ""),
+      ogTitle: document.querySelector('meta[property="og:title"]')?.content || null,
+      ogDescription: document.querySelector('meta[property="og:description"]')?.content || null,
+      ogUrl: document.querySelector('meta[property="og:url"]')?.content || null,
+      ogType: document.querySelector('meta[property="og:type"]')?.content || null,
+      twitterCard: document.querySelector('meta[name="twitter:card"]')?.content || null,
+      jsonLd: Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(
+        (s) => s.textContent || "",
+      ),
     };
   });
 }
 
 for (const route of ROUTES) {
-  test(`SEO head is valid and stable across CTA interactions — ${route}`, async ({
-    page,
-  }) => {
+  test(`SEO head is valid and stable across CTA interactions — ${route}`, async ({ page }) => {
     await page.goto(`${BASE}${route}`, { waitUntil: "networkidle" });
 
     const before = await snapshotHead(page);
@@ -70,9 +60,7 @@ for (const route of ROUTES) {
 
     // canonical + og:url self-reference
     if (before.ogUrl) {
-      expect(new URL(before.ogUrl).pathname).toBe(
-        new URL(before.canonical).pathname,
-      );
+      expect(new URL(before.ogUrl).pathname).toBe(new URL(before.canonical).pathname);
     }
 
     // JSON-LD parses and has @context

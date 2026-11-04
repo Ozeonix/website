@@ -1,8 +1,7 @@
 import { trackConversion } from "../lib/analytics.js";
 
 const PHONE = "9777483509984"; // +977-7483509984
-const MESSAGE =
-  "Hello Ozeonix Infinity, I would like to discuss a website / CRM / ERP project.";
+const MESSAGE = "Hello Ozeonix Infinity, I would like to discuss a website / CRM / ERP project.";
 
 export default function WhatsAppButton() {
   const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;

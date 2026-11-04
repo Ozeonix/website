@@ -20,7 +20,9 @@ export function LanguageProvider({ children }) {
     try {
       const stored = localStorage.getItem("oz.lang");
       if (stored && LANGUAGES.some((l) => l.code === stored)) setLangState(stored);
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   useEffect(() => {
@@ -29,7 +31,11 @@ export function LanguageProvider({ children }) {
 
   const setLang = (l) => {
     setLangState(l);
-    try { localStorage.setItem("oz.lang", l); } catch { /* ignore */ }
+    try {
+      localStorage.setItem("oz.lang", l);
+    } catch {
+      /* ignore */
+    }
   };
 
   return <LangCtx.Provider value={{ lang, setLang }}>{children}</LangCtx.Provider>;

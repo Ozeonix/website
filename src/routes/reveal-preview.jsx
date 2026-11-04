@@ -32,17 +32,42 @@ function RevealPreviewPage() {
             duration={revealConfig.duration}s.
           </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", margin: "16px 0 32px" }}>
-            <label>step {stepDelay.toFixed(2)}s
-              <input type="range" min="0" max="0.5" step="0.02" value={stepDelay}
-                onChange={(e) => setStepDelay(Number(e.target.value))} style={{ marginLeft: 8 }} />
-            </label>
-            <label>duration {duration.toFixed(2)}s
-              <input type="range" min="0.2" max="2" step="0.05" value={duration}
-                onChange={(e) => setDuration(Number(e.target.value))} style={{ marginLeft: 8 }} />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 16,
+              alignItems: "center",
+              margin: "16px 0 32px",
+            }}
+          >
+            <label>
+              step {stepDelay.toFixed(2)}s
+              <input
+                type="range"
+                min="0"
+                max="0.5"
+                step="0.02"
+                value={stepDelay}
+                onChange={(e) => setStepDelay(Number(e.target.value))}
+                style={{ marginLeft: 8 }}
+              />
             </label>
             <label>
-              <input type="checkbox" checked={debug} onChange={(e) => setDebug(e.target.checked)} /> debug
+              duration {duration.toFixed(2)}s
+              <input
+                type="range"
+                min="0.2"
+                max="2"
+                step="0.05"
+                value={duration}
+                onChange={(e) => setDuration(Number(e.target.value))}
+                style={{ marginLeft: 8 }}
+              />
+            </label>
+            <label>
+              <input type="checkbox" checked={debug} onChange={(e) => setDebug(e.target.checked)} />{" "}
+              debug
             </label>
             <button className="oz-btn oz-btn--outline" onClick={() => setNonce((n) => n + 1)}>
               Replay animations
@@ -53,7 +78,13 @@ function RevealPreviewPage() {
             <div key={`${preset}-${nonce}`} style={{ marginBottom: 48 }}>
               <h2 style={{ marginBottom: 12 }}>preset: {preset}</h2>
               <RevealGroup preset={preset}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12 }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                    gap: 12,
+                  }}
+                >
                   {Array.from({ length: 6 }).map((_, i) => (
                     <Reveal
                       key={i}
