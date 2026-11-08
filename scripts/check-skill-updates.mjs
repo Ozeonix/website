@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 /**
- * Ozeonix Infinity — Read-Only UI/UX Pro Max Upstream Checker
+ * Ozeonix Infinity — Read-Only Agent Skills Upstream Checker
  *
- * Checks whether the upstream Git repository has new commits beyond the pinned
- * commit recorded in `.agents/skills/ui-ux-pro-max/.upstream-lock.json`.
+ * Scans all vendored skills under `.agents/skills/` for `.upstream-lock.json`,
+ * and checks whether the upstream Git repositories have new commits beyond the pinned commits.
  *
  * Strictly read-only: does not clone, download, fetch, pull, or modify any files.
  */
 
-import { readFileSync, existsSync } from "node:fs";
-import { resolve, dirname } from "node:path";
+import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
+import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = resolve(__dirname, "..");
-const LOCK_FILE_PATH = resolve(ROOT_DIR, ".agents/skills/ui-ux-pro-max/.upstream-lock.json");
+const SKILLS_DIR = resolve(ROOT_DIR, ".agents/skills");
 
 const HEX_OBJECT_ID_REGEX = /^[0-9a-fA-F]{40,64}$/;
 
@@ -24,29 +24,49 @@ function fail(message, exitCode = 1) {
   process.exit(exitCode);
 }
 
-function loadLockMetadata() {
-  if (!existsSync(LOCK_FILE_PATH)) {
-    fail(`Lock file not found at ${LOCK_FILE_PATH}. Ensure the skill has been properly installed.`);
+function findLockFiles() {
+  if (!existsSync(SKILLS_DIR)) {
+    fail(`Skills directory not found at ${SKILLS_DIR}.`);
   }
 
+  const lockFiles = [];
+  const entries = readdirSync(SKILLS_DIR);
+  for (const entry of entries) {
+    const fullPath = join(SKILLS_DIR, entry);
+    if (statSync(fullPath).isDirectory()) {
+      const lockPath = join(fullPath, ".upstream-lock.json");
+      if (existsSync(lockPath)) {
+        lockFiles.push({ skillName: entry, lockPath });
+      }
+    }
+  }
+
+  if (lockFiles.length === 0) {
+    fail(`No .upstream-lock.json files found under ${SKILLS_DIR}.`);
+  }
+
+  return lockFiles;
+}
+
+function loadLockMetadata(lockPath) {
   let lockData;
   try {
-    const raw = readFileSync(LOCK_FILE_PATH, "utf8");
+    const raw = readFileSync(lockPath, "utf8");
     lockData = JSON.parse(raw);
   } catch (err) {
-    fail(`Failed to parse ${LOCK_FILE_PATH}: ${err.message}`);
+    fail(`Failed to parse ${lockPath}: ${err.message}`);
   }
 
   const { repository, branch, commit } = lockData;
 
   if (!repository || typeof repository !== "string" || !repository.startsWith("http")) {
-    fail(`Invalid or missing 'repository' URL in lock file.`);
+    fail(`Invalid or missing 'repository' URL in lock file at ${lockPath}.`);
   }
   if (!branch || typeof branch !== "string") {
-    fail(`Invalid or missing 'branch' in lock file.`);
+    fail(`Invalid or missing 'branch' in lock file at ${lockPath}.`);
   }
   if (!commit || typeof commit !== "string" || !HEX_OBJECT_ID_REGEX.test(commit)) {
-    fail(`Invalid or non-hexadecimal 'commit' SHA in lock file: "${commit}".`);
+    fail(`Invalid or non-hexadecimal 'commit' SHA in lock file at ${lockPath}: "${commit}".`);
   }
 
   return { repository, branch, commit: commit.toLowerCase() };
@@ -82,32 +102,58 @@ function queryUpstreamCommit(repository, branch) {
 }
 
 function main() {
-  console.log("=== Ozeonix Infinity: UI/UX Pro Max Upstream Checker ===");
-  console.log("Reading lockfile: .agents/skills/ui-ux-pro-max/.upstream-lock.json");
+  console.log("=== Ozeonix Infinity: Agent Skills Upstream Checker ===");
 
-  const { repository, branch, commit: installedCommit } = loadLockMetadata();
+  const lockFiles = findLockFiles();
+  const repoMap = new Map();
 
-  console.log(`Repository:       ${repository}`);
-  console.log(`Tracked branch:   ${branch}`);
-  console.log(`Installed commit: ${installedCommit}`);
-  console.log("Querying upstream via git ls-remote (read-only)...");
+  for (const { skillName, lockPath } of lockFiles) {
+    const metadata = loadLockMetadata(lockPath);
+    const key = `${metadata.repository}#${metadata.branch}`;
+    if (!repoMap.has(key)) {
+      repoMap.set(key, { ...metadata, skills: [] });
+    }
+    repoMap.get(key).skills.push(skillName);
+  }
 
-  const upstreamCommit = queryUpstreamCommit(repository, branch);
+  let totalUpdates = 0;
 
-  console.log(`Upstream commit:  ${upstreamCommit}`);
-  console.log("--------------------------------------------------------");
+  for (const [, item] of repoMap.entries()) {
+    const { repository, branch, commit: installedCommit, skills } = item;
+    console.log(`\nRepository:       ${repository}`);
+    console.log(`Tracked branch:   ${branch}`);
+    console.log(`Covered skills:   ${skills.join(", ")}`);
+    console.log(`Installed commit: ${installedCommit}`);
+    console.log("Querying upstream via git ls-remote (read-only)...");
 
-  if (installedCommit === upstreamCommit) {
-    console.log("STATUS: UP TO DATE");
-    console.log("The vendored UI/UX Pro Max skill matches the latest upstream commit.");
+    const upstreamCommit = queryUpstreamCommit(repository, branch);
+    console.log(`Upstream commit:  ${upstreamCommit}`);
+    console.log("--------------------------------------------------------");
+
+    if (installedCommit === upstreamCommit) {
+      console.log("STATUS: UP TO DATE");
+      console.log("The vendored skill suite matches the latest upstream commit.");
+    } else {
+      totalUpdates++;
+      console.log("STATUS: UPDATE AVAILABLE");
+      console.log(`A new upstream commit exists on branch '${branch}'.`);
+      console.log(
+        `Compare diff: ${repository.replace(/\.git$/, "")}/compare/${installedCommit}...${upstreamCommit}`,
+      );
+      console.log("NOTE: Upstream updates must be manually reviewed and tested.");
+      console.log(
+        "Under no circumstances should external skill files overwrite local brand tokens.",
+      );
+    }
+  }
+
+  console.log("\n========================================================");
+  if (totalUpdates === 0) {
+    console.log("All vendored agent skill suites are up to date.");
   } else {
-    console.log("STATUS: UPDATE AVAILABLE");
-    console.log(`A new upstream commit exists on branch '${branch}'.`);
     console.log(
-      `Compare diff: ${repository.replace(/\.git$/, "")}/compare/${installedCommit}...${upstreamCommit}`,
+      `${totalUpdates} upstream skill suite(s) have updates available for manual review.`,
     );
-    console.log("NOTE: Upstream updates must be manually reviewed and tested.");
-    console.log("Under no circumstances should external skill files overwrite local brand tokens.");
   }
 }
 

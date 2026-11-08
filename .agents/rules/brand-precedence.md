@@ -12,9 +12,10 @@ When implementing or modifying UI, user flows, or styles in this repository, AI 
    - This document ([.agents/rules/brand-precedence.md](brand-precedence.md)), defining the relationship between Ozeonix brand standards and external design intelligence.
 4. **Local Brand Skill**:
    - [.agents/skills/brand-design-system/SKILL.md](../skills/brand-design-system/SKILL.md), enforcing Ozeonix Infinity's specific color tokens and styling conventions.
-5. **External Design Intelligence Suite**:
+5. **External Design Intelligence Suites**:
    - Vendored skills from UI/UX Pro Max suite ([.agents/skills/ui-ux-pro-max/](../skills/ui-ux-pro-max/), `banner-design/`, `brand/`, `design/`, `design-system/`, `slides/`, `ui-styling/`), providing general UX, accessibility, banner layouts, and interaction patterns.
-   - **Crucial Rule**: External scripts (e.g., in `brand/`, `design-system/`, or `ui-styling/`) must never overwrite Ozeonix tokens in `src/styles.css` or `docs/design-system.md`, nor generate conflicting `tailwind.config.js` or `tokens.json` files.
+   - Vendored skills from UI Skills suite (`baseline-ui/`, `component-canvas/`, `create-canvas/`, `create-design-md/`, `fixing-accessibility/`, `fixing-metadata/`, `fixing-motion-performance/`, `improve-ui/`, `ui-skills/`, `ui-skills-root/`), providing design engineering workflows, canvas exploration, metadata verification, and accessibility audits.
+   - **Crucial Rule**: External scripts or skill defaults (e.g., in `baseline-ui/`, `brand/`, `design-system/`, or `ui-styling/`) must never overwrite Ozeonix tokens in `src/styles.css` or `docs/design-system.md`, nor generate conflicting `tailwind.config.js` or `tokens.json` files. Local tokens and brand rules always take absolute precedence.
 
 _If any ambiguity or conflict arises, higher-level rules strictly override lower-level suggestions. Never invent new brand palettes, random gradients, or unsupported component libraries._
 

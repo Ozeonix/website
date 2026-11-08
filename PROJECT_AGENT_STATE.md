@@ -52,7 +52,10 @@ Documented in [docs/design-system.md](docs/design-system.md) and declared in [sr
 - **Precedence Hierarchy & External Skills**:
   - Binding precedence rule established in [.agents/rules/brand-precedence.md](.agents/rules/brand-precedence.md).
   - Ozeonix Infinity canonical tokens strictly override any external skill recommendations, third-party palettes, or arbitrary hex values.
-  - Vendored suite: [.agents/skills/ui-ux-pro-max/](.agents/skills/ui-ux-pro-max/), `banner-design/`, `brand/`, `design/`, `design-system/`, `slides/`, and `ui-styling/` pinned to upstream commit `28b3b8dee8c976df4fa3e94aed4e092ad43fcb03` (tracked via `.upstream-lock.json` in each skill directory).
+  - Vendored suites:
+    - UI/UX Pro Max suite: [.agents/skills/ui-ux-pro-max/](.agents/skills/ui-ux-pro-max/), `banner-design/`, `brand/`, `design/`, `design-system/`, `slides/`, and `ui-styling/` pinned to upstream commit `28b3b8dee8c976df4fa3e94aed4e092ad43fcb03`.
+    - UI Skills suite: `baseline-ui/`, `component-canvas/`, `create-canvas/`, `create-design-md/`, `fixing-accessibility/`, `fixing-metadata/`, `fixing-motion-performance/`, `improve-ui/`, `ui-skills/`, and `ui-skills-root/` pinned to upstream repository `https://github.com/ibelick/ui-skills.git` at commit `97dea9e747ea94d5671ef1468cbb8f9bd5f32542`.
+    - Pinned status tracked via `.upstream-lock.json` in each skill directory.
   - Sibling skills governance: External scripts (in `brand/`, `design-system/`, `ui-styling/`) must never be run to generate tokens or override Ozeonix styles; local `brand-design-system` remains authoritative.
 
 ---
@@ -64,7 +67,7 @@ Documented in [docs/design-system.md](docs/design-system.md) and declared in [sr
 - `docs/design-system.md`: Single source of truth for color tokens, typography scales, spacing, and component states.
 - `.agents/rules/brand-precedence.md`: Precedence rules binding brand tokens above external skill suggestions.
 - `.agents/skills/brand-design-system/SKILL.md`: Persistent agent skill enforcing brand rules.
-- `.agents/skills/`: Workspace agent skills including local `brand-design-system` and the vendored UI/UX Pro Max suite (`ui-ux-pro-max`, `banner-design`, `brand`, `design`, `design-system`, `slides`, `ui-styling`).
+- `.agents/skills/`: Workspace agent skills including local `brand-design-system`, vendored UI/UX Pro Max suite, and vendored UI Skills suite (`baseline-ui`, `component-canvas`, `create-canvas`, `create-design-md`, `fixing-accessibility`, `fixing-metadata`, `fixing-motion-performance`, `improve-ui`, `ui-skills`, `ui-skills-root`).
 - `.agents/rules/`: Workspace agent behavioral rules.
 - `src/styles.css`: Central stylesheet containing `:root` variables and Tailwind `@theme` mappings.
 - `src/routes/`: Route definitions, layouts, and page views.
