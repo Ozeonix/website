@@ -940,7 +940,7 @@ function Home() {
                 <Link to="/contact" className="oz-btn oz-btn--primary">
                   Discuss your project <ArrowRight size={18} />
                 </Link>
-                <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--on-dark">
+                <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--secondary">
                   Chat on WhatsApp
                 </a>
               </div>

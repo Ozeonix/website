@@ -4873,23 +4873,30 @@ a.oz-btn,
 
 .oz-home-cta {
   padding-block: clamp(3rem, 7vw, 5.5rem);
-  background: var(--oz-primary);
-  color: var(--oz-primary-foreground);
+  background: var(--brand-orange-50);
+  border-top: 1px solid var(--brand-orange-200);
+  border-bottom: 1px solid var(--brand-orange-200);
+  color: var(--text-primary);
 }
 .oz-home-cta__inner {
   display: grid;
   gap: var(--oz-space-6);
   align-items: center;
 }
+.oz-home-cta .oz-eyebrow {
+  background: var(--surface);
+  border-color: var(--brand-orange-200);
+  color: var(--brand-orange-deep);
+}
 .oz-home-cta h2 {
   max-width: 22ch;
   margin-bottom: var(--oz-space-3);
-  color: var(--oz-primary-foreground);
+  color: var(--text-primary);
 }
 .oz-home-cta p {
   max-width: 40rem;
   margin: 0;
-  color: color-mix(in oklab, var(--oz-primary-foreground) 78%, transparent);
+  color: var(--text-secondary);
 }
 .oz-home-cta__actions {
   display: flex;
