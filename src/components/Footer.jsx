@@ -88,7 +88,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://wa.me/9777483509984"
+              href="https://wa.me/9779769294624"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -105,8 +105,8 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="tel:+9777483509984"
-              aria-label="Call +977-7483509984"
+              href="tel:+9779769294624"
+              aria-label="Call +977-9769294624"
               className="oz-footer__social-btn"
             >
               <svg
@@ -225,19 +225,29 @@ export default function Footer() {
               </div>
               <div className="oz-footer__contact-row">
                 <span className="oz-footer__contact-icon">📞</span>
-                <a href="tel:+9777483509984" className="oz-footer__contact-link">
-                  +977-7483509984
+                <a href="tel:+9779769294624" className="oz-footer__contact-link">
+                  +977-9769294624
                 </a>
               </div>
               <div className="oz-footer__contact-row">
-                <span className="oz-footer__contact-icon">💬</span>
+                <span className="oz-footer__contact-icon">
+                  <img
+                    src="/assets/whatsapp-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    className="oz-footer__contact-img"
+                  />
+                </span>
+                <label>WhatsApp:</label>
                 <a
-                  href="https://wa.me/9777483509984"
+                  href="https://wa.me/9779769294624"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="oz-footer__contact-link"
                 >
-                  WhatsApp: +977-7483509984
+                   +977-9769294624
                 </a>
               </div>
             </address>
