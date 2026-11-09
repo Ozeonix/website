@@ -6,6 +6,7 @@ import ProjectBriefForm from "../components/ProjectBriefForm.jsx";
 import processTeam480 from "../assets/process-team-480.webp";
 import processTeam768 from "../assets/process-team-768.webp";
 import processTeam1024 from "../assets/process-team-1024.webp";
+import saasHeroMockup from "../assets/ozeonix-infinity-saas-hero-mockup.png";
 
 import {
   Rocket,
@@ -295,11 +296,11 @@ function Home() {
       <section className="oz-hero oz-home-hero" aria-labelledby="hero-heading">
         <div className="oz-home-hero__visual" aria-hidden="true">
           <img
-            src="/assets/ozeonix-infinity-saas-hero-mockup.svg"
-            alt=""
+            src={saasHeroMockup}
+            alt="Ozeonix Infinity business software platform mockup"
             className="oz-home-hero__mockup-img"
-            width="1672"
-            height="941"
+            width="1024"
+            height="576"
             loading="eager"
             fetchPriority="high"
           />
