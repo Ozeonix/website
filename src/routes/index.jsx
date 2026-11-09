@@ -26,9 +26,7 @@ import {
   ArrowRight,
   MonitorSmartphone,
   GraduationCap,
-  BarChart3,
   Boxes,
-  Smartphone,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -228,7 +226,7 @@ const LOCALBUSINESS_JSONLD = {
     "@type": "Organization",
     name: "Ozeonix Infinity",
     image: "https://ozeonix.com/assets/ozeonix-infinity-nav-logo.png",
-    telephone: "+977-7483509984",
+    telephone: "+977-9769294624",
     url: "https://ozeonix.com",
     areaServed: "Worldwide",
     priceRange: "$$",
@@ -244,7 +242,7 @@ const LOCALBUSINESS_JSONLD = {
       "@type": "ContactPoint",
       contactType: "Customer Support",
       availableLanguage: ["English", "Nepali", "Hindi"],
-      telephone: "+977-7483509984",
+      telephone: "+977-9769294624",
     },
     sameAs: [
       "https://www.linkedin.com/company/ozeonix-infinity",
@@ -295,142 +293,60 @@ function Home() {
     <>
       {/* HERO */}
       <section className="oz-hero oz-home-hero" aria-labelledby="hero-heading">
-        <div className="oz-container">
-          <div className="oz-home-hero__grid">
-            <div className="oz-home-hero__copy">
-              <Reveal>
-                <span className="oz-eyebrow">Shape The Thought. Power Tomorrow</span>
-              </Reveal>
-              <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
-                Ozeonix Infinity builds <span>business software that fits how you work.</span>
-              </Reveal>
-              <Reveal index={2}>
-                <p className="oz-hero__lead">
-                  Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals—from first
-                  idea to launch and long-term support.
-                </p>
-              </Reveal>
-              <Reveal index={3}>
-                <div className="oz-hero__actions">
-                  <Link to="/contact" className="oz-btn oz-btn--primary">
-                    Discuss your project <ArrowRight size={18} aria-hidden="true" />
-                  </Link>
-                  <Link to="/portfolio" className="oz-btn oz-btn--outline">
-                    View selected work
-                  </Link>
-                </div>
-              </Reveal>
-              <Reveal index={4}>
-                <dl
-                  className="oz-home-hero__proof"
-                  aria-label="Ozeonix Infinity service highlights"
-                >
-                  <div>
-                    <dt>Direct</dt>
-                    <dd>Access to your product team</dd>
-                  </div>
-                  <div>
-                    <dt>Custom</dt>
-                    <dd>Built around your workflow</dd>
-                  </div>
-                  <div>
-                    <dt>End-to-end</dt>
-                    <dd>Design, build and support</dd>
-                  </div>
-                </dl>
-              </Reveal>
-            </div>
+        <div className="oz-home-hero__visual" aria-hidden="true">
+          <img
+            src="/assets/ozeonix-infinity-saas-hero-mockup.svg"
+            alt=""
+            className="oz-home-hero__mockup-img"
+            width="1672"
+            height="941"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
 
+        <div className="oz-container">
+          <div className="oz-home-hero__copy">
+            <Reveal>
+              <span className="oz-eyebrow">Shape The Thought. Power Tomorrow</span>
+            </Reveal>
+            <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
+              Ozeonix Infinity builds <span>business software that fits how you work.</span>
+            </Reveal>
             <Reveal index={2}>
-              <div
-                className="oz-product-collage"
-                aria-label="CRM, ERP, LMS and mobile application interface preview"
-              >
-                <div className="oz-product-collage__desktop">
-                  <div className="oz-product-collage__topbar">
-                    <span />
-                    <span />
-                    <span />
-                    <b>Ozeonix Business OS</b>
-                  </div>
-                  <div className="oz-product-collage__dashboard">
-                    <aside aria-hidden="true">
-                      <span className="is-active" />
-                      <span />
-                      <span />
-                      <span />
-                    </aside>
-                    <div className="oz-product-collage__main">
-                      <div className="oz-product-collage__heading">
-                        <div>
-                          <small>ERP overview</small>
-                          <strong>Business performance</strong>
-                        </div>
-                        <span>Live</span>
-                      </div>
-                      <div className="oz-product-collage__metrics">
-                        <div>
-                          <small>Revenue</small>
-                          <strong>Rs 8.4L</strong>
-                          <em>+18.4%</em>
-                        </div>
-                        <div>
-                          <small>Open leads</small>
-                          <strong>148</strong>
-                          <em>+12 today</em>
-                        </div>
-                        <div>
-                          <small>Tasks</small>
-                          <strong>32</strong>
-                          <em>8 due</em>
-                        </div>
-                      </div>
-                      <div className="oz-product-collage__chart" aria-hidden="true">
-                        <i />
-                        <i />
-                        <i />
-                        <i />
-                        <i />
-                        <i />
-                        <i />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="oz-product-collage__mobile" aria-hidden="true">
-                  <span className="oz-product-collage__notch" />
-                  <small>Good morning</small>
-                  <strong>Learning dashboard</strong>
-                  <div className="oz-product-collage__course">
-                    <GraduationCap size={18} />
-                    <span>
-                      <b>Course progress</b>
-                      <i />
-                    </span>
-                    <em>76%</em>
-                  </div>
-                  <div className="oz-product-collage__mobile-grid">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-                <div className="oz-product-collage__float oz-product-collage__float--crm">
-                  <BarChart3 size={20} />
-                  <span>
-                    <small>CRM pipeline</small>
-                    <strong>24 active deals</strong>
-                  </span>
-                </div>
-                <div className="oz-product-collage__float oz-product-collage__float--apps">
-                  <Smartphone size={20} />
-                  <span>
-                    <small>Mobile apps</small>
-                    <strong>Android &amp; iOS</strong>
-                  </span>
-                </div>
+              <p className="oz-hero__lead">
+                Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals—from first
+                idea to launch and long-term support.
+              </p>
+            </Reveal>
+            <Reveal index={3}>
+              <div className="oz-hero__actions">
+                <Link to="/contact" className="oz-btn oz-btn--primary">
+                  Discuss your project <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+                <Link to="/portfolio" className="oz-btn oz-btn--outline">
+                  View selected work
+                </Link>
               </div>
+            </Reveal>
+            <Reveal index={4}>
+              <dl
+                className="oz-home-hero__proof"
+                aria-label="Ozeonix Infinity service highlights"
+              >
+                <div>
+                  <dt>Direct</dt>
+                  <dd>Access to your product team</dd>
+                </div>
+                <div>
+                  <dt>Custom</dt>
+                  <dd>Built around your workflow</dd>
+                </div>
+                <div>
+                  <dt>End-to-end</dt>
+                  <dd>Design, build and support</dd>
+                </div>
+              </dl>
             </Reveal>
           </div>
         </div>
@@ -940,7 +856,7 @@ function Home() {
                 <Link to="/contact" className="oz-btn oz-btn--primary">
                   Discuss your project <ArrowRight size={18} />
                 </Link>
-                <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--secondary">
+                <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--secondary">
                   Chat on WhatsApp
                 </a>
               </div>
@@ -1099,14 +1015,14 @@ function Home() {
                     {
                       Icon: MessageCircle,
                       label: "WhatsApp",
-                      value: "+977-7483509984",
-                      href: "https://wa.me/9777483509984",
+                      value: "+977-9769294624",
+                      href: "https://wa.me/9779769294624",
                     },
                     {
                       Icon: Phone,
                       label: "Call us",
-                      value: "+977-7483509984",
-                      href: "tel:+9777483509984",
+                      value: "+977-9769294624",
+                      href: "tel:+9779769294624",
                     },
                     {
                       Icon: MapPin,
@@ -1184,7 +1100,7 @@ function Home() {
                 </div>
 
                 <a
-                  href="https://wa.me/9777483509984"
+                  href="https://wa.me/9779769294624"
                   target="_blank"
                   rel="noreferrer"
                   style={{
