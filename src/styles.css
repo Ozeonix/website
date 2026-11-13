@@ -1172,6 +1172,267 @@ p {
   }
 }
 
+/* ==========================================================================
+   Technologies Showcase Section (.oz-tech-section)
+   ========================================================================== */
+.oz-tech-section {
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Ambient Corner Glows & Grid Accents */
+.oz-tech-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.oz-tech-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+.oz-tech-bg__glow--tl {
+  top: -10%;
+  left: -8%;
+  width: clamp(260px, 35vw, 480px);
+  height: clamp(260px, 35vw, 480px);
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.22) 0%,
+    rgba(249, 115, 22, 0.04) 55%,
+    transparent 75%
+  );
+}
+.oz-tech-bg__glow--br {
+  bottom: -12%;
+  right: -8%;
+  width: clamp(280px, 38vw, 520px);
+  height: clamp(280px, 38vw, 520px);
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.25) 0%,
+    rgba(234, 88, 12, 0.05) 55%,
+    transparent 75%
+  );
+}
+.oz-tech-bg__dots {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  width: 120px;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.35) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  opacity: 0.7;
+}
+.oz-tech-bg__dots--left {
+  left: 2%;
+}
+.oz-tech-bg__dots--right {
+  right: 2%;
+}
+
+.oz-tech-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section Header */
+.oz-tech-header {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pill Eyebrow Badge with Code Brackets */
+.oz-tech-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: #fff7ed;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  box-shadow: 0 2px 8px -2px rgba(249, 115, 22, 0.15);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ea580c;
+  text-transform: uppercase;
+  margin-bottom: clamp(0.75rem, 1.8vh, 1.15rem);
+}
+.oz-tech-eyebrow__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #ea580c;
+}
+
+/* Heading with Decorative Spark Accent */
+.oz-tech-title {
+  position: relative;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 clamp(0.65rem, 1.5vh, 0.95rem);
+}
+.oz-tech-spark {
+  position: absolute;
+  top: -14px;
+  left: -24px;
+  display: inline-flex;
+  gap: 3px;
+  transform: rotate(-15deg);
+  opacity: 0.85;
+}
+.oz-tech-spark__line {
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background: #f97316;
+  border-radius: 2px;
+}
+.oz-tech-spark__line:nth-child(2) {
+  height: 13px;
+  transform: translateY(-2px);
+}
+.oz-tech-title__accent {
+  color: #ea580c;
+  position: relative;
+}
+
+/* Subtitle */
+.oz-tech-lead {
+  max-width: 36rem;
+  margin: 0 auto;
+  font-size: clamp(0.925rem, 1.5vw, 1.05rem);
+  line-height: 1.58;
+  color: #64748b;
+}
+
+/* Interactive Technology Pills Cluster */
+.oz-tech-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.65rem, 1.3vw, 1rem) clamp(0.65rem, 1.4vw, 1.15rem);
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.oz-tech-pill-slot {
+  display: flex;
+}
+
+.oz-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 4px 14px -2px rgba(15, 23, 42, 0.05),
+    0 2px 4px -1px rgba(15, 23, 42, 0.02);
+  cursor: default;
+  user-select: none;
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+  will-change: transform, box-shadow;
+}
+
+.oz-tech-pill:hover {
+  transform: translateY(-2.5px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow:
+    0 10px 24px -4px rgba(249, 115, 22, 0.12),
+    0 4px 8px -2px rgba(15, 23, 42, 0.04);
+}
+
+.oz-tech-pill__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+.oz-tech-pill__icon svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.oz-tech-pill__name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 768px) {
+  .oz-tech-bg__dots {
+    display: none;
+  }
+  .oz-tech-cluster {
+    gap: 0.6rem 0.65rem;
+  }
+  .oz-tech-pill {
+    padding: 0.5rem 0.95rem;
+    gap: 0.5rem;
+  }
+  .oz-tech-pill__icon {
+    width: 20px;
+    height: 20px;
+  }
+  .oz-tech-pill__name {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .oz-tech-section {
+    padding-block: clamp(2.5rem, 5vh, 3.75rem);
+  }
+  .oz-tech-pill {
+    padding: 0.45rem 0.85rem;
+  }
+  .oz-tech-spark {
+    left: -12px;
+    top: -10px;
+    transform: scale(0.8) rotate(-15deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oz-tech-pill {
+    transition: none !important;
+  }
+}
+
 /* Feature two-col */
 .oz-split {
   display: grid;

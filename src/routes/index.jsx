@@ -4,6 +4,7 @@ import Reveal from "../components/Reveal.jsx";
 import ResponsiveImage from "../components/ResponsiveImage.jsx";
 import ProjectBriefForm from "../components/ProjectBriefForm.jsx";
 import HeroIllustration from "../components/HeroIllustration.jsx";
+import TechnologiesSection from "../components/TechnologiesSection.jsx";
 import processTeam480 from "../assets/process-team-480.webp";
 import processTeam768 from "../assets/process-team-768.webp";
 import processTeam1024 from "../assets/process-team-1024.webp";
@@ -37,9 +38,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Ozeonix Infinity builds custom CRM, ERP, LMS, websites and mobile apps for ambitious businesses and institutions. Shape The Thought. Power Tomorrow.",
+          "Ozeonix Infinity builds custom CRM, ERP, LMS, websites and mobile apps for ambitious businesses and institutions. Shape Thought. Power Tomorrow.",
       },
-      { property: "og:title", content: "Ozeonix Infinity | Shape The Thought. Power Tomorrow" },
+      { property: "og:title", content: "Ozeonix Infinity | Shape Thought. Power Tomorrow" },
       {
         property: "og:description",
         content:
@@ -152,21 +153,6 @@ const PROCESS = [
     Icon: LifeBuoy,
     dur: "Ongoing",
   },
-];
-
-const TECH = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "Flutter",
-  "MongoDB",
-  "PostgreSQL",
-  "Firebase",
-  "AWS",
-  "Docker",
-  "Kubernetes",
-  "REST APIs",
-  "AI",
 ];
 
 const STATS = [
@@ -298,7 +284,7 @@ function Home() {
           <div className="oz-home-hero__grid">
             <div className="oz-home-hero__copy">
               <Reveal>
-                <span className="oz-eyebrow">Shape The Thought. Power Tomorrow</span>
+                <span className="oz-eyebrow">Shape Thought. Power Tomorrow</span>
               </Reveal>
               <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
                 Ozeonix Infinity builds <span>business software that fits how you work.</span>
@@ -788,25 +774,7 @@ function Home() {
       </section>
 
       {/* TECHNOLOGIES */}
-      <section className="oz-section" aria-label="Technologies">
-        <div className="oz-container">
-          <div className="oz-section-head">
-            <Reveal>
-              <span className="oz-eyebrow">Technologies</span>
-            </Reveal>
-            <Reveal index={1} as="h2">
-              Modern, proven, dependable.
-            </Reveal>
-          </div>
-          <div className="oz-logos">
-            {TECH.map((t, i) => (
-              <Reveal key={t} index={i % 6} as="span">
-                {t}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TechnologiesSection />
 
       {/* STATISTICS */}
       <section className="oz-section oz-section--dark" aria-label="By the Numbers">
@@ -816,8 +784,7 @@ function Home() {
               <span className="oz-eyebrow">By the Numbers</span>
             </Reveal>
             <Reveal index={1} as="h2">
-              Growing with every{" "}
-              <span className="oz-text-accent">successful delivery.</span>
+              Growing with every <span className="oz-text-accent">successful delivery.</span>
             </Reveal>
           </div>
           <div className="oz-stats">
