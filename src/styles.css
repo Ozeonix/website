@@ -5594,63 +5594,228 @@ a.oz-btn,
   }
 }
 
+/* ==========================================================================
+   Trust & Featured Capabilities Section (.oz-home-trust)
+   ========================================================================== */
 .oz-home-trust {
+  position: relative;
+  border-top: 1px solid var(--oz-border);
   border-bottom: 1px solid var(--oz-border);
-  background: var(--oz-secondary);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding-block: clamp(2.5rem, 5vw, 3.75rem);
 }
-.oz-home-trust__label {
-  margin: 0 0 1rem;
-  text-align: center;
-  color: var(--oz-muted-foreground);
+
+.oz-home-trust__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(1rem, 2vh, 1.35rem);
+}
+
+.oz-home-trust__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: #fff7ed;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #ea580c;
   font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  box-shadow: 0 2px 8px -2px rgba(249, 115, 22, 0.12);
 }
+
+.oz-home-trust__sparkle {
+  color: #f97316;
+  flex-shrink: 0;
+}
+
+/* Industry Tactile Pills */
 .oz-home-trust__items {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.6rem clamp(1rem, 3vw, 2.25rem);
-  color: var(--oz-primary);
-  font-size: clamp(0.78rem, 1.4vw, 0.92rem);
-  font-weight: 700;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 0.75rem);
+  max-width: 980px;
+  margin: 0 auto;
 }
+
+.oz-home-trust__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow:
+    0 2px 6px -1px rgba(15, 23, 42, 0.04),
+    0 1px 3px -1px rgba(15, 23, 42, 0.02);
+  cursor: default;
+  user-select: none;
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.oz-home-trust__pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 8px 18px -3px rgba(249, 115, 22, 0.12);
+}
+
+.oz-home-trust__pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ea580c;
+  flex-shrink: 0;
+}
+
+.oz-home-trust__pill-text {
+  font-size: clamp(0.82rem, 1.1vw, 0.88rem);
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+/* Quicklinks Grid & Capabilities Cards */
 .oz-home-quicklinks {
   display: grid;
-  gap: 0.75rem;
-  margin-top: clamp(1.5rem, 4vw, 2.75rem);
+  gap: 1rem;
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
 }
-.oz-home-quicklinks a {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+
+.oz-home-quicklink-slot {
+  display: flex;
+  height: 100%;
+}
+
+.oz-home-quicklink-card {
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 0.8rem;
-  min-height: 4.75rem;
-  padding: 1rem;
-  border: 1px solid color-mix(in oklab, var(--oz-primary) 16%, var(--oz-border));
-  border-radius: 8px;
-  background: var(--oz-background);
-  box-shadow: 0 16px 34px -32px color-mix(in oklab, var(--oz-primary) 45%, transparent);
-  color: var(--oz-primary);
+  gap: 0.95rem;
+  width: 100%;
+  min-height: 5.25rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow:
+    0 4px 16px -2px rgba(15, 23, 42, 0.04),
+    0 2px 4px -1px rgba(15, 23, 42, 0.02);
   text-decoration: none;
+  overflow: hidden;
   transition:
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
 }
-.oz-home-quicklinks a:hover {
-  border-color: var(--oz-action);
-  transform: translateY(-2px);
-  box-shadow: 0 20px 38px -30px color-mix(in oklab, var(--oz-primary) 50%, transparent);
+
+.oz-home-quicklink-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: #ea580c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.oz-home-quicklinks span {
-  display: grid;
+
+.oz-home-quicklink-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow:
+    0 14px 28px -4px rgba(249, 115, 22, 0.12),
+    0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+.oz-home-quicklink-card:hover::after {
+  transform: scaleX(1);
+}
+
+.oz-home-quicklink__icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #fff7ed;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.oz-home-quicklink-card:hover .oz-home-quicklink__icon-box {
+  background: #ea580c;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.oz-home-quicklink__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   gap: 0.2rem;
+  min-width: 0;
 }
-.oz-home-quicklinks small {
-  color: var(--oz-muted-foreground);
-  font-size: 0.72rem;
+
+.oz-home-quicklink__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.oz-home-quicklink-card:hover .oz-home-quicklink__title {
+  color: #ea580c;
+}
+
+.oz-home-quicklink__desc {
+  font-size: 0.78rem;
+  color: #64748b;
   line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oz-home-quicklink__arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  background: transparent;
+  flex-shrink: 0;
+  transition:
+    transform 0.22s ease,
+    color 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.oz-home-quicklink-card:hover .oz-home-quicklink__arrow {
+  transform: translateX(4px);
+  color: #ea580c;
+  background: #fff7ed;
 }
 
 .oz-home-solutions__grid {

@@ -61,7 +61,13 @@
 - **Backdrop Art**: Organic curved orange quadrant blooms on top-left and bottom-right corners, subtle masked dot matrices, and sweeping wave line across the background.
 - **Responsiveness**: Desktop shows 9 items on row 1 and 3 centered on row 2; smoothly wraps on tablets and mobile with balanced spacing and zero horizontal overflow.
 
-### C. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
+### C. Trust & Capabilities Quicklinks (`src/routes/index.jsx` & `src/styles.css`)
+- **Header**: Eyebrow badge `Built for ambitious teams across industries` with `Sparkles` icon and brand orange tint.
+- **Industry Pills**: Tactile capsule pills for Schools & Colleges (`GraduationCap`), Retail & Inventory (`ShoppingBag`), Healthcare (`Activity`), Professional Services (`Briefcase`), and Growing SMEs (`TrendingUp`).
+- **Capability Cards**: 4 responsive cards (CRM systems, ERP platforms, LMS solutions, Web & mobile) featuring dedicated 44px icon badges, clean typography, forward-sliding arrows on hover, and animated bottom accent progress line.
+- **Grid Layout**: 4 columns on desktop, 2 columns on tablet, 1 column on mobile.
+
+### D. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
 - **Kinetic Wave Vector Background**: 20-path parabolic energy fan originating bottom-left and fanning out top-right (`viewBox="0 0 1200 320"`, `preserveAspectRatio="none"`).
 - **Opacity Tuning**: Group opacity at `0.6` (60%), CSS lines base opacity `0.36`, gentle breathing pulse (`0.30`–`0.44`).
 - **Social Media Buttons**: Circular 44px buttons (`.oz-footer__social-btn`) with dead-centered vector glyphs (Facebook, LinkedIn, Instagram, WhatsApp, Phone).

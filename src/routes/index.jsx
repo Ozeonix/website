@@ -29,6 +29,11 @@ import {
   MonitorSmartphone,
   GraduationCap,
   Boxes,
+  ShoppingBag,
+  Activity,
+  Briefcase,
+  TrendingUp,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -263,6 +268,41 @@ const LOCAL_SERVICES = [
   },
 ];
 
+const TRUST_INDUSTRIES = [
+  { label: "Schools & Colleges", icon: GraduationCap },
+  { label: "Retail & Inventory", icon: ShoppingBag },
+  { label: "Healthcare", icon: Activity },
+  { label: "Professional Services", icon: Briefcase },
+  { label: "Growing SMEs", icon: TrendingUp },
+];
+
+const QUICK_LINKS = [
+  {
+    to: "/services/crm-solutions",
+    title: "CRM systems",
+    desc: "Convert and retain more customers",
+    icon: Users,
+  },
+  {
+    to: "/services/erp-development",
+    title: "ERP platforms",
+    desc: "Connect finance, people and operations",
+    icon: Boxes,
+  },
+  {
+    to: "/services/lms-platforms",
+    title: "LMS solutions",
+    desc: "Modern learning for schools and teams",
+    icon: GraduationCap,
+  },
+  {
+    to: "/services",
+    title: "Web & mobile",
+    desc: "Fast experiences on every screen",
+    icon: MonitorSmartphone,
+  },
+];
+
 function Home() {
   // Slow-device / data-saver graceful fallback: mark <html> so animations pause.
   useEffect(() => {
@@ -336,56 +376,53 @@ function Home() {
       </section>
 
       {/* TRUST AND QUICK LINKS */}
-      <section
-        className="oz-section--tight oz-trusted oz-home-trust"
-        aria-label="Industries and capabilities"
-      >
+      <section className="oz-home-trust" aria-label="Industries and capabilities">
         <div className="oz-container">
-          <p className="oz-home-trust__label">Built for ambitious teams</p>
-          <div className="oz-home-trust__items">
-            {[
-              "Schools & Colleges",
-              "Retail & Inventory",
-              "Healthcare",
-              "Professional Services",
-              "Growing SMEs",
-            ].map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
+          <Reveal>
+            <div className="oz-home-trust__header">
+              <span className="oz-home-trust__eyebrow">
+                <Sparkles size={13} className="oz-home-trust__sparkle" aria-hidden="true" />
+                <span>Built for ambitious teams across industries</span>
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal index={1}>
+            <div className="oz-home-trust__items" role="list" aria-label="Industries we serve">
+              {TRUST_INDUSTRIES.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={item.label} className="oz-home-trust__pill" role="listitem">
+                    <span className="oz-home-trust__pill-icon" aria-hidden="true">
+                      <IconComponent size={15} />
+                    </span>
+                    <span className="oz-home-trust__pill-text">{item.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
+
           <nav className="oz-home-quicklinks" aria-label="Featured solutions">
-            <Link to="/services/crm-solutions">
-              <Users size={20} />
-              <span>
-                <strong>CRM systems</strong>
-                <small>Convert and retain more customers</small>
-              </span>
-              <ArrowRight size={18} />
-            </Link>
-            <Link to="/services/erp-development">
-              <Boxes size={20} />
-              <span>
-                <strong>ERP platforms</strong>
-                <small>Connect finance, people and operations</small>
-              </span>
-              <ArrowRight size={18} />
-            </Link>
-            <Link to="/services/lms-platforms">
-              <GraduationCap size={20} />
-              <span>
-                <strong>LMS solutions</strong>
-                <small>Modern learning for schools and teams</small>
-              </span>
-              <ArrowRight size={18} />
-            </Link>
-            <Link to="/services">
-              <MonitorSmartphone size={20} />
-              <span>
-                <strong>Web &amp; mobile</strong>
-                <small>Fast experiences on every screen</small>
-              </span>
-              <ArrowRight size={18} />
-            </Link>
+            {QUICK_LINKS.map((link, idx) => {
+              const IconComp = link.icon;
+              return (
+                <Reveal key={link.to} index={idx} as="div" className="oz-home-quicklink-slot">
+                  <Link to={link.to} className="oz-home-quicklink-card">
+                    <div className="oz-home-quicklink__icon-box" aria-hidden="true">
+                      <IconComp size={20} />
+                    </div>
+                    <div className="oz-home-quicklink__content">
+                      <strong className="oz-home-quicklink__title">{link.title}</strong>
+                      <small className="oz-home-quicklink__desc">{link.desc}</small>
+                    </div>
+                    <div className="oz-home-quicklink__arrow" aria-hidden="true">
+                      <ArrowRight size={17} />
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </nav>
         </div>
       </section>

@@ -2,6 +2,16 @@
 
 ### Milestone Log
 
+- **Trust & Capabilities Quicklinks UI/UX Upgrade (`src/routes/index.jsx` & `src/styles.css`)**:
+  - Replaced plain text labels with modern tactile capsule pill chips for target industries (Schools & Colleges with `GraduationCap`, Retail & Inventory with `ShoppingBag`, Healthcare with `Activity`, Professional Services with `Briefcase`, Growing SMEs with `TrendingUp`).
+  - Added sleek eyebrow badge: `Built for ambitious teams across industries` with `Sparkles` icon and brand orange tint.
+  - Upgraded the 4 capability quicklink cards (CRM systems, ERP platforms, LMS solutions, Web & mobile):
+    - Dedicated 44px rounded brand icon container (`#fff7ed` background, `#ea580c` icon, transitions to solid orange with white icon on hover).
+    - Clear typographic hierarchy: bold title in deep charcoal (`#0f172a`), refined slate subtitle (`#64748b`).
+    - Interactive right arrow indicator (`ArrowRight`) with smooth forward glide (`translateX(4px)`).
+    - Animated bottom accent progress line (`scaleX(0)` to `scaleX(1)`) on card hover.
+    - Fully responsive across desktop (4-column grid), tablet (2-column grid), and mobile (1-column stack).
+
 - **Technologies Section Responsive Upgrade (`src/components/TechnologiesSection.jsx` & `src/styles.css`)**:
   - Upgraded section to match the pixel-accurate design reference.
   - Added speech bubble pointer tail to the `<div className="oz-tech-eyebrow">` pill badge with circular code icon `< />`.
