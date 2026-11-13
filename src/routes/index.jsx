@@ -345,8 +345,8 @@ function Home() {
                   src="/assets/ozeonix-infinity-saas-hero-mockup.png"
                   alt="Ozeonix Infinity business software platform mockup"
                   className="oz-home-hero__mockup-img"
-                  width="1024"
-                  height="576"
+                  width="906"
+                  height="515"
                   loading="eager"
                   fetchPriority="high"
                 />

@@ -4545,6 +4545,15 @@ a.oz-btn,
 }
 .oz-home-hero__visual .oz-reveal {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .oz-home-hero__visual,
+  .oz-home-hero__visual .oz-reveal {
+    justify-content: flex-end;
+  }
 }
 .oz-home-hero__mockup-img {
   width: 100%;
@@ -4594,8 +4603,13 @@ a.oz-btn,
     text-align: center;
   }
   .oz-home-hero__visual {
-    max-width: 38rem;
+    max-width: min(34rem, 100%);
     margin-inline: auto;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  .oz-home-hero__visual .oz-reveal {
+    justify-content: center;
   }
 }
 @media (max-width: 640px) {
