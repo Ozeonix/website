@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Reveal from "../components/Reveal.jsx";
 import ResponsiveImage from "../components/ResponsiveImage.jsx";
 import ProjectBriefForm from "../components/ProjectBriefForm.jsx";
+import HeroIllustration from "../components/HeroIllustration.jsx";
 import processTeam480 from "../assets/process-team-480.webp";
 import processTeam768 from "../assets/process-team-768.webp";
 import processTeam1024 from "../assets/process-team-1024.webp";
@@ -341,15 +342,7 @@ function Home() {
 
             <div className="oz-home-hero__visual" aria-hidden="true">
               <Reveal index={2} direction="right">
-                <img
-                  src="/assets/ozeonix-infinity-saas-hero-mockup.png"
-                  alt="Ozeonix Infinity business software platform mockup"
-                  className="oz-home-hero__mockup-img"
-                  width="906"
-                  height="515"
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                <HeroIllustration />
               </Reveal>
             </div>
           </div>
