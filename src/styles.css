@@ -2302,12 +2302,23 @@ fieldset.oz-field {
   height: 20px !important;
 }
 
-.oz-footer__social-btn:hover {
-  background-color: var(--brand-orange, #ea580c);
-  color: #ffffff;
-  border-color: var(--brand-orange, #ea580c);
-  transform: scale(1.1) rotate(12deg);
-  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+.oz-footer .oz-footer__social-btn:hover,
+.oz-footer--upgraded .oz-footer__social-btn:hover,
+.oz-footer .oz-footer__social-btn:focus-visible,
+.oz-footer--upgraded .oz-footer__social-btn:focus-visible {
+  background-color: var(--brand-orange, #ea580c) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-orange, #ea580c) !important;
+  transform: translateY(-2px) scale(1.08) !important;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45) !important;
+}
+
+.oz-footer .oz-footer__social-btn:hover svg,
+.oz-footer--upgraded .oz-footer__social-btn:hover svg,
+.oz-footer .oz-footer__social-btn:focus-visible svg,
+.oz-footer--upgraded .oz-footer__social-btn:focus-visible svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .oz-footer__grid--4col {
