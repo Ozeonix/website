@@ -85,9 +85,34 @@ const PARTICLES = [
   { id: 7, top: "42%", left: "90%", size: 3, duration: "10.2s", delay: "2.6s", color: "#ea580c" },
 ];
 
+// Exact alignment geometry centered to the laptop image (906 x 515 coordinate space)
+const ORBIT_GEOMETRY = {
+  cx: 445,
+  cy: 265,
+  rx: 290,
+  ry: 135,
+  rot: -10 * (Math.PI / 180), // -10 degrees matching laptop 3D tilt
+  // Inner ring
+  rxInner: 190,
+  ryInner: 88,
+};
+
+function getEllipsePoint(theta, rx, ry) {
+  const { cx, cy, rot } = ORBIT_GEOMETRY;
+  const cosRot = Math.cos(rot);
+  const sinRot = Math.sin(rot);
+  const x0 = rx * Math.cos(theta);
+  const y0 = ry * Math.sin(theta);
+  const x = cx + x0 * cosRot - y0 * sinRot;
+  const y = cy + x0 * sinRot + y0 * cosRot;
+  return { x, y };
+}
+
 export default function HeroIllustration() {
   const containerRef = useRef(null);
-  const rafId = useRef(null);
+  const backCanvasRef = useRef(null);
+  const frontCanvasRef = useRef(null);
+  const mouseRafId = useRef(null);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0, tiltX: 0, tiltY: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -104,6 +129,140 @@ export default function HeroIllustration() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  // Continuous 3D Orbital Canvas Rendering Loop (Runs at silky 60/120fps)
+  useEffect(() => {
+    const backCanvas = backCanvasRef.current;
+    const frontCanvas = frontCanvasRef.current;
+    if (!backCanvas || !frontCanvas) return;
+
+    const backCtx = backCanvas.getContext("2d");
+    const frontCtx = frontCanvas.getContext("2d");
+    if (!backCtx || !frontCtx) return;
+
+    let animId;
+    let startTime = performance.now();
+
+    const draw = (now) => {
+      const elapsed = (now - startTime) / 1000; // in seconds
+      const speed = prefersReducedMotion ? 0 : 0.65; // ~9.6s full 360deg revolution
+      const thetaMain = elapsed * speed;
+      const thetaFollower = thetaMain + Math.PI; // 180deg opposite
+      const thetaInner = -elapsed * speed * 1.25; // counter-clockwise inner
+
+      // Clear both canvases
+      backCtx.clearRect(0, 0, 906, 515);
+      frontCtx.clearRect(0, 0, 906, 515);
+
+      const { cx, cy, rx, ry, rot, rxInner, ryInner } = ORBIT_GEOMETRY;
+      const dashOffset = prefersReducedMotion ? 0 : -elapsed * 35;
+
+      // --- Helper to draw an ellipse arc ---
+      const drawArc = (ctx, rX, rY, startAngle, endAngle, strokeStyle, lineWidth, dash) => {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(rot);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, rX, rY, 0, startAngle, endAngle);
+        ctx.setLineDash(dash);
+        ctx.lineDashOffset = dashOffset;
+        ctx.strokeStyle = strokeStyle;
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+        ctx.restore();
+      };
+
+      // --- Helper to draw a glowing orbiting satellite ---
+      const drawSatellite = (ctx, theta, rX, rY, color, radius, glow) => {
+        const pt = getEllipsePoint(theta, rX, rY);
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = glow;
+        ctx.fill();
+
+        // Outer soft pulse halo
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, radius * 2, 0, Math.PI * 2);
+        ctx.fillStyle = color === "#ea580c"
+          ? "rgba(234, 88, 12, 0.25)"
+          : color === "#38bdf8"
+          ? "rgba(56, 189, 248, 0.25)"
+          : "rgba(0, 169, 130, 0.25)";
+        ctx.fill();
+        ctx.restore();
+      };
+
+      // 1. BACK ORBIT ARCS (Passes BEHIND laptop screen: theta from PI to 2*PI)
+      drawArc(backCtx, rx, ry, Math.PI, Math.PI * 2, "rgba(234, 88, 12, 0.35)", 1.4, [8, 10]);
+      drawArc(backCtx, rxInner, ryInner, Math.PI, Math.PI * 2, "rgba(56, 189, 248, 0.28)", 1.1, [4, 8]);
+
+      // 2. FRONT ORBIT ARCS (Sweeps IN FRONT of laptop keyboard: theta from 0 to PI)
+      drawArc(frontCtx, rx, ry, 0, Math.PI, "rgba(234, 88, 12, 0.75)", 1.8, [8, 10]);
+      drawArc(frontCtx, rxInner, ryInner, 0, Math.PI, "rgba(56, 189, 248, 0.55)", 1.3, [4, 8]);
+
+      // 3. CONTINUOUS ROTATING SATELLITES (Assigned to back or front canvas based on position)
+      const satellites = [
+        { theta: thetaMain, rx, ry, color: "#ea580c", radius: 5, glow: 16 },
+        { theta: thetaFollower, rx, ry, color: "#38bdf8", radius: 4.5, glow: 14 },
+        { theta: thetaInner, rx: rxInner, ry: ryInner, color: "#00A982", radius: 4, glow: 12 },
+      ];
+
+      satellites.forEach((sat) => {
+        // sin(theta) > 0 means Y is in bottom half (front, in front of keyboard)
+        const isFront = Math.sin(sat.theta % (Math.PI * 2)) > 0;
+        const targetCtx = isFront ? frontCtx : backCtx;
+        drawSatellite(targetCtx, sat.theta, sat.rx, sat.ry, sat.color, sat.radius, sat.glow);
+      });
+
+      // 4. CONNECTION TRAILS TO 4 SERVICE CARDS (Drawn on front canvas)
+      frontCtx.save();
+      frontCtx.setLineDash([4, 6]);
+      frontCtx.lineDashOffset = prefersReducedMotion ? 0 : -elapsed * 25;
+      frontCtx.lineWidth = 1.3;
+
+      // To Card 1 (Top-Left)
+      frontCtx.beginPath();
+      frontCtx.moveTo(330, 215);
+      frontCtx.quadraticCurveTo(240, 160, 180, 110);
+      frontCtx.strokeStyle = "rgba(56, 189, 248, 0.4)";
+      frontCtx.stroke();
+
+      // To Card 2 (Bottom-Left)
+      frontCtx.beginPath();
+      frontCtx.moveTo(280, 310);
+      frontCtx.quadraticCurveTo(220, 300, 160, 275);
+      frontCtx.strokeStyle = "rgba(234, 88, 12, 0.45)";
+      frontCtx.stroke();
+
+      // To Card 3 (Top-Right)
+      frontCtx.beginPath();
+      frontCtx.moveTo(560, 200);
+      frontCtx.quadraticCurveTo(650, 155, 730, 110);
+      frontCtx.strokeStyle = "rgba(96, 165, 250, 0.4)";
+      frontCtx.stroke();
+
+      // To Card 4 (Bottom-Right)
+      frontCtx.beginPath();
+      frontCtx.moveTo(610, 310);
+      frontCtx.quadraticCurveTo(675, 330, 735, 340);
+      frontCtx.strokeStyle = "rgba(0, 169, 130, 0.45)";
+      frontCtx.stroke();
+      frontCtx.restore();
+
+      if (!prefersReducedMotion) {
+        animId = requestAnimationFrame(draw);
+      }
+    };
+
+    animId = requestAnimationFrame(draw);
+
+    return () => {
+      if (animId) cancelAnimationFrame(animId);
+    };
+  }, [prefersReducedMotion]);
+
   // Smooth mousemove parallax handler using requestAnimationFrame
   const handleMouseMove = useCallback(
     (e) => {
@@ -113,13 +272,11 @@ export default function HeroIllustration() {
       const rawX = (e.clientX - rect.left) / rect.width;
       const rawY = (e.clientY - rect.top) / rect.height;
 
-      // Map to normalized range [-1, 1]
       const nx = Math.max(-1, Math.min(1, (rawX - 0.5) * 2));
       const ny = Math.max(-1, Math.min(1, (rawY - 0.5) * 2));
 
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-      rafId.current = requestAnimationFrame(() => {
-        // Subtle 3D tilt angles: tiltX (pitch) clamped to ±4.5deg, tiltY (yaw) clamped to ±5.5deg
+      if (mouseRafId.current) cancelAnimationFrame(mouseRafId.current);
+      mouseRafId.current = requestAnimationFrame(() => {
         const tiltX = -ny * 4.5;
         const tiltY = nx * 5.5;
         setMousePos({ x: nx, y: ny, tiltX, tiltY });
@@ -131,8 +288,8 @@ export default function HeroIllustration() {
 
   // Smooth reset on mouse leave
   const handleMouseLeave = useCallback(() => {
-    if (rafId.current) cancelAnimationFrame(rafId.current);
-    rafId.current = requestAnimationFrame(() => {
+    if (mouseRafId.current) cancelAnimationFrame(mouseRafId.current);
+    mouseRafId.current = requestAnimationFrame(() => {
       setMousePos({ x: 0, y: 0, tiltX: 0, tiltY: 0 });
       setIsHovered(false);
     });
@@ -141,7 +298,7 @@ export default function HeroIllustration() {
   // Clean up RAF on unmount
   useEffect(() => {
     return () => {
-      if (rafId.current) cancelAnimationFrame(rafId.current);
+      if (mouseRafId.current) cancelAnimationFrame(mouseRafId.current);
     };
   }, []);
 
@@ -175,159 +332,16 @@ export default function HeroIllustration() {
         <div className="oz-hero-illus__glow oz-hero-illus__glow--center" />
       </div>
 
-      {/* 2. CONTINUOUS 3D ROTATING ORBIT SYSTEM */}
-      <div className="oz-hero-illus__orbit-3d" aria-hidden="true">
-        {/* Outer Continuous Rotating Orbit Ring with Orange & Cyan Satellites */}
-        <div className="oz-orbit-3d-ring oz-orbit-3d-ring--outer">
-          <span className="oz-orbit-satellite oz-orbit-satellite--orange" />
-          <span className="oz-orbit-satellite oz-orbit-satellite--cyan" />
-        </div>
-
-        {/* Inner Counter-Rotating Orbit Ring with Green Satellite */}
-        <div className="oz-orbit-3d-ring oz-orbit-3d-ring--inner">
-          <span className="oz-orbit-satellite oz-orbit-satellite--green" />
-        </div>
-      </div>
-
-      {/* 3. CONNECTED ENERGY TRAILS & SVG OVERLAY */}
-      <svg
-        className="oz-hero-illus__orbit-svg"
-        viewBox="0 0 906 515"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      {/* 2. BACK ORBIT CANVAS (Passes BEHIND the laptop screen) */}
+      <canvas
+        ref={backCanvasRef}
+        width={906}
+        height={515}
+        className="oz-hero-illus__canvas oz-hero-illus__canvas--back"
         aria-hidden="true"
-      >
-        <defs>
-          {/* Main orbit gradient: Orange -> Cyan -> Green -> Orange */}
-          <linearGradient id="ozOrbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ea580c" stopOpacity="0.75" />
-            <stop offset="35%" stopColor="#38bdf8" stopOpacity="0.65" />
-            <stop offset="70%" stopColor="#00A982" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#ea580c" stopOpacity="0.75" />
-          </linearGradient>
+      />
 
-          {/* Secondary inner orbit gradient */}
-          <linearGradient id="ozInnerOrbitGrad" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#ea580c" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#00A982" stopOpacity="0.4" />
-          </linearGradient>
-
-          {/* Glow filter for moving energy pulse */}
-          <filter id="ozPulseGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          {/* Curved connection gradients */}
-          <linearGradient id="ozTrailTL" x1="60%" y1="70%" x2="10%" y2="20%">
-            <stop offset="0%" stopColor="#ea580c" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.1" />
-          </linearGradient>
-          <linearGradient id="ozTrailBL" x1="60%" y1="30%" x2="10%" y2="80%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#ea580c" stopOpacity="0.1" />
-          </linearGradient>
-          <linearGradient id="ozTrailTR" x1="30%" y1="70%" x2="90%" y2="20%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.1" />
-          </linearGradient>
-          <linearGradient id="ozTrailBR" x1="30%" y1="30%" x2="90%" y2="80%">
-            <stop offset="0%" stopColor="#00A982" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#00A982" stopOpacity="0.1" />
-          </linearGradient>
-        </defs>
-
-        {/* Orbit System tilted to match laptop 3D perspective */}
-        <g transform="rotate(-8 453 260)">
-          {/* Main elliptical energy orbit path */}
-          <path
-            id="ozMainOrbitPath"
-            d="M 113,260 A 340,150 0 1,0 793,260 A 340,150 0 1,0 113,260"
-            fill="none"
-            stroke="url(#ozOrbitGrad)"
-            strokeWidth="1.6"
-            strokeDasharray="6 8"
-            className="oz-orbit-dashed"
-          />
-
-          {/* Inner ambient energy ring */}
-          <ellipse
-            cx="453"
-            cy="260"
-            rx="215"
-            ry="92"
-            fill="none"
-            stroke="url(#ozInnerOrbitGrad)"
-            strokeWidth="1.2"
-            strokeDasharray="3 7"
-            className="oz-orbit-dashed--rev"
-          />
-
-          {/* Moving Glowing Particle 1: Orange Energy Pulse */}
-          {!prefersReducedMotion && (
-            <circle r="4.5" fill="#ea580c" filter="url(#ozPulseGlow)">
-              <animateMotion dur="10s" repeatCount="indefinite">
-                <mpath href="#ozMainOrbitPath" xlinkHref="#ozMainOrbitPath" />
-              </animateMotion>
-            </circle>
-          )}
-
-          {/* Moving Glowing Particle 2: Cyan Follower Pulse (offset by 5s) */}
-          {!prefersReducedMotion && (
-            <circle r="3.8" fill="#38bdf8" filter="url(#ozPulseGlow)">
-              <animateMotion dur="10s" begin="-5s" repeatCount="indefinite">
-                <mpath href="#ozMainOrbitPath" xlinkHref="#ozMainOrbitPath" />
-              </animateMotion>
-            </circle>
-          )}
-        </g>
-
-        {/* Interconnection Trails from Laptop Core to 4 Service Cards */}
-        <g className="oz-hero-illus__trails">
-          {/* Trail to Card 1 (Top-Left) */}
-          <path
-            d="M 370,205 Q 285,155 210,105"
-            fill="none"
-            stroke="url(#ozTrailTL)"
-            strokeWidth="1.4"
-            strokeDasharray="4 6"
-            className="oz-flow-trail"
-          />
-          {/* Trail to Card 2 (Bottom-Left) */}
-          <path
-            d="M 345,305 Q 260,295 170,265"
-            fill="none"
-            stroke="url(#ozTrailBL)"
-            strokeWidth="1.4"
-            strokeDasharray="4 6"
-            className="oz-flow-trail"
-          />
-          {/* Trail to Card 3 (Top-Right) */}
-          <path
-            d="M 535,195 Q 635,150 725,105"
-            fill="none"
-            stroke="url(#ozTrailTR)"
-            strokeWidth="1.4"
-            strokeDasharray="4 6"
-            className="oz-flow-trail"
-          />
-          {/* Trail to Card 4 (Bottom-Right) */}
-          <path
-            d="M 555,310 Q 645,335 715,345"
-            fill="none"
-            stroke="url(#ozTrailBR)"
-            strokeWidth="1.4"
-            strokeDasharray="4 6"
-            className="oz-flow-trail"
-          />
-        </g>
-      </svg>
-
-      {/* 3. AMBIENT FLOATING PARTICLES */}
+      {/* 3. AMBIENT FLOATING DUST PARTICLES */}
       <div className="oz-hero-illus__particles" aria-hidden="true">
         {PARTICLES.map((p) => (
           <span
@@ -376,7 +390,16 @@ export default function HeroIllustration() {
         </div>
       </div>
 
-      {/* 5. INDEPENDENT FLOATING GLASS SERVICE CARDS */}
+      {/* 5. FRONT ORBIT CANVAS (Sweeps IN FRONT OF the laptop keyboard & body) */}
+      <canvas
+        ref={frontCanvasRef}
+        width={906}
+        height={515}
+        className="oz-hero-illus__canvas oz-hero-illus__canvas--front"
+        aria-hidden="true"
+      />
+
+      {/* 6. INDEPENDENT FLOATING GLASS SERVICE CARDS */}
       <div className="oz-hero-illus__cards-layer" aria-label="Core service capabilities">
         {CARDS.map((card) => {
           const IconComponent = card.Icon;
@@ -446,4 +469,3 @@ export default function HeroIllustration() {
     </div>
   );
 }
-
