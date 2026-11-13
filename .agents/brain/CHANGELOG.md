@@ -2,6 +2,13 @@
 
 ### Milestone Log
 
+- **Footer Header Logo & Navigation Bullet Refinements (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Simplified the top header brand section: removed redundant text ("Ozeonix Infinity" / "Shape Thought. Power Tomorrow") to keep exclusively the crisp, official white-text horizontal logo image.
+  - Replaced raw Unicode symbols with semantic, accessible `lucide-react` icons (`ChevronRight`, `MapPin`, `Phone`, `Mail`, `Check`).
+  - Fixed navigation arrow visibility: `.oz-footer__arrow` was previously invisible (`opacity: 0`) and only visible on hover; now permanently visible with solid orange styling (`#f97316`) and glides forward on hover (`#ff8533` with `translateX(3px)`).
+  - Compacted layout spacing: tightened footer padding, header margin, grid gap, and link padding to create a clean, elegant layout.
+  - Strengthened typography: increased font weight (`600` on links, `750` on column titles) and improved text contrast (`rgba(255, 255, 255, 0.9)`).
+
 - **Trust & Capabilities Quicklinks UI/UX Upgrade (`src/routes/index.jsx` & `src/styles.css`)**:
   - Replaced plain text labels with modern tactile capsule pill chips for target industries (Schools & Colleges with `GraduationCap`, Retail & Inventory with `ShoppingBag`, Healthcare with `Activity`, Professional Services with `Briefcase`, Growing SMEs with `TrendingUp`).
   - Added sleek eyebrow badge: `Built for ambitious teams across industries` with `Sparkles` icon and brand orange tint.

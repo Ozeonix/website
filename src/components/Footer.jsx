@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { ChevronRight, MapPin, Phone, Mail, Check } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-footer-logo.png.asset.json";
 
 export default function Footer() {
@@ -68,21 +69,19 @@ export default function Footer() {
       </div>
 
       <div className="oz-container oz-footer__content">
-        {/* Top Header Row — Logo + Branding + Interactive Social Circles */}
+        {/* Top Header Row — Logo Only (No Redundant Text) + Social Circles */}
         <header className="oz-footer__header">
           <div className="oz-footer__header-brand">
-            <img
-              className="oz-brand__logo oz-brand__logo--footer oz-footer__header-logo"
-              src={logoAsset.url}
-              alt="Ozeonix Infinity"
-              width={1774}
-              height={887}
-              decoding="async"
-            />
-            <div className="oz-footer__header-text">
-              <h3 className="oz-footer__header-title">Ozeonix Infinity</h3>
-              <p className="oz-footer__header-subtitle">Shape Thought. Power Tomorrow</p>
-            </div>
+            <Link to="/" aria-label="Ozeonix Infinity Home" className="oz-footer__logo-link">
+              <img
+                className="oz-brand__logo oz-brand__logo--footer oz-footer__header-logo"
+                src={logoAsset.url}
+                alt="Ozeonix Infinity"
+                width={1774}
+                height={887}
+                decoding="async"
+              />
+            </Link>
           </div>
 
           <nav className="oz-footer__socials" aria-label="Social media profiles">
@@ -177,38 +176,44 @@ export default function Footer() {
           {/* Column 1: Quick Links */}
           <div className="oz-footer__col">
             <h4 className="oz-footer__col-title">
-              <span className="oz-footer__dot">●</span> Quick Links
+              <span className="oz-footer__dot" aria-hidden="true" /> Quick Links
             </h4>
             <nav aria-label="Footer Navigation">
               <ul className="oz-footer__nav-list">
                 <li>
                   <Link to="/" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Home
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/about" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> About
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>About</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/careers" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Careers
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Careers</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/partner-program" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Partner Program
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Partner Program</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/auth" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Partner Login
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Partner Login</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/contact" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Contact
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Contact</span>
                   </Link>
                 </li>
               </ul>
@@ -218,43 +223,50 @@ export default function Footer() {
           {/* Column 2: Solutions */}
           <div className="oz-footer__col">
             <h4 className="oz-footer__col-title">
-              <span className="oz-footer__dot">●</span> Solutions
+              <span className="oz-footer__dot" aria-hidden="true" /> Solutions
             </h4>
             <nav aria-label="Solutions">
               <ul className="oz-footer__nav-list">
                 <li>
                   <Link to="/services" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Services
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Services</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/products" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Products
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Products</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/industries" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Industries
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Industries</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/portfolio" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> Portfolio
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>Portfolio</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/services/crm-solutions" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> CRM Systems
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>CRM Systems</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/services/erp-development" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> ERP Platforms
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>ERP Platforms</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/services/lms-platforms" className="oz-footer__nav-link">
-                    <span className="oz-footer__arrow">→</span> LMS Solutions
+                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
+                    <span>LMS Solutions</span>
                   </Link>
                 </li>
               </ul>
@@ -264,17 +276,21 @@ export default function Footer() {
           {/* Column 3: Contact & Hours */}
           <div className="oz-footer__col">
             <h4 className="oz-footer__col-title">
-              <span className="oz-footer__dot">●</span> Contact Us
+              <span className="oz-footer__dot" aria-hidden="true" /> Contact Us
             </h4>
             <address className="oz-footer__contact-items">
               <div className="oz-footer__contact-row">
-                <span className="oz-footer__contact-icon">📍</span>
+                <span className="oz-footer__contact-icon">
+                  <MapPin size={16} aria-hidden="true" />
+                </span>
                 <span className="oz-footer__contact-text">
                   Siddharthanagar, Bhairahawa, Rupandehi, Nepal
                 </span>
               </div>
               <div className="oz-footer__contact-row">
-                <span className="oz-footer__contact-icon">📞</span>
+                <span className="oz-footer__contact-icon">
+                  <Phone size={16} aria-hidden="true" />
+                </span>
                 <a href="tel:+9779769294624" className="oz-footer__contact-link">
                   +977-9769294624
                 </a>
@@ -285,12 +301,12 @@ export default function Footer() {
                     src="/assets/whatsapp-icon.png"
                     alt=""
                     aria-hidden="true"
-                    width="20"
-                    height="20"
+                    width="18"
+                    height="18"
                     className="oz-footer__contact-img"
                   />
                 </span>
-                <label>WhatsApp:</label>
+                <span className="oz-footer__contact-label">WhatsApp:</span>
                 <a
                   href="https://wa.me/9779769294624"
                   target="_blank"
@@ -318,7 +334,7 @@ export default function Footer() {
           {/* Column 4: Stay Updated */}
           <div className="oz-footer__col">
             <h4 className="oz-footer__col-title">
-              <span className="oz-footer__dot">●</span> Stay Updated
+              <span className="oz-footer__dot" aria-hidden="true" /> Stay Updated
             </h4>
             <p className="oz-footer__newsletter-desc">
               Subscribe to product updates, engineering insights, and tech releases from Ozeonix
@@ -327,7 +343,8 @@ export default function Footer() {
 
             {subscribed ? (
               <div className="oz-footer__subscribed-msg" role="status">
-                <span className="oz-footer__subscribed-icon">✓</span> Thank you! You’re on the list.
+                <Check size={16} className="oz-footer__subscribed-icon" aria-hidden="true" />
+                <span>Thank you! You’re on the list.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="oz-footer__form">
@@ -342,7 +359,7 @@ export default function Footer() {
                     className="oz-footer__input"
                   />
                   <span className="oz-footer__input-icon" aria-hidden="true">
-                    ✉️
+                    <Mail size={16} />
                   </span>
                 </div>
                 <button type="submit" className="oz-btn oz-btn--primary oz-footer__submit-btn">
@@ -356,14 +373,22 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="oz-footer__bottom">
           <p className="oz-footer__copyright">
-            © {year} <span className="oz-footer__brand-strong">Ozeonix Infinity</span>. All rights
-            reserved.
+            © {year} <strong className="oz-footer__brand-strong">Ozeonix Infinity</strong>. All
+            rights reserved.
           </p>
           <nav className="oz-footer__legal-links" aria-label="Legal">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms &amp; Conditions</Link>
-            <Link to="/refund">Refund Policy</Link>
-            <Link to="/cookies">Cookie Policy</Link>
+            <Link to="/privacy" className="oz-footer__legal-link">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="oz-footer__legal-link">
+              Terms &amp; Conditions
+            </Link>
+            <Link to="/refund" className="oz-footer__legal-link">
+              Refund Policy
+            </Link>
+            <Link to="/cookies" className="oz-footer__legal-link">
+              Cookie Policy
+            </Link>
           </nav>
         </div>
       </div>

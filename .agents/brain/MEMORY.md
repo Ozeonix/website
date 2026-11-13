@@ -68,6 +68,9 @@
 - **Grid Layout**: 4 columns on desktop, 2 columns on tablet, 1 column on mobile.
 
 ### D. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
+- **Logo Presentation**: Clean, official white-text horizontal logo image only (redundant text removed).
+- **Navigation Bullets / Arrows**: Dedicated semantic `ChevronRight` icons permanently visible with vibrant orange styling (`#f97316`) that glide forward smoothly on link hover.
+- **Compact Spacing & Strong Typography**: Tightened padding and margins, increased link weight (`600`) and column header weight (`750`) with high-contrast text (`rgba(255, 255, 255, 0.9)`).
 - **Kinetic Wave Vector Background**: 20-path parabolic energy fan originating bottom-left and fanning out top-right (`viewBox="0 0 1200 320"`, `preserveAspectRatio="none"`).
 - **Opacity Tuning**: Group opacity at `0.6` (60%), CSS lines base opacity `0.36`, gentle breathing pulse (`0.30`–`0.44`).
 - **Social Media Buttons**: Circular 44px buttons (`.oz-footer__social-btn`) with dead-centered vector glyphs (Facebook, LinkedIn, Instagram, WhatsApp, Phone).
