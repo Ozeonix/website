@@ -34,6 +34,9 @@ import {
   Briefcase,
   TrendingUp,
   Sparkles,
+  HelpCircle,
+  ChevronDown,
+  MessageSquare,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -868,26 +871,86 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="oz-section oz-section--muted" aria-label="FAQ">
+      <section className="oz-section oz-section--muted oz-section-faq" aria-label="FAQ">
         <div className="oz-container oz-container--narrow">
-          <div className="oz-section-head">
+          <div className="oz-section-head oz-faq-header">
             <Reveal>
-              <span className="oz-eyebrow">FAQ</span>
+              <span className="oz-faq-eyebrow">
+                <HelpCircle size={14} aria-hidden="true" />
+                <span>FAQ &amp; Knowledge Base</span>
+              </span>
             </Reveal>
             <Reveal index={1} as="h2">
               Answers to common questions.
             </Reveal>
+            <Reveal index={2}>
+              <p className="oz-faq-header__desc">
+                Everything you need to know about our software engineering workflow, custom CRM
+                &amp; ERP platforms, LMS solutions, and engagement model.
+              </p>
+            </Reveal>
           </div>
-          <div className="oz-faq">
+          <div className="oz-faq-stack">
             {FAQS.map((f, i) => (
               <Reveal key={f.q} index={i % 3}>
-                <details>
-                  <summary>{f.q}</summary>
-                  <p>{f.a}</p>
+                <details className="oz-faq-card" open={i === 0}>
+                  <summary className="oz-faq-card__trigger">
+                    <div className="oz-faq-card__left">
+                      <span className="oz-faq-card__index" aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="oz-faq-card__q">{f.q}</span>
+                    </div>
+                    <span className="oz-faq-card__chevron" aria-hidden="true">
+                      <ChevronDown size={18} />
+                    </span>
+                  </summary>
+                  <div className="oz-faq-card__content">
+                    <div className="oz-faq-card__divider" aria-hidden="true" />
+                    <p className="oz-faq-card__ans">{f.a}</p>
+                  </div>
                 </details>
               </Reveal>
             ))}
           </div>
+
+          <Reveal index={1}>
+            <div className="oz-faq-help">
+              <div className="oz-faq-help__left">
+                <div className="oz-faq-help__icon-box" aria-hidden="true">
+                  <MessageSquare size={22} />
+                </div>
+                <div>
+                  <h4 className="oz-faq-help__title">Have a question not listed here?</h4>
+                  <p className="oz-faq-help__desc">
+                    Talk directly with our software engineering leads. Get an honest scope,
+                    timeline, and estimate.
+                  </p>
+                </div>
+              </div>
+              <div className="oz-faq-help__actions">
+                <a
+                  href="https://wa.me/9779769294624"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="oz-faq-btn-wa"
+                >
+                  <img
+                    src="/assets/whatsapp-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                  />
+                  <span>WhatsApp Us</span>
+                </a>
+                <Link to="/contact" className="oz-faq-btn-contact">
+                  <span>Project Brief</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

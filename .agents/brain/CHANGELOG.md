@@ -2,6 +2,15 @@
 
 ### Milestone Log
 
+- **Modern FAQ Accordion & Knowledge Base UI/UX Upgrade (`src/routes/index.jsx` & `src/styles.css`)**:
+  - Transformed the plain FAQ list into a modern, tactile accordion system:
+    - **Eyebrow & Header**: Added `FAQ & Knowledge Base` capsule badge with `HelpCircle` icon, high-contrast headline, and descriptive subtitle.
+    - **Numeric Index Badges**: Structured each question with a tabular numeric chip (`01`–`06`) that highlights in brand orange when open.
+    - **Rotating Chevron Buttons**: Replaced crude raw `+`/`–` characters with 32px circular icon buttons containing `ChevronDown` that smoothly rotate 180° on open with orange glow shadow.
+    - **Card Architecture**: Implemented 14px rounded cards with left brand orange accent indicator bar (`.oz-faq-card::before`), subtle card shadows, and animated fade-in for expanding answers.
+    - **Direct Engineer Support Banner**: Added bottom help callout (`.oz-faq-help`) with `MessageSquare` icon and direct WhatsApp and Project Brief action buttons.
+    - **Responsiveness**: Verified fluid mobile, tablet, and desktop rendering with touch targets exceeding 44px and zero horizontal overflow.
+
 - **Footer Contact Row Baseline Alignment Fix (`src/styles.css` & `src/components/Footer.jsx`)**:
   - Resolved the "subscript formatting" visual defect on the WhatsApp contact row where the phone link (`+977-9769294624`) was dropping 7px below the label (`WhatsApp:`).
   - Cause: `.oz-footer a` had generic `padding: 7px 0; min-height: 36px; display: block;` which contaminated `.oz-footer__contact-link`, pushing it down while sibling `<span>` had 0 padding.
