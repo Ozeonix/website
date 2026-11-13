@@ -823,7 +823,8 @@ function Home() {
               <span className="oz-eyebrow">By the Numbers</span>
             </Reveal>
             <Reveal index={1} as="h2">
-              Growing with every successful delivery.
+              Growing with every{" "}
+              <span className="oz-text-accent">successful delivery.</span>
             </Reveal>
           </div>
           <div className="oz-stats">

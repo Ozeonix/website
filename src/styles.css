@@ -359,6 +359,10 @@ p {
 .oz-section--dark h4 {
   color: var(--oz-primary-foreground);
 }
+.oz-section--dark h2 span,
+.oz-text-accent {
+  color: var(--brand-orange-500, #f97316);
+}
 
 .oz-section-head {
   max-width: 720px;
@@ -1202,7 +1206,6 @@ p {
   border-radius: 3px;
   background: var(--oz-background);
 }
-
 
 /* Testimonials */
 .oz-quote {
@@ -3025,16 +3028,14 @@ h6 {
   border-radius: clamp(11px, 1.4vw, 16px);
   margin-inline: auto;
   margin-bottom: clamp(0.65rem, 1.5vw, 1.1rem);
-  background: linear-gradient(
-    135deg,
-    rgba(249, 115, 22, 0.18) 0%,
-    rgba(234, 88, 12, 0.08) 100%
-  );
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.18) 0%, rgba(234, 88, 12, 0.08) 100%);
   border: 1px solid rgba(249, 115, 22, 0.35);
   color: var(--brand-orange-500, #f97316);
   box-shadow: 0 6px 18px rgba(249, 115, 22, 0.16);
   flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .oz-stat__icon svg {
@@ -3062,7 +3063,6 @@ h6 {
 }
 
 .oz-stat span {
-  display: block;
   color: #d1d5db;
   font-size: clamp(0.78rem, 1.2vw, 0.95rem);
   font-weight: 500;
@@ -4460,16 +4460,8 @@ a.oz-btn,
   background-image:
     radial-gradient(circle at 75% 50%, rgba(30, 58, 138, 0.32) 0%, transparent 60%),
     radial-gradient(circle at 70% 45%, rgba(234, 88, 12, 0.16) 0%, transparent 45%),
-    linear-gradient(
-      to right,
-      color-mix(in oklab, #ffffff 4%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in oklab, #ffffff 4%, transparent) 1px,
-      transparent 1px
-    );
+    linear-gradient(to right, color-mix(in oklab, #ffffff 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, #ffffff 4%, transparent) 1px, transparent 1px);
   background-size:
     100% 100%,
     100% 100%,
@@ -4685,8 +4677,6 @@ a.oz-btn,
     font-size: 0.68rem;
   }
 }
-
-
 
 .oz-home-trust {
   border-bottom: 1px solid var(--oz-border);
