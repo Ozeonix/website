@@ -3016,12 +3016,15 @@ h6 {
 }
 
 .oz-stat__icon {
-  width: clamp(44px, 5.5vw, 62px);
-  height: clamp(44px, 5.5vw, 62px);
-  border-radius: clamp(10px, 1.4vw, 16px);
-  margin: 0 auto clamp(0.6rem, 1.5vw, 1.1rem);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  width: clamp(46px, 5.5vw, 62px);
+  height: clamp(46px, 5.5vw, 62px);
+  border-radius: clamp(11px, 1.4vw, 16px);
+  margin-inline: auto;
+  margin-bottom: clamp(0.65rem, 1.5vw, 1.1rem);
   background: linear-gradient(
     135deg,
     rgba(249, 115, 22, 0.18) 0%,
@@ -3032,6 +3035,14 @@ h6 {
   box-shadow: 0 6px 18px rgba(249, 115, 22, 0.16);
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.oz-stat__icon svg {
+  display: block;
+  margin: auto;
+  width: clamp(22px, 2.6vw, 28px);
+  height: clamp(22px, 2.6vw, 28px);
+  flex-shrink: 0;
 }
 
 .oz-stat:hover .oz-stat__icon {
