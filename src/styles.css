@@ -2268,7 +2268,6 @@ fieldset.oz-field {
 .oz-footer__content {
   position: relative;
   z-index: 10;
-  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
   padding: clamp(2rem, 4vw, 3rem) 1.5rem 1.5rem;
@@ -2518,16 +2517,24 @@ fieldset.oz-field {
 
 .oz-footer__contact-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   text-align: left;
-  gap: 0.65rem;
+  gap: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.45;
   transition: color 0.2s ease;
   width: 100%;
+}
+
+.oz-footer__contact-row--address {
+  align-items: flex-start;
+}
+
+.oz-footer__contact-row--address .oz-footer__contact-icon {
+  margin-top: 3px;
 }
 
 .oz-footer__contact-row:hover {
@@ -2542,28 +2549,60 @@ fieldset.oz-field {
   justify-content: center;
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .oz-footer__contact-label {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 600;
-  margin-right: 0.25rem;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  line-height: inherit;
+  white-space: nowrap;
 }
 
 .oz-footer__contact-img {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   display: block;
 }
 
-.oz-footer__contact-text,
-.oz-footer__contact-link {
+.oz-footer__contact-text {
   color: inherit;
-  text-decoration: none;
   text-align: left;
-  transition: color 0.2s ease;
+  line-height: inherit;
+}
+
+.oz-footer .oz-footer__contact-link,
+.oz-footer--upgraded .oz-footer__contact-link,
+.oz-footer__contact-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  text-align: left !important;
+  transform: none !important;
+  vertical-align: middle !important;
+  transition: color 0.2s ease !important;
+}
+
+.oz-footer .oz-footer__contact-link:hover,
+.oz-footer--upgraded .oz-footer__contact-link:hover,
+.oz-footer__contact-link:hover {
+  color: var(--brand-orange, #ea580c) !important;
+  transform: none !important;
 }
 
 .oz-footer__sub-title {

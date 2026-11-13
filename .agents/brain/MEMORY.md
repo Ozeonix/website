@@ -68,6 +68,7 @@
 - **Grid Layout**: 4 columns on desktop, 2 columns on tablet, 1 column on mobile.
 
 ### D. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
+- **Contact Row Baseline Alignment**: Generic `.oz-footer a` padding (`padding: 7px 0; min-height: 36px;`) has been explicitly overridden on `.oz-footer__contact-link` with `padding: 0 !important; min-height: 0 !important; display: inline-flex !important; line-height: inherit !important; vertical-align: middle !important;` to ensure WhatsApp/phone icons, labels, and links align on the exact same vertical baseline without subscript dropping.
 - **Mobile Left Alignment**: Footer columns (Quick Links, Solutions, Contact Us, Stay Updated) are strictly left-aligned on mobile devices (`justify-items: stretch`, `text-align: left`, `align-items: flex-start`). Legacy media queries scoping centering to `.oz-footer` have been isolated with `:not(.oz-footer--upgraded)` to prevent forced centering.
 - **Logo Presentation**: Clean, official white-text horizontal logo image only (redundant text removed).
 - **Navigation Bullets / Arrows**: Dedicated semantic `ChevronRight` icons permanently visible with vibrant orange styling (`#f97316`) that glide forward smoothly on link hover.

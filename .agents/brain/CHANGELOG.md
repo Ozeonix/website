@@ -2,6 +2,15 @@
 
 ### Milestone Log
 
+- **Footer Contact Row Baseline Alignment Fix (`src/styles.css` & `src/components/Footer.jsx`)**:
+  - Resolved the "subscript formatting" visual defect on the WhatsApp contact row where the phone link (`+977-9769294624`) was dropping 7px below the label (`WhatsApp:`).
+  - Cause: `.oz-footer a` had generic `padding: 7px 0; min-height: 36px; display: block;` which contaminated `.oz-footer__contact-link`, pushing it down while sibling `<span>` had 0 padding.
+  - Solution:
+    - Locked `.oz-footer .oz-footer__contact-link` with `display: inline-flex !important; align-items: center !important; min-height: 0 !important; height: auto !important; padding: 0 !important; margin: 0 !important; line-height: inherit !important; vertical-align: middle !important;`.
+    - Centered items vertically across `.oz-footer__contact-row` (`align-items: center; gap: 0.5rem;`), while preserving top alignment for multi-line address rows via `.oz-footer__contact-row--address`.
+    - Zeroed icon margins (`margin: 0; line-height: 1;`) and ensured `.oz-footer__contact-label` sits inline with `line-height: inherit`.
+  - Visual verification: Captured headless screenshot confirming green WhatsApp icon, label, and phone link now render on the exact same vertical baseline.
+
 - **Footer Mobile Left-Alignment Fix (`src/styles.css`)**:
   - Scoped legacy `@media (max-width: 639px)` centering rules to `.oz-footer:not(.oz-footer--upgraded)` to prevent forced centering of columns and navigation links on mobile devices.
   - Enforced strict left-alignment on mobile, tablet, and desktop for all footer columns:

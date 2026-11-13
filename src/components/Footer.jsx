@@ -279,7 +279,7 @@ export default function Footer() {
               <span className="oz-footer__dot" aria-hidden="true" /> Contact Us
             </h4>
             <address className="oz-footer__contact-items">
-              <div className="oz-footer__contact-row">
+              <div className="oz-footer__contact-row oz-footer__contact-row--address">
                 <span className="oz-footer__contact-icon">
                   <MapPin size={16} aria-hidden="true" />
                 </span>
