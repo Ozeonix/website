@@ -293,61 +293,65 @@ function Home() {
     <>
       {/* HERO */}
       <section className="oz-hero oz-home-hero" aria-labelledby="hero-heading">
-        <div className="oz-home-hero__visual" aria-hidden="true">
-          <img
-            src="/assets/ozeonix-infinity-saas-hero-mockup.png"
-            alt="Ozeonix Infinity business software platform mockup"
-            className="oz-home-hero__mockup-img"
-            width="1024"
-            height="576"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </div>
-
         <div className="oz-container">
-          <div className="oz-home-hero__copy">
-            <Reveal>
-              <span className="oz-eyebrow">Shape The Thought. Power Tomorrow</span>
-            </Reveal>
-            <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
-              Ozeonix Infinity builds <span>business software that fits how you work.</span>
-            </Reveal>
-            <Reveal index={2}>
-              <p className="oz-hero__lead">
-                Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals—from first
-                idea to launch and long-term support.
-              </p>
-            </Reveal>
-            <Reveal index={3}>
-              <div className="oz-hero__actions">
-                <Link to="/contact" className="oz-btn oz-btn--primary">
-                  Discuss your project <ArrowRight size={18} aria-hidden="true" />
-                </Link>
-                <Link to="/portfolio" className="oz-btn oz-btn--outline">
-                  View selected work
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal index={4}>
-              <dl
-                className="oz-home-hero__proof"
-                aria-label="Ozeonix Infinity service highlights"
-              >
-                <div>
-                  <dt>Direct</dt>
-                  <dd>Access to your product team</dd>
+          <div className="oz-home-hero__grid">
+            <div className="oz-home-hero__copy">
+              <Reveal>
+                <span className="oz-eyebrow">Shape The Thought. Power Tomorrow</span>
+              </Reveal>
+              <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
+                Ozeonix Infinity builds <span>business software that fits how you work.</span>
+              </Reveal>
+              <Reveal index={2}>
+                <p className="oz-hero__lead">
+                  Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals—from first
+                  idea to launch and long-term support.
+                </p>
+              </Reveal>
+              <Reveal index={3}>
+                <div className="oz-hero__actions">
+                  <Link to="/contact" className="oz-btn oz-btn--primary">
+                    Discuss your project <ArrowRight size={18} aria-hidden="true" />
+                  </Link>
+                  <Link to="/portfolio" className="oz-btn oz-btn--outline">
+                    View selected work
+                  </Link>
                 </div>
-                <div>
-                  <dt>Custom</dt>
-                  <dd>Built around your workflow</dd>
-                </div>
-                <div>
-                  <dt>End-to-end</dt>
-                  <dd>Design, build and support</dd>
-                </div>
-              </dl>
-            </Reveal>
+              </Reveal>
+              <Reveal index={4}>
+                <dl
+                  className="oz-home-hero__proof"
+                  aria-label="Ozeonix Infinity service highlights"
+                >
+                  <div>
+                    <dt>Direct</dt>
+                    <dd>Access to your product team</dd>
+                  </div>
+                  <div>
+                    <dt>Custom</dt>
+                    <dd>Built around your workflow</dd>
+                  </div>
+                  <div>
+                    <dt>End-to-end</dt>
+                    <dd>Design, build and support</dd>
+                  </div>
+                </dl>
+              </Reveal>
+            </div>
+
+            <div className="oz-home-hero__visual" aria-hidden="true">
+              <Reveal index={2} direction="right">
+                <img
+                  src="/assets/ozeonix-infinity-saas-hero-mockup.png"
+                  alt="Ozeonix Infinity business software platform mockup"
+                  className="oz-home-hero__mockup-img"
+                  width="1024"
+                  height="576"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
