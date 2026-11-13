@@ -4825,37 +4825,45 @@ a.oz-btn,
 
 /* Card Slot Positions */
 .oz-hero-card--top-left {
-  top: 4%;
-  left: 2%;
-  width: clamp(195px, 32%, 240px);
+  top: 6%;
+  left: -2%;
+  width: auto;
+  min-width: 220px;
+  max-width: 280px;
 }
 .oz-hero-card--bottom-left {
   top: 48%;
-  left: 0%;
-  width: clamp(195px, 32%, 240px);
+  left: -4%;
+  width: auto;
+  min-width: 220px;
+  max-width: 280px;
 }
 .oz-hero-card--top-right {
   top: 6%;
-  right: 2%;
-  width: clamp(205px, 33%, 255px);
+  right: -2%;
+  width: auto;
+  min-width: 225px;
+  max-width: 285px;
 }
 .oz-hero-card--bottom-right {
-  top: 50%;
-  right: 1%;
-  width: clamp(205px, 33%, 255px);
+  top: 48%;
+  right: -2%;
+  width: auto;
+  min-width: 225px;
+  max-width: 285px;
 }
 
 /* Glass Card Appearance */
 .oz-hero-illus__card {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.65rem 0.85rem;
-  background: rgba(8, 24, 45, 0.78);
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  background: rgba(8, 24, 45, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 0 16px -4px var(--card-glow, rgba(234, 88, 12, 0.2));
   transform-style: preserve-3d;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -4870,7 +4878,7 @@ a.oz-btn,
   transform: scale(1.05) translateZ(40px) !important;
   border-color: var(--card-border, rgba(234, 88, 12, 0.7)) !important;
   box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.55), 0 0 24px -2px var(--card-glow, rgba(234, 88, 12, 0.45)) !important;
-  background: rgba(12, 33, 62, 0.9) !important;
+  background: rgba(12, 33, 62, 0.92) !important;
 }
 
 /* Floating Animations for the 4 Cards */
@@ -4950,13 +4958,11 @@ a.oz-btn,
   gap: 0.4rem;
 }
 .oz-hero-illus__card-title {
-  font-size: clamp(0.76rem, 1.05vw, 0.85rem);
+  font-size: clamp(0.74rem, 0.95vw, 0.83rem);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .oz-hero-illus__card-dot {
   flex-shrink: 0;
@@ -4984,11 +4990,9 @@ a.oz-btn,
   gap: 0.35rem;
 }
 .oz-hero-illus__card-subtitle {
-  font-size: clamp(0.62rem, 0.85vw, 0.7rem);
+  font-size: clamp(0.6rem, 0.8vw, 0.68rem);
   color: #94a3b8;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .oz-hero-illus__card-tag {
   font-size: 0.58rem;

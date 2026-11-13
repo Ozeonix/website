@@ -398,7 +398,7 @@ export default function HeroIllustration() {
                     color: card.color,
                   }}
                 >
-                  <IconComponent size={18} strokeWidth={2.2} />
+                  <IconComponent size={16} strokeWidth={2.2} />
                 </div>
 
                 {/* Card Information */}
@@ -432,3 +432,4 @@ export default function HeroIllustration() {
     </div>
   );
 }
+
