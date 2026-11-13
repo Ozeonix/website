@@ -30,18 +30,18 @@ export default function Footer() {
         >
           <defs>
             <linearGradient id="oz-footer-wire-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FF6900" stopOpacity="0.3" />
-              <stop offset="35%" stopColor="#FF6900" stopOpacity="0.8" />
-              <stop offset="70%" stopColor="#FFA040" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#FF6900" stopOpacity="0.6" />
+              <stop offset="0%" stopColor="#FF6900" stopOpacity="0.2" />
+              <stop offset="35%" stopColor="#FF6900" stopOpacity="0.6" />
+              <stop offset="70%" stopColor="#FFA040" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#FF6900" stopOpacity="0.4" />
             </linearGradient>
           </defs>
           <g
             fill="none"
             stroke="url(#oz-footer-wire-grad)"
-            strokeWidth="1.2"
+            strokeWidth="1.1"
             strokeLinecap="round"
-            opacity="0.85"
+            opacity="0.6"
           >
             <path d="M40 285 C350 285 780 180 1160 30" />
             <path d="M40 285 C350 285 780 185 1160 42" />

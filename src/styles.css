@@ -2167,8 +2167,8 @@ fieldset.oz-field {
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.52;
-  filter: drop-shadow(0 0 10px rgba(255, 105, 0, 0.28));
+  opacity: 0.36;
+  filter: drop-shadow(0 0 8px rgba(255, 105, 0, 0.2));
   pointer-events: none;
   will-change: opacity, filter;
   animation: oz-footer-wave-pulse 8s ease-in-out infinite;
@@ -2177,18 +2177,18 @@ fieldset.oz-field {
 @keyframes oz-footer-wave-pulse {
   0%,
   100% {
-    opacity: 0.44;
-    filter: drop-shadow(0 0 8px rgba(255, 105, 0, 0.22));
+    opacity: 0.3;
+    filter: drop-shadow(0 0 6px rgba(255, 105, 0, 0.15));
   }
   50% {
-    opacity: 0.62;
-    filter: drop-shadow(0 0 14px rgba(255, 105, 0, 0.42));
+    opacity: 0.44;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 0, 0.28));
   }
 }
 
 @media (max-width: 768px) {
   .oz-footer__bg-lines {
-    opacity: 0.46;
+    opacity: 0.32;
   }
 }
 
