@@ -69,7 +69,7 @@ export default function Footer() {
       </div>
 
       <div className="oz-container oz-footer__content">
-        {/* Top Header Row — Logo Only (No Redundant Text) + Social Circles */}
+        {/* Top Header Row — Logo + Two-Color Slogan with Curved Underline + Social Circles */}
         <header className="oz-footer__header">
           <div className="oz-footer__header-brand">
             <Link to="/" aria-label="Ozeonix Infinity Home" className="oz-footer__logo-link">
@@ -82,6 +82,34 @@ export default function Footer() {
                 decoding="async"
               />
             </Link>
+            <div className="oz-footer__slogan-box">
+              <p className="oz-footer__slogan">
+                <span className="oz-footer__slogan-p1">Shape Thought.</span>{" "}
+                <span className="oz-footer__slogan-p2">Power Tomorrow</span>
+              </p>
+              <svg
+                className="oz-footer__slogan-curve"
+                viewBox="0 0 216 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="oz-slogan-curve-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#ea580c" stopOpacity="0.3" />
+                    <stop offset="35%" stopColor="#f97316" stopOpacity="0.95" />
+                    <stop offset="70%" stopColor="#ea580c" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#f97316" stopOpacity="0.4" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M2 2.5C55 8.5 162 8.5 214 2.5"
+                  stroke="url(#oz-slogan-curve-grad)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
           </div>
 
           <nav className="oz-footer__socials" aria-label="Social media profiles">
@@ -306,15 +334,17 @@ export default function Footer() {
                     className="oz-footer__contact-img"
                   />
                 </span>
-                <span className="oz-footer__contact-label">WhatsApp:</span>
-                <a
-                  href="https://wa.me/9779769294624"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="oz-footer__contact-link"
-                >
-                  +977-9769294624
-                </a>
+                <div className="oz-footer__contact-text-group">
+                  <span className="oz-footer__contact-label">WhatsApp:</span>
+                  <a
+                    href="https://wa.me/9779769294624"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="oz-footer__contact-link"
+                  >
+                    +977-9769294624
+                  </a>
+                </div>
               </div>
             </address>
 

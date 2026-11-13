@@ -2710,7 +2710,47 @@ fieldset.oz-field {
 
 .oz-footer__header-brand {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.oz-footer__slogan-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -0.25rem;
+  padding-left: 0.15rem;
+}
+
+.oz-footer__slogan {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.2vw, 0.92rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
+}
+
+.oz-footer__slogan-p1 {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.oz-footer__slogan-p2 {
+  color: var(--brand-orange-500, #f97316);
+  font-weight: 700;
+}
+
+.oz-footer__slogan-curve {
+  width: 100%;
+  max-width: 216px;
+  height: 10px;
+  display: block;
+  margin-top: 3px;
+  overflow: visible;
 }
 
 .oz-footer__logo-link {
@@ -2972,13 +3012,20 @@ fieldset.oz-field {
   line-height: 1;
 }
 
+.oz-footer__contact-text-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  line-height: inherit;
+}
+
 .oz-footer__contact-label {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 600;
   margin: 0;
   padding: 0;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -3000,7 +3047,7 @@ fieldset.oz-field {
 .oz-footer--upgraded .oz-footer__contact-link,
 .oz-footer__contact-link {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: baseline !important;
   min-height: 0 !important;
   height: auto !important;
   padding: 0 !important;
@@ -3012,7 +3059,7 @@ fieldset.oz-field {
   text-decoration: none !important;
   text-align: left !important;
   transform: none !important;
-  vertical-align: middle !important;
+  vertical-align: baseline !important;
   transition: color 0.2s ease !important;
 }
 

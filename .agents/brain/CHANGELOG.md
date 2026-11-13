@@ -86,3 +86,13 @@
   - Dual-canvas continuous math orbits with back/front layering around the laptop screen and keyboard.
   - 4 floating glass service cards with interactive physics-based mouse parallax.
 
+- **Footer Slogan & Curved Underline (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Positioned official slogan "Shape Thought. Power Tomorrow" cleanly stacked below the footer logo under `.oz-footer__header-brand`.
+  - Designed two-tone typographic hierarchy: "Shape Thought." in crisp white (`rgba(255, 255, 255, 0.92)`) and "Power Tomorrow" in brand orange (`var(--brand-orange-500, #f97316)`).
+  - Added an elegant SVG curved accent underline (`oz-slogan-curve-grad`) with smooth stroke endpoints and subtle gradient taper.
+
+- **Footer Contact WhatsApp Row Alignment (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Encapsulated the label and link in a shared inline-flex text group (`.oz-footer__contact-text-group`) with `align-items: baseline`.
+  - Eliminated subscript vertical shift and baseline mismatch between "WhatsApp:" and "+977-9769294624", locking both to the exact same typographic baseline.
+
+
