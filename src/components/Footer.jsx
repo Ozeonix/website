@@ -16,6 +16,57 @@ export default function Footer() {
 
   return (
     <footer className="oz-footer oz-footer--upgraded">
+      {/* Dynamic Wave Vector Background */}
+      <div className="oz-footer__bg" aria-hidden="true">
+        <div className="oz-footer__bg-glow oz-footer__bg-glow--tr" />
+        <div className="oz-footer__bg-glow oz-footer__bg-glow--bl" />
+        <svg
+          className="oz-footer__bg-lines"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 320"
+          preserveAspectRatio="none"
+          focusable="false"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="oz-footer-wire-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FF6900" stopOpacity="0.3" />
+              <stop offset="35%" stopColor="#FF6900" stopOpacity="0.8" />
+              <stop offset="70%" stopColor="#FFA040" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#FF6900" stopOpacity="0.6" />
+            </linearGradient>
+          </defs>
+          <g
+            fill="none"
+            stroke="url(#oz-footer-wire-grad)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.85"
+          >
+            <path d="M40 285 C350 285 780 180 1160 30" />
+            <path d="M40 285 C350 285 780 185 1160 42" />
+            <path d="M40 285 C350 285 780 190 1160 54" />
+            <path d="M40 285 C350 285 780 195 1160 66" />
+            <path d="M40 285 C350 285 780 200 1160 78" />
+            <path d="M40 285 C350 285 780 205 1160 90" />
+            <path d="M40 285 C350 285 780 210 1160 102" />
+            <path d="M40 285 C350 285 780 215 1160 114" />
+            <path d="M40 285 C350 285 780 220 1160 126" />
+            <path d="M40 285 C350 285 780 225 1160 138" />
+            <path d="M40 285 C350 285 780 230 1160 150" />
+            <path d="M40 285 C350 285 780 235 1160 162" />
+            <path d="M40 285 C350 285 780 240 1160 174" />
+            <path d="M40 285 C350 285 780 245 1160 186" />
+            <path d="M40 285 C350 285 780 250 1160 198" />
+            <path d="M40 285 C350 285 780 255 1160 210" />
+            <path d="M40 285 C350 285 780 260 1160 222" />
+            <path d="M40 285 C350 285 780 265 1160 234" />
+            <path d="M40 285 C350 285 780 270 1160 246" />
+            <path d="M40 285 C350 285 780 275 1160 258" />
+          </g>
+        </svg>
+      </div>
+
       <div className="oz-container oz-footer__content">
         {/* Top Header Row — Logo + Branding + Interactive Social Circles */}
         <header className="oz-footer__header">
@@ -30,7 +81,7 @@ export default function Footer() {
             />
             <div className="oz-footer__header-text">
               <h3 className="oz-footer__header-title">Ozeonix Infinity</h3>
-              <p className="oz-footer__header-subtitle">Shape The Thought. Power Tomorrow</p>
+              <p className="oz-footer__header-subtitle">Shape Thought. Power Tomorrow</p>
             </div>
           </div>
 
@@ -247,7 +298,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="oz-footer__contact-link"
                 >
-                   +977-9769294624
+                  +977-9769294624
                 </a>
               </div>
             </address>
