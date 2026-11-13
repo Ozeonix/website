@@ -175,7 +175,21 @@ export default function HeroIllustration() {
         <div className="oz-hero-illus__glow oz-hero-illus__glow--center" />
       </div>
 
-      {/* 2. CONNECTED ENERGY ORBIT & LIGHT TRAILS (SVG) */}
+      {/* 2. CONTINUOUS 3D ROTATING ORBIT SYSTEM */}
+      <div className="oz-hero-illus__orbit-3d" aria-hidden="true">
+        {/* Outer Continuous Rotating Orbit Ring with Orange & Cyan Satellites */}
+        <div className="oz-orbit-3d-ring oz-orbit-3d-ring--outer">
+          <span className="oz-orbit-satellite oz-orbit-satellite--orange" />
+          <span className="oz-orbit-satellite oz-orbit-satellite--cyan" />
+        </div>
+
+        {/* Inner Counter-Rotating Orbit Ring with Green Satellite */}
+        <div className="oz-orbit-3d-ring oz-orbit-3d-ring--inner">
+          <span className="oz-orbit-satellite oz-orbit-satellite--green" />
+        </div>
+      </div>
+
+      {/* 3. CONNECTED ENERGY TRAILS & SVG OVERLAY */}
       <svg
         className="oz-hero-illus__orbit-svg"
         viewBox="0 0 906 515"
@@ -256,17 +270,17 @@ export default function HeroIllustration() {
           {/* Moving Glowing Particle 1: Orange Energy Pulse */}
           {!prefersReducedMotion && (
             <circle r="4.5" fill="#ea580c" filter="url(#ozPulseGlow)">
-              <animateMotion dur="13s" repeatCount="indefinite">
-                <mpath href="#ozMainOrbitPath" />
+              <animateMotion dur="10s" repeatCount="indefinite">
+                <mpath href="#ozMainOrbitPath" xlinkHref="#ozMainOrbitPath" />
               </animateMotion>
             </circle>
           )}
 
-          {/* Moving Glowing Particle 2: Cyan Follower Pulse (offset by 6.5s) */}
+          {/* Moving Glowing Particle 2: Cyan Follower Pulse (offset by 5s) */}
           {!prefersReducedMotion && (
             <circle r="3.8" fill="#38bdf8" filter="url(#ozPulseGlow)">
-              <animateMotion dur="13s" begin="-6.5s" repeatCount="indefinite">
-                <mpath href="#ozMainOrbitPath" />
+              <animateMotion dur="10s" begin="-5s" repeatCount="indefinite">
+                <mpath href="#ozMainOrbitPath" xlinkHref="#ozMainOrbitPath" />
               </animateMotion>
             </circle>
           )}
