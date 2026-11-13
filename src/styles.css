@@ -4562,9 +4562,36 @@ a.oz-btn,
 @media (max-width: 1023px) {
   .oz-home-hero {
     padding-block-end: clamp(3rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .oz-home-hero__copy {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .oz-home-hero .oz-eyebrow {
+    margin-inline: auto;
   }
   .oz-home-hero__title {
-    max-width: 100%;
+    max-width: 28ch;
+    margin-inline: auto;
+    text-align: center;
+    text-wrap: balance;
+  }
+  .oz-home-hero .oz-hero__lead {
+    margin-inline: auto;
+    text-align: center;
+    max-width: 36rem;
+  }
+  .oz-home-hero .oz-hero__actions {
+    justify-content: center;
+  }
+  .oz-home-hero__proof {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .oz-home-hero__proof dt,
+  .oz-home-hero__proof dd {
+    text-align: center;
   }
   .oz-home-hero__visual {
     max-width: 38rem;
@@ -4812,19 +4839,38 @@ a.oz-btn,
 }
 @media (max-width: 699px) {
   .oz-home-hero {
-    text-align: left;
+    text-align: center;
+  }
+  .oz-home-hero__copy {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .oz-home-hero .oz-eyebrow {
+    margin-inline: auto;
   }
   .oz-home-hero__title {
-    max-width: 15ch;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .oz-home-hero .oz-hero__lead {
+    margin-inline: auto;
+    text-align: center;
   }
   .oz-home-hero .oz-hero__actions {
-    justify-content: flex-start;
+    justify-content: center;
   }
   .oz-home-hero__proof {
     gap: 0.55rem;
+    margin-inline: auto;
+    text-align: center;
   }
   .oz-home-hero__proof div {
     padding-inline: 0.45rem;
+  }
+  .oz-home-hero__proof dt,
+  .oz-home-hero__proof dd {
+    text-align: center;
   }
   .oz-home-solution {
     text-align: left;
