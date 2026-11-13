@@ -1203,34 +1203,6 @@ p {
   background: var(--oz-background);
 }
 
-/* Stats */
-.oz-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--oz-space-5);
-}
-@media (min-width: 960px) {
-  .oz-stats {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.oz-stat {
-  padding: var(--oz-space-5);
-  border: 1px solid hsl(0 0% 100% / 0.2);
-  border-radius: var(--oz-radius);
-  text-align: left;
-}
-.oz-stat strong {
-  font-family: var(--oz-font-sans);
-  font-size: 2.2rem;
-  color: var(--oz-accent);
-  display: block;
-  margin-bottom: 6px;
-}
-.oz-stat span {
-  color: hsl(0 0% 100% / 0.8);
-  font-size: 0.9rem;
-}
 
 /* Testimonials */
 .oz-quote {
@@ -2982,49 +2954,111 @@ h6 {
   z-index: -1;
 }
 
-/* --- Stats with images/icons --- */
+/* --- Stats with images/icons (Dynamically Responsive Card System) --- */
 .oz-stats {
-  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  align-items: stretch;
 }
 @media (min-width: 960px) {
   .oz-stats {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2.2vw, 2rem);
   }
 }
+@media (max-width: 360px) {
+  .oz-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.oz-stats > .oz-reveal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
 .oz-stat {
-  background: hsl(0 0% 100% / 0.06);
-  border: 1px solid hsl(0 0% 100% / 0.16);
-  padding: var(--oz-space-6);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: clamp(1.2rem, 3vw, 2.25rem) clamp(0.75rem, 2vw, 1.5rem);
+  background: color-mix(in oklab, #ffffff 4%, rgba(17, 24, 39, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(12px, 1.5vw, 18px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
   transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
 }
+
 .oz-stat:hover {
-  transform: translateY(-4px);
-  background: hsl(0 0% 100% / 0.1);
+  transform: translateY(-5px);
+  background: color-mix(in oklab, #ffffff 8%, rgba(17, 24, 39, 0.8));
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow:
+    0 16px 36px -6px rgba(234, 88, 12, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.4);
 }
+
 .oz-stat__icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  margin: 0 auto var(--oz-space-4);
+  width: clamp(44px, 5.5vw, 62px);
+  height: clamp(44px, 5.5vw, 62px);
+  border-radius: clamp(10px, 1.4vw, 16px);
+  margin: 0 auto clamp(0.6rem, 1.5vw, 1.1rem);
   display: grid;
   place-items: center;
-  background: var(--oz-accent);
-  color: var(--oz-accent-foreground);
-  box-shadow: 0 10px 24px color-mix(in oklab, var(--oz-accent) 25%, transparent);
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.18) 0%,
+    rgba(234, 88, 12, 0.08) 100%
+  );
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: var(--brand-orange-500, #f97316);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.16);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.oz-stat:hover .oz-stat__icon {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.32);
+}
+
 .oz-stat strong {
   display: block;
   font-family: var(--oz-font-sans);
-  font-size: 2.4rem;
-  color: var(--oz-accent);
-  margin-bottom: 4px;
+  font-size: clamp(1.75rem, 3.8vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: clamp(0.2rem, 0.5vw, 0.45rem);
+  letter-spacing: -0.02em;
 }
+
 .oz-stat span {
-  color: hsl(0 0% 100% / 0.85);
-  font-size: 0.92rem;
+  display: block;
+  color: #d1d5db;
+  font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1.35;
+  text-wrap: balance;
+  max-width: 18ch;
+  margin: 0 auto;
 }
 
 /* --- Portfolio image cards --- */
@@ -3661,10 +3695,10 @@ h6 {
     font-size: var(--oz-fs-body);
   }
   .oz-stats {
-    gap: 12px;
+    gap: 10px;
   }
   .oz-stats > * {
-    padding: 14px;
+    padding: 0;
   }
   .oz-form {
     grid-template-columns: 1fr;
