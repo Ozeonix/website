@@ -1322,18 +1322,41 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 }
-.oz-field {
+.oz-field,
+fieldset.oz-field {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
 }
 .oz-field--full {
   grid-column: 1 / -1;
 }
-.oz-field label {
+.oz-field label,
+.oz-field legend,
+.oz-field__legend {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--oz-primary);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  float: none;
+}
+.oz-field legend label,
+.oz-field__legend label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin: 0;
 }
 .oz-field input,
 .oz-field textarea,
@@ -1451,19 +1474,47 @@ p {
   line-height: 1.35;
 }
 .oz-form--clean .oz-field,
-.oz-form--neumorphic .oz-field {
+.oz-form--clean fieldset.oz-field,
+.oz-form--neumorphic .oz-field,
+.oz-form--neumorphic fieldset.oz-field {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
 }
 .oz-form--clean .oz-field label,
-.oz-form--neumorphic .oz-field label {
+.oz-form--clean .oz-field legend,
+.oz-form--clean .oz-field__legend,
+.oz-form--neumorphic .oz-field label,
+.oz-form--neumorphic .oz-field legend,
+.oz-form--neumorphic .oz-field__legend {
   font-size: 0.8125rem;
   font-weight: 600;
   color: #374151;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  float: none;
+}
+.oz-form--clean .oz-field legend label,
+.oz-form--clean .oz-field__legend label,
+.oz-form--neumorphic .oz-field legend label,
+.oz-form--neumorphic .oz-field__legend label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin: 0;
 }
 .oz-form--clean .oz-field input,
 .oz-form--clean .oz-field textarea,
@@ -4579,7 +4630,7 @@ a.oz-btn,
 @media (min-width: 1024px) {
   .oz-home-hero__visual {
     position: relative;
-    width: 100%;
+    width: 43rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -4642,7 +4693,12 @@ a.oz-btn,
   right: 15%;
   width: 55%;
   height: 55%;
-  background: radial-gradient(circle, rgba(234, 88, 12, 0.28) 0%, rgba(234, 88, 12, 0.04) 60%, transparent 80%);
+  background: radial-gradient(
+    circle,
+    rgba(234, 88, 12, 0.28) 0%,
+    rgba(234, 88, 12, 0.04) 60%,
+    transparent 80%
+  );
   animation: oz-glow-breathe 7s ease-in-out infinite;
 }
 .oz-hero-illus__glow--cyan {
@@ -4650,7 +4706,12 @@ a.oz-btn,
   left: 10%;
   width: 50%;
   height: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0.03) 60%, transparent 80%);
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.22) 0%,
+    rgba(56, 189, 248, 0.03) 60%,
+    transparent 80%
+  );
   animation: oz-glow-breathe 8s ease-in-out infinite 1.5s;
 }
 .oz-hero-illus__glow--green {
@@ -4658,7 +4719,12 @@ a.oz-btn,
   right: 20%;
   width: 45%;
   height: 45%;
-  background: radial-gradient(circle, rgba(0, 169, 130, 0.2) 0%, rgba(0, 169, 130, 0.03) 60%, transparent 80%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 169, 130, 0.2) 0%,
+    rgba(0, 169, 130, 0.03) 60%,
+    transparent 80%
+  );
   animation: oz-glow-breathe 9s ease-in-out infinite 3s;
 }
 .oz-hero-illus__glow--center {
@@ -4670,7 +4736,8 @@ a.oz-btn,
 }
 
 @keyframes oz-glow-breathe {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.55;
     transform: scale(0.96);
   }
@@ -4713,7 +4780,8 @@ a.oz-btn,
 }
 
 @keyframes oz-particle-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
     opacity: 0.35;
   }
@@ -4740,7 +4808,12 @@ a.oz-btn,
   left: 20%;
   width: 60%;
   height: 18%;
-  background: radial-gradient(ellipse at center, rgba(6, 41, 75, 0.75) 0%, rgba(0, 0, 0, 0.5) 45%, transparent 75%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(6, 41, 75, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    transparent 75%
+  );
   border-radius: 50%;
   filter: blur(14px);
   transform-origin: center;
@@ -4768,7 +4841,8 @@ a.oz-btn,
 }
 
 @keyframes oz-laptop-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotateX(1.5deg) rotateY(-2deg) scale(1);
   }
   50% {
@@ -4777,7 +4851,8 @@ a.oz-btn,
 }
 
 @keyframes oz-shadow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.75;
   }
@@ -4843,12 +4918,15 @@ a.oz-btn,
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 0 16px -4px var(--card-glow, rgba(234, 88, 12, 0.2));
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.45),
+    0 0 16px -4px var(--card-glow, rgba(234, 88, 12, 0.2));
   transform-style: preserve-3d;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease,
-              background 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
   cursor: default;
   will-change: transform;
 }
@@ -4856,7 +4934,9 @@ a.oz-btn,
 .oz-hero-illus__card:hover {
   transform: scale(1.05) translateZ(40px) !important;
   border-color: var(--card-border, rgba(234, 88, 12, 0.7)) !important;
-  box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.55), 0 0 24px -2px var(--card-glow, rgba(234, 88, 12, 0.45)) !important;
+  box-shadow:
+    0 16px 32px -4px rgba(0, 0, 0, 0.55),
+    0 0 24px -2px var(--card-glow, rgba(234, 88, 12, 0.45)) !important;
   background: rgba(12, 33, 62, 0.92) !important;
 }
 
@@ -4868,14 +4948,15 @@ a.oz-btn,
   animation: oz-float-bl 5.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite 0.7s;
 }
 .oz-float-tr {
-  animation: oz-float-tr 5.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite 0.3s;
+  animation: oz-float-tr 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite 0.3s;
 }
 .oz-float-br {
   animation: oz-float-br 5.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite 1.1s;
 }
 
 @keyframes oz-float-tl {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(-1deg);
   }
   50% {
@@ -4883,7 +4964,8 @@ a.oz-btn,
   }
 }
 @keyframes oz-float-bl {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(1.2deg);
   }
   50% {
@@ -4891,7 +4973,8 @@ a.oz-btn,
   }
 }
 @keyframes oz-float-tr {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(1.4deg);
   }
   50% {
@@ -4899,7 +4982,8 @@ a.oz-btn,
   }
 }
 @keyframes oz-float-br {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(-1.2deg);
   }
   50% {
@@ -4952,7 +5036,8 @@ a.oz-btn,
   animation: oz-dot-pulse 2s ease-in-out infinite;
 }
 @keyframes oz-dot-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(0.9);
   }
@@ -4987,6 +5072,11 @@ a.oz-btn,
 /* Reduced Motion Mode */
 @media (prefers-reduced-motion: reduce) {
   .oz-hero-illus__glow,
+  .oz-orbit-3d-ring,
+  .oz-orbit-satellite,
+  .oz-orbit-dashed,
+  .oz-orbit-dashed--rev,
+  .oz-flow-trail,
   .oz-hero-illus__particle,
   .oz-hero-illus__laptop-shadow,
   .oz-hero-illus__laptop-float,
@@ -5301,7 +5391,7 @@ a.oz-btn,
 }
 @media (max-width: 699px) {
   .oz-home-hero {
-    min-height: calc(100svh - 3.5rem);
+    min-height: calc(100svh - 16.5rem);
     padding-block: clamp(1.25rem, 3vh, 2rem);
     text-align: center;
   }
@@ -5330,7 +5420,7 @@ a.oz-btn,
   }
   .oz-home-hero .oz-hero__actions {
     justify-content: center;
-    gap: 0.55rem;
+    gap: 1.55rem;
     margin-bottom: clamp(1.1rem, 2.2vh, 1.5rem);
   }
   .oz-home-hero__proof {

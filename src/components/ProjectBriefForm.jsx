@@ -116,8 +116,10 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
         </div>
       )}
 
-      <div className={fieldClass("name")}>
-        <label htmlFor={id("name")}>Name</label>
+      <fieldset className={fieldClass("name")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("name")}>Name</label>
+        </legend>
         <input
           id={id("name")}
           name="name"
@@ -130,9 +132,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("name")}
         />
         {errorFor("name")}
-      </div>
-      <div className={fieldClass("email")}>
-        <label htmlFor={id("email")}>Email</label>
+      </fieldset>
+      <fieldset className={fieldClass("email")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("email")}>Email</label>
+        </legend>
         <input
           id={id("email")}
           name="email"
@@ -146,11 +150,13 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("email")}
         />
         {errorFor("email")}
-      </div>
-      <div className={fieldClass("phone")}>
-        <label htmlFor={id("phone")}>
-          Phone <span className="oz-muted">(optional)</span>
-        </label>
+      </fieldset>
+      <fieldset className={fieldClass("phone")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("phone")}>
+            Phone <span className="oz-muted">(optional)</span>
+          </label>
+        </legend>
         <input
           id={id("phone")}
           name="phone"
@@ -162,11 +168,13 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("phone")}
         />
         {errorFor("phone")}
-      </div>
-      <div className={fieldClass("company")}>
-        <label htmlFor={id("company")}>
-          Company <span className="oz-muted">(optional)</span>
-        </label>
+      </fieldset>
+      <fieldset className={fieldClass("company")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("company")}>
+            Company <span className="oz-muted">(optional)</span>
+          </label>
+        </legend>
         <input
           id={id("company")}
           name="company"
@@ -177,9 +185,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("company")}
         />
         {errorFor("company")}
-      </div>
-      <div className={fieldClass("country")}>
-        <label htmlFor={id("country")}>Country</label>
+      </fieldset>
+      <fieldset className={fieldClass("country")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("country")}>Country</label>
+        </legend>
         <select
           id={id("country")}
           name="country"
@@ -199,9 +209,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           ))}
         </select>
         {errorFor("country")}
-      </div>
-      <div className={fieldClass("city")}>
-        <label htmlFor={id("city")}>City / Region</label>
+      </fieldset>
+      <fieldset className={fieldClass("city")}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("city")}>City / Region</label>
+        </legend>
         <select
           id={id("city")}
           name="city"
@@ -221,9 +233,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           ))}
         </select>
         {errorFor("city")}
-      </div>
-      <div className={fieldClass("requirements", true)}>
-        <label htmlFor={id("requirements")}>Requirements</label>
+      </fieldset>
+      <fieldset className={fieldClass("requirements", true)}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("requirements")}>Requirements</label>
+        </legend>
         <select
           id={id("requirements")}
           name="requirements"
@@ -242,9 +256,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           ))}
         </select>
         {errorFor("requirements")}
-      </div>
-      <div className={fieldClass("start_time", true)}>
-        <label htmlFor={id("start_time")}>When do you want to start?</label>
+      </fieldset>
+      <fieldset className={fieldClass("start_time", true)}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("start_time")}>When do you want to start?</label>
+        </legend>
         <select
           id={id("start_time")}
           name="start_time"
@@ -263,9 +279,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           ))}
         </select>
         {errorFor("start_time")}
-      </div>
-      <div className={fieldClass("budget", true)}>
-        <label htmlFor={id("budget")}>Approximate budget</label>
+      </fieldset>
+      <fieldset className={fieldClass("budget", true)}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("budget")}>Approximate budget</label>
+        </legend>
         <input
           id={id("budget")}
           name="budget"
@@ -280,9 +298,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("budget")}
         />
         {errorFor("budget")}
-      </div>
-      <div className={fieldClass("message", true)}>
-        <label htmlFor={id("message")}>Project details</label>
+      </fieldset>
+      <fieldset className={fieldClass("message", true)}>
+        <legend className="oz-field__legend">
+          <label htmlFor={id("message")}>Project details</label>
+        </legend>
         <textarea
           id={id("message")}
           name="message"
@@ -296,7 +316,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           onChange={() => clearError("message")}
         />
         {errorFor("message")}
-      </div>
+      </fieldset>
 
       {Object.keys(errors).some((field) => errors[field]) && (
         <div className="oz-field oz-field--full oz-form__error-summary" role="alert">
