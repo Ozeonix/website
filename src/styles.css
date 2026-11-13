@@ -2268,26 +2268,38 @@ fieldset.oz-field {
   flex-wrap: wrap;
 }
 
+.oz-footer .oz-footer__social-btn,
+.oz-footer--upgraded .oz-footer__social-btn,
 .oz-footer__social-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  border-radius: 9999px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  border-radius: 50% !important;
   background-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  text-decoration: none;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
 }
 
+.oz-footer .oz-footer__social-btn svg,
+.oz-footer--upgraded .oz-footer__social-btn svg,
 .oz-footer__social-btn svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  display: block !important;
+  margin: auto !important;
+  flex-shrink: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .oz-footer__social-btn:hover {
