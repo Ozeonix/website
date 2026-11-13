@@ -175,7 +175,7 @@ function FAQ() {
               A quick collection of the questions that come up most often. If yours isn’t here,
               WhatsApp us at{" "}
               <a
-                href="https://wa.me/9777483509984"
+                href="https://wa.me/9779769294624"
                 style={{ color: "var(--oz-primary)", fontWeight: 600 }}
               >
                 +977 74835 09984

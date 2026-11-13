@@ -65,7 +65,7 @@ function About() {
           <div className="oz-open__grid">
             <Reveal>
               <div>
-                <span className="oz-open__index">Shape The Thought. Power Tomorrow</span>
+                <span className="oz-open__index">Shape Thought. Power Tomorrow</span>
                 <h1>A small studio building software small businesses can actually rely on.</h1>
               </div>
             </Reveal>

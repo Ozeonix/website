@@ -59,7 +59,7 @@ function Terms() {
             for indirect or consequential damages.
           </p>
           <h2>Contact</h2>
-          <p>Questions? Reach us on WhatsApp at +977-7483509984.</p>
+          <p>Questions? Reach us on WhatsApp at +977-9769294624.</p>
         </div>
       </section>
     </>

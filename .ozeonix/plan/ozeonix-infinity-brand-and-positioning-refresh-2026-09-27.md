@@ -7,7 +7,7 @@ Refresh the website around the supplied logo palette, replace the old tagline, r
 - Rebuild the shared color tokens around `#01b088`, `#fee232`, `#04284a`, and `#ffffff`.
 - Use navy for structure and text, green for primary actions, yellow for highlights, and white for open surfaces; add darker accessible shades where small text requires stronger contrast.
 - Apply the palette consistently to navigation, buttons, links, cards, section accents, forms, focus rings, footer, and status treatments while keeping supplied logos transparent and unchanged.
-- Replace “Infinite Innovation, Limitless Possibilities” and related homepage positioning with “Shape The Thought. Power Tomorrow”.
+- Replace “Infinite Innovation, Limitless Possibilities” and related homepage positioning with “Shape Thought. Power Tomorrow”.
 - Remove Bhairahawa, Rupandehi, and Siddharthanagar as marketing/SEO targeting across visible copy, route metadata, structured data descriptions, FAQs, and public search summaries.
 - Retain the physical office address only where visitors expect contact details; remove claims that the company serves only a local area.
 - Remove the fixed app-style mobile bottom navigation from the shared page shell and remove its reserved page spacing.

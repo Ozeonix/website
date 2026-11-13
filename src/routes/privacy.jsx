@@ -65,7 +65,7 @@ function Privacy() {
             contacting us at any time.
           </p>
           <h2>Contact</h2>
-          <p>For privacy questions, contact us via WhatsApp at +977-7483509984.</p>
+          <p>For privacy questions, contact us via WhatsApp at +977-9769294624.</p>
         </div>
       </section>
     </>

@@ -34,7 +34,7 @@ const SERVICE_JSONLD = {
   provider: {
     "@type": "LocalBusiness",
     name: "Ozeonix Infinity",
-    telephone: "+977-7483509984",
+    telephone: "+977-9769294624",
     url: "https://ozeonix.com",
     areaServed: "Worldwide",
   },
@@ -120,7 +120,7 @@ function LmsPlatforms() {
                   <Link to="/contact" className="oz-btn oz-btn--primary">
                     Get a free demo
                   </Link>
-                  <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--outline">
+                  <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--outline">
                     WhatsApp us
                   </a>
                 </div>
@@ -233,7 +233,7 @@ function LmsPlatforms() {
               <Link to="/contact" className="oz-btn oz-btn--primary">
                 Request a free demo
               </Link>
-              <a href="https://wa.me/9777483509984" className="oz-btn oz-btn--on-dark">
+              <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--on-dark">
                 WhatsApp
               </a>
             </div>

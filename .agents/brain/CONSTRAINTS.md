@@ -29,3 +29,4 @@ Before finalizing any implementation:
 1. `npm run build` must compile cleanly.
 2. `npm run lint` must pass with 0 errors.
 3. Code formatting must pass via `npx prettier --write <files>`.
+

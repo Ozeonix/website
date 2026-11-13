@@ -44,7 +44,7 @@ const ContactConfirmationEmail = ({ name, requirements, startTime }: ContactConf
           <Text style={styles.signoff}>
             Ozeonix Infinity
             <br />
-            Shape The Thought. Power Tomorrow
+            Shape Thought. Power Tomorrow
           </Text>
         </Section>
       </Container>

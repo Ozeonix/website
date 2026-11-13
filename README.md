@@ -199,7 +199,7 @@ Business information summary:
 
 - Founded: 2026
 
-- WhatsApp: +91-7483509984
+- WhatsApp: +91-9769294624
 
 - Address: Siddharthanagar
 
@@ -231,7 +231,7 @@ Email:
 
 Phone:
 
-WhatsApp: +91-7483509984
+WhatsApp: +91-9769294624
 
 Office Address: Siddharthanagar 
 

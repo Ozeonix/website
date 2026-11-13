@@ -82,12 +82,12 @@ const ORGANIZATION_JSONLD = {
   logo: "https://ozeonix.com/assets/ozeonix-infinity-nav-logo.png",
   description:
     "Ozeonix Infinity builds custom CRM, ERP, LMS, websites and mobile apps for ambitious businesses and institutions.",
-  slogan: "Shape The Thought. Power Tomorrow",
+  slogan: "Shape Thought. Power Tomorrow",
   areaServed: "Worldwide",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Customer Support",
-    telephone: "+977-7483509984",
+    telephone: "+977-9769294624",
     availableLanguage: ["English", "Nepali", "Hindi"],
   },
   sameAs: [
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext()({
       {
         name: "description",
         content:
-          "Ozeonix Infinity designs and develops custom CRM, ERP, LMS, websites and mobile apps for businesses, schools and growing teams. Shape The Thought. Power Tomorrow.",
+          "Ozeonix Infinity designs and develops custom CRM, ERP, LMS, websites and mobile apps for businesses, schools and growing teams. Shape Thought. Power Tomorrow.",
       },
       {
         name: "keywords",
@@ -118,7 +118,7 @@ export const Route = createRootRouteWithContext()({
         name: "robots",
         content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       },
-      { property: "og:title", content: "Ozeonix Infinity | Shape The Thought. Power Tomorrow" },
+      { property: "og:title", content: "Ozeonix Infinity | Shape Thought. Power Tomorrow" },
       {
         property: "og:description",
         content:
@@ -129,7 +129,7 @@ export const Route = createRootRouteWithContext()({
       { property: "og:site_name", content: "Ozeonix Infinity" },
       { property: "og:url", content: "https://ozeonix.com/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Ozeonix Infinity | Shape The Thought. Power Tomorrow" },
+      { name: "twitter:title", content: "Ozeonix Infinity | Shape Thought. Power Tomorrow" },
       {
         name: "twitter:description",
         content:

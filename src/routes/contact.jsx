@@ -39,10 +39,10 @@ function Contact() {
             <h1>Let’s shape your next digital product.</h1>
             <div className="oz-quickrow">
               <span>
-                WhatsApp <a href="https://wa.me/9777483509984">+977 74835 09984</a>
+                WhatsApp <a href="https://wa.me/9779769294624">+977 74835 09984</a>
               </span>
               <span>
-                Office <strong>Siddharthanagar, Bhairahawa, Rupandehi, Nepal</strong>
+                Office <strong>Opposite Gyankoop School, 13 Ward, Janakpur, Madhesh Province 45600, Nepal</strong>
               </span>
               <span>
                 Replies{" "}
@@ -66,18 +66,18 @@ function Contact() {
                 </p>
                 <div className="oz-contact-actions">
                   <a
-                    href="https://wa.me/9777483509984"
+                    href="https://wa.me/9779769294624"
                     className="oz-btn oz-btn--primary"
                     aria-label="Message us on WhatsApp at +977 74835 09984"
                   >
                     Message on WhatsApp
                   </a>
                   <a
-                    href="tel:+9777483509984"
+                    href="tel:+9779769294624"
                     className="oz-btn oz-btn--outline"
                     aria-label="Call us at +977 74835 09984"
                   >
-                    Call +977-7483509984
+                    Call +977-9769294624
                   </a>
                 </div>
                 <hr className="oz-divider" />
