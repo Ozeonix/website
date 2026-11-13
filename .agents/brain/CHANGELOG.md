@@ -2,6 +2,22 @@
 
 ### Milestone Log
 
+- **Technologies Section Responsive Upgrade (`src/components/TechnologiesSection.jsx` & `src/styles.css`)**:
+  - Upgraded section to match the pixel-accurate design reference.
+  - Added speech bubble pointer tail to the `<div className="oz-tech-eyebrow">` pill badge with circular code icon `< />`.
+  - Implemented 3 radiating playful sunburst spark lines next to "Modern" and brand orange highlight on "dependable.".
+  - Re-organized the 12 technology pills into dual responsive rows (Row 1: 9 cards — React, Next.js, Node.js, Flutter, MongoDB, PostgreSQL, Firebase, AWS, Docker; Row 2: 3 cards — Kubernetes, REST APIs, AI).
+  - Perfected icon vectors: official cyan React atom, Next.js dark circular mark, Node.js green hexagon with "JS", Flutter origami bird, MongoDB leaf, PostgreSQL elephant logo with light highlights, Firebase flame, AWS smile arrow logo, Docker whale, Kubernetes helm, REST APIs solid blue cloud with gear, and AI microchip with pins and bold "AI".
+  - Refined background: organic curved orange quadrant gradient blooms on top-left and bottom-right corners, subtle dotted matrices on left/right edges, and sweeping wave line across the backdrop.
+  - Fully responsive: Desktop displays iconic 9-pill top row and 3-pill bottom row; smoothly wraps without horizontal overflow across tablets and smartphones.
+
+- **Cloudinary Image Delivery & Storage System**:
+  - Integrated Cloudinary configuration (`ds3gjhrob`) into `.env` and `.env.example`.
+  - Created client CDN pipeline in `src/lib/cloudinary.js` (`getCloudinaryUrl`, `buildCloudinarySrcSet`, `isCloudinaryUrl`) with automatic format (`f_auto`), smart compression (`q_auto`), and remote image fetch acceleration.
+  - Built server SDK integration in `src/lib/cloudinary.server.js` (`uploadToCloudinary`, `deleteFromCloudinary`).
+  - Created `<CloudinaryImage />` component and added seamless Cloudinary support to `<ResponsiveImage />`.
+
+
 - **Footer Social Button Hover Contrast Fix (`src/styles.css`)**:
   - Overrode `.oz-footer a:hover` specificity collision that turned SVG icons orange on orange hover background.
   - Forced `color: #ffffff !important; fill: #ffffff !important;` on hover with a clean `translateY(-2px) scale(1.08)` lift.
@@ -22,3 +38,4 @@
   - Central 3D floating laptop with ambient breathing ground shadow.
   - Dual-canvas continuous math orbits with back/front layering around the laptop screen and keyboard.
   - 4 floating glass service cards with interactive physics-based mouse parallax.
+

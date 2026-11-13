@@ -53,10 +53,13 @@
 - High-res asset: `/assets/ozeonix-infinity-hero-laptop.png`.
 
 ### B. Technologies Showcase (`src/components/TechnologiesSection.jsx`)
-- Eyebrow pill: `< / > TECHNOLOGIES` in brand orange.
-- Heading: "Modern, proven, dependable." with decorative 3-line orange spark.
-- 12 Interactive technology pills: React, Next.js, Node.js, Flutter, MongoDB, PostgreSQL, Firebase, AWS, Docker, Kubernetes, REST APIs, AI.
-- Adaptive responsive cluster layout with subtle ambient corner radial glows and masked dot-matrix backdrop.
+- **Eyebrow Pill**: `< / > TECHNOLOGIES` in brand orange with circular `< / >` bracket icon and speech bubble tail pointing downwards toward "dependable.".
+- **Heading & Doodle Accents**: "Modern, proven, <span class="oz-tech-title__accent">dependable.</span>" with 3-line orange radiating sunburst spark on top-left of "Modern".
+- **Pills Layout (Dual Responsive Rows)**:
+  - Row 1 (9 pills): React (cyan atom), Next.js (black circle with N), Node.js (green hexagon with JS), Flutter (blue origami bird), MongoDB (green leaf), PostgreSQL (elephant head logo), Firebase (3-facet flame), AWS (dark logo with orange smile), Docker (blue whale).
+  - Row 2 (3 pills): Kubernetes (blue helm), REST APIs (solid blue cloud with white gear), AI (blue microchip with pins and bold "AI").
+- **Backdrop Art**: Organic curved orange quadrant blooms on top-left and bottom-right corners, subtle masked dot matrices, and sweeping wave line across the background.
+- **Responsiveness**: Desktop shows 9 items on row 1 and 3 centered on row 2; smoothly wraps on tablets and mobile with balanced spacing and zero horizontal overflow.
 
 ### C. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
 - **Kinetic Wave Vector Background**: 20-path parabolic energy fan originating bottom-left and fanning out top-right (`viewBox="0 0 1200 320"`, `preserveAspectRatio="none"`).
@@ -67,3 +70,16 @@
 ### D. Lead Capture Form (`src/components/ProjectBriefForm.jsx`)
 - Accessible semantic `<fieldset>` and `<legend>` structure.
 - Consistent Zod validation on both homepage and `/contact` page.
+
+### E. Cloudinary Image Delivery & Storage System
+- **Cloud Name**: `ds3gjhrob` (configured across `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `VITE_CLOUDINARY_CLOUD_NAME`, and `CLOUDINARY_CLOUD_NAME`).
+- **Client Utilities (`src/lib/cloudinary.js`)**:
+  - `getCloudinaryUrl(publicIdOrUrl, options)`: automatic modern format delivery (`f_auto`), smart lossy compression (`q_auto`), dynamic responsive width limits (`w_800,c_limit`), and Cloudinary fetch URL proxy for remote assets.
+  - `buildCloudinarySrcSet(publicIdOrUrl, widths, options)`: generates multi-breakpoint srcset strings (320w to 1920w).
+- **Server SDK (`src/lib/cloudinary.server.js`)**:
+  - Authenticated server-side uploads via `uploadToCloudinary()` and deletions via `deleteFromCloudinary()`.
+- **Components**:
+  - `<CloudinaryImage />` (`src/components/CloudinaryImage.jsx`): plug-and-play picture tag delivery with AVIF, WebP, and fallback sources.
+  - `<ResponsiveImage />` (`src/components/ResponsiveImage.jsx`): enhanced to automatically detect and optimize Cloudinary images alongside Unsplash.
+
+

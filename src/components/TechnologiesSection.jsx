@@ -1,6 +1,6 @@
 import Reveal from "./Reveal.jsx";
 
-const TECHNOLOGIES = [
+const ROW_1 = [
   {
     name: "React",
     icon: (
@@ -11,8 +11,8 @@ const TECHNOLOGIES = [
         aria-hidden="true"
         focusable="false"
       >
-        <circle cx="0" cy="0" r="2.05" fill="#087ea4" />
-        <g stroke="#087ea4" strokeWidth="1" fill="none">
+        <circle cx="0" cy="0" r="2.05" fill="#00D8FF" />
+        <g stroke="#00D8FF" strokeWidth="1" fill="none">
           <ellipse rx="11" ry="4.2" />
           <ellipse rx="11" ry="4.2" transform="rotate(60)" />
           <ellipse rx="11" ry="4.2" transform="rotate(120)" />
@@ -34,11 +34,19 @@ const TECHNOLOGIES = [
     name: "Node.js",
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-        <path fill="#539E43" d="M12 2l9 5.2v10.4L12 22.8 3 17.6V7.2L12 2z" />
-        <path
-          fill="#FFFFFF"
-          d="M12 5l6.5 3.8v7.5L12 20.1 5.5 16.3V8.8L12 5zm-1.5 10.5h-2v-5h2v5zm4.5-1c0 .6-.5 1-1 1h-2v-5h2c.6 0 1 .4 1 1v3z"
-        />
+        <path fill="#539E43" d="M12 1.5l9.5 5.5v10L12 22.5 2.5 17V7L12 1.5z" />
+        <text
+          x="12"
+          y="15.2"
+          fill="#ffffff"
+          fontSize="9.5"
+          fontWeight="800"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          textAnchor="middle"
+          letterSpacing="-0.3px"
+        >
+          JS
+        </text>
       </svg>
     ),
   },
@@ -70,7 +78,11 @@ const TECHNOLOGIES = [
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
         <path
           fill="#336791"
-          d="M19.7 11.2c-.3-1.6-1.5-2.9-3-3.4-.6-.2-1.3-.3-2-.3-1.4 0-2.8.5-3.8 1.4-.4-.3-.8-.5-1.3-.7C8.4 7.8 7 8 6 9c-.8.8-1.2 2-1.1 3.2.1 1.8 1.4 3.4 3.1 3.8.4.1.8.1 1.2.1v2.3c0 .6.4 1 1 1h1.5v-3.7c.4-.1.8-.3 1.2-.5 1 .7 2.2 1.1 3.5 1.1 2.2 0 4.1-1.4 4.8-3.5.2-.5.3-1 .3-1.6h-1.8z"
+          d="M19.8 11.2c-.3-1.6-1.5-2.9-3-3.4-.6-.2-1.3-.3-2-.3-1.4 0-2.8.5-3.8 1.4-.4-.3-.8-.5-1.3-.7C8.4 7.8 7 8 6 9c-.8.8-1.2 2-1.1 3.2.1 1.8 1.4 3.4 3.1 3.8.4.1.8.1 1.2.1v2.3c0 .6.4 1 1 1h1.5v-3.7c.4-.1.8-.3 1.2-.5 1 .7 2.2 1.1 3.5 1.1 2.2 0 4.1-1.4 4.8-3.5.2-.5.3-1 .3-1.6h-1.8z"
+        />
+        <path
+          fill="#ffffff"
+          d="M14.5 9.5c-.8 0-1.5.5-1.8 1.2-.2.5-.1 1.1.2 1.5.3.4.9.6 1.4.5.7-.1 1.2-.7 1.2-1.4 0-.8-.5-1.8-1-1.8z"
         />
       </svg>
     ),
@@ -94,11 +106,11 @@ const TECHNOLOGIES = [
       <svg viewBox="0 0 24 24" width="24" height="22" aria-hidden="true" focusable="false">
         <path
           fill="#232F3E"
-          d="M7.8 7.3c-.6-.4-1.4-.6-2.3-.6-1.7 0-2.8.9-2.8 2.3 0 1.4 1 2.2 2.5 2.2.8 0 1.7-.3 2.3-.8V12c-.7.4-1.7.6-2.6.6-2.5 0-4.1-1.5-4.1-3.9 0-2.3 1.8-3.9 4.4-3.9 1 0 2 .3 2.6.7v1.8zm4.3 5.1h-1.8V4.8h1.8v7.6zm8.8 0h-1.8l-1.6-5.4-1.6 5.4h-1.8l-2.4-7.6h1.9l1.4 5.3 1.6-5.3h1.8l1.6 5.3 1.4-5.3h1.9l-2.4 7.6z"
+          d="M6.2 8.5c-.5-.3-1.1-.4-1.8-.4-1.3 0-2.2.7-2.2 1.8 0 1.1.8 1.7 1.9 1.7.6 0 1.3-.2 1.8-.6V12c-.5.3-1.3.5-2 .5-2 0-3.3-1.2-3.3-3.1 0-1.8 1.4-3.1 3.5-3.1.8 0 1.6.2 2.1.5v1.6zm3.4 4.1H8.2V6.5h1.4v6.1zm7 0h-1.4l-1.3-4.3-1.3 4.3h-1.4l-1.9-6.1h1.5l1.1 4.2 1.3-4.2h1.4l1.3 4.2 1.1-4.2h1.5l-1.9 6.1z"
         />
         <path
           fill="#FF9900"
-          d="M21.5 16.5c-2.8 2.1-6.8 3.2-10.4 3.2-5 0-9.4-1.9-12.8-5-.3-.3 0-.6.3-.4 3.7 2.1 8.2 3.4 12.8 3.4 3.2 0 6.8-.9 9.8-2.6.5-.3.8.2.3.4z"
+          d="M17.2 15.5c-2.2 1.7-5.4 2.5-8.3 2.5-4 0-7.5-1.5-10.2-4-.2-.2 0-.5.2-.3 3 1.7 6.6 2.7 10.2 2.7 2.6 0 5.4-.7 7.8-2.1.4-.2.6.2.3.4z"
         />
       </svg>
     ),
@@ -114,6 +126,9 @@ const TECHNOLOGIES = [
       </svg>
     ),
   },
+];
+
+const ROW_2 = [
   {
     name: "Kubernetes",
     icon: (
@@ -130,45 +145,63 @@ const TECHNOLOGIES = [
   {
     name: "REST APIs",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        width="22"
-        height="22"
-        fill="none"
-        stroke="#2563EB"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-        focusable="false"
-      >
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
         <path
-          d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
-          fill="rgba(37, 99, 235, 0.12)"
+          d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+          fill="#2563EB"
         />
-        <circle cx="12" cy="13" r="2" fill="#2563EB" stroke="none" />
-        <path d="M12 10v1m0 4v1m-3-3h1m4 0h1" stroke="#2563EB" strokeWidth="1.8" />
+        <g fill="#ffffff">
+          <circle cx="12" cy="13" r="2" fill="none" stroke="#ffffff" strokeWidth="1.5" />
+          <path
+            d="M12 9.5v1.2M12 15.3v1.2M8.5 13h1.2M14.3 13h1.2M9.5 10.5l.8.8M13.7 14.7l.8.8M9.5 15.5l.8-.8M13.7 11.3l.8-.8"
+            stroke="#ffffff"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </g>
       </svg>
     ),
   },
   {
     name: "AI",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        width="22"
-        height="22"
-        fill="none"
-        stroke="#ea580c"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <rect width="16" height="16" x="4" y="4" rx="3" fill="rgba(234, 88, 12, 0.12)" />
-        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
-        <path d="M12 10v4m-2-2h4" stroke="#ea580c" strokeWidth="2" />
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+        <g stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round">
+          <line x1="7" y1="1" x2="7" y2="4" />
+          <line x1="12" y1="1" x2="12" y2="4" />
+          <line x1="17" y1="1" x2="17" y2="4" />
+          <line x1="7" y1="20" x2="7" y2="23" />
+          <line x1="12" y1="20" x2="12" y2="23" />
+          <line x1="17" y1="20" x2="17" y2="23" />
+          <line x1="1" y1="7" x2="4" y2="7" />
+          <line x1="1" y1="12" x2="4" y2="12" />
+          <line x1="1" y1="17" x2="4" y2="17" />
+          <line x1="20" y1="7" x2="23" y2="7" />
+          <line x1="20" y1="12" x2="23" y2="12" />
+          <line x1="20" y1="17" x2="23" y2="17" />
+        </g>
+        <rect
+          x="4"
+          y="4"
+          width="16"
+          height="16"
+          rx="3.5"
+          fill="#eff6ff"
+          stroke="#2563EB"
+          strokeWidth="1.5"
+        />
+        <text
+          x="12"
+          y="14.8"
+          fill="#2563EB"
+          fontSize="8.5"
+          fontWeight="800"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          textAnchor="middle"
+          letterSpacing="-0.2px"
+        >
+          AI
+        </text>
       </svg>
     ),
   },
@@ -179,10 +212,23 @@ export default function TechnologiesSection() {
     <section className="oz-tech-section" aria-label="Technologies">
       {/* Soft Ambient Background Elements */}
       <div className="oz-tech-bg" aria-hidden="true">
-        <div className="oz-tech-bg__glow oz-tech-bg__glow--tl" />
-        <div className="oz-tech-bg__glow oz-tech-bg__glow--br" />
+        <div className="oz-tech-bg__corner oz-tech-bg__corner--tl" />
+        <div className="oz-tech-bg__corner oz-tech-bg__corner--br" />
         <div className="oz-tech-bg__dots oz-tech-bg__dots--left" />
         <div className="oz-tech-bg__dots oz-tech-bg__dots--right" />
+        <svg
+          className="oz-tech-bg__wave"
+          viewBox="0 0 1440 340"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M-40 260 C 220 280, 260 140, 560 180 C 860 220, 980 290, 1480 180"
+            stroke="rgba(226, 232, 240, 0.75)"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
       <div className="oz-container oz-tech-container">
@@ -190,10 +236,32 @@ export default function TechnologiesSection() {
         <div className="oz-tech-header">
           <Reveal>
             <div className="oz-tech-eyebrow">
-              <span className="oz-tech-eyebrow__code" aria-hidden="true">
-                &lt;/&gt;
+              <span className="oz-tech-eyebrow__code-circle" aria-hidden="true">
+                <svg
+                  viewBox="0 0 16 16"
+                  width="13"
+                  height="13"
+                  fill="none"
+                  stroke="#ea580c"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="4.5 4 1.5 8 4.5 12" />
+                  <polyline points="11.5 4 14.5 8 11.5 12" />
+                  <line x1="9.5" y1="3" x2="6.5" y2="13" />
+                </svg>
               </span>
               <span>TECHNOLOGIES</span>
+              <svg
+                className="oz-tech-eyebrow__tail"
+                viewBox="0 0 12 8"
+                width="12"
+                height="8"
+                aria-hidden="true"
+              >
+                <path d="M0 0 L10 0 C7 3, 5 7, 3 8 C4 5, 2 2, 0 0 Z" fill="#ea580c" />
+              </svg>
             </div>
           </Reveal>
 
@@ -211,18 +279,33 @@ export default function TechnologiesSection() {
           </Reveal>
         </div>
 
-        {/* 12 Interactive Technology Pills Cluster */}
+        {/* 12 Interactive Technology Pills in 2 Rows */}
         <div className="oz-tech-cluster" role="list" aria-label="Core technological proficiencies">
-          {TECHNOLOGIES.map((item, idx) => (
-            <Reveal key={item.name} index={idx % 4} as="div" className="oz-tech-pill-slot">
-              <div className="oz-tech-pill" role="listitem">
-                <span className="oz-tech-pill__icon" aria-hidden="true">
-                  {item.icon}
-                </span>
-                <span className="oz-tech-pill__name">{item.name}</span>
-              </div>
-            </Reveal>
-          ))}
+          <div className="oz-tech-row oz-tech-row--primary">
+            {ROW_1.map((item, idx) => (
+              <Reveal key={item.name} index={idx % 4} as="div" className="oz-tech-pill-slot">
+                <div className="oz-tech-pill" role="listitem">
+                  <span className="oz-tech-pill__icon" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="oz-tech-pill__name">{item.name}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="oz-tech-row oz-tech-row--secondary">
+            {ROW_2.map((item, idx) => (
+              <Reveal key={item.name} index={idx % 3} as="div" className="oz-tech-pill-slot">
+                <div className="oz-tech-pill" role="listitem">
+                  <span className="oz-tech-pill__icon" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="oz-tech-pill__name">{item.name}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
