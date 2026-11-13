@@ -2,6 +2,18 @@
 
 ### Milestone Log
 
+- **Footer Mobile Left-Alignment Fix (`src/styles.css`)**:
+  - Scoped legacy `@media (max-width: 639px)` centering rules to `.oz-footer:not(.oz-footer--upgraded)` to prevent forced centering of columns and navigation links on mobile devices.
+  - Enforced strict left-alignment on mobile, tablet, and desktop for all footer columns:
+    - `.oz-footer__grid--4col`: `justify-items: stretch; text-align: left;`
+    - `.oz-footer__col`: `display: flex; flex-direction: column; align-items: flex-start; text-align: left; width: 100%;`
+    - `.oz-footer__col-title`: `justify-content: flex-start; text-align: left; width: 100%;`
+    - `.oz-footer__nav-list`: `align-items: flex-start; text-align: left; width: 100%;`
+    - `.oz-footer__nav-link`: `justify-content: flex-start !important; text-align: left !important; width: 100%;`
+    - `.oz-footer__contact-items` & `.oz-footer__contact-row`: `align-items: flex-start; justify-content: flex-start; text-align: left; width: 100%;`
+    - `.oz-footer__sub-title` & `.oz-footer__hours-list`: `text-align: left; width: 100%;`
+  - Verified Quick Links, Solutions, and Contact Us are left-aligned on small screens (375px) via headless screenshot testing.
+
 - **Footer Header Logo & Navigation Bullet Refinements (`src/components/Footer.jsx` & `src/styles.css`)**:
   - Simplified the top header brand section: removed redundant text ("Ozeonix Infinity" / "Shape Thought. Power Tomorrow") to keep exclusively the crisp, official white-text horizontal logo image.
   - Replaced raw Unicode symbols with semantic, accessible `lucide-react` icons (`ChevronRight`, `MapPin`, `Phone`, `Mail`, `Check`).

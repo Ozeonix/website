@@ -2139,36 +2139,36 @@ fieldset.oz-field {
   background: var(--oz-accent);
   box-shadow: 0 0 0 3px hsl(38 100% 50% / 0.15);
 }
-/* Center footer content on mobile */
+/* Center footer content on mobile (legacy footer only) */
 @media (max-width: 639px) {
-  .oz-footer {
+  .oz-footer:not(.oz-footer--upgraded) {
     text-align: center;
   }
-  .oz-footer__grid {
+  .oz-footer:not(.oz-footer--upgraded) .oz-footer__grid {
     justify-items: center;
   }
-  .oz-footer__brand {
+  .oz-footer:not(.oz-footer--upgraded) .oz-footer__brand {
     max-width: 100%;
   }
-  .oz-brand__logo--footer {
+  .oz-footer:not(.oz-footer--upgraded) .oz-brand__logo--footer {
     margin-left: auto;
     margin-right: auto;
   }
-  .oz-footer__brand p {
+  .oz-footer:not(.oz-footer--upgraded) .oz-footer__brand p {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  .oz-footer__contact {
+  .oz-footer:not(.oz-footer--upgraded) .oz-footer__contact {
     width: min(100%, 21rem);
     margin-left: auto;
     margin-right: auto;
     text-align: left;
   }
-  .oz-footer a {
+  .oz-footer:not(.oz-footer--upgraded) a {
     text-align: center;
   }
-  .oz-footer__bottom {
+  .oz-footer:not(.oz-footer--upgraded) .oz-footer__bottom {
     justify-content: center;
     text-align: center;
   }
@@ -2386,8 +2386,10 @@ fieldset.oz-field {
 .oz-footer__grid--4col {
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: stretch;
   gap: clamp(1.25rem, 2.5vw, 2rem);
   margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-align: left;
 }
 
 @media (min-width: 640px) {
@@ -2402,6 +2404,14 @@ fieldset.oz-field {
   }
 }
 
+.oz-footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
 .oz-footer__col-title {
   font-size: 1.05rem;
   font-weight: 750;
@@ -2409,9 +2419,12 @@ fieldset.oz-field {
   margin: 0 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  text-align: left;
   gap: 0.5rem;
   text-transform: none;
   letter-spacing: -0.01em;
+  width: 100%;
 }
 
 .oz-footer__dot {
@@ -2430,7 +2443,15 @@ fieldset.oz-field {
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   gap: 0.45rem;
+  width: 100%;
+}
+
+.oz-footer__nav-list li {
+  width: 100%;
+  text-align: left;
 }
 
 .oz-footer .oz-footer__nav-link,
@@ -2489,18 +2510,24 @@ fieldset.oz-field {
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   gap: 0.75rem;
+  width: 100%;
 }
 
 .oz-footer__contact-row {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
   gap: 0.65rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.45;
   transition: color 0.2s ease;
+  width: 100%;
 }
 
 .oz-footer__contact-row:hover {
@@ -2531,9 +2558,11 @@ fieldset.oz-field {
   display: block;
 }
 
+.oz-footer__contact-text,
 .oz-footer__contact-link {
   color: inherit;
   text-decoration: none;
+  text-align: left;
   transition: color 0.2s ease;
 }
 
@@ -2544,6 +2573,8 @@ fieldset.oz-field {
   margin: 1rem 0 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-align: left;
+  width: 100%;
 }
 
 .oz-footer__hours-list {
@@ -2552,8 +2583,10 @@ fieldset.oz-field {
   margin: 0.5rem 0 0;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 0.45rem;
   font-size: 0.82rem;
+  width: 100%;
 }
 
 .oz-footer__hours-item {
@@ -2588,12 +2621,14 @@ fieldset.oz-field {
   color: rgba(255, 255, 255, 0.8);
   margin: 0 0 0.85rem;
   line-height: 1.5;
+  text-align: left;
 }
 
 .oz-footer__form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  width: 100%;
 }
 
 .oz-footer__input-wrap {

@@ -68,6 +68,7 @@
 - **Grid Layout**: 4 columns on desktop, 2 columns on tablet, 1 column on mobile.
 
 ### D. Upgraded Modern Dark Footer (`src/components/Footer.jsx` & `src/styles.css`)
+- **Mobile Left Alignment**: Footer columns (Quick Links, Solutions, Contact Us, Stay Updated) are strictly left-aligned on mobile devices (`justify-items: stretch`, `text-align: left`, `align-items: flex-start`). Legacy media queries scoping centering to `.oz-footer` have been isolated with `:not(.oz-footer--upgraded)` to prevent forced centering.
 - **Logo Presentation**: Clean, official white-text horizontal logo image only (redundant text removed).
 - **Navigation Bullets / Arrows**: Dedicated semantic `ChevronRight` icons permanently visible with vibrant orange styling (`#f97316`) that glide forward smoothly on link hover.
 - **Compact Spacing & Strong Typography**: Tightened padding and margins, increased link weight (`600`) and column header weight (`750`) with high-contrast text (`rgba(255, 255, 255, 0.9)`).
