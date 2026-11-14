@@ -295,9 +295,6 @@ export default function Navbar() {
 
         <div className="oz-nav__right">
           <LanguageSwitcher showActions={true} />
-          <Link to="/contact" className="oz-btn oz-btn--primary oz-nav__cta">
-            Discuss your project
-          </Link>
           <div className="oz-nav__flag-wrap" title="Nepal" aria-label="Nepal flag">
             <img
               src={nepalFlag}

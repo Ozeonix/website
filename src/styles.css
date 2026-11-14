@@ -3738,6 +3738,14 @@ fieldset.oz-field {
   justify-content: center;
   flex-shrink: 0;
 }
+.oz-lang__menu a.oz-lang__action-item--primary {
+  font-weight: 650;
+  color: var(--brand-orange, #ea580c);
+  background: var(--brand-orange-50, #fff7ed);
+}
+.oz-lang__menu a.oz-lang__action-item--primary:hover {
+  background: color-mix(in oklab, var(--brand-orange, #ea580c) 14%, transparent);
+}
 
 /* Page hero (interior) */
 .oz-pagehero {

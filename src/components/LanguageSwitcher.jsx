@@ -119,7 +119,7 @@ export default function LanguageSwitcher({ className = "", showActions = false }
               <li role="none">
                 <Link
                   to="/contact"
-                  className="oz-lang__action-item"
+                  className="oz-lang__action-item oz-lang__action-item--primary"
                   role="menuitem"
                   onClick={close}
                 >
