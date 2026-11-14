@@ -13,6 +13,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
+import nepalFlag from "../assets/nepal-flag.png";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
 import { useAuth } from "../hooks/useAuth.jsx";
@@ -293,13 +294,21 @@ export default function Navbar() {
         </nav>
 
         <div className="oz-nav__right">
-          <LanguageSwitcher />
-          <Link to="/pay" className="oz-btn oz-btn--outline oz-nav__cta">
-            Pay online
-          </Link>
+          <LanguageSwitcher showActions={true} />
           <Link to="/contact" className="oz-btn oz-btn--primary oz-nav__cta">
             Discuss your project
           </Link>
+          <div className="oz-nav__flag-wrap" title="Nepal" aria-label="Nepal flag">
+            <img
+              src={nepalFlag}
+              alt="Nepal"
+              className="oz-nav__flag"
+              width={26}
+              height={32}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
         </div>
 
         <button

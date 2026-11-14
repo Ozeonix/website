@@ -805,6 +805,9 @@ p {
   .oz-nav__cta {
     display: inline-flex;
   }
+  .oz-nav__flag-wrap {
+    display: inline-flex;
+  }
   .oz-nav__cta,
   .oz-nav .oz-btn {
     min-height: 32px;
@@ -816,6 +819,28 @@ p {
   .oz-brand--logo {
     width: clamp(7.5rem, 9vw, 8.5rem);
   }
+}
+
+.oz-nav__flag-wrap {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 4px;
+  flex-shrink: 0;
+  cursor: default;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.oz-nav__flag-wrap:hover {
+  transform: scale(1.12);
+}
+.oz-nav__flag {
+  display: block;
+  height: 26px;
+  width: auto;
+  aspect-ratio: 397 / 497;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.16));
 }
 
 .oz-nav__toggle {
@@ -3669,6 +3694,49 @@ fieldset.oz-field {
     SFMono-Regular,
     Menlo,
     monospace;
+}
+.oz-lang__section-title {
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #6b7280);
+  padding: 6px 10px 4px;
+  user-select: none;
+}
+.oz-lang__divider {
+  height: 1px;
+  background: var(--oz-border, #e5e7eb);
+  margin: 6px 0;
+}
+.oz-lang__menu a.oz-lang__action-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font: 500 13px/1.2 inherit;
+  color: var(--oz-foreground, #111827);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.oz-lang__menu a.oz-lang__action-item:hover {
+  background: var(--brand-orange-50, #fff7ed);
+  color: var(--brand-orange, #ea580c);
+}
+.oz-lang__action-icon {
+  color: var(--brand-orange, #ea580c);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* Page hero (interior) */
