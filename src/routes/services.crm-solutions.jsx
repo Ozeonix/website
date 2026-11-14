@@ -1,6 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Reveal from "../components/Reveal.jsx";
-import { Users, Phone, BarChart3, ShieldCheck, CheckCircle } from "lucide-react";
+import {
+  Users,
+  Phone,
+  BarChart3,
+  ShieldCheck,
+  MessageSquare,
+  FileText,
+  Globe,
+  Zap,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 
 const FAQS = [
   {
@@ -9,11 +20,15 @@ const FAQS = [
   },
   {
     q: "What makes a CRM better than spreadsheets for sales teams?",
-    a: "A CRM automates follow-ups, tracks every customer interaction and gives the whole team a shared view of the pipeline. That means fewer lost leads and faster closures.",
+    a: "A CRM automates follow-ups, tracks every customer interaction and gives the whole team a shared view of the pipeline. Fewer lost leads, faster closures.",
   },
   {
     q: "Can the CRM integrate with WhatsApp and SMS?",
     a: "Yes. We integrate with WhatsApp Business API, SMS gateways and email providers so your team can reach customers on the channels they already use.",
+  },
+  {
+    q: "Is the CRM accessible on mobile?",
+    a: "Yes — our CRM has a fully responsive web interface and optional Flutter mobile app so field sales teams stay connected on Android and iOS.",
   },
 ];
 
@@ -46,7 +61,7 @@ const SERVICE_JSONLD = {
 export const Route = createFileRoute("/services/crm-solutions")({
   head: () => ({
     meta: [
-      { title: "Custom CRM Solutions | Custom CRM Development | Ozeonix Infinity" },
+      { title: "Custom CRM Development | CRM Solutions | Ozeonix Infinity" },
       {
         name: "description",
         content:
@@ -54,7 +69,7 @@ export const Route = createFileRoute("/services/crm-solutions")({
       },
       {
         property: "og:title",
-        content: "Custom CRM Solutions | Custom CRM Development | Ozeonix Infinity",
+        content: "Custom CRM Solutions | Ozeonix Infinity",
       },
       {
         property: "og:description",
@@ -76,31 +91,63 @@ export const Route = createFileRoute("/services/crm-solutions")({
 
 const FEATURES = [
   {
-    icon: Users,
+    Icon: Users,
     title: "Lead & Contact Management",
-    desc: "Capture, assign and track leads from first call to final invoice.",
+    desc: "Capture, assign and track leads from first call to final invoice. Never lose track of a prospect again.",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Lead and contact management interface",
   },
   {
-    icon: Phone,
+    Icon: Phone,
     title: "Follow-Up Automation",
-    desc: "Scheduled reminders, WhatsApp messages and email sequences that keep deals moving.",
+    desc: "Scheduled reminders, WhatsApp messages and email sequences that keep deals moving without manual effort.",
+    img: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Automated follow-up and communication tools",
   },
   {
-    icon: BarChart3,
+    Icon: BarChart3,
     title: "Sales Pipeline & Reports",
-    desc: "Visual pipelines, revenue forecasts and team performance dashboards.",
+    desc: "Visual pipelines, revenue forecasts and team performance dashboards so management always has the full picture.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Sales pipeline analytics and reporting dashboard",
   },
   {
-    icon: ShieldCheck,
+    Icon: ShieldCheck,
     title: "Quotations & Invoicing",
-    desc: "Create professional quotes and invoices, track payments and reduce manual work.",
+    desc: "Create professional quotes and invoices, track payment status and reduce manual back-and-forth with clients.",
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Quotation and invoice generation system",
   },
+  {
+    Icon: MessageSquare,
+    title: "WhatsApp & SMS Integration",
+    desc: "Reach customers on WhatsApp and SMS directly from the CRM. All conversations logged automatically.",
+    img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "WhatsApp and SMS integration for sales teams",
+  },
+  {
+    Icon: FileText,
+    title: "Document Management",
+    desc: "Store contracts, proposals and client documents centrally — always findable, always version-controlled.",
+    img: "https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Document management and storage system",
+  },
+];
+
+const WHY_US = [
+  "Built around your sales process, not a foreign template",
+  "WhatsApp and SMS integration for customer follow-ups",
+  "Mobile-friendly interface for field sales teams",
+  "Role-based access: manager, executive, admin views",
+  "Guided rollout, team training and ongoing support",
+  "Secure cloud hosting with 99.9% uptime guarantee",
 ];
 
 function CrmSolutions() {
   return (
     <>
-      <section className="oz-open" aria-label="Features">
+      {/* Hero */}
+      <section className="oz-open" aria-label="Custom CRM Solutions">
         <div className="oz-container">
           <div className="oz-open__grid">
             <Reveal>
@@ -113,11 +160,12 @@ function CrmSolutions() {
               <div>
                 <p className="oz-open__lead">
                   We build tailored CRM platforms for sales teams, service businesses and
-                  distributors—so every lead, customer conversation and next step stays visible.
+                  distributors — so every lead, customer conversation and next step stays visible
+                  and nothing slips through the cracks.
                 </p>
                 <div className="oz-open__actions">
                   <Link to="/contact" className="oz-btn oz-btn--primary">
-                    Get a free demo
+                    Get a free demo <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                   <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--outline">
                     WhatsApp us
@@ -130,7 +178,31 @@ function CrmSolutions() {
         </div>
       </section>
 
-      <section className="oz-section" aria-label="Features">
+      {/* Hero Image */}
+      <section className="oz-section oz-section--tight" aria-label="CRM overview">
+        <div className="oz-container">
+          <Reveal>
+            <div
+              style={{
+                borderRadius: 20,
+                overflow: "hidden",
+                aspectRatio: "21/8",
+                boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
+                alt="CRM dashboard with sales pipeline and customer management"
+                loading="lazy"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="oz-section" aria-label="CRM features">
         <div className="oz-container">
           <div className="oz-section-head">
             <Reveal>
@@ -140,54 +212,89 @@ function CrmSolutions() {
               CRM features built for how you sell.
             </Reveal>
           </div>
-          <div className="oz-grid oz-grid-2">
-            {FEATURES.map((m, i) => {
-              const Icon = m.icon;
-              return (
-                <Reveal key={m.title} index={i % 2}>
-                  <article className="oz-card">
+          <div className="oz-grid oz-grid-3">
+            {FEATURES.map(({ Icon, title, desc, img, imgAlt }, i) => (
+              <Reveal key={title} index={i % 3}>
+                <article
+                  className="oz-card"
+                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                >
+                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  </div>
+                  <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1 }}>
                     <span
                       className="oz-card__icon"
-                      style={{
-                        background: "var(--oz-primary)",
-                        color: "var(--oz-primary-foreground)",
-                      }}
+                      style={{ marginBottom: 10, background: "var(--oz-primary)", color: "#fff" }}
+                      aria-hidden="true"
                     >
-                      <Icon size={22} strokeWidth={1.75} />
+                      <Icon size={20} strokeWidth={1.75} />
                     </span>
-                    <h3>{m.title}</h3>
-                    <p>{m.desc}</p>
-                  </article>
-                </Reveal>
-              );
-            })}
+                    <h3 style={{ marginTop: 0 }}>{title}</h3>
+                    <p style={{ margin: 0 }}>{desc}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="oz-section oz-section--muted" aria-label="Why us">
-        <div className="oz-container" style={{ maxWidth: 820 }}>
-          <div className="oz-section-head">
+      {/* Why Us */}
+      <section className="oz-section oz-section--muted" aria-label="Why choose our CRM">
+        <div className="oz-container">
+          <div className="oz-split">
             <Reveal>
-              <span className="oz-eyebrow">Why us</span>
+              <div>
+                <span className="oz-eyebrow">Why Us</span>
+                <h2>Why growing sales teams choose us.</h2>
+                <p className="oz-muted">
+                  We don't sell you a generic platform. We understand your sales process first, then
+                  build a CRM that fits it — not the other way around.
+                </p>
+                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
+                  {WHY_US.map((pt) => (
+                    <li key={pt} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <CheckCircle2
+                        size={18}
+                        strokeWidth={2}
+                        style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-primary)" }}
+                        aria-hidden="true"
+                      />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
-            <Reveal index={1} as="h2">
-              Why growing sales teams choose us.
+            <Reveal index={1}>
+              <div
+                style={{
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  aspectRatio: "4/3",
+                  boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
+                  alt="Sales team collaborating with a CRM system"
+                  loading="lazy"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
             </Reveal>
           </div>
-          <Reveal>
-            <ul className="oz-checklist">
-              <li>Built around your sales process, not a foreign template</li>
-              <li>WhatsApp and SMS integration for customer follow-ups</li>
-              <li>Mobile-friendly interface for field sales teams</li>
-              <li>Guided rollout, team training and ongoing support</li>
-              <li>Secure cloud hosting with reliable uptime</li>
-            </ul>
-          </Reveal>
         </div>
       </section>
 
-      <section className="oz-section" aria-label="FAQ">
+      {/* FAQ */}
+      <section className="oz-section" aria-label="CRM frequently asked questions">
         <div className="oz-container" style={{ maxWidth: 820 }}>
           <div className="oz-section-head">
             <Reveal>
@@ -210,28 +317,26 @@ function CrmSolutions() {
         </div>
       </section>
 
-      <section
-        className="oz-section oz-section--dark"
-        aria-label="Stop losing leads. Start closing more deals."
-      >
+      {/* CTA */}
+      <section className="oz-section oz-section--dark" aria-label="Stop losing leads">
         <div className="oz-container oz-center">
           <Reveal>
+            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+              Close more deals
+            </span>
             <h2>Stop losing leads. Start closing more deals.</h2>
-            <p className="oz-muted">Get a custom CRM built around your sales process.</p>
+            <p className="oz-muted" style={{ maxWidth: 480, margin: "12px auto 0" }}>
+              Get a custom CRM built around your actual sales process — not a template you have to
+              bend yourself into.
+            </p>
             <div
-              style={{
-                display: "flex",
-                gap: 12,
-                justifyContent: "center",
-                marginTop: 24,
-                flexWrap: "wrap",
-              }}
+              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
-                Request a free demo
+                Request a free demo <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--on-dark">
-                WhatsApp
+                WhatsApp us
               </a>
             </div>
           </Reveal>

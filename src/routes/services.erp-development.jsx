@@ -1,6 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Reveal from "../components/Reveal.jsx";
-import { Factory, Warehouse, TrendingUp, Users, CheckCircle } from "lucide-react";
+import {
+  Factory,
+  Warehouse,
+  TrendingUp,
+  Users,
+  BarChart3,
+  ClipboardList,
+  ShieldCheck,
+  Settings,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 
 const FAQS = [
   {
@@ -14,6 +25,10 @@ const FAQS = [
   {
     q: "How long does ERP development take?",
     a: "A focused ERP for a small or medium business typically takes 8–16 weeks from discovery to go-live, depending on modules, integrations and data migration needs.",
+  },
+  {
+    q: "Can the ERP integrate with our existing tools?",
+    a: "Yes — we integrate with payment gateways, accounting software, e-commerce platforms and third-party APIs. Migration from spreadsheets is also fully supported.",
   },
 ];
 
@@ -46,7 +61,7 @@ const SERVICE_JSONLD = {
 export const Route = createFileRoute("/services/erp-development")({
   head: () => ({
     meta: [
-      { title: "Custom ERP Development | Custom ERP Solutions | Ozeonix Infinity" },
+      { title: "Custom ERP Development | ERP Solutions | Ozeonix Infinity" },
       {
         name: "description",
         content:
@@ -54,7 +69,7 @@ export const Route = createFileRoute("/services/erp-development")({
       },
       {
         property: "og:title",
-        content: "Custom ERP Development | Custom ERP Solutions | Ozeonix Infinity",
+        content: "Custom ERP Development | Ozeonix Infinity",
       },
       {
         property: "og:description",
@@ -76,49 +91,81 @@ export const Route = createFileRoute("/services/erp-development")({
 
 const MODULES = [
   {
-    icon: Warehouse,
+    Icon: Warehouse,
     title: "Inventory & Stock",
-    desc: "Real-time stock levels, purchase orders, vendors and warehouse tracking.",
+    desc: "Real-time stock levels, purchase orders, vendors and warehouse tracking with low-stock alerts.",
+    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Inventory and warehouse management system",
   },
   {
-    icon: Factory,
+    Icon: Factory,
     title: "Production & Manufacturing",
-    desc: "BOMs, work orders, raw-material planning and production schedules.",
+    desc: "BOMs, work orders, raw-material planning and production schedules for smooth factory operations.",
+    img: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Production planning and manufacturing management",
   },
   {
-    icon: TrendingUp,
+    Icon: TrendingUp,
     title: "Sales & Billing",
-    desc: "Quotations, invoices, payment tracking and GST/VAT-ready reports.",
+    desc: "Quotations, invoices, payment tracking and GST/VAT-ready reports that satisfy any auditor.",
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Sales and billing management with invoices",
   },
   {
-    icon: Users,
+    Icon: Users,
     title: "HR & Payroll",
-    desc: "Attendance, leave, payroll and employee records in one place.",
+    desc: "Attendance, leave management, payroll calculation and employee records all in one place.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "HR and payroll management system",
   },
+  {
+    Icon: BarChart3,
+    title: "Financial Reporting",
+    desc: "Profit & loss, balance sheet, cash flow and custom reports that give management real insight.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Financial reporting and analytics dashboard",
+  },
+  {
+    Icon: ClipboardList,
+    title: "Purchase Management",
+    desc: "Purchase requisitions, supplier comparison, approval workflows and payment scheduling.",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Purchase and procurement management system",
+  },
+];
+
+const WHY_US = [
+  "Tailored to your industry, terminology and reporting needs",
+  "Role-based access: owner, manager, staff, accountant",
+  "Data migration from spreadsheets and legacy systems",
+  "Mobile-ready web interface — no app installation needed",
+  "Guided rollout with staff training and support",
+  "Cloud-hosted with daily backups and 99.9% uptime",
 ];
 
 function ErpDevelopment() {
   return (
     <>
-      <section className="oz-open" aria-label="Modules">
+      {/* Hero */}
+      <section className="oz-open" aria-label="Custom ERP Development">
         <div className="oz-container">
           <div className="oz-open__grid">
             <Reveal>
               <div>
-                <span className="oz-open__index">ERP Solutions</span>
-                <h1>Custom ERP Development for Connected Operations</h1>
+                <span className="oz-open__index">ERP Development</span>
+                <h1>Custom ERP Systems for Manufacturing, Retail & Growing Businesses</h1>
               </div>
             </Reveal>
             <Reveal index={1}>
               <div>
                 <p className="oz-open__lead">
-                  We build tailored ERP solutions for manufacturing, retail and growing
-                  businesses—connecting inventory, accounting, HR and operations in one dependable
+                  We build enterprise resource planning systems that connect every part of your
+                  business — inventory, production, sales, HR and finance — in one clean, manageable
                   platform.
                 </p>
                 <div className="oz-open__actions">
                   <Link to="/contact" className="oz-btn oz-btn--primary">
-                    Get a free consultation
+                    Get a free consultation <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                   <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--outline">
                     WhatsApp us
@@ -131,64 +178,123 @@ function ErpDevelopment() {
         </div>
       </section>
 
-      <section className="oz-section" aria-label="Modules">
+      {/* Hero Image */}
+      <section className="oz-section oz-section--tight" aria-label="ERP overview">
         <div className="oz-container">
-          <div className="oz-section-head">
-            <Reveal>
-              <span className="oz-eyebrow">Modules</span>
-            </Reveal>
-            <Reveal index={1} as="h2">
-              ERP modules built around your business.
-            </Reveal>
-          </div>
-          <div className="oz-grid oz-grid-2">
-            {MODULES.map((m, i) => {
-              const Icon = m.icon;
-              return (
-                <Reveal key={m.title} index={i % 2}>
-                  <article className="oz-card">
-                    <span
-                      className="oz-card__icon"
-                      style={{
-                        background: "var(--oz-primary)",
-                        color: "var(--oz-primary-foreground)",
-                      }}
-                    >
-                      <Icon size={22} strokeWidth={1.75} />
-                    </span>
-                    <h3>{m.title}</h3>
-                    <p>{m.desc}</p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="oz-section oz-section--muted" aria-label="Why us">
-        <div className="oz-container" style={{ maxWidth: 820 }}>
-          <div className="oz-section-head">
-            <Reveal>
-              <span className="oz-eyebrow">Why us</span>
-            </Reveal>
-            <Reveal index={1} as="h2">
-              Why businesses choose Ozeonix Infinity.
-            </Reveal>
-          </div>
           <Reveal>
-            <ul className="oz-checklist">
-              <li>Structured rollout, training and ongoing support</li>
-              <li>Custom-built around your workflow — not a forced generic template</li>
-              <li>Clear support through direct communication and WhatsApp</li>
-              <li>Integrations with local payment, SMS and WhatsApp gateways</li>
-              <li>Scalable architecture that grows as your business expands</li>
-            </ul>
+            <div
+              style={{
+                borderRadius: 20,
+                overflow: "hidden",
+                aspectRatio: "21/8",
+                boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
+                alt="Modern ERP system managing business operations and analytics"
+                loading="lazy"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="oz-section" aria-label="FAQ">
+      {/* Modules Grid */}
+      <section className="oz-section" aria-label="ERP modules">
+        <div className="oz-container">
+          <div className="oz-section-head">
+            <Reveal>
+              <span className="oz-eyebrow">ERP Modules</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              Every module your business needs, connected.
+            </Reveal>
+          </div>
+          <div className="oz-grid oz-grid-3">
+            {MODULES.map(({ Icon, title, desc, img, imgAlt }, i) => (
+              <Reveal key={title} index={i % 3}>
+                <article
+                  className="oz-card"
+                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                >
+                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  </div>
+                  <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1 }}>
+                    <span
+                      className="oz-card__icon"
+                      style={{ marginBottom: 10, background: "var(--oz-primary)", color: "#fff" }}
+                      aria-hidden="true"
+                    >
+                      <Icon size={20} strokeWidth={1.75} />
+                    </span>
+                    <h3 style={{ marginTop: 0 }}>{title}</h3>
+                    <p style={{ margin: 0 }}>{desc}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Us */}
+      <section className="oz-section oz-section--muted" aria-label="Why choose our ERP">
+        <div className="oz-container">
+          <div className="oz-split">
+            <Reveal>
+              <div
+                style={{
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  aspectRatio: "4/3",
+                  boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+                  alt="Business team using an ERP system to manage operations"
+                  loading="lazy"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            </Reveal>
+            <Reveal index={1}>
+              <div>
+                <span className="oz-eyebrow">Why Us</span>
+                <h2>ERP that works for your team on day one.</h2>
+                <p className="oz-muted">
+                  We've seen what happens when businesses adopt ERPs that weren't built for them —
+                  unused modules, workarounds and frustrated staff. We build the other kind.
+                </p>
+                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
+                  {WHY_US.map((pt) => (
+                    <li key={pt} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <CheckCircle2
+                        size={18}
+                        strokeWidth={2}
+                        style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-primary)" }}
+                        aria-hidden="true"
+                      />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="oz-section" aria-label="ERP frequently asked questions">
         <div className="oz-container" style={{ maxWidth: 820 }}>
           <div className="oz-section-head">
             <Reveal>
@@ -211,30 +317,26 @@ function ErpDevelopment() {
         </div>
       </section>
 
-      <section
-        className="oz-section oz-section--dark"
-        aria-label="Ready to streamline your operations?"
-      >
+      {/* CTA */}
+      <section className="oz-section oz-section--dark" aria-label="Get a custom ERP built for your business">
         <div className="oz-container oz-center">
           <Reveal>
-            <h2>Ready to streamline your operations?</h2>
-            <p className="oz-muted">
-              Tell us about your business and we’ll recommend the right ERP modules.
+            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+              Ready to streamline?
+            </span>
+            <h2>Get a custom ERP built for your business.</h2>
+            <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
+              A free consultation is the first step. We'll listen to how your business runs, propose
+              the right modules, and quote you honestly before anything is built.
             </p>
             <div
-              style={{
-                display: "flex",
-                gap: 12,
-                justifyContent: "center",
-                marginTop: 24,
-                flexWrap: "wrap",
-              }}
+              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
-                Discuss your project
+                Book a free consultation <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--on-dark">
-                WhatsApp
+                WhatsApp us
               </a>
             </div>
           </Reveal>

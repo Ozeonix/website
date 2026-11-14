@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Reveal from "../components/Reveal.jsx";
-
 import {
   Code2,
   Smartphone,
@@ -12,6 +11,7 @@ import {
   Server,
   TrendingUp,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 
 const SERVICE_JSONLD = {
@@ -61,8 +61,9 @@ export const Route = createFileRoute("/services/")({
 const GROUPS = [
   {
     title: "Core Development",
-    icon: Code2,
-    accent: "var(--oz-primary)",
+    Icon: Code2,
+    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Custom website and web application development",
     items: [
       "Custom Website Development",
       "Business & Corporate Websites",
@@ -73,8 +74,9 @@ const GROUPS = [
   },
   {
     title: "Mobile Apps",
-    icon: Smartphone,
-    accent: "var(--oz-action)",
+    Icon: Smartphone,
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Flutter mobile app development for iOS and Android",
     items: [
       "Flutter App Development",
       "Android App Development",
@@ -84,8 +86,9 @@ const GROUPS = [
   },
   {
     title: "Business Software",
-    icon: Building2,
-    accent: "var(--oz-accent)",
+    Icon: Building2,
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "CRM, ERP and business software development",
     items: [
       "Customer Relationship Management (CRM)",
       "Enterprise Resource Planning (ERP)",
@@ -96,8 +99,9 @@ const GROUPS = [
   },
   {
     title: "UI/UX & Branding",
-    icon: Palette,
-    accent: "var(--oz-primary)",
+    Icon: Palette,
+    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "UI/UX design and brand identity creation",
     items: [
       "UI/UX Design",
       "Responsive Web Design",
@@ -109,8 +113,9 @@ const GROUPS = [
   },
   {
     title: "AI & Intelligent Solutions",
-    icon: Sparkles,
-    accent: "var(--oz-action)",
+    Icon: Sparkles,
+    img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "AI-powered business solutions and automation",
     items: [
       "AI-Powered Business Solutions",
       "AI Chatbots",
@@ -121,8 +126,9 @@ const GROUPS = [
   },
   {
     title: "SaaS Products",
-    icon: Cloud,
-    accent: "var(--oz-accent)",
+    Icon: Cloud,
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "SaaS platform and cloud product development",
     items: [
       "Custom SaaS Development",
       "Multi-Tenant Platforms",
@@ -132,8 +138,9 @@ const GROUPS = [
   },
   {
     title: "API & Backend",
-    icon: Plug,
-    accent: "var(--oz-primary)",
+    Icon: Plug,
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "REST API development and third-party integrations",
     items: [
       "REST API Development",
       "Third-Party Integrations",
@@ -144,8 +151,9 @@ const GROUPS = [
   },
   {
     title: "Cloud & DevOps",
-    icon: Server,
-    accent: "var(--oz-action)",
+    Icon: Server,
+    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Cloud deployment and DevOps infrastructure",
     items: [
       "Cloud Deployment",
       "Server Setup",
@@ -156,8 +164,9 @@ const GROUPS = [
   },
   {
     title: "Digital Growth",
-    icon: TrendingUp,
-    accent: "var(--oz-accent)",
+    Icon: TrendingUp,
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "SEO, performance optimization and digital marketing",
     items: [
       "SEO",
       "Performance Optimization",
@@ -169,24 +178,51 @@ const GROUPS = [
   },
 ];
 
+const SPECIALIZED = [
+  {
+    t: "ERP Development",
+    d: "Custom ERP solutions for manufacturing, retail and growing businesses.",
+    to: "/services/erp-development",
+    label: "Explore ERP",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Custom ERP development for businesses",
+  },
+  {
+    t: "CRM Solutions",
+    d: "Sales-focused CRM software for lead management and customer growth.",
+    to: "/services/crm-solutions",
+    label: "Explore CRM",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "CRM platform for sales teams",
+  },
+  {
+    t: "LMS Platforms",
+    d: "Digital learning platforms for schools, colleges, institutes and training teams.",
+    to: "/services/lms-platforms",
+    label: "Explore LMS",
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "LMS platform for educational institutions",
+  },
+];
+
 function Services() {
   return (
     <>
-      <section className="oz-open" aria-label="Software development services">
+      {/* Hero */}
+      <section className="oz-open" aria-label="Custom Software Development Services">
         <div className="oz-container">
           <div className="oz-open__grid">
             <Reveal>
               <div>
-                <span className="oz-open__index">01 — What we do</span>
+                <span className="oz-open__index">What we do</span>
                 <h1>Custom Software Development Services</h1>
               </div>
             </Reveal>
             <Reveal index={1}>
               <div>
                 <p className="oz-open__lead">
-                  Instead of picking a package, tell us the outcome you want. We assemble the right
-                  mix from the groups below — websites, apps, business software, design and the
-                  plumbing that keeps it all running.
+                  Tell us the outcome you need. We assemble the right mix of web, mobile, software,
+                  design and infrastructure — no package deals, no wasted budget.
                 </p>
                 <div className="oz-open__meta">
                   <span>
@@ -194,6 +230,9 @@ function Services() {
                   </span>
                   <span>
                     <strong>40+</strong> individual services
+                  </span>
+                  <span>
+                    <strong>10+</strong> industries served
                   </span>
                 </div>
               </div>
@@ -203,99 +242,143 @@ function Services() {
         </div>
       </section>
 
-      <section className="oz-section oz-section--tight" aria-label="Specialized">
+      {/* Services Grid */}
+      <section className="oz-section" aria-label="All service capability groups">
         <div className="oz-container">
-          <div className="oz-svc-grid">
-            {GROUPS.map((g, i) => {
-              const Icon = g.icon;
-              return (
-                <Reveal key={g.title} index={i % 3}>
-                  <article className="oz-svc-card" style={{ "--svc-accent": g.accent }}>
-                    <div className="oz-svc-card__head">
-                      <span className="oz-svc-card__num">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="oz-svc-card__icon" aria-hidden="true">
-                        <Icon size={22} strokeWidth={1.75} />
-                      </span>
-                    </div>
-                    <h3 className="oz-svc-card__title">{g.title}</h3>
-                    <ul className="oz-svc-card__list">
-                      {g.items.map((it) => (
-                        <li key={it}>
-                          <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
-                          <span>{it}</span>
+          <div className="oz-section-head">
+            <Reveal>
+              <span className="oz-eyebrow">Capabilities</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              Nine capability groups. One team.
+            </Reveal>
+          </div>
+          <div className="oz-grid oz-grid-3">
+            {GROUPS.map(({ title, Icon, img, imgAlt, items }, i) => (
+              <Reveal key={title} index={i % 3}>
+                <article
+                  className="oz-card"
+                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                >
+                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  </div>
+                  <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <span
+                      className="oz-card__icon"
+                      style={{ marginBottom: 10, background: "var(--oz-primary)", color: "#fff" }}
+                      aria-hidden="true"
+                    >
+                      <Icon size={20} strokeWidth={1.75} />
+                    </span>
+                    <h3 style={{ marginTop: 0 }}>{title}</h3>
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: 0,
+                        display: "grid",
+                        gap: 7,
+                        flex: 1,
+                      }}
+                    >
+                      {items.map((it) => (
+                        <li
+                          key={it}
+                          style={{ display: "flex", gap: 8, alignItems: "flex-start" }}
+                        >
+                          <CheckCircle2
+                            size={15}
+                            strokeWidth={2}
+                            style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-primary)" }}
+                            aria-hidden="true"
+                          />
+                          <span style={{ fontSize: "0.875rem" }}>{it}</span>
                         </li>
                       ))}
                     </ul>
-                    <div className="oz-svc-card__glow" aria-hidden="true" />
-                  </article>
-                </Reveal>
-              );
-            })}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="oz-section" aria-label="Specialized">
+      {/* Specialized Services */}
+      <section className="oz-section oz-section--muted" aria-label="Specialized service pages">
         <div className="oz-container">
           <div className="oz-section-head">
             <Reveal>
               <span className="oz-eyebrow">Specialized</span>
             </Reveal>
             <Reveal index={1} as="h2">
-              Dedicated service pages for our core offerings.
+              Dedicated pages for our most requested services.
             </Reveal>
           </div>
           <div className="oz-grid oz-grid-3">
-            <Reveal>
-              <article className="oz-card">
-                <h3>ERP Development</h3>
-                <p>Custom ERP solutions for manufacturing, retail and growing businesses.</p>
-                <Link
-                  to="/services/erp-development"
-                  className="oz-btn oz-btn--primary"
-                  style={{ marginTop: 12 }}
+            {SPECIALIZED.map(({ t, d, to, label, img, imgAlt }, i) => (
+              <Reveal key={t} index={i % 3}>
+                <article
+                  className="oz-card"
+                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
                 >
-                  Explore ERP
-                </Link>
-              </article>
-            </Reveal>
-            <Reveal index={1}>
-              <article className="oz-card">
-                <h3>CRM Solutions</h3>
-                <p>Sales-focused CRM software for lead management and customer growth.</p>
-                <Link
-                  to="/services/crm-solutions"
-                  className="oz-btn oz-btn--primary"
-                  style={{ marginTop: 12 }}
-                >
-                  Explore CRM
-                </Link>
-              </article>
-            </Reveal>
-            <Reveal index={2}>
-              <article className="oz-card">
-                <h3>LMS Platforms</h3>
-                <p>Digital learning platforms for schools, colleges, institutes and teams.</p>
-                <Link
-                  to="/services/lms-platforms"
-                  className="oz-btn oz-btn--primary"
-                  style={{ marginTop: 12 }}
-                >
-                  Explore LMS
-                </Link>
-              </article>
-            </Reveal>
+                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      padding: "clamp(1.25rem, 2vw, 1.5rem)",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <h3 style={{ marginTop: 0 }}>{t}</h3>
+                    <p style={{ flex: 1 }}>{d}</p>
+                    <Link to={to} className="oz-btn oz-btn--primary" style={{ marginTop: 16, alignSelf: "flex-start" }}>
+                      {label} <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="oz-section oz-section--muted">
-        <div className="oz-container" style={{ maxWidth: 820 }}>
+      {/* CTA */}
+      <section className="oz-section oz-section--dark" aria-label="Start a project with Ozeonix">
+        <div className="oz-container oz-center">
           <Reveal>
-            <p className="oz-muted" style={{ textAlign: "center" }}>
-              Ozeonix Infinity partners with ambitious organizations to shape ideas into secure,
-              scalable digital products.
+            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+              Let's build together
+            </span>
+            <h2>Tell us what you need. We'll figure out the rest.</h2>
+            <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
+              A free 30-minute call is all it takes. No commitment, no pressure — just an honest
+              conversation about what you want to build.
             </p>
+            <div
+              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
+            >
+              <Link to="/contact" className="oz-btn oz-btn--primary">
+                Start a project <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--on-dark">
+                WhatsApp us
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
