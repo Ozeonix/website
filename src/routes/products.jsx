@@ -377,7 +377,7 @@ function Products() {
       <section className="oz-section oz-section--dark" aria-label="Request a product demo">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               See it in action
             </span>
             <h2>Request a live product demo.</h2>

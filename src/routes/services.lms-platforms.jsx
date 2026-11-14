@@ -322,7 +322,7 @@ function LmsPlatforms() {
       <section className="oz-section oz-section--dark" aria-label="Ready to digitize your classrooms?">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Digitize your classrooms
             </span>
             <h2>Ready to take your teaching online?</h2>

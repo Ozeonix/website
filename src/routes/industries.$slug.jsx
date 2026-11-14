@@ -479,7 +479,7 @@ function IndustryDetail() {
       <section className="oz-section oz-section--dark" aria-label={`Start a ${item.label} project`}>
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               {item.label} · Ready to build?
             </span>
             <h2>Let's talk about your {item.label.toLowerCase()} project.</h2>

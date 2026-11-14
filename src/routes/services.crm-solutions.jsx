@@ -321,7 +321,7 @@ function CrmSolutions() {
       <section className="oz-section oz-section--dark" aria-label="Stop losing leads">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Close more deals
             </span>
             <h2>Stop losing leads. Start closing more deals.</h2>

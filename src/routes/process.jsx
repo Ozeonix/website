@@ -263,7 +263,7 @@ function Process() {
       <section className="oz-section oz-section--dark" aria-label="Start your project today">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Ready to begin?
             </span>
             <h2>Let's walk through your project together.</h2>

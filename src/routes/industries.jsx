@@ -287,7 +287,7 @@ function Industries() {
       <section className="oz-section oz-section--dark" aria-label="Start a project in your industry">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Your industry, our expertise
             </span>
             <h2>Don't see your industry? We can still help.</h2>

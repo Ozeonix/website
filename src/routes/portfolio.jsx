@@ -292,7 +292,7 @@ function Portfolio() {
       <section className="oz-section oz-section--dark" aria-label="Start your project">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Your project could be next
             </span>
             <h2>Let's build something great together.</h2>

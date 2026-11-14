@@ -321,7 +321,7 @@ function ErpDevelopment() {
       <section className="oz-section oz-section--dark" aria-label="Get a custom ERP built for your business">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Ready to streamline?
             </span>
             <h2>Get a custom ERP built for your business.</h2>

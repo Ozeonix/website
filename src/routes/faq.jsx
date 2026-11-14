@@ -258,7 +258,7 @@ function FAQ() {
       <section className="oz-section oz-section--dark" aria-label="Still have questions?">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Still have questions?
             </span>
             <h2>We're happy to answer anything.</h2>
