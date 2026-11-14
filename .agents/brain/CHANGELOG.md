@@ -2,6 +2,13 @@
 
 ### Milestone Log
 
+- **Hide Quick Links and Solutions in Footer on Mobile Screens (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Configured Column 1 (Quick Links) and Column 2 (Solutions) with responsive modifier classes (`.oz-footer__col--hide-mobile`, `.oz-footer__col--quick-links`, `.oz-footer__col--solutions`).
+  - Added `@media (max-width: 767px)` rule to hide both link list columns on mobile screens (`display: none !important`), eliminating excessive vertical page scrolling on phones.
+  - Kept essential Contact details, support hours, and newsletter subscription cleanly stacked and accessible on mobile viewports.
+  - Preserved full 4-column and 2-column display on desktop (`>= 1024px`) and tablet (`>= 768px`) screens.
+  - Verified across 375px mobile, 768px tablet, and 1280px desktop viewports via headless browser tests.
+
 - **Permanent WhatsApp Contact Baseline Lock & Legacy Style Scoping (`src/components/Footer.jsx` & `src/styles.css`)**:
   - Encapsulated `<span className="oz-footer__contact-label">WhatsApp:</span>` and `<span className="oz-footer__contact-val">+977-9769294624</span>` directly inside the `<a className="oz-footer__contact-link">` anchor tag.
   - Eliminated subscript-like misalignment by ensuring both the label and phone number belong to the same text node flow with uniform `align-items: center` and matching vertical coordinates.

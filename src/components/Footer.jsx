@@ -201,8 +201,8 @@ export default function Footer() {
 
         {/* 4 Columns Grid */}
         <div className="oz-footer__grid oz-footer__grid--4col">
-          {/* Column 1: Quick Links */}
-          <div className="oz-footer__col">
+          {/* Column 1: Quick Links (Hidden on mobile) */}
+          <div className="oz-footer__col oz-footer__col--quick-links oz-footer__col--hide-mobile">
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot" aria-hidden="true" /> Quick Links
             </h4>
@@ -248,8 +248,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 2: Solutions */}
-          <div className="oz-footer__col">
+          {/* Column 2: Solutions (Hidden on mobile) */}
+          <div className="oz-footer__col oz-footer__col--solutions oz-footer__col--hide-mobile">
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot" aria-hidden="true" /> Solutions
             </h4>

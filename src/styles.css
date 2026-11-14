@@ -2920,6 +2920,14 @@ fieldset.oz-field {
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .oz-footer__col--hide-mobile,
+  .oz-footer__col--quick-links,
+  .oz-footer__col--solutions {
+    display: none !important;
+  }
+}
+
 .oz-footer__col-title {
   font-size: 1.05rem;
   font-weight: 750;
