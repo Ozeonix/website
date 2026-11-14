@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 import Reveal from "../components/Reveal.jsx";
 import ProjectBriefForm from "../components/ProjectBriefForm.jsx";
 
@@ -81,8 +82,36 @@ function Contact() {
                   </a>
                 </div>
                 <hr className="oz-divider" />
-                <h2>Follow along</h2>
-                <p className="oz-muted">LinkedIn · Instagram · Facebook</p>
+                <h2 style={{ fontSize: "1.25rem", marginBottom: 12 }}>Follow along</h2>
+                <div className="oz-social-links" aria-label="Social media profiles">
+                  <a
+                    href="https://www.linkedin.com/company/ozeonix-infinity"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Ozeonix Infinity on LinkedIn"
+                    className="oz-social-link"
+                  >
+                    <FaLinkedinIn size={18} aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/ozeonix.infinity"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Ozeonix Infinity on Instagram"
+                    className="oz-social-link"
+                  >
+                    <FaInstagram size={18} aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/ozeonix.infinity"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Ozeonix Infinity on Facebook"
+                    className="oz-social-link"
+                  >
+                    <FaFacebookF size={18} aria-hidden="true" />
+                  </a>
+                </div>
               </div>
             </Reveal>
 
