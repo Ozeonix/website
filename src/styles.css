@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&display=swap");
 @source "../src";
 
 /* =========================================================
@@ -2749,17 +2750,21 @@ fieldset.oz-field {
   }
 }
 
-.oz-footer__slogan {
+.oz-footer__slogan,
+.handwritingText,
+.HeroSection-module__YGMWTW__handwritingText,
+[class*="handwritingText"] {
   margin: 0;
-  font-size: clamp(0.85rem, 1.2vw, 0.92rem);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.3;
+  font-family: "Caveat", "Dancing Script", cursive, sans-serif;
+  font-size: clamp(1.15rem, 1.55vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 @media (min-width: 768px) {

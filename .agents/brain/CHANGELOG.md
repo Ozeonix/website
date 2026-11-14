@@ -2,6 +2,13 @@
 
 ### Milestone Log
 
+- **Upgrade Footer Slogan to Handwriting Font Styling (`src/styles.css`, `src/routes/__root.jsx`, `src/components/Footer.jsx`)**:
+  - Implemented handwriting cursive styling for the footer slogan ("Shape Thought. Power Tomorrow") matching the `handwritingText` (`HeroSection-module__YGMWTW__handwritingText`) design specification.
+  - Linked Google Fonts for `Caveat` (`wght@600;700`) and `Dancing Script` in [`src/routes/__root.jsx`](src/routes/__root.jsx) with `@import` fallback in [`src/styles.css`](src/styles.css).
+  - Configured font stack: `font-family: "Caveat", "Dancing Script", cursive, sans-serif;`, `font-size: clamp(1.15rem, 1.55vw, 1.35rem);`, `font-weight: 700;`, `letter-spacing: 0.02em;`.
+  - Harmonized with the curved gradient underline, retaining dual color scheme (`.oz-footer__slogan-p1` in bright white and `.oz-footer__slogan-p2` in `#f97316` brand orange).
+  - Verified across desktop and mobile viewports via headless browser screenshots.
+
 - **Align Multiline Address and Contact Rows on Mobile Screens (`src/components/Footer.jsx` & `src/styles.css`)**:
   - Structured multiline address in [`src/components/Footer.jsx`](src/components/Footer.jsx) with clean line breaks (`Opposite Gyankoop School, <br /> 13 Ward, Janakpur, <br /> Madhesh Province 45600, Nepal`).
   - Perfected contact layout on mobile (`@media (max-width: 767px)`): centered the overall `.oz-footer__contact-items` container block horizontally (`margin-inline: auto; width: fit-content;`), while keeping items left-aligned internally.

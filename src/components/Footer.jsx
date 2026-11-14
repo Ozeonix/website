@@ -83,7 +83,7 @@ export default function Footer() {
               />
             </Link>
             <div className="oz-footer__slogan-box">
-              <p className="oz-footer__slogan">
+              <p className="oz-footer__slogan handwritingText HeroSection-module__YGMWTW__handwritingText">
                 <span className="oz-footer__slogan-p1">Shape Thought.</span>{" "}
                 <span className="oz-footer__slogan-p2">Power Tomorrow</span>
               </p>
