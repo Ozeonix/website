@@ -846,30 +846,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="oz-home-cta" aria-label="Start a software project">
-        <div className="oz-container">
-          <Reveal>
-            <div className="oz-home-cta__inner">
-              <div>
-                <span className="oz-eyebrow">Have a project in mind?</span>
-                <h2>Turn your business process into software that saves time.</h2>
-                <p>
-                  Share the challenge with our team. We will help you define the right first step.
-                </p>
-              </div>
-              <div className="oz-home-cta__actions">
-                <Link to="/contact" className="oz-btn oz-btn--primary">
-                  Discuss your project <ArrowRight size={18} />
-                </Link>
-                <a href="https://wa.me/9779769294624" className="oz-btn oz-btn--secondary">
-                  Chat on WhatsApp
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="oz-section oz-section--muted oz-section-faq" aria-label="FAQ">
         <div className="oz-container oz-container--narrow">
