@@ -2,6 +2,16 @@
 
 ### Milestone Log
 
+- **Permanent WhatsApp Contact Baseline Lock & Legacy Style Scoping (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Encapsulated `<span className="oz-footer__contact-label">WhatsApp:</span>` and `<span className="oz-footer__contact-val">+977-9769294624</span>` directly inside the `<a className="oz-footer__contact-link">` anchor tag.
+  - Eliminated subscript-like misalignment by ensuring both the label and phone number belong to the same text node flow with uniform `align-items: center` and matching vertical coordinates.
+  - Scoped legacy `.oz-footer a` and `.oz-footer a:hover` rules in `src/styles.css` to `.oz-footer:not(.oz-footer--upgraded) a`, preventing legacy `padding: 7px 0; min-height: 36px;` bleed from pushing link text down.
+
+- **Removal of Redundant Home CTA Banner (`src/routes/index.jsx` & `src/styles.css`)**:
+  - Removed `<section className="oz-home-cta">` ("Turn your business process into software that saves time") completely from the homepage.
+  - Cleaned up unused CSS classes (`.oz-home-cta`, `.oz-home-cta__inner`, `.oz-home-cta__actions`, and their media queries) from `src/styles.css`.
+  - Streamlined page flow directly from the stats/metrics section into the FAQ section without duplicate action cards.
+
 - **Modern FAQ Accordion & Knowledge Base UI/UX Upgrade (`src/routes/index.jsx` & `src/styles.css`)**:
   - Transformed the plain FAQ list into a modern, tactile accordion system:
     - **Eyebrow & Header**: Added `FAQ & Knowledge Base` capsule badge with `HelpCircle` icon, high-contrast headline, and descriptive subtitle.

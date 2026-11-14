@@ -334,17 +334,15 @@ export default function Footer() {
                     className="oz-footer__contact-img"
                   />
                 </span>
-                <div className="oz-footer__contact-text-group">
+                <a
+                  href="https://wa.me/9779769294624"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="oz-footer__contact-link"
+                >
                   <span className="oz-footer__contact-label">WhatsApp:</span>
-                  <a
-                    href="https://wa.me/9779769294624"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="oz-footer__contact-link"
-                  >
-                    +977-9769294624
-                  </a>
-                </div>
+                  <span className="oz-footer__contact-val">+977-9769294624</span>
+                </a>
               </div>
             </address>
 
