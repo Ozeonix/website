@@ -112,6 +112,13 @@
   - Removed all artificial border lines (no left accent border, no top gradient stripe) in favor of a clean, normal, modern card pill design with subtle `10px` container radius and soft background hover tint (`#fff7ed`).
   - Tightened wide `Industries` grid to `39rem` for a balanced, compact $3 \times 3$ grid presentation without loose whitespace.
 
+- **Navbar & Button Compact Spacing Polish (`src/styles.css`)**:
+  - Decreased navbar container minimum height from `3.5rem` to `3rem` and tightened vertical padding to `0.15rem`.
+  - Scaled navbar navigation triggers (`.oz-navitem__trigger`, `.oz-navlinks > a`) to `min-height: 30px` and `padding: 4px 7px` with compact `3px` item gaps.
+  - Reduced button padding across `.oz-btn` to `0.5rem 1rem` (`min-height: 2.35rem`) and navbar CTA buttons (`.oz-nav__cta`) to `0.32rem 0.7rem` (`min-height: 32px`).
+  - Adjusted language switcher (`.oz-lang__trigger`) to `min-height: 32px` and `padding: 0.3rem 0.6rem` to prevent navbar vertical stretching.
+
+
 
 
 

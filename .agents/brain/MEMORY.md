@@ -102,6 +102,8 @@
   - `<ResponsiveImage />` (`src/components/ResponsiveImage.jsx`): enhanced to automatically detect and optimize Cloudinary images alongside Unsplash.
 
 ### F. Modern Navigation Bar & Dropdowns (`src/components/Navbar.jsx` & `src/styles.css`)
+- **Compact Navbar Spacing**: Navbar height reduced to `3rem` (48px) with `0.15rem` vertical padding. Navigation items (`.oz-navitem__trigger`, `.oz-navlinks > a`) scaled to `min-height: 30px` and `padding: 4px 7px` with `3px` gap.
+- **Tightened Button Dimensions**: Global `.oz-btn` padding decreased to `0.5rem 1rem` (`min-height: 2.35rem`), navbar CTA buttons (`.oz-nav__cta`) tightened to `0.32rem 0.7rem` (`min-height: 32px`), and language switcher (`.oz-lang__trigger`) scaled to `min-height: 32px`.
 - **Icon-Free Dropdown Design**: Removed visual clutter and random colored icon squares from desktop and mobile dropdown list items.
 - **Normal Borderless Card Layout**: Standard clean card pill items with compact padding (`7px 10px`), tight gap (`2px` normal, `4px` wide), and zero artificial border lines. Soft `#fff7ed` background tint and brand orange title shift on hover.
 - **Balanced 3-Column Wide Grid**: `Industries` dropdown utilizes a compact 3-column layout (`grid-template-columns: repeat(3, minmax(0, 1fr))`, `width: min(39rem, calc(100vw - 2rem))`) fitting 9 industry items with zero awkward empty spaces.
