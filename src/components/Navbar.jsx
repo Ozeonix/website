@@ -13,7 +13,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
-import nepalFlag from "../assets/nepal-flag.png";
+import nepalFlag from "../assets/nepal-flag.gif";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import NavActionsDropdown from "./NavActionsDropdown.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
@@ -304,7 +304,6 @@ export default function Navbar() {
               width={26}
               height={32}
               loading="eager"
-              decoding="async"
             />
           </div>
         </div>
