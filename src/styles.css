@@ -3590,8 +3590,9 @@ fieldset.oz-field {
   .oz-nav__inner {
     grid-template-columns: minmax(0, 1fr) auto auto;
   }
-  .oz-nav__right .oz-nav__cta {
-    display: none;
+  .oz-nav__right .oz-nav__cta,
+  .oz-actions-dropdown {
+    display: none !important;
   }
 }
 @media (max-width: 420px) {
@@ -3620,6 +3621,11 @@ fieldset.oz-field {
    ========================================================================== */
 .oz-actions-dropdown {
   position: relative;
+}
+@media (max-width: 1279px) {
+  .oz-actions-dropdown {
+    display: none !important;
+  }
 }
 .oz-actions-trigger {
   display: inline-flex;
