@@ -312,7 +312,8 @@ export default function Footer() {
                   <MapPin size={16} aria-hidden="true" />
                 </span>
                 <span className="oz-footer__contact-text">
-                  Opposite Gyankoop School, 13 Ward, Janakpur, Madhesh Province 45600, Nepal
+                  Opposite Gyankoop School, <br /> 13 Ward, Janakpur, <br /> Madhesh Province 45600,
+                  Nepal
                 </span>
               </div>
               <div className="oz-footer__contact-row">

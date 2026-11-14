@@ -2,6 +2,12 @@
 
 ### Milestone Log
 
+- **Align Multiline Address and Contact Rows on Mobile Screens (`src/components/Footer.jsx` & `src/styles.css`)**:
+  - Structured multiline address in [`src/components/Footer.jsx`](src/components/Footer.jsx) with clean line breaks (`Opposite Gyankoop School, <br /> 13 Ward, Janakpur, <br /> Madhesh Province 45600, Nepal`).
+  - Perfected contact layout on mobile (`@media (max-width: 767px)`): centered the overall `.oz-footer__contact-items` container block horizontally (`margin-inline: auto; width: fit-content;`), while keeping items left-aligned internally.
+  - Aligned all contact icons (MapPin, Phone, WhatsApp) in a clean, vertical column sharing the exact same X coordinate (`x: 69.2px`), eliminating zigzagging and awkward icon shifts.
+  - Verified across mobile (375px) and desktop (1280px) viewports via Playwright tests.
+
 - **Center Footer Columns and Contact Details on Mobile Screens (`src/styles.css`)**:
   - Centered all visible footer columns and child content on mobile screens (`@media (max-width: 767px)`):
     - `.oz-footer__grid--4col`: `justify-items: center; text-align: center;`

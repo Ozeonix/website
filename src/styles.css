@@ -2945,18 +2945,25 @@ fieldset.oz-field {
   }
 
   .oz-footer--upgraded .oz-footer__contact-items {
-    align-items: center;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
   }
 
   .oz-footer--upgraded .oz-footer__contact-row {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
   }
 
   .oz-footer--upgraded .oz-footer__contact-row--address {
-    justify-content: center;
-    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .oz-footer--upgraded .oz-footer__sub-title {
