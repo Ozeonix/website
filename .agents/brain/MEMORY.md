@@ -103,10 +103,10 @@
 
 ### F. Modern Navigation Bar & Dropdowns (`src/components/Navbar.jsx` & `src/styles.css`)
 - **Icon-Free Dropdown Design**: Removed visual clutter and random colored icon squares from desktop and mobile dropdown list items.
-- **Card-Style Item Presentation**: Clean typography with high-contrast titles (`font-weight: 600`, `#111827`), informative subheadings (`#64748b`), tactile left brand orange indicator border (`border-left: 2px solid #ea580c` on hover), and warm background tint (`#fff7ed`).
-- **Wide Dropdown Grid**: `Industries` dropdown utilizes a balanced 3-column layout (`grid-template-columns: repeat(3, minmax(0, 1fr))`) fitting 9 industry items with zero awkward empty spaces.
-- **Container Styling**: Top orange accent gradient hairline (`linear-gradient(90deg, #ea580c, #f97316)`), 14px rounded corners, and soft multi-layer box shadows.
-- **Mobile Menu Architecture**: Mobile submenus render without icons, featuring clean hierarchical left border tracks and descriptive labels.
+- **Normal Borderless Card Layout**: Standard clean card pill items with compact padding (`7px 10px`), tight gap (`2px` normal, `4px` wide), and zero artificial border lines. Soft `#fff7ed` background tint and brand orange title shift on hover.
+- **Balanced 3-Column Wide Grid**: `Industries` dropdown utilizes a compact 3-column layout (`grid-template-columns: repeat(3, minmax(0, 1fr))`, `width: min(39rem, calc(100vw - 2rem))`) fitting 9 industry items with zero awkward empty spaces.
+- **Container Styling**: Normal clean 10px rounded container with standard light neutral border (`1px solid var(--oz-border)`), 6px internal padding, and soft multi-layer box shadows.
+- **Mobile Menu Architecture**: Mobile submenus render without icons, featuring clean normal card items with compact padding and descriptive labels.
 
 
 

@@ -107,6 +107,12 @@
   - Added a delicate top orange gradient accent hairline (`oz-dropdown::before`) and multi-layer shadows for crisp visual depth.
   - Redesigned mobile navigation submenu items with hierarchical left border guides, clean bold titles, and descriptions.
 
+- **Dropdown Padding, Margin Gap & Borderless Grid Polish (`src/styles.css`)**:
+  - Decreased dropdown padding to `6px`, item padding to `7px 10px`, and grid gap to `2px` (normal) and `4px` (wide 3-column grid).
+  - Removed all artificial border lines (no left accent border, no top gradient stripe) in favor of a clean, normal, modern card pill design with subtle `10px` container radius and soft background hover tint (`#fff7ed`).
+  - Tightened wide `Industries` grid to `39rem` for a balanced, compact $3 \times 3$ grid presentation without loose whitespace.
+
+
 
 
 
