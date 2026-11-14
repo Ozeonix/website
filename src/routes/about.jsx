@@ -301,7 +301,7 @@ function About() {
       <section className="oz-section oz-section--dark" aria-label="Start a project with us">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Let's build together
             </span>
             <h2>Ready to start your next project?</h2>

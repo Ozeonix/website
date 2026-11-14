@@ -361,7 +361,7 @@ function Services() {
       <section className="oz-section oz-section--dark" aria-label="Start a project with Ozeonix">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow" style={{ color: "var(--oz-primary)" }}>
+            <span className="oz-eyebrow">
               Let's build together
             </span>
             <h2>Tell us what you need. We'll figure out the rest.</h2>
