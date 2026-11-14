@@ -125,6 +125,7 @@ const PROCESS = [
     d: "We learn your business, users and goals before writing a single line.",
     Icon: Compass,
     dur: "3–5 days",
+    tags: ["Requirements Spec", "Architecture Map", "Risk Audit"],
   },
   {
     s: "02",
@@ -132,6 +133,7 @@ const PROCESS = [
     d: "A clear roadmap with scope, timeline, milestones and stack.",
     Icon: ClipboardList,
     dur: "1 week",
+    tags: ["Milestone Sprints", "Tech Selection", "Fixed Budget"],
   },
   {
     s: "03",
@@ -139,6 +141,7 @@ const PROCESS = [
     d: "Wireframes and polished interfaces built for real usability.",
     Icon: PenTool,
     dur: "1–2 weeks",
+    tags: ["Figma Prototype", "Design Tokens", "Design Review"],
   },
   {
     s: "04",
@@ -146,6 +149,7 @@ const PROCESS = [
     d: "Scalable, secure engineering with regular check-ins.",
     Icon: Code2,
     dur: "4–10 weeks",
+    tags: ["Clean Codebase", "Weekly Demos", "CI/CD Pipeline"],
   },
   {
     s: "05",
@@ -153,6 +157,7 @@ const PROCESS = [
     d: "Cross-device, cross-browser, performance and accessibility.",
     Icon: TestTube2,
     dur: "1 week",
+    tags: ["Security Audit", "Lighthouse 95+", "WCAG A11y"],
   },
   {
     s: "06",
@@ -160,6 +165,7 @@ const PROCESS = [
     d: "Deployment, monitoring, maintenance and continuous improvement.",
     Icon: LifeBuoy,
     dur: "Ongoing",
+    tags: ["Cloud Deploy", "Zero Downtime", "SLA Warranty"],
   },
 ];
 
@@ -515,20 +521,10 @@ function Home() {
 
       {/* PROCESS */}
       <section
-        className="oz-section oz-section--muted"
-        style={{ position: "relative", overflow: "hidden" }}
+        className="oz-section oz-process-section"
         aria-label="Development Process"
       >
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            pointerEvents: "none",
-            backgroundImage:
-              "radial-gradient(600px 300px at 90% 0%, color-mix(in oklab, var(--oz-primary) 10%, transparent), transparent 60%), radial-gradient(500px 260px at 0% 100%, color-mix(in oklab, var(--oz-primary) 8%, transparent), transparent 60%)",
-          }}
-        />
+        <div className="oz-process-bg-glow" aria-hidden="true" />
         <div className="oz-container" style={{ position: "relative" }}>
           <div className="oz-section-head">
             <Reveal>
@@ -539,232 +535,111 @@ function Home() {
             </Reveal>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gap: "clamp(24px, 4vw, 56px)",
-              gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)",
-              alignItems: "start",
-            }}
-            className="oz-process-grid"
-          >
-            {/* LEFT: image + intro */}
+          <div className="oz-process-grid">
+            {/* LEFT: Overview Card (Sticky) */}
             <Reveal>
               <div className="oz-process-sticky">
-                <div
-                  className="oz-process-hero"
-                  style={{
-                    position: "relative",
-                    borderRadius: 20,
-                    overflow: "hidden",
-                    boxShadow:
-                      "0 30px 60px -30px rgba(15, 23, 42, 0.35), 0 12px 24px -12px rgba(15, 23, 42, 0.2)",
-                    aspectRatio: "4 / 5",
-                    background: "var(--oz-primary)",
-                  }}
-                >
-                  <ResponsiveImage
-                    src={processTeam1024}
-                    alt="Ozeonix Infinity software team collaborating on a project roadmap"
-                    width={1024}
-                    height={1280}
-                    widths={[480, 768, 1024]}
-                    srcSet={`${processTeam480} 480w, ${processTeam768} 768w, ${processTeam1024} 1024w`}
-                    sizes="(max-width: 900px) calc(100vw - 2rem), (max-width: 1280px) 42vw, 500px"
-                    pictureClassName="oz-process-picture"
-                    className="oz-process-image"
-                  />
-                  <div
-                    aria-hidden
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(180deg, transparent 40%, rgba(10, 12, 30, 0.75) 100%)",
-                    }}
-                  />
-                  <div
-                    className="oz-process-hero-caption"
-                    style={{ position: "absolute", left: 20, right: 20, bottom: 20, color: "#fff" }}
-                  >
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 8,
-                        padding: "6px 12px",
-                        borderRadius: 999,
-                        background: "rgba(255,255,255,0.14)",
-                        backdropFilter: "blur(6px)",
-                        fontSize: 12,
-                        fontWeight: 600,
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: 999,
-                          background: "var(--brand-green, #00A982)",
-                          boxShadow:
-                            "0 0 0 4px color-mix(in oklab, var(--brand-green) 25%, transparent)",
-                        }}
-                      />
-                      Structured delivery, from discovery to launch
+                <div className="oz-process-overview-card">
+                  <div className="oz-process-hero">
+                    <ResponsiveImage
+                      src={processTeam1024}
+                      alt="Ozeonix Infinity software engineering team collaborating on project architecture"
+                      width={1024}
+                      height={1280}
+                      widths={[480, 768, 1024]}
+                      srcSet={`${processTeam480} 480w, ${processTeam768} 768w, ${processTeam1024} 1024w`}
+                      sizes="(max-width: 900px) calc(100vw - 2rem), (max-width: 1280px) 42vw, 500px"
+                      pictureClassName="oz-process-picture"
+                      className="oz-process-image"
+                    />
+                    <div className="oz-process-hero-overlay" aria-hidden="true" />
+                    <div className="oz-process-hero-badge">
+                      <span className="oz-process-pulse-dot" aria-hidden="true" />
+                      Structured Delivery
                     </div>
-                    <p style={{ margin: "12px 0 0", fontSize: 15, lineHeight: 1.5, opacity: 0.92 }}>
-                      A proven six-step delivery method used on every CRM, ERP and LMS project we
-                      ship.
-                    </p>
+                    <div className="oz-process-hero-caption">
+                      <h3 className="oz-process-hero-title">Engineering Discipline</h3>
+                      <p className="oz-process-hero-desc">
+                        A proven six-step framework used across custom CRM, ERP, and enterprise web solutions.
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div
-                  className="oz-process-stats"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: 12,
-                    marginTop: 16,
-                  }}
-                >
-                  <div
-                    style={{
-                      padding: 14,
-                      borderRadius: 12,
-                      background: "var(--oz-card, #fff)",
-                      border: "1px solid color-mix(in oklab, var(--oz-primary) 12%, transparent)",
-                    }}
-                  >
-                    <div style={{ fontSize: 22, fontWeight: 700, color: "var(--oz-primary)" }}>
-                      6
+                  <div className="oz-process-card-body">
+                    <div className="oz-process-stats">
+                      <div className="oz-process-stat-tile">
+                        <div className="oz-process-stat-val">6</div>
+                        <div className="oz-process-stat-lbl">Structured Phases</div>
+                      </div>
+                      <div className="oz-process-stat-tile">
+                        <div className="oz-process-stat-val">2×</div>
+                        <div className="oz-process-stat-lbl">Weekly Sprint Demos</div>
+                      </div>
+                      <div className="oz-process-stat-tile">
+                        <div className="oz-process-stat-val">100%</div>
+                        <div className="oz-process-stat-lbl">Code &amp; IP Ownership</div>
+                      </div>
+                      <div className="oz-process-stat-tile">
+                        <div className="oz-process-stat-val">Zero</div>
+                        <div className="oz-process-stat-lbl">Surprise Scope Creep</div>
+                      </div>
                     </div>
-                    <div style={{ fontSize: 13, opacity: 0.75 }}>Structured phases</div>
-                  </div>
-                  <div
-                    style={{
-                      padding: 14,
-                      borderRadius: 12,
-                      background: "var(--oz-card, #fff)",
-                      border: "1px solid color-mix(in oklab, var(--oz-primary) 12%, transparent)",
-                    }}
-                  >
-                    <div style={{ fontSize: 22, fontWeight: 700, color: "var(--oz-primary)" }}>
-                      2×
-                    </div>
-                    <div style={{ fontSize: 13, opacity: 0.75 }}>Weekly demos</div>
+
+                    <ul className="oz-process-guarantees" aria-label="Process guarantees">
+                      <li className="oz-process-guarantee-item">
+                        <CheckCircle2 size={16} className="oz-process-guarantee-icon" aria-hidden="true" />
+                        <span>Milestone-based delivery with fixed scopes</span>
+                      </li>
+                      <li className="oz-process-guarantee-item">
+                        <CheckCircle2 size={16} className="oz-process-guarantee-icon" aria-hidden="true" />
+                        <span>Direct communication with senior engineers</span>
+                      </li>
+                      <li className="oz-process-guarantee-item">
+                        <CheckCircle2 size={16} className="oz-process-guarantee-icon" aria-hidden="true" />
+                        <span>Comprehensive documentation &amp; post-launch warranty</span>
+                      </li>
+                    </ul>
+
+                    <Link to="/contact" className="oz-btn oz-btn--primary oz-btn--block">
+                      Discuss your project
+                      <ArrowRight size={18} aria-hidden="true" />
+                    </Link>
                   </div>
                 </div>
               </div>
             </Reveal>
 
-            {/* RIGHT: timeline */}
+            {/* RIGHT: Timeline & Step Cards */}
             <div className="oz-process-timeline">
-              <div
-                aria-hidden
-                className="oz-process-timeline-line"
-                style={{
-                  position: "absolute",
-                  left: 27,
-                  top: 8,
-                  bottom: 8,
-                  width: 2,
-                  background:
-                    "linear-gradient(180deg, color-mix(in oklab, var(--oz-primary) 40%, transparent), color-mix(in oklab, var(--oz-primary) 10%, transparent))",
-                  borderRadius: 2,
-                }}
-              />
-              <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 16 }}>
+              <div aria-hidden="true" className="oz-process-timeline-spine" />
+              <ol className="oz-process-steps-list">
                 {PROCESS.map((p, i) => {
                   const I = p.Icon;
                   return (
                     <Reveal key={p.s} index={i % 3} as="li">
-                      <article
-                        className="oz-process-step"
-                        style={{
-                          position: "relative",
-                          display: "grid",
-                          gridTemplateColumns: "56px 1fr",
-                          gap: 18,
-                          padding: 20,
-                          paddingLeft: 8,
-                          borderRadius: 16,
-                          background: "var(--oz-card, #fff)",
-                          border:
-                            "1px solid color-mix(in oklab, var(--oz-primary) 10%, transparent)",
-                          boxShadow: "0 10px 30px -20px rgba(15, 23, 42, 0.25)",
-                          transition: "transform .2s ease, box-shadow .2s ease",
-                        }}
-                      >
-                        <div
-                          className="oz-process-step-icon"
-                          style={{
-                            width: 56,
-                            height: 56,
-                            borderRadius: 14,
-                            display: "grid",
-                            placeItems: "center",
-                            background:
-                              "linear-gradient(135deg, var(--oz-primary), color-mix(in oklab, var(--oz-primary) 70%, #000))",
-                            color: "var(--oz-primary-foreground, #fff)",
-                            boxShadow:
-                              "0 8px 20px -8px color-mix(in oklab, var(--oz-primary) 60%, transparent)",
-                            position: "relative",
-                            zIndex: 1,
-                          }}
-                        >
+                      <article className="oz-process-step">
+                        <div className="oz-process-step-icon-wrap" aria-hidden="true">
                           <I size={24} strokeWidth={2} />
                         </div>
-                        <div style={{ minWidth: 0 }}>
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 10,
-                              flexWrap: "wrap",
-                              marginBottom: 6,
-                            }}
-                          >
-                            <span
-                              style={{
-                                fontSize: 12,
-                                fontWeight: 700,
-                                letterSpacing: "0.14em",
-                                color: "var(--oz-primary)",
-                                opacity: 0.9,
-                              }}
-                            >
-                              STEP {p.s}
-                            </span>
-                            <span
-                              style={{
-                                height: 4,
-                                width: 4,
-                                borderRadius: 999,
-                                background: "currentColor",
-                                opacity: 0.3,
-                              }}
-                            />
-                            <span
-                              style={{
-                                fontSize: 12,
-                                fontWeight: 600,
-                                padding: "3px 10px",
-                                borderRadius: 999,
-                                background:
-                                  "color-mix(in oklab, var(--oz-primary) 10%, transparent)",
-                                color: "var(--oz-primary)",
-                              }}
-                            >
+                        <div className="oz-process-step-content">
+                          <div className="oz-process-step-meta">
+                            <span className="oz-process-step-num">Step {p.s}</span>
+                            <span className="oz-process-step-dur">
+                              <Clock size={13} aria-hidden="true" />
                               {p.dur}
                             </span>
                           </div>
-                          <h3 style={{ margin: "0 0 6px", fontSize: 20, lineHeight: 1.2 }}>
-                            {p.t}
-                          </h3>
-                          <p style={{ margin: 0, opacity: 0.78, lineHeight: 1.55 }}>{p.d}</p>
+                          <h3 className="oz-process-step-title">{p.t}</h3>
+                          <p className="oz-process-step-desc">{p.d}</p>
+                          {p.tags && p.tags.length > 0 && (
+                            <div className="oz-process-tags" aria-label={`Deliverables for ${p.t}`}>
+                              {p.tags.map((tag) => (
+                                <span key={tag} className="oz-process-tag">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </article>
                     </Reveal>
@@ -773,38 +648,23 @@ function Home() {
               </ol>
 
               <Reveal>
-                <div
-                  className="oz-process-cta"
-                  style={{
-                    marginTop: 20,
-                    padding: 18,
-                    borderRadius: 16,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 14,
-                    flexWrap: "wrap",
-                    background:
-                      "linear-gradient(135deg, var(--oz-primary), color-mix(in oklab, var(--oz-primary) 65%, #000))",
-                    color: "var(--oz-primary-foreground, #fff)",
-                  }}
-                >
-                  <CheckCircle2 size={22} />
-                  <span style={{ fontWeight: 600 }}>
-                    Ready to turn your idea into a clear project plan?
-                  </span>
-                  <Link
-                    to="/contact"
-                    style={{
-                      marginLeft: "auto",
-                      padding: "10px 18px",
-                      borderRadius: 999,
-                      background: "#fff",
-                      color: "var(--oz-primary)",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                    }}
-                  >
-                    Discuss your project →
+                <div className="oz-process-cta">
+                  <div className="oz-process-cta-left">
+                    <div className="oz-process-cta-icon" aria-hidden="true">
+                      <ShieldCheck size={22} />
+                    </div>
+                    <div>
+                      <h4 className="oz-process-cta-title">
+                        Ready to turn your vision into a clear, predictable plan?
+                      </h4>
+                      <p className="oz-process-cta-sub">
+                        Get an actionable roadmap, timeline, and fixed quote within 48 hours.
+                      </p>
+                    </div>
+                  </div>
+                  <Link to="/contact" className="oz-btn oz-btn--primary">
+                    Start Your Project
+                    <ArrowRight size={18} aria-hidden="true" />
                   </Link>
                 </div>
               </Reveal>
