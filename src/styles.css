@@ -2933,52 +2933,85 @@ fieldset.oz-field {
   }
 
   .oz-footer--upgraded .oz-footer__grid--4col {
-    justify-items: center;
-    text-align: center;
+    justify-items: stretch;
+    text-align: left;
   }
 
-  .oz-footer--upgraded .oz-footer__col {
+  /* Contact Column: strictly left-aligned only */
+  .oz-footer--upgraded .oz-footer__col--contact {
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-self: stretch !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__col-title {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__contact-items {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__contact-row {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__contact-row--address {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__contact-text {
+    text-align: left !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__contact-link {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__sub-title {
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__hours-list {
+    margin-inline: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 24rem !important;
+  }
+
+  .oz-footer--upgraded .oz-footer__col--contact .oz-footer__hours-item {
+    justify-content: space-between !important;
+    text-align: left !important;
+  }
+
+  /* Newsletter Column: centered on mobile */
+  .oz-footer--upgraded .oz-footer__col--newsletter {
     align-items: center;
     text-align: center;
     max-width: 24rem;
     margin-inline: auto;
   }
 
-  .oz-footer--upgraded .oz-footer__col-title {
+  .oz-footer--upgraded .oz-footer__col--newsletter .oz-footer__col-title {
     justify-content: center;
     text-align: center;
-  }
-
-  .oz-footer--upgraded .oz-footer__contact-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    width: fit-content;
-    max-width: 100%;
-    margin-inline: auto;
-  }
-
-  .oz-footer--upgraded .oz-footer__contact-row {
-    justify-content: flex-start;
-    text-align: left;
-    width: 100%;
-  }
-
-  .oz-footer--upgraded .oz-footer__contact-row--address {
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-  }
-
-  .oz-footer--upgraded .oz-footer__sub-title {
-    text-align: center;
-  }
-
-  .oz-footer--upgraded .oz-footer__hours-list {
-    width: 100%;
-    max-width: 22rem;
-    margin-inline: auto;
   }
 
   .oz-footer--upgraded .oz-footer__newsletter-desc {

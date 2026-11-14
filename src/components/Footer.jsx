@@ -302,7 +302,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Contact & Hours */}
-          <div className="oz-footer__col">
+          <div className="oz-footer__col oz-footer__col--contact">
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot" aria-hidden="true" /> Contact Us
             </h4>
@@ -361,7 +361,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Stay Updated */}
-          <div className="oz-footer__col">
+          <div className="oz-footer__col oz-footer__col--newsletter">
             <h4 className="oz-footer__col-title">
               <span className="oz-footer__dot" aria-hidden="true" /> Stay Updated
             </h4>
