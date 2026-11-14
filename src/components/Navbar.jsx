@@ -11,19 +11,6 @@ import {
   CalendarDays,
   UtensilsCrossed,
   HeartPulse,
-  Users,
-  GitMerge,
-  Briefcase,
-  Layers,
-  Target,
-  Cpu,
-  Globe,
-  Package,
-  FolderGit2,
-  HelpCircle,
-  Handshake,
-  LogIn,
-  LayoutDashboard,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
@@ -52,32 +39,29 @@ const MENUS = [
   {
     label: "Company",
     children: [
-      { to: "/about", label: "About Us", d: "Our mission, vision & team", Icon: Users },
-      { to: "/process", label: "Our Process", d: "How we deliver projects", Icon: GitMerge },
-      { to: "/careers", label: "Careers", d: "Join our growing team", Icon: Briefcase },
+      { to: "/about", label: "About Us", d: "Our mission, vision & team" },
+      { to: "/process", label: "Our Process", d: "How we deliver projects" },
+      { to: "/careers", label: "Careers", d: "Join our growing team" },
     ],
   },
   {
     label: "Services",
     children: [
-      { to: "/services", label: "All Services", d: "Explore our capabilities", Icon: Layers },
+      { to: "/services", label: "All Services", d: "Explore our capabilities" },
       {
         to: "/services/crm-solutions",
         label: "CRM Solutions",
         d: "Sales and customer platforms",
-        Icon: Target,
       },
       {
         to: "/services/erp-development",
         label: "ERP Development",
         d: "Connected business operations",
-        Icon: Cpu,
       },
       {
         to: "/services/lms-platforms",
         label: "LMS Platforms",
         d: "Learning for schools and teams",
-        Icon: GraduationCap,
       },
     ],
   },
@@ -89,20 +73,19 @@ const MENUS = [
       params: { slug: i.slug },
       label: i.label,
       d: i.d,
-      Icon: i.Icon,
     })),
   },
   {
     label: "Solutions",
     children: [
-      { to: "/industries", label: "All Industries", d: "Verticals we serve", Icon: Globe },
-      { to: "/products", label: "Products", d: "Ready-to-deploy platforms", Icon: Package },
-      { to: "/portfolio", label: "Portfolio", d: "Selected work & demos", Icon: FolderGit2 },
+      { to: "/industries", label: "All Industries", d: "Verticals we serve" },
+      { to: "/products", label: "Products", d: "Ready-to-deploy platforms" },
+      { to: "/portfolio", label: "Portfolio", d: "Selected work & demos" },
     ],
   },
   {
     label: "Resources",
-    children: [{ to: "/faq", label: "FAQ", d: "Common questions answered", Icon: HelpCircle }],
+    children: [{ to: "/faq", label: "FAQ", d: "Common questions answered" }],
   },
   {
     label: "Partners",
@@ -111,9 +94,8 @@ const MENUS = [
         to: "/partner-program",
         label: "Partner Program",
         d: "Earn 10% per referred project",
-        Icon: Handshake,
       },
-      { to: "/auth", label: "Partner Login", d: "Sign in to your dashboard", Icon: LogIn },
+      { to: "/auth", label: "Partner Login", d: "Sign in to your dashboard" },
     ],
   },
 ];
@@ -204,7 +186,6 @@ export default function Navbar() {
                       to: "/partner",
                       label: "My Dashboard",
                       d: "Referrals & commission",
-                      Icon: LayoutDashboard,
                     },
                   ]
                 : m.children;
@@ -273,35 +254,27 @@ export default function Navbar() {
                   aria-hidden={desktopMenu !== m.label}
                 >
                   <div className="oz-dropdown__inner">
-                    {children.map((c) => {
-                      const Icon = c.Icon;
-                      return (
-                        <Link
-                          key={c.label + (c.params?.slug ?? c.to)}
-                          to={c.to}
-                          params={c.params}
-                          className="oz-dropdown__item"
-                          role="menuitem"
-                          tabIndex={desktopMenu === m.label ? 0 : -1}
-                          ref={(element) => {
-                            if (!menuRefs.current[m.label]) menuRefs.current[m.label] = [];
-                            menuRefs.current[m.label][children.indexOf(c)] = element;
-                          }}
-                          onKeyDown={(event) => onMenuKeyDown(event, m.label, children.indexOf(c))}
-                          onClick={() => setDesktopMenu(null)}
-                        >
-                          {Icon ? (
-                            <span className="oz-dropdown__icon-wrap" aria-hidden="true">
-                              <Icon size={16} strokeWidth={2} />
-                            </span>
-                          ) : null}
-                          <div className="oz-dropdown__content">
-                            <span className="oz-dropdown__title">{c.label}</span>
-                            <span className="oz-dropdown__desc">{c.d}</span>
-                          </div>
-                        </Link>
-                      );
-                    })}
+                    {children.map((c) => (
+                      <Link
+                        key={c.label + (c.params?.slug ?? c.to)}
+                        to={c.to}
+                        params={c.params}
+                        className="oz-dropdown__item"
+                        role="menuitem"
+                        tabIndex={desktopMenu === m.label ? 0 : -1}
+                        ref={(element) => {
+                          if (!menuRefs.current[m.label]) menuRefs.current[m.label] = [];
+                          menuRefs.current[m.label][children.indexOf(c)] = element;
+                        }}
+                        onKeyDown={(event) => onMenuKeyDown(event, m.label, children.indexOf(c))}
+                        onClick={() => setDesktopMenu(null)}
+                      >
+                        <div className="oz-dropdown__content">
+                          <span className="oz-dropdown__title">{c.label}</span>
+                          {c.d ? <span className="oz-dropdown__desc">{c.d}</span> : null}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -397,7 +370,6 @@ export default function Navbar() {
                         to: "/partner",
                         label: "My Dashboard",
                         d: "Referrals & commission",
-                        Icon: LayoutDashboard,
                       },
                     ]
                   : m.children;
@@ -420,25 +392,20 @@ export default function Navbar() {
                   </button>
                   {mobileGroup === m.label && (
                     <div className="oz-nav__mgroup-list">
-                      {children.map((c) => {
-                        const Icon = c.Icon;
-                        return (
-                          <Link
-                            key={c.label + (c.params?.slug ?? c.to)}
-                            to={c.to}
-                            params={c.params}
-                            onClick={() => setOpen(false)}
-                            className="oz-nav__mgroup-item"
-                          >
-                            {Icon ? (
-                              <span className="oz-nav__mgroup-icon" aria-hidden="true">
-                                <Icon size={16} strokeWidth={2} />
-                              </span>
-                            ) : null}
-                            <span>{c.label}</span>
-                          </Link>
-                        );
-                      })}
+                      {children.map((c) => (
+                        <Link
+                          key={c.label + (c.params?.slug ?? c.to)}
+                          to={c.to}
+                          params={c.params}
+                          onClick={() => setOpen(false)}
+                          className="oz-nav__mgroup-item"
+                        >
+                          <div className="oz-nav__mgroup-content">
+                            <span className="oz-nav__mgroup-title">{c.label}</span>
+                            {c.d ? <span className="oz-nav__mgroup-desc">{c.d}</span> : null}
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>

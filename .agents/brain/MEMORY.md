@@ -101,4 +101,12 @@
   - `<CloudinaryImage />` (`src/components/CloudinaryImage.jsx`): plug-and-play picture tag delivery with AVIF, WebP, and fallback sources.
   - `<ResponsiveImage />` (`src/components/ResponsiveImage.jsx`): enhanced to automatically detect and optimize Cloudinary images alongside Unsplash.
 
+### F. Modern Navigation Bar & Dropdowns (`src/components/Navbar.jsx` & `src/styles.css`)
+- **Icon-Free Dropdown Design**: Removed visual clutter and random colored icon squares from desktop and mobile dropdown list items.
+- **Card-Style Item Presentation**: Clean typography with high-contrast titles (`font-weight: 600`, `#111827`), informative subheadings (`#64748b`), tactile left brand orange indicator border (`border-left: 2px solid #ea580c` on hover), and warm background tint (`#fff7ed`).
+- **Wide Dropdown Grid**: `Industries` dropdown utilizes a balanced 3-column layout (`grid-template-columns: repeat(3, minmax(0, 1fr))`) fitting 9 industry items with zero awkward empty spaces.
+- **Container Styling**: Top orange accent gradient hairline (`linear-gradient(90deg, #ea580c, #f97316)`), 14px rounded corners, and soft multi-layer box shadows.
+- **Mobile Menu Architecture**: Mobile submenus render without icons, featuring clean hierarchical left border tracks and descriptive labels.
+
+
 

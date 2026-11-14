@@ -100,5 +100,13 @@
   - Aligned logo, two-tone slogan, curved SVG underline, and circular social media action buttons to the exact horizontal center of the mobile screen.
   - Preserved desktop split layout (`space-between`, brand on left, socials on right) and preserved mobile left-alignment for the lower navigation/contact columns.
 
+- **Navigation Bar Dropdown List Redesign (`src/components/Navbar.jsx` & `src/styles.css`)**:
+  - Removed visual icon noise from desktop and mobile dropdown list items for a sleek, typography-driven presentation.
+  - Upgraded dropdown cards with subtle left orange accent indicator borders (`border-left: 2px solid #ea580c`) and warm hover tints (`#fff7ed`).
+  - Re-architected wide dropdowns (Industries) into a balanced 3-column grid (`grid-template-columns: repeat(3, minmax(0, 1fr))`) fitting 9 industry items with zero gaps.
+  - Added a delicate top orange gradient accent hairline (`oz-dropdown::before`) and multi-layer shadows for crisp visual depth.
+  - Redesigned mobile navigation submenu items with hierarchical left border guides, clean bold titles, and descriptions.
+
+
 
 
