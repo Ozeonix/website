@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Globe, ChevronDown, CreditCard, MessageSquare } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 import { LANGUAGES, useLang } from "@/lib/i18n/LanguageContext";
 
-export default function LanguageSwitcher({ className = "", showActions = false }) {
+export default function LanguageSwitcher({ className = "" }) {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -56,7 +55,7 @@ export default function LanguageSwitcher({ className = "", showActions = false }
         ref={triggerRef}
         type="button"
         className="oz-lang__trigger"
-        aria-haspopup="menu"
+        aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={(event) => {
@@ -71,23 +70,18 @@ export default function LanguageSwitcher({ className = "", showActions = false }
         <ChevronDown size={12} strokeWidth={2.4} />
       </button>
       {open ? (
-        <ul className="oz-lang__menu" role="menu">
-          {showActions && (
-            <li className="oz-lang__section-title" role="presentation">
-              Languages
-            </li>
-          )}
+        <ul className="oz-lang__menu" role="listbox">
           {LANGUAGES.map((l) => (
-            <li key={l.code} role="none">
+            <li key={l.code}>
               <button
                 ref={(element) => {
                   optionRefs.current[LANGUAGES.indexOf(l)] = element;
                 }}
                 type="button"
-                role="menuitem"
+                role="option"
                 aria-selected={l.code === lang}
                 className={l.code === lang ? "is-active" : ""}
-                tabIndex={open ? 0 : -1}
+                tabIndex={l.code === lang ? 0 : -1}
                 onKeyDown={(event) => onOptionKeyDown(event, LANGUAGES.indexOf(l))}
                 onClick={() => {
                   setLang(l.code);
@@ -99,36 +93,6 @@ export default function LanguageSwitcher({ className = "", showActions = false }
               </button>
             </li>
           ))}
-          {showActions && (
-            <>
-              <li className="oz-lang__divider" role="separator" />
-              <li className="oz-lang__section-title" role="presentation">
-                Quick Links
-              </li>
-              <li role="none">
-                <Link
-                  to="/pay"
-                  className="oz-lang__action-item"
-                  role="menuitem"
-                  onClick={close}
-                >
-                  <CreditCard size={15} className="oz-lang__action-icon" aria-hidden="true" />
-                  <span>Pay online</span>
-                </Link>
-              </li>
-              <li role="none">
-                <Link
-                  to="/contact"
-                  className="oz-lang__action-item oz-lang__action-item--primary"
-                  role="menuitem"
-                  onClick={close}
-                >
-                  <MessageSquare size={15} className="oz-lang__action-icon" aria-hidden="true" />
-                  <span>Discuss your project</span>
-                </Link>
-              </li>
-            </>
-          )}
         </ul>
       ) : null}
     </div>

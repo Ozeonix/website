@@ -15,6 +15,7 @@ import {
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
 import nepalFlag from "../assets/nepal-flag.png";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
+import NavActionsDropdown from "./NavActionsDropdown.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
 import { useAuth } from "../hooks/useAuth.jsx";
 
@@ -294,7 +295,7 @@ export default function Navbar() {
         </nav>
 
         <div className="oz-nav__right">
-          <LanguageSwitcher showActions={true} />
+          <NavActionsDropdown />
           <div className="oz-nav__flag-wrap" title="Nepal" aria-label="Nepal flag">
             <img
               src={nepalFlag}
