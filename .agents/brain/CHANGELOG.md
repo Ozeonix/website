@@ -2,6 +2,16 @@
 
 ### Milestone Log
 
+- **Center Footer Columns and Contact Details on Mobile Screens (`src/styles.css`)**:
+  - Centered all visible footer columns and child content on mobile screens (`@media (max-width: 767px)`):
+    - `.oz-footer__grid--4col`: `justify-items: center; text-align: center;`
+    - `.oz-footer__col`: `align-items: center; text-align: center; max-width: 24rem; margin-inline: auto;`
+    - `.oz-footer__col-title`: `justify-content: center; text-align: center;`
+    - `.oz-footer__contact-items` & `.oz-footer__contact-row`: `justify-content: center; text-align: center;`
+    - `.oz-footer__hours-list`: `width: 100%; max-width: 22rem; margin-inline: auto;`
+    - `.oz-footer__newsletter-desc` & `.oz-footer__form`: `text-align: center; max-width: 22rem; margin-inline: auto;`
+  - Created a balanced, cohesive centered aesthetic matching the centered header and bottom legal rows on mobile.
+
 - **Hide Quick Links and Solutions in Footer on Mobile Screens (`src/components/Footer.jsx` & `src/styles.css`)**:
   - Configured Column 1 (Quick Links) and Column 2 (Solutions) with responsive modifier classes (`.oz-footer__col--hide-mobile`, `.oz-footer__col--quick-links`, `.oz-footer__col--solutions`).
   - Added `@media (max-width: 767px)` rule to hide both link list columns on mobile screens (`display: none !important`), eliminating excessive vertical page scrolling on phones.

@@ -2926,6 +2926,63 @@ fieldset.oz-field {
   .oz-footer__col--solutions {
     display: none !important;
   }
+
+  .oz-footer--upgraded .oz-footer__grid--4col {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__col {
+    align-items: center;
+    text-align: center;
+    max-width: 24rem;
+    margin-inline: auto;
+  }
+
+  .oz-footer--upgraded .oz-footer__col-title {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__contact-items {
+    align-items: center;
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__contact-row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__contact-row--address {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__sub-title {
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__hours-list {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .oz-footer--upgraded .oz-footer__newsletter-desc {
+    text-align: center;
+  }
+
+  .oz-footer--upgraded .oz-footer__form {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .oz-footer--upgraded .oz-footer__subscribed-msg {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .oz-footer__col-title {
