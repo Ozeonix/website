@@ -95,4 +95,10 @@
   - Encapsulated the label and link in a shared inline-flex text group (`.oz-footer__contact-text-group`) with `align-items: baseline`.
   - Eliminated subscript vertical shift and baseline mismatch between "WhatsApp:" and "+977-9769294624", locking both to the exact same typographic baseline.
 
+- **Footer Header Mobile Centering (`src/styles.css`)**:
+  - Centered top footer `<header class="oz-footer__header">` exclusively on mobile devices (`max-width: 767px`).
+  - Aligned logo, two-tone slogan, curved SVG underline, and circular social media action buttons to the exact horizontal center of the mobile screen.
+  - Preserved desktop split layout (`space-between`, brand on left, socials on right) and preserved mobile left-alignment for the lower navigation/contact columns.
+
+
 
