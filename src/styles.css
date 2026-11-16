@@ -4827,6 +4827,28 @@ h6 {
   font-weight: 700;
 }
 
+.oz-open__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  margin-top: var(--oz-space-5);
+}
+
+@media (min-width: 900px) {
+  .oz-open__actions {
+    justify-content: flex-start;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 899px) {
+  .oz-open__actions {
+    justify-content: center;
+    gap: 8px 2px;
+  }
+}
+
 /* Legal header — one line, compact */
 .oz-legalhead {
   padding: calc(var(--oz-space-8) + 12px) 0 var(--oz-space-5);
