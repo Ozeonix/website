@@ -7,4 +7,39 @@ Disallow: /payment/
 Disallow: /design-tokens
 Disallow: /reveal-preview
 
+# AI Search Engines & Knowledge Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /partner
+Disallow: /auth
+Disallow: /payment/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /partner
+Disallow: /auth
+Disallow: /payment/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /partner
+Disallow: /auth
+Disallow: /payment/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+Disallow: /partner
+Disallow: /auth
+Disallow: /payment/
+
 Sitemap: https://ozeonix.com/sitemap.xml

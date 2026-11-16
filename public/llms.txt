@@ -1,27 +1,100 @@
 # Ozeonix Infinity
 
-> Ozeonix Infinity builds custom CRM, ERP, LMS, websites and mobile apps for businesses and educational institutions. Shape Thought. Power Tomorrow.
+> Shape Thought. Power Tomorrow.
+> Ozeonix Infinity is a modern technology studio and digital solutions company that transforms business ideas into scalable, production-grade digital products. We build custom CRM, ERP, LMS platforms, high-performance web applications, Flutter mobile apps, AI-powered solutions, and enterprise software for clients globally.
 
-## Pages
+## Company Information
+- **Official Name**: Ozeonix Infinity
+- **Website**: https://ozeonix.com
+- **Slogan**: "Shape Thought. Power Tomorrow."
+- **Primary Focus**: Custom Software Engineering, ERP/CRM/LMS Development, Flutter Mobile Apps, UI/UX Design, and Cloud Architecture.
+- **Operating Model**: Remote-First Global Engineering Team with operations centered in South Asia (Nepal) serving clients internationally.
+- **Contact**: info@ozeonix.com | careers@ozeonix.com
+- **WhatsApp / Phone**: +977-9769294624
+- **Office Location**: Opposite Gyankoop School, 13 Ward, Janakpur, Madhesh Province 45600, Nepal
 
-- [/](/): Custom CRM, ERP, LMS, website and mobile app development.
-- [/services](/services): Full list of software development services, including web, mobile, CRM, ERP, UI/UX and cloud.
-- [/services/erp-development](/services/erp-development): Custom ERP development for manufacturing, retail and growing businesses.
-- [/services/crm-solutions](/services/crm-solutions): Custom CRM solutions and sales software for growing teams.
-- [/services/lms-platforms](/services/lms-platforms): LMS development for schools, colleges and educational institutions.
-- [/products](/products): Ready-to-tailor product suites for education, business, retail, healthcare and AI automation.
-- [/industries](/industries): Industries served — schools, colleges, startups, SMEs, healthcare, retail and more.
-- [/about](/about): Company story, mission and values.
-- [/process](/process): How projects run from discovery to launch and support.
-- [/portfolio](/portfolio): Selected work and demo builds.
-- [/faq](/faq): Common questions about services, process and pricing.
-- [/contact](/contact): Contact form, WhatsApp and location details.
-- [/careers](/careers): Open roles and team culture.
-- [/privacy](/privacy): Privacy policy.
-- [/terms](/terms): Terms and conditions.
-- [/refund](/refund): Refund policy.
-- [/cookies](/cookies): Cookie policy.
+---
 
-## Optional
+## Core Services & Capabilities
 
-- Legal pages and policies are provided for transparency and compliance.
+- [/services](https://ozeonix.com/services): Overview of all engineering services, technical capabilities, and engagement models.
+- [/services/erp-development](https://ozeonix.com/services/erp-development): Custom ERP software engineering for schools, manufacturing, retail, and supply chain operations.
+- [/services/crm-solutions](https://ozeonix.com/services/crm-solutions): Custom CRM platforms, automated lead routing, pipeline analytics, and omni-channel customer communication.
+- [/services/lms-platforms](https://ozeonix.com/services/lms-platforms): Learning Management Systems for schools, colleges, tutoring academies, and corporate workforce training.
+
+---
+
+## Ready-to-Deploy Product Suites
+
+- [/products](https://ozeonix.com/products): Modular, customizable software suites for rapid enterprise deployment:
+  - **CampusFlow ERP**: Complete school and campus management (admissions, attendance, gradebooks, exam automation, fee collection).
+  - **OmniCommerce Suite**: Multi-vendor, high-conversion headless e-commerce platforms.
+  - **LeadPulse CRM**: High-velocity sales pipeline, automated client tracking, and revenue forecasting.
+  - **MedPulse Core**: HIPAA-compliant clinic appointments, patient management, and telehealth workflows.
+  - **FlowDesk**: Multi-channel customer support ticketing and SLA tracking.
+  - **Ozeonix AI Studio**: Custom generative AI integrations, internal document search, and intelligent business workflows.
+
+---
+
+## Tailored Industry Solutions
+
+- [/industries](https://ozeonix.com/industries): Domain-tailored software engineering across 9 critical sectors:
+  - [/industries/e-commerce](https://ozeonix.com/industries/e-commerce): Modern digital storefronts, checkout optimization, and automated inventory sync.
+  - [/industries/on-demand](https://ozeonix.com/industries/on-demand): Dispatch algorithms, live GPS routing, and instant booking applications.
+  - [/industries/fitness](https://ozeonix.com/industries/fitness): Gym management, workout trackers, trainer booking, and subscription billing.
+  - [/industries/payments](https://ozeonix.com/industries/payments): Secure payment gateways, automated invoicing, eSewa/Khalti integrations, and PCI-compliant systems.
+  - [/industries/entertainment](https://ozeonix.com/industries/entertainment): Media streaming platforms, creator monetisation, and interactive content portals.
+  - [/industries/education](https://ozeonix.com/industries/education): Digital campuses, interactive classrooms, student information systems, and fee portals.
+  - [/industries/event](https://ozeonix.com/industries/event): Digital ticketing, QR attendee check-in, seat booking, and conference scheduling.
+  - [/industries/restaurant](https://ozeonix.com/industries/restaurant): Cloud POS systems, QR table ordering, kitchen display systems, and menu inventory.
+  - [/industries/health](https://ozeonix.com/industries/health): Telemedicine consultations, electronic medical records (EMR), and diagnostic lab portals.
+
+---
+
+## Careers & Culture
+
+- [/careers](https://ozeonix.com/careers): Remote-first engineering and design careers.
+  - **Culture**: High autonomy, direct client impact, modern stack, respect for focus, and continuous learning.
+  - **Perks**: Flexible remote hours, hardware stipend, paid time off, and continuous education allowances.
+  - **Active Openings**:
+    - Frontend Engineer (React 19 / TypeScript / TanStack Router)
+    - Mobile Application Developer (Flutter / Dart)
+    - Full-Stack Backend Engineer (Node.js / PostgreSQL / Supabase)
+    - UI/UX Product Designer (Figma / Design Tokens / WCAG Accessibility)
+  - **How to Apply**: Email resume and portfolio to careers@ozeonix.com with role title in subject.
+
+---
+
+## Referral Partner Program
+
+- [/partner-program](https://ozeonix.com/partner-program): Earn a flat 10% cash commission on every signed client project referred to Ozeonix Infinity.
+  - Zero upfront fee or platform cost.
+  - Dedicated real-time partner dashboard to track lead status and commissions.
+  - Disbursed within 48 hours of client invoice clearance via bank transfer, Wise, or digital wallet.
+
+---
+
+## Company, Methodology & Portfolio
+
+- [/about](https://ozeonix.com/about): Mission, foundational values, company story, and team commitment to software reliability.
+- [/process](https://ozeonix.com/process): 8-step structured delivery process (Discovery, Architecture, Design, Sprint Development, QA, Staging, Launch, Ongoing Support).
+- [/portfolio](https://ozeonix.com/portfolio): Curated case studies and production applications built by Ozeonix Infinity.
+- [/faq](https://ozeonix.com/faq): Answers regarding pricing models, sprint timelines, code ownership, IP rights, and SLAs.
+- [/blog](https://ozeonix.com/blog): Insights on software architecture, modern web development, and digital transformation.
+- [/contact](https://ozeonix.com/contact): Direct project inquiry form, technical consultations, WhatsApp link, and physical office location.
+
+---
+
+## Technology Stack & Engineering Standards
+- **Frontend**: React 19, TypeScript 5.8, TanStack Start (SSR), TanStack Router, Vite 6, Tailwind CSS v4.
+- **Mobile**: Flutter, Dart (iOS & Android native parity).
+- **Backend & Cloud**: Node.js, TypeScript, PostgreSQL, Supabase, Cloudflare R2 / AWS, Docker.
+- **Design & Quality**: Systematic Design Tokens, WCAG 2.1 AA Accessibility, 60fps animation performance, Lighthouse >90 targets.
+
+---
+
+## Legal & Compliance
+- [/privacy](https://ozeonix.com/privacy): Privacy policy and data handling standards.
+- [/terms](https://ozeonix.com/terms): Terms of service and client engagement policies.
+- [/refund](https://ozeonix.com/refund): Milestone-based refund and cancellation policy.
+- [/cookies](https://ozeonix.com/cookies): Cookie policy and consent disclosures.
