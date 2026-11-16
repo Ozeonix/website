@@ -11,6 +11,13 @@ import {
   Settings,
   ArrowRight,
   CheckCircle2,
+  Boxes,
+  Truck,
+  Store,
+  Stethoscope,
+  Layers,
+  Clock,
+  Database,
 } from "lucide-react";
 
 const FAQS = [
@@ -93,54 +100,146 @@ const MODULES = [
   {
     Icon: Warehouse,
     title: "Inventory & Stock",
-    desc: "Real-time stock levels, purchase orders, vendors and warehouse tracking with low-stock alerts.",
+    desc: "Real-time stock levels, multi-warehouse tracking, low-stock triggers, and automated reorder purchase requests.",
     img: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Inventory and warehouse management system",
+    imgAlt: "Organized warehouse with digital inventory management racks",
   },
   {
     Icon: Factory,
     title: "Production & Manufacturing",
-    desc: "BOMs, work orders, raw-material planning and production schedules for smooth factory operations.",
+    desc: "Multi-level BOMs, work orders, shop-floor capacity planning, and raw material allocation schedules.",
     img: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Production planning and manufacturing management",
+    imgAlt: "Modern precision manufacturing assembly line and industrial equipment",
   },
   {
     Icon: TrendingUp,
     title: "Sales & Billing",
-    desc: "Quotations, invoices, payment tracking and GST/VAT-ready reports that satisfy any auditor.",
+    desc: "Quotations, tax invoices, customer ledgers, credit terms, and GST/VAT compliant reporting ready for audits.",
     img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Sales and billing management with invoices",
+    imgAlt: "Financial documents, invoices, and accounting calculation sheets",
   },
   {
     Icon: Users,
     title: "HR & Payroll",
-    desc: "Attendance, leave management, payroll calculation and employee records all in one place.",
+    desc: "Biometric attendance integration, leave management, overtime calculations, payroll slips, and employee records.",
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "HR and payroll management system",
+    imgAlt: "Corporate business team conducting HR onboarding and payroll review",
   },
   {
     Icon: BarChart3,
-    title: "Financial Reporting",
-    desc: "Profit & loss, balance sheet, cash flow and custom reports that give management real insight.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Financial reporting and analytics dashboard",
+    title: "Financial Analytics & BI",
+    desc: "Interactive P&L statements, balance sheets, departmental cost centers, and automated cash-flow projections.",
+    img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Real-time business intelligence and financial reporting charts on monitor",
   },
   {
     Icon: ClipboardList,
-    title: "Purchase Management",
-    desc: "Purchase requisitions, supplier comparison, approval workflows and payment scheduling.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Purchase and procurement management system",
+    title: "Procurement & Vendors",
+    desc: "Purchase requisitions, vendor quotation comparisons, multi-tier approval flows, and scheduled supplier payments.",
+    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Procurement manager reviewing supply chain manifests and freight shipments",
   },
 ];
 
-const WHY_US = [
-  "Tailored to your industry, terminology and reporting needs",
-  "Role-based access: owner, manager, staff, accountant",
-  "Data migration from spreadsheets and legacy systems",
-  "Mobile-ready web interface — no app installation needed",
-  "Guided rollout with staff training and support",
-  "Cloud-hosted with daily backups and 99.9% uptime",
+const INDUSTRY_SOLUTIONS = [
+  {
+    title: "Manufacturing & Industrial",
+    badge: "Production First",
+    desc: "Manage raw materials, machine capacity, bill of materials (BOM), and factory floor work-orders from a central command center.",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Automated robotic precision manufacturing facility",
+    highlights: ["Multi-tier Bill of Materials", "Shop-floor machine schedules", "Batch scrap & QA logs"],
+    Icon: Factory,
+  },
+  {
+    title: "Retail & Multi-Branch POS",
+    badge: "Omnichannel Sync",
+    desc: "Connect physical store points of sale with central warehouse inventory, price updates, and unified customer purchase histories.",
+    img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Modern retail storefront with integrated digital point-of-sale",
+    highlights: ["Real-time multi-store sync", "Fast barcode billing", "Customer loyalty ledger"],
+    Icon: Store,
+  },
+  {
+    title: "Wholesale & Logistics",
+    badge: "Supply Chain",
+    desc: "Control high-volume container shipments, palletized warehouse dispatch, dynamic price tiers, and delivery driver fleets.",
+    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Logistics distribution warehouse with commercial freight operations",
+    highlights: ["Dispatch route tracking", "Bulk volume pricing rules", "Vendor credit limit controls"],
+    Icon: Truck,
+  },
+  {
+    title: "Healthcare & Pharmaceuticals",
+    badge: "Compliance Ready",
+    desc: "Safeguard drug batch expiry dates, patient prescription records, supplier narcotics compliance, and insurance invoicing.",
+    img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Pharmaceutical dispensary and healthcare supply management",
+    highlights: ["Batch expiry early alerts", "Doctor commission tracking", "Strict audit trails"],
+    Icon: Stethoscope,
+  },
+];
+
+const IMPLEMENTATION_STEPS = [
+  {
+    step: "01",
+    title: "Workflow Audit & Discovery",
+    duration: "Weeks 1–2",
+    desc: "We analyze your spreadsheets, invoices, department handoffs, and approval rules before writing a single line of code.",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Strategy workshop mapping business workflows and ERP requirements",
+  },
+  {
+    step: "02",
+    title: "Custom Engineering & Migration",
+    duration: "Weeks 3–8",
+    desc: "We build role-tailored modules, clean and migrate legacy historical records, and integrate third-party payment and tax APIs.",
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Engineers developing custom software architecture and database models",
+  },
+  {
+    step: "03",
+    title: "Pilot Testing & Staff Training",
+    duration: "Weeks 9–11",
+    desc: "Hands-on guided training workshops with your team; simulated operations run parallel with your existing workflow to guarantee comfort.",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Team participating in ERP hands-on training and testing session",
+  },
+  {
+    step: "04",
+    title: "Go-Live & Dedicated SLA Support",
+    duration: "Week 12+",
+    desc: "Zero-downtime cutover switch, automated encrypted cloud backups, ongoing security updates, and direct WhatsApp engineer support.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Production launch monitoring with real-time operational uptime",
+  },
+];
+
+const WHY_US_POINTS = [
+  {
+    title: "Tailored to Your Terminology",
+    desc: "We adapt fields, statuses, and reporting structures to your industry language — no forcing your team into generic foreign templates.",
+  },
+  {
+    title: "Granular Role-Based Permissions",
+    desc: "Separate access tiers for executives, branch managers, warehouse staff, and accountants with tamper-evident audit logs.",
+  },
+  {
+    title: "Complete Data Migration",
+    desc: "We safely clean, format, and transfer your legacy Excel sheets, Tally, or outdated software records into your new database.",
+  },
+  {
+    title: "Cross-Device Web & Mobile",
+    desc: "Lightweight, responsive PWA architecture accessible on desktop monitors, tablets, and smartphones without complex installations.",
+  },
+  {
+    title: "High-Availability Cloud Hosting",
+    desc: "Daily automated off-site backups, SSL encryption, redundant failover, and a guaranteed 99.9% application uptime SLA.",
+  },
+  {
+    title: "Direct WhatsApp & Phone Support",
+    desc: "No outsourced call center queues. You get immediate, priority access to the engineers who architected your platform.",
+  },
 ];
 
 function ErpDevelopment() {
@@ -178,24 +277,108 @@ function ErpDevelopment() {
         </div>
       </section>
 
-      {/* Hero Image */}
-      <section className="oz-section oz-section--tight" aria-label="ERP overview">
+      {/* Hero Image Banner */}
+      <section className="oz-section oz-section--tight" aria-label="ERP overview banner">
         <div className="oz-container">
           <Reveal>
             <div
               style={{
                 borderRadius: 20,
                 overflow: "hidden",
-                aspectRatio: "21/8",
+                position: "relative",
+                aspectRatio: "21/9",
                 boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+                background: "var(--background-dark, #111827)",
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
-                alt="Modern ERP system managing business operations and analytics"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+                alt="Modern enterprise ERP system monitoring operational data, inventory turnover and live KPIs"
                 loading="lazy"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(180deg, rgba(17,24,39,0.1) 0%, rgba(17,24,39,0.65) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "clamp(1rem, 2.5vw, 1.75rem)",
+                  left: "clamp(1rem, 2.5vw, 1.75rem)",
+                  right: "clamp(1rem, 2.5vw, 1.75rem)",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 12,
+                  color: "#ffffff",
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      padding: "4px 10px",
+                      borderRadius: 6,
+                      background: "rgba(234, 88, 12, 0.9)",
+                      marginBottom: 6,
+                    }}
+                  >
+                    Enterprise Platform
+                  </span>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "clamp(0.95rem, 1.6vw, 1.25rem)",
+                      fontWeight: 650,
+                      color: "#ffffff",
+                    }}
+                  >
+                    Unified Operations, Supply Chain & Financial Command
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 16,
+                    fontSize: "0.82rem",
+                    fontWeight: 600,
+                    background: "rgba(17,24,39,0.7)",
+                    backdropFilter: "blur(8px)",
+                    padding: "8px 14px",
+                    borderRadius: 10,
+                    border: "1px solid rgba(255,255,255,0.15)",
+                  }}
+                >
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                    <span
+                      style={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: "50%",
+                        background: "#22c55e",
+                        boxShadow: "0 0 8px #22c55e",
+                      }}
+                    />
+                    Live Sync
+                  </span>
+                  <span style={{ opacity: 0.6 }}>|</span>
+                  <span>Role-Based Access</span>
+                  <span style={{ opacity: 0.6 }}>|</span>
+                  <span>99.9% SLA</span>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -206,10 +389,16 @@ function ErpDevelopment() {
         <div className="oz-container">
           <div className="oz-section-head">
             <Reveal>
-              <span className="oz-eyebrow">ERP Modules</span>
+              <span className="oz-eyebrow">Connected Modules</span>
             </Reveal>
             <Reveal index={1} as="h2">
-              Every module your business needs, connected.
+              Every core module your business needs, seamlessly integrated.
+            </Reveal>
+            <Reveal index={2}>
+              <p className="oz-muted" style={{ maxWidth: 650, margin: "12px auto 0" }}>
+                Eliminate disconnected spreadsheets and siloed tools. Every department shares a single,
+                real-time source of truth.
+              </p>
             </Reveal>
           </div>
           <div className="oz-grid oz-grid-3">
@@ -217,26 +406,41 @@ function ErpDevelopment() {
               <Reveal key={title} index={i % 3}>
                 <article
                   className="oz-card"
-                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}
                 >
-                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
+                  <div style={{ aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
                     <img
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
                       style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                     />
-                  </div>
-                  <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1 }}>
-                    <span
-                      className="oz-card__icon"
-                      style={{ marginBottom: 10, background: "var(--oz-primary)", color: "#fff" }}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 12,
+                        right: 12,
+                        width: 36,
+                        height: 36,
+                        borderRadius: "50%",
+                        background: "rgba(17, 24, 39, 0.75)",
+                        backdropFilter: "blur(6px)",
+                        color: "#fff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                      }}
                       aria-hidden="true"
                     >
-                      <Icon size={20} strokeWidth={1.75} />
-                    </span>
-                    <h3 style={{ marginTop: 0 }}>{title}</h3>
-                    <p style={{ margin: 0 }}>{desc}</p>
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                  </div>
+                  <div style={{ padding: "clamp(1.2rem, 2vw, 1.5rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <h3 style={{ marginTop: 0, marginBottom: 8, fontSize: "1.15rem" }}>{title}</h3>
+                    <p style={{ margin: 0, color: "var(--text-secondary, #374151)", fontSize: "0.93rem", lineHeight: 1.6 }}>
+                      {desc}
+                    </p>
                   </div>
                 </article>
               </Reveal>
@@ -245,10 +449,201 @@ function ErpDevelopment() {
         </div>
       </section>
 
-      {/* Why Us */}
-      <section className="oz-section oz-section--muted" aria-label="Why choose our ERP">
+      {/* Industry Solutions */}
+      <section className="oz-section oz-section--muted" aria-label="ERP solutions by industry">
         <div className="oz-container">
-          <div className="oz-split">
+          <div className="oz-section-head">
+            <Reveal>
+              <span className="oz-eyebrow">Industry Architectures</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              ERP systems tailored for how your sector operates.
+            </Reveal>
+            <Reveal index={2}>
+              <p className="oz-muted" style={{ maxWidth: 640, margin: "12px auto 0" }}>
+                A generic template won't cut it. We configure logic, tax structures, and shop-floor flows
+                customized for your business reality.
+              </p>
+            </Reveal>
+          </div>
+          <div className="oz-grid oz-grid-2" style={{ gap: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+            {INDUSTRY_SOLUTIONS.map(({ title, badge, desc, img, imgAlt, highlights, Icon }, i) => (
+              <Reveal key={title} index={i % 2}>
+                <article
+                  className="oz-card"
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    border: "1px solid var(--border, #e5e7eb)",
+                  }}
+                >
+                  <div style={{ aspectRatio: "16/8", overflow: "hidden", position: "relative" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        left: 12,
+                        background: "rgba(17, 24, 39, 0.8)",
+                        backdropFilter: "blur(6px)",
+                        color: "#fff",
+                        padding: "4px 10px",
+                        borderRadius: 6,
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {badge}
+                    </div>
+                  </div>
+                  <div style={{ padding: "clamp(1.25rem, 2.2vw, 1.6rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                      <span
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: 8,
+                          background: "var(--brand-orange-50, #fff7ed)",
+                          color: "var(--brand-orange, #ea580c)",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                        aria-hidden="true"
+                      >
+                        <Icon size={18} strokeWidth={2} />
+                      </span>
+                      <h3 style={{ margin: 0, fontSize: "1.2rem" }}>{title}</h3>
+                    </div>
+                    <p style={{ margin: "0 0 16px", color: "var(--text-secondary, #374151)", fontSize: "0.93rem", lineHeight: 1.6 }}>
+                      {desc}
+                    </p>
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: "auto 0 0",
+                        display: "grid",
+                        gap: 8,
+                        borderTop: "1px solid var(--border, #e5e7eb)",
+                        paddingTop: 14,
+                      }}
+                    >
+                      {highlights.map((h) => (
+                        <li key={h} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.88rem", fontWeight: 550 }}>
+                          <CheckCircle2 size={16} strokeWidth={2.2} style={{ color: "var(--brand-orange, #ea580c)", flexShrink: 0 }} aria-hidden="true" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Process */}
+      <section className="oz-section" aria-label="ERP implementation methodology">
+        <div className="oz-container">
+          <div className="oz-section-head">
+            <Reveal>
+              <span className="oz-eyebrow">Zero Business Disruption</span>
+            </Reveal>
+            <Reveal index={1} as="h2">
+              A structured 4-phase rollout built for smooth team adoption.
+            </Reveal>
+            <Reveal index={2}>
+              <p className="oz-muted" style={{ maxWidth: 660, margin: "12px auto 0" }}>
+                Most ERP projects stall because staff are overwhelmed. We run parallel pilots, migrate
+                all legacy data, and train your departments hand-in-hand.
+              </p>
+            </Reveal>
+          </div>
+          <div className="oz-grid oz-grid-4">
+            {IMPLEMENTATION_STEPS.map(({ step, title, duration, desc, img, imgAlt }, i) => (
+              <Reveal key={step} index={i}>
+                <article
+                  className="oz-card"
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    borderRadius: "var(--oz-radius, 12px)",
+                  }}
+                >
+                  <div style={{ aspectRatio: "16/10", overflow: "hidden", position: "relative" }}>
+                    <img
+                      src={img}
+                      alt={imgAlt}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        left: 10,
+                        background: "var(--brand-orange, #ea580c)",
+                        color: "#fff",
+                        fontFamily: "var(--oz-font-sans)",
+                        fontSize: "0.78rem",
+                        fontWeight: 700,
+                        padding: "3px 8px",
+                        borderRadius: 6,
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+                      }}
+                    >
+                      Phase {step}
+                    </span>
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 10,
+                        right: 10,
+                        background: "rgba(17, 24, 39, 0.8)",
+                        backdropFilter: "blur(6px)",
+                        color: "#fff",
+                        fontSize: "0.72rem",
+                        fontWeight: 600,
+                        padding: "3px 8px",
+                        borderRadius: 6,
+                      }}
+                    >
+                      {duration}
+                    </span>
+                  </div>
+                  <div style={{ padding: "clamp(1rem, 1.5vw, 1.25rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <h3 style={{ marginTop: 0, marginBottom: 8, fontSize: "1.05rem" }}>{title}</h3>
+                    <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--text-secondary, #374151)", lineHeight: 1.55 }}>
+                      {desc}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Ozeonix Infinity */}
+      <section className="oz-section oz-section--muted" aria-label="Why choose our ERP engineering">
+        <div className="oz-container">
+          <div className="oz-split" style={{ alignItems: "center" }}>
             <Reveal>
               <div
                 style={{
@@ -256,37 +651,74 @@ function ErpDevelopment() {
                   overflow: "hidden",
                   aspectRatio: "4/3",
                   boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
+                  position: "relative",
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-                  alt="Business team using an ERP system to manage operations"
+                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"
+                  alt="Enterprise business engineering team planning custom software architecture"
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: "auto 16px 16px 16px",
+                    background: "rgba(17, 24, 39, 0.88)",
+                    backdropFilter: "blur(10px)",
+                    borderRadius: 12,
+                    padding: "14px 18px",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    color: "#ffffff",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: 12,
+                    textAlign: "center",
+                  }}
+                >
+                  <div>
+                    <strong style={{ display: "block", fontSize: "1.35rem", color: "var(--brand-orange, #ea580c)" }}>
+                      99.9%
+                    </strong>
+                    <span style={{ fontSize: "0.75rem", opacity: 0.85 }}>Uptime SLA Guarantee</span>
+                  </div>
+                  <div>
+                    <strong style={{ display: "block", fontSize: "1.35rem", color: "var(--brand-orange, #ea580c)" }}>
+                      100%
+                    </strong>
+                    <span style={{ fontSize: "0.75rem", opacity: 0.85 }}>Your Data Ownership</span>
+                  </div>
+                </div>
               </div>
             </Reveal>
             <Reveal index={1}>
               <div>
                 <span className="oz-eyebrow">Why Us</span>
-                <h2>ERP that works for your team on day one.</h2>
+                <h2>Enterprise software that respects how your team actually works.</h2>
                 <p className="oz-muted">
-                  We've seen what happens when businesses adopt ERPs that weren't built for them —
-                  unused modules, workarounds and frustrated staff. We build the other kind.
+                  Off-the-shelf ERP platforms charge steep per-user license fees while forcing your company
+                  to bend into rigid workflows. We engineer the exact software you need — owned completely by you.
                 </p>
-                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
-                  {WHY_US.map((pt) => (
-                    <li key={pt} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <div style={{ display: "grid", gap: 14, marginTop: 24 }}>
+                  {WHY_US_POINTS.map(({ title, desc }) => (
+                    <div key={title} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                       <CheckCircle2
-                        size={18}
-                        strokeWidth={2}
-                        style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-primary)" }}
+                        size={19}
+                        strokeWidth={2.2}
+                        style={{ flexShrink: 0, marginTop: 2, color: "var(--oz-primary, #ea580c)" }}
                         aria-hidden="true"
                       />
-                      <span>{pt}</span>
-                    </li>
+                      <div>
+                        <strong style={{ display: "block", fontSize: "0.95rem", color: "var(--text-primary, #111827)" }}>
+                          {title}
+                        </strong>
+                        <p style={{ margin: "2px 0 0", fontSize: "0.88rem", color: "var(--text-secondary, #4b5563)", lineHeight: 1.5 }}>
+                          {desc}
+                        </p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -301,7 +733,7 @@ function ErpDevelopment() {
               <span className="oz-eyebrow">FAQ</span>
             </Reveal>
             <Reveal index={1} as="h2">
-              Common ERP questions.
+              Common questions about custom ERP development.
             </Reveal>
           </div>
           <div className="oz-faq">
