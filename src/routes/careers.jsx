@@ -82,31 +82,49 @@ const BENEFITS = [
     title: "Competitive Compensation",
     desc: "Transparent salary based on skill, responsibility, and merit with performance bonuses.",
     icon: Sparkles,
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+    alt: "Financial growth metrics and performance compensation",
   },
   {
     title: "Remote-First Flexibility",
     desc: "Work from home, a co-working space, or wherever you feel most inspired and productive.",
     icon: Globe,
+    image:
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80",
+    alt: "Comfortable sunlit remote developer workstation",
   },
   {
     title: "Learning & Book Stipend",
     desc: "Annual budget for developer courses, technical books, workshops, and certifications.",
     icon: GraduationCap,
+    image:
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    alt: "Technical books and learning materials for engineering growth",
   },
   {
     title: "Tooling & Hardware Support",
     desc: "Top-tier developer subscriptions, IDE tooling, and hardware support to do your best work.",
     icon: Laptop,
+    image:
+      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+    alt: "Professional workstation with high resolution display and developer gear",
   },
   {
     title: "Paid Time Off & Holidays",
     desc: "Generous vacation policy, festival holidays, and sick leave so you can recharge fully.",
     icon: Heart,
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    alt: "Calm travel destination for relaxation and paid time off",
   },
   {
     title: "Direct Client & Product Ownership",
     desc: "Gain deep product strategy experience solving high-value problems for diverse industries.",
     icon: ShieldCheck,
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    alt: "Team collaborating on product strategy and client deliverables",
   },
 ];
 
@@ -404,17 +422,73 @@ function Careers() {
               const Icon = benefit.icon;
               return (
                 <Reveal key={benefit.title} index={i % 3}>
-                  <article className="oz-card" style={{ height: "100%" }}>
-                    <span className="oz-card__icon" aria-hidden="true">
-                      <Icon size={22} strokeWidth={1.8} />
-                    </span>
-                    <h3 style={{ fontSize: "1.125rem", margin: "14px 0 8px" }}>{benefit.title}</h3>
-                    <p
-                      className="oz-muted"
-                      style={{ margin: 0, fontSize: "0.9375rem", lineHeight: 1.55 }}
+                  <article
+                    className="oz-card"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                      overflow: "hidden",
+                      padding: 0,
+                    }}
+                  >
+                    <div
+                      style={{
+                        aspectRatio: "16 / 9",
+                        overflow: "hidden",
+                        position: "relative",
+                      }}
                     >
-                      {benefit.desc}
-                    </p>
+                      <img
+                        src={benefit.image}
+                        alt={benefit.alt}
+                        width={600}
+                        height={338}
+                        loading="lazy"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          display: "block",
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: 12,
+                          left: 12,
+                          width: 36,
+                          height: 36,
+                          borderRadius: 8,
+                          background: "rgba(255, 255, 255, 0.95)",
+                          backdropFilter: "blur(6px)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "var(--brand-orange, #ea580c)",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.12)",
+                        }}
+                        aria-hidden="true"
+                      >
+                        <Icon size={18} strokeWidth={2} />
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        padding: "20px 20px 24px",
+                        display: "flex",
+                        flexDirection: "column",
+                        flexGrow: 1,
+                      }}
+                    >
+                      <h3 style={{ fontSize: "1.125rem", margin: "0 0 8px" }}>{benefit.title}</h3>
+                      <p
+                        className="oz-muted"
+                        style={{ margin: 0, fontSize: "0.9375rem", lineHeight: 1.55 }}
+                      >
+                        {benefit.desc}
+                      </p>
+                    </div>
                   </article>
                 </Reveal>
               );
