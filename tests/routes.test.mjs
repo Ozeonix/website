@@ -48,4 +48,36 @@ describe("Route Files & Structured Data Integrity", () => {
     assert.ok(content.includes("CULTURE_PILLARS"), "Must define CULTURE_PILLARS");
     assert.ok(content.includes("BENEFITS"), "Must define BENEFITS with imagery");
   });
+
+  it("deprecated routes and quick actions components are completely removed", () => {
+    const removedRoutes = ["pay.jsx", "partner-program.jsx", "auth.jsx"];
+    for (const file of removedRoutes) {
+      const fullPath = path.join(rootDir, "src", "routes", file);
+      assert.strictEqual(fs.existsSync(fullPath), false, `Deprecated route ${file} must not exist`);
+    }
+
+    const navActionsPath = path.join(rootDir, "src", "components", "NavActionsDropdown.jsx");
+    assert.strictEqual(
+      fs.existsSync(navActionsPath),
+      false,
+      "NavActionsDropdown.jsx component must not exist",
+    );
+
+    const navbarPath = path.join(rootDir, "src", "components", "Navbar.jsx");
+    const navbarContent = fs.readFileSync(navbarPath, "utf-8");
+    assert.strictEqual(
+      navbarContent.includes("NavActionsDropdown"),
+      false,
+      "Navbar must not import or render NavActionsDropdown",
+    );
+    assert.strictEqual(
+      navbarContent.includes('to="/pay"'),
+      false,
+      'Navbar must not link to "/pay"',
+    );
+    assert.ok(
+      navbarContent.includes("<LanguageSwitcher />"),
+      "Navbar must render LanguageSwitcher",
+    );
+  });
 });

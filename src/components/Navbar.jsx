@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
-import NavActionsDropdown from "./NavActionsDropdown.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
 import { useAuth } from "../hooks/useAuth.jsx";
 
@@ -283,7 +282,7 @@ export default function Navbar() {
         </nav>
 
         <div className="oz-nav__right">
-          <NavActionsDropdown />
+          <LanguageSwitcher />
         </div>
 
         <button
