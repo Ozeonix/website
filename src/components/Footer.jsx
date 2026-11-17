@@ -227,18 +227,6 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/partner-program" className="oz-footer__nav-link">
-                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
-                    <span>Partner Program</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/auth" className="oz-footer__nav-link">
-                    <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
-                    <span>Partner Login</span>
-                  </Link>
-                </li>
-                <li>
                   <Link to="/contact" className="oz-footer__nav-link">
                     <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
                     <span>Contact</span>

@@ -65,15 +65,6 @@
 
 ---
 
-## Referral Partner Program
-
-- [/partner-program](https://ozeonix.com/partner-program): Earn a flat 10% cash commission on every signed client project referred to Ozeonix Infinity.
-  - Zero upfront fee or platform cost.
-  - Dedicated real-time partner dashboard to track lead status and commissions.
-  - Disbursed within 48 hours of client invoice clearance via bank transfer, Wise, or digital wallet.
-
----
-
 ## Company, Methodology & Portfolio
 
 - [/about](https://ozeonix.com/about): Mission, foundational values, company story, and team commitment to software reliability.

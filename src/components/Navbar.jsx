@@ -13,7 +13,6 @@ import {
   HeartPulse,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
-import nepalFlag from "../assets/nepal-flag.gif";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import NavActionsDropdown from "./NavActionsDropdown.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
@@ -88,17 +87,6 @@ const MENUS = [
   {
     label: "Resources",
     children: [{ to: "/faq", label: "FAQ", d: "Common questions answered" }],
-  },
-  {
-    label: "Partners",
-    children: [
-      {
-        to: "/partner-program",
-        label: "Partner Program",
-        d: "Earn 10% per referred project",
-      },
-      { to: "/auth", label: "Partner Login", d: "Sign in to your dashboard" },
-    ],
   },
 ];
 
@@ -296,16 +284,6 @@ export default function Navbar() {
 
         <div className="oz-nav__right">
           <NavActionsDropdown />
-          <div className="oz-nav__flag-wrap" title="Nepal" aria-label="Nepal flag">
-            <img
-              src={nepalFlag}
-              alt="Nepal"
-              className="oz-nav__flag"
-              width={26}
-              height={32}
-              loading="eager"
-            />
-          </div>
         </div>
 
         <button

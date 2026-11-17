@@ -19,9 +19,7 @@ describe("Route Files & Structured Data Integrity", () => {
     "process.jsx",
     "products.jsx",
     "portfolio.jsx",
-    "partner-program.jsx",
     "faq.jsx",
-    "auth.jsx",
   ];
 
   it("all primary inner page routes exist in src/routes", () => {

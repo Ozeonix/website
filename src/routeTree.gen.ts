@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -20,7 +19,6 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as PartnerProgramRouteImport } from './routes/partner-program'
 import { Route as PayRouteImport } from './routes/pay'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -57,11 +55,6 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -95,11 +88,6 @@ const FaqRoute = FaqRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PartnerProgramRoute = PartnerProgramRouteImport.update({
-  id: '/partner-program',
-  path: '/partner-program',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PayRoute = PayRouteImport.update({
@@ -211,7 +199,6 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -219,7 +206,6 @@ export interface FileRoutesByFullPath {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/partner-program': typeof PartnerProgramRoute
   '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
@@ -245,7 +231,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -253,7 +238,6 @@ export interface FileRoutesByTo {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/partner-program': typeof PartnerProgramRoute
   '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
@@ -280,7 +264,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -288,7 +271,6 @@ export interface FileRoutesById {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/partner-program': typeof PartnerProgramRoute
   '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
@@ -316,7 +298,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/auth'
     | '/blog'
     | '/careers'
     | '/contact'
@@ -324,7 +305,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/partner-program'
     | '/pay'
     | '/portfolio'
     | '/privacy'
@@ -350,7 +330,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/auth'
     | '/blog'
     | '/careers'
     | '/contact'
@@ -358,7 +337,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/partner-program'
     | '/pay'
     | '/portfolio'
     | '/privacy'
@@ -384,7 +362,6 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
-    | '/auth'
     | '/blog'
     | '/careers'
     | '/contact'
@@ -392,7 +369,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/partner-program'
     | '/pay'
     | '/portfolio'
     | '/privacy'
@@ -420,7 +396,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
-  AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
@@ -428,7 +403,6 @@ export interface RootRouteChildren {
   DesignTokensRoute: typeof DesignTokensRoute
   FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
-  PartnerProgramRoute: typeof PartnerProgramRoute
   PayRoute: typeof PayRoute
   PortfolioRoute: typeof PortfolioRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -466,13 +440,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -522,13 +489,6 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/partner-program': {
-      id: '/partner-program'
-      path: '/partner-program'
-      fullPath: '/partner-program'
-      preLoaderRoute: typeof PartnerProgramRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pay': {
@@ -728,7 +688,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
-  AuthRoute: AuthRoute,
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
@@ -736,7 +695,6 @@ const rootRouteChildren: RootRouteChildren = {
   DesignTokensRoute: DesignTokensRoute,
   FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
-  PartnerProgramRoute: PartnerProgramRoute,
   PayRoute: PayRoute,
   PortfolioRoute: PortfolioRoute,
   PrivacyRoute: PrivacyRoute,

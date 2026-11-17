@@ -804,9 +804,6 @@ p {
   .oz-nav__cta {
     display: inline-flex;
   }
-  .oz-nav__flag-wrap {
-    display: inline-flex;
-  }
   .oz-nav__cta,
   .oz-nav .oz-btn {
     min-height: 32px;
@@ -818,28 +815,6 @@ p {
   .oz-brand--logo {
     width: clamp(7.5rem, 9vw, 8.5rem);
   }
-}
-
-.oz-nav__flag-wrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  padding: 0 4px;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.oz-nav__flag-wrap:hover {
-  transform: scale(1.15);
-}
-.oz-nav__flag {
-  display: block;
-  height: 28px;
-  width: auto;
-  aspect-ratio: 397 / 497;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
 }
 
 .oz-nav__toggle {
