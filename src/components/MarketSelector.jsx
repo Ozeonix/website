@@ -70,9 +70,7 @@ export default function MarketSelector({ variant = "navbar" }) {
           transition: "all 0.2s ease-out",
         }}
       >
-        <span style={{ fontSize: "15px", lineHeight: 1 }} aria-hidden="true">
-          {currentMarket.flag}
-        </span>
+        <LuGlobe size={15} aria-hidden="true" style={{ color: "var(--brand-orange, #ea580c)" }} />
         <span
           className="oz-market-selector-label"
           style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
@@ -166,7 +164,7 @@ export default function MarketSelector({ variant = "navbar" }) {
                   }}
                 >
                   <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                    <span style={{ fontSize: "16px", lineHeight: 1 }}>{market.flag}</span>
+                    <LuGlobe size={14} aria-hidden="true" style={{ opacity: 0.6 }} />
                     <span>{market.name}</span>
                     <span
                       style={{

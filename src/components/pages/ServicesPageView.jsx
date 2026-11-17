@@ -175,7 +175,7 @@ export default function ServicesPageView() {
             <Reveal>
               <div>
                 <span className="oz-open__index">
-                  {currentMarket.flag} {currentMarket.name} · Engineering Capabilities
+                  {currentMarket.name} Market · Engineering Capabilities
                 </span>
                 <h1>Custom Software Development Services</h1>
               </div>

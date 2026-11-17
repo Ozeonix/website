@@ -15,7 +15,6 @@ export interface MarketConfig {
   routePrefix: string;
   name: string;
   nativeName: string;
-  flag: string;
   region: string;
   currency: "NPR" | "INR" | "USD";
   currencySymbol: string;
@@ -41,7 +40,6 @@ export const MARKETS: Record<MarketCode, MarketConfig> = {
     routePrefix: "/np",
     name: "Nepal",
     nativeName: "नेपाल",
-    flag: "🇳🇵",
     region: "Nepal",
     currency: "NPR",
     currencySymbol: "रू",
@@ -122,7 +120,6 @@ export const MARKETS: Record<MarketCode, MarketConfig> = {
     routePrefix: "/in",
     name: "India",
     nativeName: "India",
-    flag: "🇮🇳",
     region: "India",
     currency: "INR",
     currencySymbol: "₹",
@@ -203,7 +200,6 @@ export const MARKETS: Record<MarketCode, MarketConfig> = {
     routePrefix: "/global",
     name: "International",
     nativeName: "Global",
-    flag: "🌐",
     region: "International",
     currency: "USD",
     currencySymbol: "$",

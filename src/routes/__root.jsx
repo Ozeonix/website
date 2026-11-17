@@ -13,9 +13,7 @@ import appCss from "../styles.css?url";
 import { reportOzeonixError } from "../lib/ozeonix-error-reporting";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import PageTranslator from "../components/PageTranslator.jsx";
 import WhatsAppButton from "../components/WhatsAppButton.jsx";
-import { LanguageProvider } from "../lib/i18n/LanguageContext";
 import { MarketProvider } from "../lib/market/MarketContext.jsx";
 import { applyRevealConfig } from "../lib/revealConfig";
 import { captureReferralCode } from "../lib/referral.js";
@@ -96,6 +94,8 @@ export const Route = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { httpEquiv: "content-language", content: "en" },
+      { name: "google", content: "translate" },
       { title: "Ozeonix Infinity | Custom CRM, ERP, LMS, Web & Mobile Development" },
       {
         name: "description",
@@ -149,6 +149,13 @@ export const Route = createRootRouteWithContext()({
         type: "application/ld+json",
         children: JSON.stringify(ORGANIZATION_JSONLD),
       },
+      {
+        children: `function googleTranslateElementInit(){if(window.google&&window.google.translate){new window.google.translate.TranslateElement({pageLanguage:'en',autoDisplay:true,multilanguagePage:true},'google_translate_element');}}`,
+      },
+      {
+        src: "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
+        async: true,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -172,6 +179,7 @@ function RootShell({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <div id="google_translate_element" style={{ display: "none" }} aria-hidden="true" />
         {children}
         <Scripts />
       </body>
@@ -187,20 +195,17 @@ function RootComponent() {
   }, []);
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <MarketProvider>
-          <a href="#main-content" className="oz-skip-link">
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content" tabIndex={-1}>
-            <Outlet />
-          </main>
-          <Footer />
-          <WhatsAppButton />
-          <PageTranslator />
-        </MarketProvider>
-      </LanguageProvider>
+      <MarketProvider>
+        <a href="#main-content" className="oz-skip-link">
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content" tabIndex={-1}>
+          <Outlet />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </MarketProvider>
     </QueryClientProvider>
   );
 }

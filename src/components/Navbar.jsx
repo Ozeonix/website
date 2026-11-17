@@ -13,7 +13,6 @@ import {
   HeartPulse,
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
-import LanguageSwitcher from "./LanguageSwitcher.jsx";
 import MarketSelector from "./MarketSelector.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
 import { useAuth } from "../hooks/useAuth.jsx";
@@ -283,12 +282,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div
-          className="oz-nav__right"
-          style={{ display: "flex", alignItems: "center", gap: "8px" }}
-        >
+        <div className="oz-nav__right">
           <MarketSelector variant="navbar" />
-          <LanguageSwitcher />
         </div>
 
         <button
@@ -405,11 +400,10 @@ export default function Navbar() {
               );
             })}
             <div
-              className="oz-nav__mobile-language"
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+              className="oz-nav__mobile-market"
+              style={{ marginTop: "16px", marginBottom: "8px" }}
             >
               <MarketSelector variant="navbar" />
-              <LanguageSwitcher />
             </div>
             <Link
               to="/contact"

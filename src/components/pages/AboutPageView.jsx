@@ -88,7 +88,7 @@ export default function AboutPageView() {
             <Reveal>
               <div>
                 <span className="oz-open__index">
-                  {currentMarket.flag} {currentMarket.name} · Shape Thought. Power Tomorrow.
+                  {currentMarket.name} Market · Shape Thought. Power Tomorrow.
                 </span>
                 <h1>A technology studio building software businesses can actually rely on.</h1>
               </div>

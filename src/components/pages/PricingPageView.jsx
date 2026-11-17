@@ -83,7 +83,6 @@ export default function PricingPageView() {
                       transition: "all 0.2s ease-out",
                     }}
                   >
-                    <span>{item.flag}</span>
                     <span>{item.name}</span>
                     <span style={{ opacity: isActive ? 0.9 : 0.6, fontSize: "12px" }}>
                       ({item.currencySymbol})

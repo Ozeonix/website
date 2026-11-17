@@ -17,3 +17,4 @@ export const Route = createFileRoute("/$market/pricing")({
   },
   component: PricingPageView,
 });
+

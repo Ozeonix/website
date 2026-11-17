@@ -253,9 +253,7 @@ export default function HomePageView() {
           <div className="oz-home-hero__grid">
             <div className="oz-home-hero__copy">
               <Reveal>
-                <span className="oz-eyebrow">
-                  {currentMarket.flag} {currentMarket.heroTagline}
-                </span>
+                <span className="oz-eyebrow">{currentMarket.heroTagline}</span>
               </Reveal>
               <Reveal index={1} as="h1" id="hero-heading" className="oz-home-hero__title">
                 Ozeonix Infinity builds <span>business software that fits how you work.</span>

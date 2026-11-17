@@ -222,4 +222,30 @@ describe("File Architecture & Routing Integrity", () => {
     assert.ok(sitemapXml.includes("https://ozeonix.com/global"), "Must include /global");
     assert.ok(sitemapXml.includes("https://ozeonix.com/pricing"), "Must include /pricing");
   });
+
+  it("does not use flag emojis and enables Google Translate auto-suggestion", () => {
+    // Assert no flag emojis in markets configuration
+    for (const code of MARKET_CODES) {
+      assert.strictEqual("flag" in MARKETS[code], false, `${code} should not define flag`);
+    }
+
+    const marketSelectorPath = path.join(root, "src/components/MarketSelector.jsx");
+    const marketSelectorContent = fs.readFileSync(marketSelectorPath, "utf-8");
+    assert.strictEqual(
+      marketSelectorContent.includes("flag"),
+      false,
+      "MarketSelector must not use flags",
+    );
+
+    const rootPath = path.join(root, "src/routes/__root.jsx");
+    const rootContent = fs.readFileSync(rootPath, "utf-8");
+    assert.ok(
+      rootContent.includes("google_translate_element"),
+      "__root.jsx must include google_translate_element for auto-suggestion",
+    );
+    assert.ok(
+      rootContent.includes("googleTranslateElementInit"),
+      "__root.jsx must configure googleTranslateElementInit",
+    );
+  });
 });

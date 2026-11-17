@@ -75,10 +75,12 @@ describe("Route Files & Structured Data Integrity", () => {
       false,
       'Navbar must not link to "/pay"',
     );
-    assert.ok(
-      navbarContent.includes("<LanguageSwitcher />"),
-      "Navbar must render LanguageSwitcher",
+    assert.strictEqual(
+      navbarContent.includes("<LanguageSwitcher"),
+      false,
+      "Navbar must not render manual LanguageSwitcher",
     );
+    assert.ok(navbarContent.includes("<MarketSelector"), "Navbar must render MarketSelector");
   });
 
   it("NotFoundComponent does not duplicate Navbar or Footer", () => {
