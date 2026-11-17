@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Visual regression check — screenshots key pages with Playwright and
+ * Visual regression check - screenshots key pages with Playwright and
  * compares them to committed baselines using pixelmatch. Complements the
  * numeric Lighthouse CLS audit by catching visible layout shifts (fonts
  * loading late, images resizing, containers reflowing) that don't always
@@ -174,7 +174,7 @@ await writeFile(
   ),
 );
 
-console.log(`\nVisual check — ${BASE_URL}`);
+console.log(`\nVisual check - ${BASE_URL}`);
 for (const s of summary) console.log(s);
 
 if (failures.length) {

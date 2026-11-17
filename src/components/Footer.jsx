@@ -69,7 +69,7 @@ export default function Footer() {
       </div>
 
       <div className="oz-container oz-footer__content">
-        {/* Top Header Row — Logo + Two-Color Slogan with Curved Underline + Social Circles */}
+        {/* Top Header Row - Logo + Two-Color Slogan with Curved Underline + Social Circles */}
         <header className="oz-footer__header">
           <div className="oz-footer__header-brand">
             <Link to="/" aria-label="Ozeonix Infinity Home" className="oz-footer__logo-link">

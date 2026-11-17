@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { revealConfig, REVEAL_PRESETS } from "@/lib/revealConfig";
 
 /**
- * RevealGroup — sets a section-wide animation preset that all child
+ * RevealGroup - sets a section-wide animation preset that all child
  * <Reveal> components inherit unless they pass their own `direction` prop.
  */
 export const RevealContext = createContext({

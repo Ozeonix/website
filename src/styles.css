@@ -2,7 +2,7 @@
 @source "../src";
 
 /* =========================================================
-   Ozeonix Infinity — Manual Design System
+   Ozeonix Infinity - Manual Design System
    Colors are exact HSL values. No gradients anywhere.
    ========================================================= */
 
@@ -880,7 +880,7 @@ p {
   border-bottom: 1px solid var(--oz-border);
   overflow: hidden;
   isolation: isolate;
-  /* Static base gradient — always painted, GPU compositor only. */
+  /* Static base gradient - always painted, GPU compositor only. */
   background-image:
     radial-gradient(
       60% 55% at 15% 20%,
@@ -908,7 +908,7 @@ p {
   z-index: 3;
 }
 
-/* Animated blob layer — transform-only animation, isolated on its own compositor layer. */
+/* Animated blob layer - transform-only animation, isolated on its own compositor layer. */
 .oz-hero__bg {
   position: absolute;
   inset: -10%;
@@ -988,7 +988,7 @@ p {
 .oz-wavelines .w3 {
   stroke: color-mix(in oklab, var(--brand-orange) 55%, transparent);
 }
-/* Transform-only translate — GPU-accelerated, no repaints. */
+/* Transform-only translate - GPU-accelerated, no repaints. */
 .oz-wavelines__g {
   will-change: transform;
   transform: translate3d(0, 0, 0);
@@ -1131,7 +1131,7 @@ p {
   margin: 0;
 }
 
-/* Logos strip — infinite left→right marquee */
+/* Logos strip - infinite left→right marquee */
 .oz-logos-marquee {
   overflow: hidden;
   width: 100%;
@@ -2178,7 +2178,7 @@ fieldset.oz-field {
   border: 1px solid hsl(150 50% 70%);
 }
 
-/* Contact form — modern clean card */
+/* Contact form - modern clean card */
 .oz-form--clean,
 .oz-form--neumorphic {
   padding: clamp(1rem, 2vw, 1.5rem);
@@ -3486,7 +3486,7 @@ fieldset.oz-field {
   }
 }
 
-/* Staggered reveal — appears when scrolled into view, ~0.2s between siblings.
+/* Staggered reveal - appears when scrolled into view, ~0.2s between siblings.
    Content is visible by default so SSR + no-JS + hydration issues never leave the page blank.
    When JS marks the element as pending (js-reveal), it hides until .is-visible. */
 :root {
@@ -3735,7 +3735,9 @@ fieldset.oz-field {
   color: var(--oz-foreground, #111827);
   text-decoration: none;
   box-sizing: border-box;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 .oz-lang__menu a.oz-lang__action-item:hover {
   background: var(--brand-orange-50, #fff7ed);
@@ -4613,7 +4615,7 @@ h6 {
   }
 }
 
-/* Legal header — one line, compact */
+/* Legal header - one line, compact */
 .oz-legalhead {
   padding: calc(var(--oz-space-8) + 12px) 0 var(--oz-space-5);
   border-bottom: 1px solid var(--oz-border);
@@ -4839,7 +4841,7 @@ h6 {
   }
 }
 
-/* Services — capability cards */
+/* Services - capability cards */
 .oz-svc-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -5170,7 +5172,7 @@ h6 {
   border: 0;
 }
 
-/* Reduce card hover lift on touch devices — feels jittery */
+/* Reduce card hover lift on touch devices - feels jittery */
 @media (hover: none) {
   .oz-card:hover {
     transform: none;
@@ -5372,8 +5374,16 @@ summary:focus-visible {
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(700px 350px at 95% 5%, color-mix(in oklab, var(--brand-orange, #ea580c) 6%, transparent), transparent 70%),
-    radial-gradient(600px 300px at 5% 95%, color-mix(in oklab, var(--oz-accent, #2563eb) 4%, transparent), transparent 70%);
+    radial-gradient(
+      700px 350px at 95% 5%,
+      color-mix(in oklab, var(--brand-orange, #ea580c) 6%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      600px 300px at 5% 95%,
+      color-mix(in oklab, var(--oz-accent, #2563eb) 4%, transparent),
+      transparent 70%
+    );
 }
 .oz-process-grid {
   display: grid;
@@ -5394,7 +5404,9 @@ summary:focus-visible {
   border-radius: var(--oz-radius-lg, 16px);
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(17, 24, 39, 0.08);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 .oz-process-overview-card:hover {
   border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 35%, transparent);
@@ -5488,7 +5500,9 @@ summary:focus-visible {
   border-radius: var(--oz-radius-md, 10px);
   background: var(--oz-background, #f9fafb);
   border: 1px solid var(--border, #e5e7eb);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 .oz-process-stat-tile:hover {
   border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 35%, transparent);
@@ -5566,7 +5580,10 @@ summary:focus-visible {
   background: var(--surface, #ffffff);
   border: 1px solid var(--border, #e5e7eb);
   box-shadow: 0 4px 16px -4px rgba(17, 24, 39, 0.05);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 .oz-process-step:hover {
   transform: translateY(-2px);
@@ -5580,7 +5597,11 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--brand-orange, #ea580c) 0%, var(--brand-orange-hover, #c2410c) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-orange, #ea580c) 0%,
+    var(--brand-orange-hover, #c2410c) 100%
+  );
   color: #ffffff;
   box-shadow: 0 6px 16px -4px color-mix(in oklab, var(--brand-orange, #ea580c) 45%, transparent);
   position: relative;
@@ -5650,7 +5671,9 @@ summary:focus-visible {
   background: var(--oz-background, #f9fafb);
   border: 1px solid var(--border, #e5e7eb);
   color: var(--text-primary, #111827);
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 .oz-process-step:hover .oz-process-tag {
   background: #ffffff;
@@ -6080,7 +6103,7 @@ a.oz-btn,
   }
 }
 
-/* Homepage Hero — SaaS Mockup Hero Visual */
+/* Homepage Hero - SaaS Mockup Hero Visual */
 .oz-home-hero {
   position: relative;
   overflow: hidden;
@@ -6209,7 +6232,7 @@ a.oz-btn,
   line-height: 1.4;
 }
 
-/* SaaS Hero Mockup Visual — Desktop only */
+/* SaaS Hero Mockup Visual - Desktop only */
 .oz-home-hero__visual {
   display: none;
 }

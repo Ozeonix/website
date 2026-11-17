@@ -15,13 +15,13 @@ import {
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products & Software Suites — Ozeonix Infinity" },
+      { title: "Products & Software Suites - Ozeonix Infinity" },
       {
         name: "description",
         content:
-          "ERP, CRM, LMS, HRMS, POS and AI products built by Ozeonix Infinity — ready-to-tailor platforms for every business type.",
+          "ERP, CRM, LMS, HRMS, POS and AI products built by Ozeonix Infinity - ready-to-tailor platforms for every business type.",
       },
-      { property: "og:title", content: "Products & Software Suites — Ozeonix Infinity" },
+      { property: "og:title", content: "Products & Software Suites - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "ERP, CRM, HRMS, POS and AI products built by Ozeonix Infinity.",
@@ -62,7 +62,7 @@ const SUITES = [
     status: "live",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Business CRM and ERP management dashboard",
-    desc: "Powerful tools to manage your people, pipelines, inventory and operations — all from one unified platform.",
+    desc: "Powerful tools to manage your people, pipelines, inventory and operations - all from one unified platform.",
     items: [
       "CRM",
       "ERP",
@@ -80,7 +80,7 @@ const SUITES = [
     status: "live",
     img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Retail POS and e-commerce management system",
-    desc: "End-to-end retail and commerce tools — from the checkout counter to the online storefront and delivery management.",
+    desc: "End-to-end retail and commerce tools - from the checkout counter to the online storefront and delivery management.",
     items: [
       "POS System",
       "Billing & Invoicing",
@@ -118,7 +118,7 @@ const SUITES = [
     status: "future",
     img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=600&q=80",
     imgAlt: "AI-powered business automation and analytics",
-    desc: "Next-generation AI tools to automate workflows, understand your data and serve customers intelligently — 24/7.",
+    desc: "Next-generation AI tools to automate workflows, understand your data and serve customers intelligently - 24/7.",
     items: [
       "AI Business Assistant",
       "AI Customer Support Chatbot",
@@ -318,7 +318,7 @@ function Products() {
                 <span className="oz-eyebrow">Why Ozeonix Products</span>
                 <h2>Built for real businesses, not demos.</h2>
                 <p className="oz-muted">
-                  Every product we offer has been designed through real client projects — not built
+                  Every product we offer has been designed through real client projects - not built
                   as a showcase. That means the edge cases are handled, the reports make sense, and
                   the support is real.
                 </p>
@@ -383,7 +383,7 @@ function Products() {
             <h2>Request a live product demo.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               We'll walk you through the product that best fits your business, show you how it works,
-              and answer all your questions — no sales pressure.
+              and answer all your questions - no sales pressure.
             </p>
             <div
               style={{

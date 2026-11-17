@@ -1,7 +1,7 @@
 import { isCloudinaryUrl, getCloudinaryUrl, buildCloudinarySrcSet } from "../lib/cloudinary.js";
 
 /**
- * ResponsiveImage — serves optimized remote image variants while preserving
+ * ResponsiveImage - serves optimized remote image variants while preserving
  * intrinsic dimensions and a safe fallback for bundled/local assets.
  * Seamlessly integrates with Cloudinary and Unsplash CDNs.
  */

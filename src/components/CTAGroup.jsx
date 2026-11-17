@@ -10,7 +10,7 @@ import {
 import { trackCTA } from "../lib/analytics";
 
 /**
- * CTAGroup — wraps one or more CTA cards with:
+ * CTAGroup - wraps one or more CTA cards with:
  *  - role="group" + aria-label
  *  - Roving tabindex (arrow keys, Home/End) between children
  *  - Selected child gets aria-current="true" + .is-selected → 70% opacity token

@@ -6,13 +6,13 @@ import ProjectBriefForm from "../components/ProjectBriefForm.jsx";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Ozeonix Infinity — Start Your Software Project" },
+      { title: "Contact Ozeonix Infinity - Start Your Software Project" },
       {
         name: "description",
         content:
           "Contact Ozeonix Infinity for custom CRM, ERP, LMS, website and mobile app development. Get a free consultation for your next digital product.",
       },
-      { property: "og:title", content: "Contact Ozeonix Infinity — Start Your Software Project" },
+      { property: "og:title", content: "Contact Ozeonix Infinity - Start Your Software Project" },
       {
         property: "og:description",
         content:

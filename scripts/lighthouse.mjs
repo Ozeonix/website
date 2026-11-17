@@ -90,12 +90,12 @@ const tbtAudit = audits["total-blocking-time"];
 const siAudit = audits["speed-index"];
 
 const line = (label, v) => console.log(`  ${label.padEnd(28)} ${v}`);
-console.log(`\nLighthouse — ${url}`);
+console.log(`\nLighthouse - ${url}`);
 line("Performance score", `${Math.round(score * 100)} / 100`);
-line("LCP", lcpAudit?.displayValue ?? "—");
-line("CLS", clsAudit?.displayValue ?? "—");
-line("TBT", tbtAudit?.displayValue ?? "—");
-line("Speed Index", siAudit?.displayValue ?? "—");
+line("LCP", lcpAudit?.displayValue ?? "-");
+line("CLS", clsAudit?.displayValue ?? "-");
+line("TBT", tbtAudit?.displayValue ?? "-");
+line("Speed Index", siAudit?.displayValue ?? "-");
 
 const imageAudits = [
   ["modern-image-formats", "Modern formats (WebP/AVIF)"],

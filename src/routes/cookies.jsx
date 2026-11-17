@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/cookies")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy — Ozeonix Infinity" },
+      { title: "Cookie Policy - Ozeonix Infinity" },
       { name: "description", content: "How Ozeonix Infinity uses cookies on this website." },
-      { property: "og:title", content: "Cookie Policy — Ozeonix Infinity" },
+      { property: "og:title", content: "Cookie Policy - Ozeonix Infinity" },
       { property: "og:description", content: "How Ozeonix Infinity uses cookies on this website." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ozeonix.com/cookies" },

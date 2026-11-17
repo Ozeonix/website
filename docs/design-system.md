@@ -1,4 +1,4 @@
-# Ozeonix Infinity — Brand Design System
+# Ozeonix Infinity - Brand Design System
 
 ## 1. Overview & Single Source of Truth
 
@@ -95,12 +95,12 @@ All UI components, pages, forms, navigation, buttons, and layouts across the app
 | **Primary Button** (`.oz-btn--primary`, `.btn-primary`)     | `bg: #ea580c` / `color: #ffffff`                                                 | `bg: #c2410c` / `shadow: 0 4px 12px rgba(234, 88, 12, 0.35)` |
 | **Secondary Button** (`.btn-secondary`, `.oz-btn--outline`) | `bg: #ffffff` (dark: `#1f2937`) / `border: 2px solid #ea580c` / `color: #ea580c` | `bg: #fff7ed` (dark: `#374151`) / `color: #c2410c`           |
 | **Standard Card** (`.card`, `.oz-card`)                     | `bg: #ffffff` (dark: `#1f2937`) / `border: 1px solid #e5e7eb` (dark: `#374151`)  | `shadow: var(--shadow-lg)` / `transform: translateY(-2px)`   |
-| **Glassmorphism Effect** (`.glass-effect`)                  | `backdrop-blur-md` / `bg-white/10` / `border-white/20`                           | —                                                            |
-| **Announcement / Badges**                                   | `bg: #fff7ed` / `color: #ea580c` / `border: 1px solid #fed7aa`                   | —                                                            |
-| **Secondary Badges**                                        | `bg: #dbeafe` / `color: #2563eb`                                                 | —                                                            |
+| **Glassmorphism Effect** (`.glass-effect`)                  | `backdrop-blur-md` / `bg-white/10` / `border-white/20`                           | -                                                            |
+| **Announcement / Badges**                                   | `bg: #fff7ed` / `color: #ea580c` / `border: 1px solid #fed7aa`                   | -                                                            |
+| **Secondary Badges**                                        | `bg: #dbeafe` / `color: #2563eb`                                                 | -                                                            |
 | **Input Fields**                                            | `border: #e5e7eb` / `bg: #ffffff`                                                | `border: #ea580c` / `ring: 2px solid #f97316`                |
 | **Navigation Links**                                        | `color: #374151` (dark: `#f3f4f6`)                                               | `color: #ea580c`                                             |
-| **Active Nav Link**                                         | `color: #ea580c` / bottom border                                                 | —                                                            |
+| **Active Nav Link**                                         | `color: #ea580c` / bottom border                                                 | -                                                            |
 
 ---
 

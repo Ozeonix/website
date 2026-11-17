@@ -6,7 +6,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 const DETAILS = {
   "e-commerce": {
     tagline: "Online stores that convert",
-    lead: "From a first Shopify launch to a custom multi-vendor marketplace — we build storefronts that load fast, rank on Google, and keep customers coming back.",
+    lead: "From a first Shopify launch to a custom multi-vendor marketplace - we build storefronts that load fast, rank on Google, and keep customers coming back.",
     heroImg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "E-commerce store with shopping cart and product listings",
     solutions: [
@@ -27,7 +27,7 @@ const DETAILS = {
   },
   "on-demand": {
     tagline: "Uber-style apps, done right",
-    lead: "Delivery, taxi, home-services, rentals — the on-demand model is a solved pattern. We wire up the maps, tracking, dispatching and payments so you can focus on operations.",
+    lead: "Delivery, taxi, home-services, rentals - the on-demand model is a solved pattern. We wire up the maps, tracking, dispatching and payments so you can focus on operations.",
     heroImg: "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "On-demand delivery app with live tracking on mobile",
     solutions: [
@@ -48,7 +48,7 @@ const DETAILS = {
   },
   fitness: {
     tagline: "Software for gyms, coaches & studios",
-    lead: "Bookings, membership renewals, workout plans and progress tracking — one branded app for your members and a clean admin for your team.",
+    lead: "Bookings, membership renewals, workout plans and progress tracking - one branded app for your members and a clean admin for your team.",
     heroImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Modern gym facility with fitness management app on screen",
     solutions: [
@@ -69,7 +69,7 @@ const DETAILS = {
   },
   payments: {
     tagline: "Fintech flows built to clear compliance",
-    lead: "Wallets, subscriptions, split payouts, KYC — we build the parts of a payment product that regulators, auditors and users all care about.",
+    lead: "Wallets, subscriptions, split payouts, KYC - we build the parts of a payment product that regulators, auditors and users all care about.",
     heroImg: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Digital payment and fintech application interface",
     solutions: [
@@ -90,7 +90,7 @@ const DETAILS = {
   },
   entertainment: {
     tagline: "Streaming, media & fan platforms",
-    lead: "OTT, podcasts, ticketed live streams, fan communities — media apps live and die by playback quality and content ops. We handle both.",
+    lead: "OTT, podcasts, ticketed live streams, fan communities - media apps live and die by playback quality and content ops. We handle both.",
     heroImg: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Video streaming platform with content library",
     solutions: [
@@ -111,7 +111,7 @@ const DETAILS = {
   },
   education: {
     tagline: "LMS, coaching & school platforms",
-    lead: "From a single coaching centre to a multi-branch institute, we build the ERP, LMS, parent app and student portal — connected, not siloed.",
+    lead: "From a single coaching centre to a multi-branch institute, we build the ERP, LMS, parent app and student portal - connected, not siloed.",
     heroImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "School management system with student and teacher interface",
     solutions: [
@@ -132,7 +132,7 @@ const DETAILS = {
   },
   event: {
     tagline: "Ticketing & event management",
-    lead: "Concerts, conferences, weddings, meetups — we build the ticketing, check-in, and attendee experience end to end.",
+    lead: "Concerts, conferences, weddings, meetups - we build the ticketing, check-in, and attendee experience end to end.",
     heroImg: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Event management with ticketing and crowd at venue",
     solutions: [
@@ -153,7 +153,7 @@ const DETAILS = {
   },
   restaurant: {
     tagline: "POS, online ordering & delivery",
-    lead: "One system for the counter, the kitchen, the delivery driver and the customer's phone — with reports the owner can actually read.",
+    lead: "One system for the counter, the kitchen, the delivery driver and the customer's phone - with reports the owner can actually read.",
     heroImg: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Modern restaurant with POS system and food ordering",
     solutions: [
@@ -174,7 +174,7 @@ const DETAILS = {
   },
   health: {
     tagline: "Clinics, EHR & telehealth",
-    lead: "Appointment booking, patient records, prescriptions and telehealth — we build the digital layer that makes a clinic run smoothly and patients feel cared for.",
+    lead: "Appointment booking, patient records, prescriptions and telehealth - we build the digital layer that makes a clinic run smoothly and patients feel cared for.",
     heroImg: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Healthcare clinic with digital patient management system",
     solutions: [
@@ -210,7 +210,7 @@ export const Route = createFileRoute("/industries/$slug")({
         { title: `${item.label} Software Solutions | Ozeonix Infinity` },
         {
           name: "description",
-          content: `${detail.tagline} — ${detail.lead.slice(0, 140)}`,
+          content: `${detail.tagline} - ${detail.lead.slice(0, 140)}`,
         },
         { property: "og:title", content: `${item.label} Software Solutions | Ozeonix Infinity` },
         { property: "og:description", content: detail.tagline },

@@ -9,7 +9,7 @@ import AccessibleTabs from "@/components/AccessibleTabs.jsx";
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
     meta: [
-      { title: "Admin — Referral Management | Ozeonix Infinity" },
+      { title: "Admin - Referral Management | Ozeonix Infinity" },
       {
         name: "description",
         content:
@@ -691,10 +691,10 @@ function AdminPanel() {
                             </>
                           ) : null}
                         </td>
-                        <td style={td}>{[l.city, l.country].filter(Boolean).join(", ") || "—"}</td>
-                        <td style={td}>{l.requirements || "—"}</td>
-                        <td style={td}>{l.budget || "—"}</td>
-                        <td style={td}>{l.start_time || "—"}</td>
+                        <td style={td}>{[l.city, l.country].filter(Boolean).join(", ") || "-"}</td>
+                        <td style={td}>{l.requirements || "-"}</td>
+                        <td style={td}>{l.budget || "-"}</td>
+                        <td style={td}>{l.start_time || "-"}</td>
                         <td style={td}>
                           {l.referral_code ? `${l.referral_code} (partner link)` : "direct"}
                         </td>
@@ -729,7 +729,7 @@ function AdminPanel() {
                     <option value="">Not linked</option>
                     {rows.map((r) => (
                       <option key={r.id} value={r.id}>
-                        {r.client_name} — {money(r.commission_amount)}
+                        {r.client_name} - {money(r.commission_amount)}
                       </option>
                     ))}
                   </select>
@@ -810,8 +810,8 @@ function AdminPanel() {
                                 {new Date(p.paid_at || p.created_at).toLocaleDateString("en-IN")}
                               </td>
                               <td style={{ ...td, fontWeight: 700 }}>{money(p.amount)}</td>
-                              <td style={td}>{p.method || "—"}</td>
-                              <td style={td}>{p.reference || "—"}</td>
+                              <td style={td}>{p.method || "-"}</td>
+                              <td style={td}>{p.reference || "-"}</td>
                               <td style={td}>
                                 <span
                                   style={{

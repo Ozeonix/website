@@ -41,7 +41,7 @@ jobs:
             echo "IMG_SAVINGS_MAX_KB=250"          >> "$GITHUB_OUTPUT"
             echo "VISUAL_MAX_DIFF_RATIO=0.02"      >> "$GITHUB_OUTPUT"
             echo "AUTO_UPDATE_BASELINES=true"      >> "$GITHUB_OUTPUT"
-            echo "::warning::perf-relax label active — thresholds loosened and visual baselines will be auto-refreshed on this PR."
+            echo "::warning::perf-relax label active - thresholds loosened and visual baselines will be auto-refreshed on this PR."
           else
             echo "mode=strict"                     >> "$GITHUB_OUTPUT"
             echo "PERF_MIN=0.85"                   >> "$GITHUB_OUTPUT"
@@ -212,11 +212,11 @@ jobs:
             const vis = read('reports/visual-summary.json');
 
             const badge = (ok) => ok ? '✅ pass' : '❌ fail';
-            const pct = (n) => (n == null ? '—' : Math.round(n * 100));
+            const pct = (n) => (n == null ? '-' : Math.round(n * 100));
             const artifactUrl = process.env.ARTIFACT_URL || process.env.RUN_URL;
             const auto = process.env.AUTO_UPDATE === 'true';
 
-            let body = `## 🔬 Performance & visual check — \`${process.env.MODE}\`\n\n`;
+            let body = `## 🔬 Performance & visual check - \`${process.env.MODE}\`\n\n`;
             body += `[Run](${process.env.RUN_URL}) · [Download report artifact](${artifactUrl})\n\n`;
 
             if (lh) {
@@ -224,7 +224,7 @@ jobs:
               body += `| Metric | Value | Threshold |\n|---|---|---|\n`;
               body += `| Performance | **${pct(lh.metrics.performanceScore)}** | ≥ ${pct(lh.thresholds.PERF_MIN)} |\n`;
               body += `| CLS | **${lh.metrics.cls.toFixed(3)}** | ≤ ${lh.thresholds.CLS_MAX} |\n`;
-              body += `| LCP | ${lh.metrics.lcp} | — |\n`;
+              body += `| LCP | ${lh.metrics.lcp} | - |\n`;
               body += `| Modern image formats | ${pct(lh.imageAudits.modernFormats.score)} (save ${lh.imageAudits.modernFormats.savingsKb} KB) | ≥ ${pct(lh.thresholds.IMG_FORMATS_MIN)} |\n`;
               body += `| Responsive sizing | ${pct(lh.imageAudits.responsiveSizing.score)} (save ${lh.imageAudits.responsiveSizing.savingsKb} KB) | ≥ ${pct(lh.thresholds.IMG_SIZING_MIN)} |\n\n`;
               if (lh.failures.length) body += `**Failures:**\n${lh.failures.map(f => `- ${f}`).join('\n')}\n\n`;
@@ -233,7 +233,7 @@ jobs:
             }
 
             if (auto) {
-              body += `### Visual baselines 🔄\n\`perf-relax\` label detected — visual baselines were refreshed and pushed back to this PR. Review the new baselines under \`tests/visual/baseline/\`.\n\n`;
+              body += `### Visual baselines 🔄\n\`perf-relax\` label detected - visual baselines were refreshed and pushed back to this PR. Review the new baselines under \`tests/visual/baseline/\`.\n\n`;
             } else if (vis) {
               body += `### Visual regression ${badge(vis.passed)}\n`;
               body += `Max diff ratio: **${(vis.maxDiffRatio * 100).toFixed(3)}%**\n\n`;
@@ -244,10 +244,10 @@ jobs:
                 if (p.baselineImage) links.push(`[baseline](${artifactUrl})`);
                 if (p.currentImage)  links.push(`[current](${artifactUrl})`);
                 if (p.diffImage)     links.push(`[**diff**](${artifactUrl})`);
-                body += `| \`${p.name}\` | \`${p.path}\` | ${ok ? '✅' : '❌'} ${p.status} | ${(p.diffRatio * 100).toFixed(3)}% | ${links.join(' · ') || '—'} |\n`;
+                body += `| \`${p.name}\` | \`${p.path}\` | ${ok ? '✅' : '❌'} ${p.status} | ${(p.diffRatio * 100).toFixed(3)}% | ${links.join(' · ') || '-'} |\n`;
               }
               body += `\n> Image links open the workflow-run artifact zip; extract \`visual/diff/\` to view per-page overlays.\n`;
-              body += `> To refresh baselines, apply the **\`perf-relax\`** label to this PR — CI will regenerate and commit them.\n`;
+              body += `> To refresh baselines, apply the **\`perf-relax\`** label to this PR - CI will regenerate and commit them.\n`;
             } else {
               body += `### Visual regression\n_No summary produced (step outcome: ${process.env.VIS_OUTCOME})._\n`;
             }

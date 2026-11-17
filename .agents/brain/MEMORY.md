@@ -1,4 +1,4 @@
-# Ozeonix Infinity — Project Memory & Brain (SSOT)
+# Ozeonix Infinity - Project Memory & Brain (SSOT)
 
 > **Persistent Agent Brain**: Maintained in `.agents/brain/` for instant session resumption without loss of context or repeated analysis.
 
@@ -34,11 +34,11 @@
 
 ## 3. Brand Design System Standards
 
-- **Primary Brand Orange**: `#ea580c` (`--brand-orange`, `orange-600`) — Primary CTAs, key headlines, active highlights.
-- **Accent Orange**: `#f97316` (`--brand-orange-500`, `orange-500`) — Accents, badges, tickers, focus rings.
-- **Brand Deep**: `#9a3412` (`orange-800`) — Prominent text / high contrast.
-- **Brand Surface Tints**: `#fff7ed` (`orange-50`), `#ffedd5` (`orange-100`) — Soft active states.
-- **Dark Canvas Surfaces**: `#07192d` to `#041220` (Dark Navy) — Upgraded Modern Dark Footer & dark sections.
+- **Primary Brand Orange**: `#ea580c` (`--brand-orange`, `orange-600`) - Primary CTAs, key headlines, active highlights.
+- **Accent Orange**: `#f97316` (`--brand-orange-500`, `orange-500`) - Accents, badges, tickers, focus rings.
+- **Brand Deep**: `#9a3412` (`orange-800`) - Prominent text / high contrast.
+- **Brand Surface Tints**: `#fff7ed` (`orange-50`), `#ffedd5` (`orange-100`) - Soft active states.
+- **Dark Canvas Surfaces**: `#07192d` to `#041220` (Dark Navy) - Upgraded Modern Dark Footer & dark sections.
 - **Light Neutral Canvas**: `#f8fafc` / `#f9fafb` (Light Gray), `#ffffff` (White surface cards).
 - **Secondary Accents**: `#38bdf8` (Cyan), `#60a5fa` (Blue), `#00A982` (Green).
 

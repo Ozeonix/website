@@ -77,7 +77,7 @@ async function assertGpuAnimations(page, scope) {
     els.map((el) => getComputedStyle(el).animationName).filter((n) => n && n !== "none"),
   );
   if (pathAnims.length)
-    record(scope, `wave <path> animations found (${pathAnims.join(",")}) — must live on <g>`);
+    record(scope, `wave <path> animations found (${pathAnims.join(",")}) - must live on <g>`);
 }
 
 async function assertHeroBg(page, scope) {
@@ -207,7 +207,7 @@ async function runSaveData(browser, path, vp) {
 function diffScreenshots() {
   if (!existsSync(BASE_DIR)) {
     console.log(
-      `ℹ️  No baseline at ${BASE_DIR} — skipping visual diff. Copy reports/gpu/current to reports/gpu/baseline to set one.`,
+      `ℹ️  No baseline at ${BASE_DIR} - skipping visual diff. Copy reports/gpu/current to reports/gpu/baseline to set one.`,
     );
     return;
   }

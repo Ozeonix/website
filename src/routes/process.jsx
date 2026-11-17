@@ -16,13 +16,13 @@ import {
 export const Route = createFileRoute("/process")({
   head: () => ({
     meta: [
-      { title: "Our Development Process — Ozeonix Infinity" },
+      { title: "Our Development Process - Ozeonix Infinity" },
       {
         name: "description",
         content:
-          "A calm, predictable path from discovery to launch and beyond. Eight clear steps — no surprises, no radio silence.",
+          "A calm, predictable path from discovery to launch and beyond. Eight clear steps - no surprises, no radio silence.",
       },
-      { property: "og:title", content: "Our Development Process — Ozeonix Infinity" },
+      { property: "og:title", content: "Our Development Process - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "Eight steps from idea to live product. Transparent, collaborative, on time.",
@@ -40,7 +40,7 @@ const STEPS = [
   {
     s: "01",
     t: "Discovery & Consultation",
-    d: "We begin by understanding your business, goals, target audience and requirements in depth. No assumptions — just good questions.",
+    d: "We begin by understanding your business, goals, target audience and requirements in depth. No assumptions - just good questions.",
     Icon: MessageSquare,
     img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Team conducting a discovery and consultation meeting",
@@ -56,7 +56,7 @@ const STEPS = [
   {
     s: "03",
     t: "UI/UX Design",
-    d: "Intuitive, responsive and accessible interfaces — wireframes first, then high-fidelity mockups. You see the product before it's built.",
+    d: "Intuitive, responsive and accessible interfaces - wireframes first, then high-fidelity mockups. You see the product before it's built.",
     Icon: Paintbrush2,
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Designer working on UI/UX wireframes and mockups",
@@ -80,7 +80,7 @@ const STEPS = [
   {
     s: "06",
     t: "Client Review",
-    d: "We present the completed solution and refine it based on your feedback. This is your project — we iterate until it's exactly right.",
+    d: "We present the completed solution and refine it based on your feedback. This is your project - we iterate until it's exactly right.",
     Icon: ClipboardCheck,
     img: "https://images.unsplash.com/photo-1664575198308-3959904fa430?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Client review and feedback session",
@@ -88,7 +88,7 @@ const STEPS = [
   {
     s: "07",
     t: "Deployment & Launch",
-    d: "We configure domains, hosting, SSL and databases for a smooth, monitored launch. Your product goes live — no surprises.",
+    d: "We configure domains, hosting, SSL and databases for a smooth, monitored launch. Your product goes live - no surprises.",
     Icon: Rocket,
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Product deployment and launch monitoring",
@@ -105,11 +105,11 @@ const STEPS = [
 
 const PRINCIPLES = [
   "You always know which step we're on and what's next",
-  "No surprises — changes are discussed before they happen",
+  "No surprises - changes are discussed before they happen",
   "Regular updates via WhatsApp, email or video calls",
   "We ask for your feedback at every milestone",
   "Clear timelines set before development begins",
-  "We don't hand off and disappear — we stay involved",
+  "We don't hand off and disappear - we stay involved",
 ];
 
 function Process() {
@@ -220,7 +220,7 @@ function Process() {
                 <span className="oz-eyebrow">How We Work</span>
                 <h2>Transparent collaboration at every step.</h2>
                 <p className="oz-muted">
-                  We believe the best projects happen when clients are informed and involved — not
+                  We believe the best projects happen when clients are informed and involved - not
                   kept waiting. These are the principles we follow on every engagement.
                 </p>
                 <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
@@ -268,7 +268,7 @@ function Process() {
             </span>
             <h2>Let's walk through your project together.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
-              A free 30-minute discovery call is all it takes. No commitment, no pressure — just an
+              A free 30-minute discovery call is all it takes. No commitment, no pressure - just an
               honest conversation about what you need.
             </p>
             <div

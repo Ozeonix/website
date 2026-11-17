@@ -10,7 +10,7 @@ export const Route = createFileRoute("/payment/failed")({
           "Your eSewa payment was cancelled or could not be completed. You can safely try again.",
       },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Payment Cancelled — Ozeonix Infinity" },
+      { property: "og:title", content: "Payment Cancelled - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "The eSewa payment was cancelled. Nothing has been charged.",

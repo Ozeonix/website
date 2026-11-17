@@ -8,7 +8,7 @@ import { revealConfig, REVEAL_PRESETS } from "@/lib/revealConfig";
 export const Route = createFileRoute("/reveal-preview")({
   head: () => ({
     meta: [
-      { title: "Reveal Preview — Ozeonix Infinity" },
+      { title: "Reveal Preview - Ozeonix Infinity" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),

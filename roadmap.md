@@ -9,7 +9,7 @@
 
 - [x] Complete approved homepage visual upgrade
 - [x] Assign the supplied full-color, white-text, and icon logos to the header, footer, and browser tab
-- [x] Keep logos plain — no background plate and no hover effects
+- [x] Keep logos plain - no background plate and no hover effects
 - [x] Refresh brand colors, global positioning, slogan, and remove app-style mobile bottom navigation
 - [x] Apply and validate the corporate kinetic card and scroll-reveal system
 

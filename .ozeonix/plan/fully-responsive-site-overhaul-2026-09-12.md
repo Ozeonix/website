@@ -1,7 +1,7 @@
 # Fully responsive site overhaul
 
 ## Goal
-Make every public page and dashboard feel intentionally designed from small phones through tablets, laptops, desktops, and wide screens. Responsiveness will cover typography, spacing, borders, controls, imagery, icons, logos, navigation, forms, tables, and fixed elements—not only flex and grid behavior.
+Make every public page and dashboard feel intentionally designed from small phones through tablets, laptops, desktops, and wide screens. Responsiveness will cover typography, spacing, borders, controls, imagery, icons, logos, navigation, forms, tables, and fixed elements-not only flex and grid behavior.
 
 ## What will change
 

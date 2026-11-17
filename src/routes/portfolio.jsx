@@ -5,13 +5,13 @@ import { ExternalLink, ArrowRight, Layers, Smartphone, Building2, Palette, Spark
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Our Work | Ozeonix Infinity" },
+      { title: "Portfolio - Our Work | Ozeonix Infinity" },
       {
         name: "description",
         content:
-          "Selected work and demo builds by Ozeonix Infinity — ERP systems, CRM platforms, mobile apps, websites and more.",
+          "Selected work and demo builds by Ozeonix Infinity - ERP systems, CRM platforms, mobile apps, websites and more.",
       },
-      { property: "og:title", content: "Portfolio — Ozeonix Infinity" },
+      { property: "og:title", content: "Portfolio - Ozeonix Infinity" },
       { property: "og:description", content: "Selected work and demo builds by Ozeonix Infinity." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ozeonix.com/portfolio" },
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/portfolio")({
 const FEATURED = {
   t: "School Management ERP",
   tag: "ERP · Demo",
-  d: "A comprehensive school management system covering students, attendance, fees, exams, staff and parent communication — built to feel calm and fast even with hundreds of moving parts.",
+  d: "A comprehensive school management system covering students, attendance, fees, exams, staff and parent communication - built to feel calm and fast even with hundreds of moving parts.",
   tech: ["Flutter", "Node.js", "REST API", "PostgreSQL"],
   img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
   imgAlt: "School management ERP dashboard interface on a laptop",
@@ -44,7 +44,7 @@ const PROJECTS = [
   {
     t: "Business CRM Platform",
     tag: "CRM",
-    d: "Leads, sales pipelines, invoices, follow-ups and customer support — everything a growing sales team needs.",
+    d: "Leads, sales pipelines, invoices, follow-ups and customer support - everything a growing sales team needs.",
     tech: "Flutter · Cloud DB",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
     imgAlt: "CRM platform with sales pipeline and analytics",
@@ -89,7 +89,7 @@ const PROJECTS = [
   {
     t: "UI/UX Design Projects",
     tag: "Design",
-    d: "Interfaces for websites, apps, dashboards and enterprise software — crafted for clarity, usability and brand consistency.",
+    d: "Interfaces for websites, apps, dashboards and enterprise software - crafted for clarity, usability and brand consistency.",
     tech: "Figma · Design Systems",
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80",
     imgAlt: "UI/UX design mockups and design systems",
@@ -105,7 +105,7 @@ function Portfolio() {
         <div className="oz-container">
           <Reveal>
             <span className="oz-open__index">Selected work</span>
-            <h1>Projects we've built — and a few we built to show what's possible.</h1>
+            <h1>Projects we've built - and a few we built to show what's possible.</h1>
           </Reveal>
         </div>
       </section>

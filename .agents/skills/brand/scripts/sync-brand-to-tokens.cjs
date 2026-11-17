@@ -163,7 +163,7 @@ function extractColorsFromMarkdown(content) {
   // ("| Primary Blue | #2563EB |") and bolded variants.
   const rowRe = /\|\s*\*{0,2}([^*|]+?)\*{0,2}\s*\|\s*#([A-Fa-f0-9]{6})\b/g;
 
-  // 1) Quick Reference table — hex only, no parenthesized name required.
+  // 1) Quick Reference table - hex only, no parenthesized name required.
   const quickRef = {
     primary: /Primary Color\s*\|\s*#([A-Fa-f0-9]{6})/i,
     secondary: /Secondary Color\s*\|\s*#([A-Fa-f0-9]{6})/i,
@@ -174,7 +174,7 @@ function extractColorsFromMarkdown(content) {
     if (m) colors[key].base = `#${m[1]}`;
   }
 
-  // 2) Dedicated "### <Role> Colors" tables — assign base/dark/light by the
+  // 2) Dedicated "### <Role> Colors" tables - assign base/dark/light by the
   //    row label keyword.
   const assignFromSection = (heading, target) => {
     const section = content.match(new RegExp(`### ${heading}[\\s\\S]*?(?=\\n###|$)`, 'i'));
@@ -231,7 +231,7 @@ function generateColorScale(baseHex, darkHex, lightHex) {
  * black (percent < 0) instead of adding/subtracting a flat 255*percent to
  * every channel. The flat-shift approach clamped all three channels to 0
  * (or 255) whenever the base color's channels were already low (or high)
- * relative to the shift — e.g. darkening a dark brand color like #4A3228
+ * relative to the shift - e.g. darkening a dark brand color like #4A3228
  * by -0.3/-0.45/-0.6 produced #000000 for all three, collapsing shades
  * 700/800/900 into an identical, useless black.
  */
@@ -277,7 +277,7 @@ function updateDesignTokens(tokens, colors) {
   for (const role of ['primary', 'secondary', 'accent']) {
     const c = colors[role];
     if (!c.base) {
-      console.warn(`⚠️  No base hex found for ${role} color — skipping its token scale.`);
+      console.warn(`⚠️  No base hex found for ${role} color - skipping its token scale.`);
       continue;
     }
     primitiveColors[c.name] = generateColorScale(c.base, c.dark, c.light);

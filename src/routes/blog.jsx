@@ -4,12 +4,12 @@ import Reveal from "../components/Reveal.jsx";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog — Ozeonix Infinity" },
+      { title: "Blog - Ozeonix Infinity" },
       {
         name: "description",
         content: "Insights on building modern websites, apps and business software.",
       },
-      { property: "og:title", content: "Blog — Ozeonix Infinity" },
+      { property: "og:title", content: "Blog - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "Insights on building modern websites, apps and business software.",
@@ -41,7 +41,7 @@ const POSTS = [
     tag: "Web",
   },
   {
-    t: "Flutter in 2026 — where cross-platform is winning",
+    t: "Flutter in 2026 - where cross-platform is winning",
     d: "Real-world tradeoffs from projects across education and retail.",
     tag: "Mobile",
   },
@@ -63,12 +63,12 @@ function Blog() {
     <>
       <section
         className="oz-open"
-        aria-label="Short reads from the team — what we’re learning while we build."
+        aria-label="Short reads from the team - what we’re learning while we build."
       >
         <div className="oz-container">
           <Reveal>
             <span className="oz-open__index">Journal</span>
-            <h1>Short reads from the team — what we’re learning while we build.</h1>
+            <h1>Short reads from the team - what we’re learning while we build.</h1>
           </Reveal>
         </div>
       </section>

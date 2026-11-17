@@ -1,4 +1,4 @@
-# Ozeonix Infinity — Permanent Agent & Development Rules
+# Ozeonix Infinity - Permanent Agent & Development Rules
 
 > [!NOTE]
 > **FAST SESSION RESUMPTION**:

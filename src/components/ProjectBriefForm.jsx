@@ -104,7 +104,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
       {status === "success" && (
         <div className="oz-field oz-field--full" role="status" aria-live="polite">
           <div className="oz-form__status oz-form__status--ok">
-            Thanks — we’ve received your brief and will reply within one business day.
+            Thanks - we’ve received your brief and will reply within one business day.
           </div>
         </div>
       )}

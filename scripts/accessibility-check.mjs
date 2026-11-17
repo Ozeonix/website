@@ -80,11 +80,11 @@ for (const width of WIDTHS) {
     });
 
     const routeFailures = [
-      ...serious.map((item) => `${item.impact}: ${item.id} — ${item.help}`),
+      ...serious.map((item) => `${item.impact}: ${item.id} - ${item.help}`),
       ...structural.missingImageReservation.map(
-        (src) => `critical: image has no reserved size — ${src}`,
+        (src) => `critical: image has no reserved size - ${src}`,
       ),
-      ...structural.undersized.map((label) => `serious: undersized tap target — ${label}`),
+      ...structural.undersized.map((label) => `serious: undersized tap target - ${label}`),
       ...(structural.horizontalOverflow ? ["serious: document has horizontal overflow"] : []),
     ];
     if (routeFailures.length)

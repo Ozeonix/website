@@ -9,7 +9,7 @@ import { submitPartnerLead } from "@/lib/referrals.functions";
 export const Route = createFileRoute("/_authenticated/partner")({
   head: () => ({
     meta: [
-      { title: "Partner Dashboard — Ozeonix Infinity" },
+      { title: "Partner Dashboard - Ozeonix Infinity" },
       {
         name: "description",
         content: "Track referred clients, referral link and 10% commission earnings.",
@@ -228,7 +228,7 @@ function PartnerDashboard() {
                 wordBreak: "break-all",
               }}
             >
-              {referralLink || "—"}
+              {referralLink || "-"}
             </code>
             {referralLink && (
               <button
@@ -241,7 +241,7 @@ function PartnerDashboard() {
             )}
           </div>
           <p style={{ marginTop: 10, fontSize: 14 }}>
-            Referral code: <strong>{profile?.referral_code || "—"}</strong>
+            Referral code: <strong>{profile?.referral_code || "-"}</strong>
           </p>
         </div>
 
@@ -339,7 +339,7 @@ function PartnerDashboard() {
                           fontSize: 14,
                         }}
                       >
-                        {r.requirements || "—"}
+                        {r.requirements || "-"}
                       </td>
                       <td
                         style={{
@@ -447,7 +447,7 @@ function PartnerDashboard() {
                           fontSize: 14,
                         }}
                       >
-                        {p.method || "—"}
+                        {p.method || "-"}
                       </td>
                       <td
                         style={{
@@ -456,7 +456,7 @@ function PartnerDashboard() {
                           fontSize: 14,
                         }}
                       >
-                        {p.reference || "—"}
+                        {p.reference || "-"}
                       </td>
                       <td
                         style={{

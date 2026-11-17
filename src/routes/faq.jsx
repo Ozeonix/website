@@ -11,13 +11,13 @@ const FAQ_JSONLD = {
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Frequently Asked Questions | Ozeonix Infinity" },
+      { title: "FAQ - Frequently Asked Questions | Ozeonix Infinity" },
       {
         name: "description",
         content:
           "Answers to common questions about Ozeonix Infinity's web, mobile, CRM, ERP and LMS development services, process and pricing.",
       },
-      { property: "og:title", content: "FAQ — Ozeonix Infinity" },
+      { property: "og:title", content: "FAQ - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "Answers to common questions about our services, process and technology.",
@@ -51,19 +51,19 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you build custom software?",
-        a: "Yes — every solution is tailored to your business requirements, workflows and future growth plans. We don't use off-the-shelf templates for core functionality.",
+        a: "Yes - every solution is tailored to your business requirements, workflows and future growth plans. We don't use off-the-shelf templates for core functionality.",
       },
       {
         q: "Do you develop mobile applications?",
-        a: "Yes — high-performance cross-platform apps built with Flutter for both Android and iOS from a single codebase.",
+        a: "Yes - high-performance cross-platform apps built with Flutter for both Android and iOS from a single codebase.",
       },
       {
         q: "Can you redesign my existing website?",
-        a: "Absolutely. We modernize existing sites for improved design, performance, security and user experience — with or without changing the underlying technology.",
+        a: "Absolutely. We modernize existing sites for improved design, performance, security and user experience - with or without changing the underlying technology.",
       },
       {
         q: "Do you provide ERP and CRM solutions?",
-        a: "Yes — we develop fully customized ERP and CRM systems tailored to institutions, businesses and organizations of any size.",
+        a: "Yes - we develop fully customized ERP and CRM systems tailored to institutions, businesses and organizations of any size.",
       },
     ],
   },
@@ -76,7 +76,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "How long does a project take?",
-        a: "Timelines depend on scope and complexity. After understanding your requirements, we share a detailed timeline before development begins — typically 4–16 weeks for most projects.",
+        a: "Timelines depend on scope and complexity. After understanding your requirements, we share a detailed timeline before development begins - typically 4–16 weeks for most projects.",
       },
       {
         q: "What technologies do you use?",
@@ -84,11 +84,11 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Can you integrate third-party services?",
-        a: "Yes — payment gateways (eSewa, Khalti, Stripe), email marketing, maps, analytics, authentication, CRM integrations and other third-party APIs.",
+        a: "Yes - payment gateways (eSewa, Khalti, Stripe), email marketing, maps, analytics, authentication, CRM integrations and other third-party APIs.",
       },
       {
         q: "Do you offer website maintenance and support?",
-        a: "Yes — ongoing maintenance, security updates, performance optimization, bug fixes and feature enhancements. We're a long-term partner.",
+        a: "Yes - ongoing maintenance, security updates, performance optimization, bug fixes and feature enhancements. We're a long-term partner.",
       },
     ],
   },
@@ -101,7 +101,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you work with startups and small businesses?",
-        a: "Yes — we love helping startups and small businesses build a strong digital presence with scalable, cost-effective solutions that grow with them.",
+        a: "Yes - we love helping startups and small businesses build a strong digital presence with scalable, cost-effective solutions that grow with them.",
       },
       {
         q: "Can you help my business grow online?",
@@ -109,7 +109,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you sign NDAs and contracts?",
-        a: "Yes — we provide a clear contract before every project, covering scope, timeline, payment terms and intellectual property. NDAs are available on request.",
+        a: "Yes - we provide a clear contract before every project, covering scope, timeline, payment terms and intellectual property. NDAs are available on request.",
       },
       {
         q: "Why should I choose Ozeonix Infinity?",
@@ -199,7 +199,7 @@ function FAQ() {
               <div>
                 <p className="oz-open__lead">
                   Quick answers to the questions we hear most often. If yours isn't here, reach out
-                  — we reply within a few hours.
+                  - we reply within a few hours.
                 </p>
                 <div style={{ marginTop: 20, display: "flex", gap: 12, flexWrap: "wrap" }}>
                   <a

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Ozeonix Infinity — Read-Only Agent Skills Upstream Checker
+ * Ozeonix Infinity - Read-Only Agent Skills Upstream Checker
  *
  * Scans all vendored skills under `.agents/skills/` for `.upstream-lock.json`,
  * and checks whether the upstream Git repositories have new commits beyond the pinned commits.

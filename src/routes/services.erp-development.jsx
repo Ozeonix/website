@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: "Can the ERP integrate with our existing tools?",
-    a: "Yes — we integrate with payment gateways, accounting software, e-commerce platforms and third-party APIs. Migration from spreadsheets is also fully supported.",
+    a: "Yes - we integrate with payment gateways, accounting software, e-commerce platforms and third-party APIs. Migration from spreadsheets is also fully supported.",
   },
 ];
 
@@ -218,7 +218,7 @@ const IMPLEMENTATION_STEPS = [
 const WHY_US_POINTS = [
   {
     title: "Tailored to Your Terminology",
-    desc: "We adapt fields, statuses, and reporting structures to your industry language — no forcing your team into generic foreign templates.",
+    desc: "We adapt fields, statuses, and reporting structures to your industry language - no forcing your team into generic foreign templates.",
   },
   {
     title: "Granular Role-Based Permissions",
@@ -259,7 +259,7 @@ function ErpDevelopment() {
               <div>
                 <p className="oz-open__lead">
                   We build enterprise resource planning systems that connect every part of your
-                  business — inventory, production, sales, HR and finance — in one clean, manageable
+                  business - inventory, production, sales, HR and finance - in one clean, manageable
                   platform.
                 </p>
                 <div className="oz-open__actions">
@@ -697,7 +697,7 @@ function ErpDevelopment() {
                 <h2>Enterprise software that respects how your team actually works.</h2>
                 <p className="oz-muted">
                   Off-the-shelf ERP platforms charge steep per-user license fees while forcing your company
-                  to bend into rigid workflows. We engineer the exact software you need — owned completely by you.
+                  to bend into rigid workflows. We engineer the exact software you need - owned completely by you.
                 </p>
                 <div style={{ display: "grid", gap: 14, marginTop: 24 }}>
                   {WHY_US_POINTS.map(({ title, desc }) => (

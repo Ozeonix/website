@@ -20,15 +20,15 @@ const FAQS = [
   },
   {
     q: "What features are included in your LMS platforms?",
-    a: "Student enrollment, attendance, digital content delivery, online exams, gradebooks, parent communication, fee tracking and progress reports — all in one platform.",
+    a: "Student enrollment, attendance, digital content delivery, online exams, gradebooks, parent communication, fee tracking and progress reports - all in one platform.",
   },
   {
     q: "How is an LMS different from a school ERP?",
-    a: "An LMS focuses on teaching and learning — content, exams, progress tracking. A school ERP handles broader administration like admissions, fees, transport and library. We can combine both into one integrated platform.",
+    a: "An LMS focuses on teaching and learning - content, exams, progress tracking. A school ERP handles broader administration like admissions, fees, transport and library. We can combine both into one integrated platform.",
   },
   {
     q: "Can students access the LMS on mobile?",
-    a: "Yes — our LMS has a fully responsive web interface and optional Flutter mobile app so students and teachers stay connected from any device.",
+    a: "Yes - our LMS has a fully responsive web interface and optional Flutter mobile app so students and teachers stay connected from any device.",
   },
 ];
 
@@ -121,7 +121,7 @@ const FEATURES = [
   {
     Icon: Video,
     title: "Live Classes & Webinars",
-    desc: "Integrated live class scheduling with Zoom or Jitsi — with recording, attendance and replay.",
+    desc: "Integrated live class scheduling with Zoom or Jitsi - with recording, attendance and replay.",
     img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Live online classes and webinar integration",
   },
@@ -160,7 +160,7 @@ function LmsPlatforms() {
               <div>
                 <p className="oz-open__lead">
                   We build modern Learning Management Systems that bring digital classrooms, exams,
-                  attendance and parent communication together — in one intuitive platform your
+                  attendance and parent communication together - in one intuitive platform your
                   entire institution can use from day one.
                 </p>
                 <div className="oz-open__actions">
@@ -255,7 +255,7 @@ function LmsPlatforms() {
                 <h2>Built for modern educators.</h2>
                 <p className="oz-muted">
                   We've built LMS platforms for small coaching centres and large institutions alike.
-                  The difference is always in the details — the right workflows for your teachers,
+                  The difference is always in the details - the right workflows for your teachers,
                   not generic ones.
                 </p>
                 <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>

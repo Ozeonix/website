@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — Ozeonix Infinity" },
+      { title: "Terms & Conditions - Ozeonix Infinity" },
       { name: "description", content: "Terms and conditions for using Ozeonix Infinity services." },
-      { property: "og:title", content: "Terms & Conditions — Ozeonix Infinity" },
+      { property: "og:title", content: "Terms & Conditions - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "Terms and conditions for using Ozeonix Infinity services.",

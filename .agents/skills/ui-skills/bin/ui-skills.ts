@@ -102,7 +102,7 @@ const formatTopic = (topic: RemoteTopic) => topic.slug;
 const formatSkill = (skill: RemoteSkill) => {
   const categories = (skill.topics ?? []).join(", ");
   const description = skill.description.replace(/\s+/g, " ").trim();
-  return `${skill.pathSlug} — ${categories} — ${description}`;
+  return `${skill.pathSlug} - ${categories} - ${description}`;
 };
 
 const resolveSkillCandidates = (registry: RemoteSkill[], input: string) => {

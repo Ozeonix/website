@@ -4,7 +4,7 @@ import { useRevealContext } from "./RevealGroup";
 import { revealConfig, REVEAL_PRESETS, REVEAL_DIRECTIONS } from "@/lib/revealConfig";
 
 /**
- * Reveal — scroll-triggered animation.
+ * Reveal - scroll-triggered animation.
  *
  * Direction resolution (highest priority first):
  *   1. `direction` prop

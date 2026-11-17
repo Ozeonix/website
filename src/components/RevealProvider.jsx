@@ -3,7 +3,7 @@ import { RevealContext } from "./RevealGroup";
 import { revealConfig, mergeRevealConfig, revealCssVars, REVEAL_PRESETS } from "@/lib/revealConfig";
 
 /**
- * RevealProvider — scope Reveal pacing & preset to a route or layout subtree.
+ * RevealProvider - scope Reveal pacing & preset to a route or layout subtree.
  * Applies CSS custom properties on a wrapper element (not :root), so overrides
  * don't leak globally. Nested <Reveal>/<RevealGroup> inherit via context.
  */

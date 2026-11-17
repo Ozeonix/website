@@ -1,4 +1,4 @@
-# Ozeonix Infinity — Project Agent State
+# Ozeonix Infinity - Project Agent State
 
 ## 1. Purpose and Authority
 
@@ -94,7 +94,7 @@ _All commands verified directly from `package.json`:_
 - **GPU Animation Check**: `npm run gpu:check` (`node scripts/gpu-animation-check.mjs`)
 - **Performance Audit**: `npm run perf` (`node scripts/lighthouse.mjs`)
 - **Performance CI**: `npm run perf:ci` (`PERF_MIN=0.85 node scripts/lighthouse.mjs`)
-- **Skill Upstream Check**: `npm run skill:check` (`node scripts/check-skill-updates.mjs`) — strictly read-only check comparing pinned commit against GitHub upstream; never installs updates (manual human review required).
+- **Skill Upstream Check**: `npm run skill:check` (`node scripts/check-skill-updates.mjs`) - strictly read-only check comparing pinned commit against GitHub upstream; never installs updates (manual human review required).
 
 > **Constraint Reminder**: Never execute `npm run dev` or launch long-running local servers.
 

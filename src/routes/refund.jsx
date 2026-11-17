@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/refund")({
   head: () => ({
     meta: [
-      { title: "Refund Policy — Ozeonix Infinity" },
+      { title: "Refund Policy - Ozeonix Infinity" },
       { name: "description", content: "Refund policy for Ozeonix Infinity services." },
-      { property: "og:title", content: "Refund Policy — Ozeonix Infinity" },
+      { property: "og:title", content: "Refund Policy - Ozeonix Infinity" },
       { property: "og:description", content: "Refund policy for Ozeonix Infinity services." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ozeonix.com/refund" },

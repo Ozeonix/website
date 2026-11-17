@@ -243,7 +243,7 @@ Business Hours: 24 hours
 
 Our Story
 
-Ozeonix Infinity was founded with the vision of helping businesses establish a strong digital presence through modern, high-quality technology solutions. We believe that every business—whether a startup, educational institution, or local enterprise—deserves professional digital tools that enable growth, efficiency, and long-term success.
+Ozeonix Infinity was founded with the vision of helping businesses establish a strong digital presence through modern, high-quality technology solutions. We believe that every business-whether a startup, educational institution, or local enterprise-deserves professional digital tools that enable growth, efficiency, and long-term success.
 
 We started by offering services that businesses need most: professional websites, mobile applications, CRM systems, ERP solutions for educational institutions, UI/UX design, and digital portfolios. As we grow, our goal is to continuously expand our expertise and deliver even more advanced technology solutions.
 
@@ -561,7 +561,7 @@ Clean, professional interfaces that enhance usability across all devices.
 
 Custom-Built Solutions
 
-Every project is tailored to your business goals—no one-size-fits-all templates.
+Every project is tailored to your business goals-no one-size-fits-all templates.
 
 Affordable Pricing
 
@@ -601,7 +601,7 @@ Websites are built for speed, responsiveness, and better search engine visibilit
 
 Long-Term Technology Partner
 
-We don't just deliver software—we build lasting partnerships to support your business as it grows.
+We don't just deliver software-we build lasting partnerships to support your business as it grows.
 
 Future-Ready Vision
 
@@ -937,25 +937,25 @@ Once You Have Real Numbers, Replace Them With Something Like:
 
 "We're currently partnering with our first clients. Their feedback and success stories will be featured here soon."
 
-— Future Client
+- Future Client
 
 ⭐ Your Success Story Could Be Next
 
 "At Ozeonix Infinity, we're committed to delivering high-quality websites, mobile apps, CRM systems, and ERP solutions. Your experience could become our next featured success story."
 
-— Ozeonix Infinity
+- Ozeonix Infinity
 
 ⭐ Building Trust Through Results
 
 "We believe genuine client feedback is earned through exceptional work. As we complete more projects, we'll proudly showcase authentic testimonials from our clients."
 
-— Ozeonix Infinity
+- Ozeonix Infinity
 
 ⭐ Be One of Our First Success Stories
 
 "Join us in building innovative digital solutions. We'd love to help your business grow and share your experience after a successful project."
 
-— Future Client
+- Future Client
 
 12. FAQ
 
@@ -1101,7 +1101,7 @@ Illustration Style
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Prefer working locally? You need Node.js and npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
 git clone <this-repository-url>

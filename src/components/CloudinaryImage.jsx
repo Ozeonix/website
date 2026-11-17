@@ -2,7 +2,7 @@ import React from "react";
 import { getCloudinaryUrl, buildCloudinarySrcSet } from "../lib/cloudinary.js";
 
 /**
- * CloudinaryImage — High-performance responsive image component for Cloudinary.
+ * CloudinaryImage - High-performance responsive image component for Cloudinary.
  *
  * Automatically delivers:
  * - Next-gen formats (AVIF & WebP) via modern <picture> tags.

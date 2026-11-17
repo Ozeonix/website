@@ -30,12 +30,12 @@ This workflow is self-contained: it requires no sibling skills or skill-relative
 ### Step 1: Gather Requirements (AskUserQuestion)
 
 Collect via AskUserQuestion:
-1. **Purpose** — social cover, ad banner, website hero, print, or creative asset?
-2. **Platform/size** — which platform or custom dimensions?
-3. **Content** — headline, subtext, CTA, logo placement?
-4. **Brand** — existing brand guidelines, logo files, colors, or typography?
-5. **Style preference** — any art direction? (show style options if unsure)
-6. **Quantity** — how many options to generate? (default: 3)
+1. **Purpose** - social cover, ad banner, website hero, print, or creative asset?
+2. **Platform/size** - which platform or custom dimensions?
+3. **Content** - headline, subtext, CTA, logo placement?
+4. **Brand** - existing brand guidelines, logo files, colors, or typography?
+5. **Style preference** - any art direction? (show style options if unsure)
+6. **Quantity** - how many options to generate? (default: 3)
 
 ### Step 2: Research & Art Direction
 
@@ -59,7 +59,7 @@ For each art direction option:
    - If the runtime provides an authorized image-generation capability, it may generate a background or illustration at the target aspect ratio
    - Keep generated visual prompts free of text, letters, and words so final copy remains editable and accessible in HTML
 
-3. **Compose the final banner** — overlay the headline, supporting copy, CTA, and logo in HTML/CSS, then verify hierarchy, safe zones, contrast, and crop behavior at the exact target size
+3. **Compose the final banner** - overlay the headline, supporting copy, CTA, and logo in HTML/CSS, then verify hierarchy, safe zones, contrast, and crop behavior at the exact target size
 
 ### Step 4: Export Banners to Images
 

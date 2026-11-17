@@ -16,13 +16,13 @@ import {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Ozeonix Infinity" },
+      { title: "About Us - Ozeonix Infinity" },
       {
         name: "description",
         content:
           "Ozeonix Infinity is a technology studio helping startups, institutions and businesses transform ideas into reliable digital products.",
       },
-      { property: "og:title", content: "About Us — Ozeonix Infinity" },
+      { property: "og:title", content: "About Us - Ozeonix Infinity" },
       {
         property: "og:description",
         content:
@@ -116,7 +116,7 @@ function About() {
                 <p className="oz-open__lead">
                   We started Ozeonix Infinity because most small businesses and institutions have
                   great ideas but end up with fragile websites and half-finished software. We wanted
-                  to change that — one well-crafted project at a time.
+                  to change that - one well-crafted project at a time.
                 </p>
                 <div className="oz-open__meta">
                   {STATS.map((s) => (
@@ -141,7 +141,7 @@ function About() {
                 <span className="oz-eyebrow">Our Story</span>
                 <h2>Founded on a simple belief.</h2>
                 <p className="oz-muted">
-                  Every business — whether a startup, educational institution or local enterprise —
+                  Every business - whether a startup, educational institution or local enterprise -
                   deserves professional digital tools that enable growth, efficiency and long-term
                   success.
                 </p>

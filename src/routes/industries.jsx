@@ -64,7 +64,7 @@ const INDUSTRY_HIGHLIGHTS = [
     label: "Education",
     Icon: GraduationCap,
     tagline: "LMS, coaching & school platforms",
-    desc: "School ERP, LMS, parent apps and student portals — connected, not siloed. For coaching centres to multi-branch institutes.",
+    desc: "School ERP, LMS, parent apps and student portals - connected, not siloed. For coaching centres to multi-branch institutes.",
     img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Education management and learning platform",
   },
@@ -82,7 +82,7 @@ const INDUSTRY_HIGHLIGHTS = [
     label: "Restaurant",
     Icon: UtensilsCrossed,
     tagline: "POS, online ordering & delivery",
-    desc: "One system for the counter, kitchen, delivery driver and customer's phone — with reports the owner can read.",
+    desc: "One system for the counter, kitchen, delivery driver and customer's phone - with reports the owner can read.",
     img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Restaurant POS and food ordering application",
   },
@@ -100,13 +100,13 @@ const INDUSTRY_HIGHLIGHTS = [
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries We Serve — Ozeonix Infinity" },
+      { title: "Industries We Serve - Ozeonix Infinity" },
       {
         name: "description",
         content:
           "We build custom software for e-commerce, education, health, fitness, restaurants, events, fintech and more. Explore the industries we serve.",
       },
-      { property: "og:title", content: "Industries We Serve — Ozeonix Infinity" },
+      { property: "og:title", content: "Industries We Serve - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "Industries we serve with custom software, CRM and ERP solutions.",
@@ -130,13 +130,13 @@ function Industries() {
             <Reveal>
               <div>
                 <span className="oz-open__index">Who we work with</span>
-                <h1>Industries We Serve — 9 verticals, one careful way of building.</h1>
+                <h1>Industries We Serve - 9 verticals, one careful way of building.</h1>
               </div>
             </Reveal>
             <Reveal index={1}>
               <div>
                 <p className="oz-open__lead">
-                  From a single-classroom coaching centre to a multi-chain restaurant — the pattern
+                  From a single-classroom coaching centre to a multi-chain restaurant - the pattern
                   is the same: understand how the business actually runs, then design software that
                   fits it. Not the other way round.
                 </p>
@@ -293,7 +293,7 @@ function Industries() {
             <h2>Don't see your industry? We can still help.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               We've worked across 10+ verticals. If you don't see yours listed, tell us about your
-              business — we'll figure out the right approach together.
+              business - we'll figure out the right approach together.
             </p>
             <div
               style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}

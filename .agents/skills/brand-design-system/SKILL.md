@@ -3,7 +3,7 @@ name: brand-design-system
 description: Enforces the permanent canonical Ozeonix Infinity brand color system and UI standards across all components, pages, and styles.
 ---
 
-# Brand Design System Skill — Ozeonix Infinity
+# Brand Design System Skill - Ozeonix Infinity
 
 ## Mandate for Agents & Developers
 

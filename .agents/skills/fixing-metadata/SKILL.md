@@ -12,10 +12,10 @@ license: MIT
 ## Workflow
 
 1. Identify pages with missing or incorrect metadata (titles, descriptions, canonical, OG tags)
-2. Audit against the priority rules below — fix critical issues (duplicates, indexing) first
+2. Audit against the priority rules below - fix critical issues (duplicates, indexing) first
 3. Ensure title, description, canonical, and og:url all agree with each other
 4. Verify social cards render correctly on a real URL, not localhost
-5. Keep diffs minimal and scoped to metadata only — do not refactor unrelated code
+5. Keep diffs minimal and scoped to metadata only - do not refactor unrelated code
 ## when to apply
 
 Reference these guidelines when:

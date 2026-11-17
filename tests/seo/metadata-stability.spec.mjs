@@ -1,8 +1,8 @@
 /**
  * SEO metadata stability check.
  *
- * Asserts that head-level SEO tags — <title>, meta description, og:*,
- * twitter:*, canonical, and JSON-LD blocks — remain byte-identical after
+ * Asserts that head-level SEO tags - <title>, meta description, og:*,
+ * twitter:*, canonical, and JSON-LD blocks - remain byte-identical after
  * the user interacts with the CTA cards. CTA clicks are same-route
  * interactions, so any drift means a component is mutating the document
  * head (a regression that breaks crawler + social-preview consistency).
@@ -44,7 +44,7 @@ async function snapshotHead(page) {
 }
 
 for (const route of ROUTES) {
-  test(`SEO head is valid and stable across CTA interactions — ${route}`, async ({ page }) => {
+  test(`SEO head is valid and stable across CTA interactions - ${route}`, async ({ page }) => {
     await page.goto(`${BASE}${route}`, { waitUntil: "networkidle" });
 
     const before = await snapshotHead(page);

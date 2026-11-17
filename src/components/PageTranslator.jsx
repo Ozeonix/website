@@ -60,7 +60,7 @@ function saveCache(lang, cache) {
 }
 
 /**
- * PageTranslator — client-side runtime translator.
+ * PageTranslator - client-side runtime translator.
  * Walks visible text nodes under <main>, batches unique English strings to the
  * Ozeonix AI translate server function, caches results in localStorage, and
  * swaps textContent in place. English restores original text.

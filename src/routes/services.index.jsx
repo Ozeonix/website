@@ -222,7 +222,7 @@ function Services() {
               <div>
                 <p className="oz-open__lead">
                   Tell us the outcome you need. We assemble the right mix of web, mobile, software,
-                  design and infrastructure — no package deals, no wasted budget.
+                  design and infrastructure - no package deals, no wasted budget.
                 </p>
                 <div className="oz-open__meta">
                   <span>
@@ -366,7 +366,7 @@ function Services() {
             </span>
             <h2>Tell us what you need. We'll figure out the rest.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
-              A free 30-minute call is all it takes. No commitment, no pressure — just an honest
+              A free 30-minute call is all it takes. No commitment, no pressure - just an honest
               conversation about what you want to build.
             </p>
             <div

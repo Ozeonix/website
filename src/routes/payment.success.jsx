@@ -12,7 +12,7 @@ export const Route = createFileRoute("/payment/success")({
         content: "Your eSewa payment result and reference number for Ozeonix Infinity services.",
       },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Payment Confirmation — Ozeonix Infinity" },
+      { property: "og:title", content: "Payment Confirmation - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "eSewa payment confirmation for Ozeonix Infinity services.",

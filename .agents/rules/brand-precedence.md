@@ -1,4 +1,4 @@
-# Ozeonix Infinity — Brand & UI/UX Precedence Rules
+# Ozeonix Infinity - Brand & UI/UX Precedence Rules
 
 ## 1. Precedence Hierarchy
 

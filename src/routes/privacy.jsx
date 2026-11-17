@@ -3,12 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Ozeonix Infinity" },
+      { title: "Privacy Policy - Ozeonix Infinity" },
       {
         name: "description",
         content: "How Ozeonix Infinity collects, uses and protects your information.",
       },
-      { property: "og:title", content: "Privacy Policy — Ozeonix Infinity" },
+      { property: "og:title", content: "Privacy Policy - Ozeonix Infinity" },
       {
         property: "og:description",
         content: "How Ozeonix Infinity collects, uses and protects your information.",

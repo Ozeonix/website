@@ -28,7 +28,7 @@ const FAQS = [
   },
   {
     q: "Is the CRM accessible on mobile?",
-    a: "Yes — our CRM has a fully responsive web interface and optional Flutter mobile app so field sales teams stay connected on Android and iOS.",
+    a: "Yes - our CRM has a fully responsive web interface and optional Flutter mobile app so field sales teams stay connected on Android and iOS.",
   },
 ];
 
@@ -128,7 +128,7 @@ const FEATURES = [
   {
     Icon: FileText,
     title: "Document Management",
-    desc: "Store contracts, proposals and client documents centrally — always findable, always version-controlled.",
+    desc: "Store contracts, proposals and client documents centrally - always findable, always version-controlled.",
     img: "https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Document management and storage system",
   },
@@ -160,7 +160,7 @@ function CrmSolutions() {
               <div>
                 <p className="oz-open__lead">
                   We build tailored CRM platforms for sales teams, service businesses and
-                  distributors — so every lead, customer conversation and next step stays visible
+                  distributors - so every lead, customer conversation and next step stays visible
                   and nothing slips through the cracks.
                 </p>
                 <div className="oz-open__actions">
@@ -255,7 +255,7 @@ function CrmSolutions() {
                 <h2>Why growing sales teams choose us.</h2>
                 <p className="oz-muted">
                   We don't sell you a generic platform. We understand your sales process first, then
-                  build a CRM that fits it — not the other way around.
+                  build a CRM that fits it - not the other way around.
                 </p>
                 <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
                   {WHY_US.map((pt) => (
@@ -326,7 +326,7 @@ function CrmSolutions() {
             </span>
             <h2>Stop losing leads. Start closing more deals.</h2>
             <p className="oz-muted" style={{ maxWidth: 480, margin: "12px auto 0" }}>
-              Get a custom CRM built around your actual sales process — not a template you have to
+              Get a custom CRM built around your actual sales process - not a template you have to
               bend yourself into.
             </p>
             <div

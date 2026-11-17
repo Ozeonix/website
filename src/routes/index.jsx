@@ -261,18 +261,18 @@ const LOCAL_SERVICES = [
   },
   {
     t: "Scalable Learning Management Systems (LMS) for Educational Institutions",
-    d: "Modern LMS platforms for schools and colleges — student tracking, digital content delivery, online exams, attendance and parent communication, built around each institution’s workflow.",
+    d: "Modern LMS platforms for schools and colleges - student tracking, digital content delivery, online exams, attendance and parent communication, built around each institution’s workflow.",
     proof:
       "Designed with local teachers and administrators so daily academic operations actually get easier, not harder.",
   },
   {
     t: "Tailored CRM Platforms to Accelerate Sales Growth",
-    d: "CRM systems built around how your team actually sells — lead capture, follow-up reminders, quotations, invoices and pipeline reporting, tuned to local market sales processes.",
+    d: "CRM systems built around how your team actually sells - lead capture, follow-up reminders, quotations, invoices and pipeline reporting, tuned to local market sales processes.",
     proof: "Integrations with WhatsApp, SMS gateways and the payment providers your team uses.",
   },
   {
     t: "Full-Stack Web and Mobile App Development for Modern Digital Businesses",
-    d: "High-performance websites and cross-platform apps built with React, Node.js, Firebase and Flutter — focused on speed, SEO and a great experience on any device.",
+    d: "High-performance websites and cross-platform apps built with React, Node.js, Firebase and Flutter - focused on speed, SEO and a great experience on any device.",
     proof: "Every project is delivered with direct access to the team designing and building it.",
   },
 ];
@@ -340,7 +340,7 @@ function Home() {
               </Reveal>
               <Reveal index={2}>
                 <p className="oz-hero__lead">
-                  Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals—from first
+                  Custom CRM, ERP, LMS, websites and mobile apps shaped around your goals-from first
                   idea to launch and long-term support.
                 </p>
               </Reveal>
@@ -817,7 +817,7 @@ function Home() {
             </Reveal>
             <Reveal index={2}>
               <p className="oz-muted" style={{ maxWidth: 620, margin: "12px auto 0" }}>
-                Tell us about your project — CRM, ERP, LMS, website or mobile app. We usually reply
+                Tell us about your project - CRM, ERP, LMS, website or mobile app. We usually reply
                 within a business day.
               </p>
             </Reveal>
