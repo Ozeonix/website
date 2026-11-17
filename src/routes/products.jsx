@@ -139,18 +139,13 @@ function Products() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="oz-open"
-        aria-label="Ozeonix Infinity product suites"
-      >
+      <section className="oz-open" aria-label="Ozeonix Infinity product suites">
         <div className="oz-container">
           <div className="oz-open__grid">
             <Reveal>
               <div>
                 <span className="oz-open__index">Six suites, one platform</span>
-                <h1>
-                  Ready-to-tailor software suites for education, business, retail and beyond.
-                </h1>
+                <h1>Ready-to-tailor software suites for education, business, retail and beyond.</h1>
               </div>
             </Reveal>
             <Reveal index={1}>
@@ -188,7 +183,12 @@ function Products() {
                 <Reveal key={suite.g} index={i % 2}>
                   <article
                     className="oz-card"
-                    style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                    style={{
+                      padding: 0,
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
                   >
                     <div style={{ position: "relative", aspectRatio: "16/8", overflow: "hidden" }}>
                       <img
@@ -206,7 +206,8 @@ function Products() {
                         style={{
                           position: "absolute",
                           inset: 0,
-                          background: "linear-gradient(to bottom, transparent 50%, rgba(10,12,30,0.65) 100%)",
+                          background:
+                            "linear-gradient(to bottom, transparent 50%, rgba(10,12,30,0.65) 100%)",
                         }}
                       />
                       <div
@@ -288,14 +289,22 @@ function Products() {
                       </ul>
                       {suite.status === "live" && (
                         <div style={{ marginTop: 20 }}>
-                          <Link to="/contact" className="oz-btn oz-btn--primary" style={{ width: "100%" }}>
+                          <Link
+                            to="/contact"
+                            className="oz-btn oz-btn--primary"
+                            style={{ width: "100%" }}
+                          >
                             Request a demo <ArrowRight size={16} aria-hidden="true" />
                           </Link>
                         </div>
                       )}
                       {suite.status === "planned" && (
                         <div style={{ marginTop: 20 }}>
-                          <Link to="/contact" className="oz-btn oz-btn--outline" style={{ width: "100%" }}>
+                          <Link
+                            to="/contact"
+                            className="oz-btn oz-btn--outline"
+                            style={{ width: "100%" }}
+                          >
                             Join the waitlist
                           </Link>
                         </div>
@@ -377,13 +386,11 @@ function Products() {
       <section className="oz-section oz-section--dark" aria-label="Request a product demo">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              See it in action
-            </span>
+            <span className="oz-eyebrow">See it in action</span>
             <h2>Request a live product demo.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
-              We'll walk you through the product that best fits your business, show you how it works,
-              and answer all your questions - no sales pressure.
+              We'll walk you through the product that best fits your business, show you how it
+              works, and answer all your questions - no sales pressure.
             </p>
             <div
               style={{

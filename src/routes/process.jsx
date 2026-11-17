@@ -116,10 +116,7 @@ function Process() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="oz-open"
-        aria-label="How a project actually runs at Ozeonix Infinity"
-      >
+      <section className="oz-open" aria-label="How a project actually runs at Ozeonix Infinity">
         <div className="oz-container">
           <div className="oz-open__grid">
             <Reveal>
@@ -167,14 +164,24 @@ function Process() {
               <Reveal key={s} index={i % 2}>
                 <article
                   className="oz-card"
-                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
                   <div style={{ position: "relative", aspectRatio: "16 / 7", overflow: "hidden" }}>
                     <img
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                     />
                     <div
                       style={{
@@ -223,7 +230,15 @@ function Process() {
                   We believe the best projects happen when clients are informed and involved - not
                   kept waiting. These are the principles we follow on every engagement.
                 </p>
-                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: "20px 0 0",
+                    display: "grid",
+                    gap: 12,
+                  }}
+                >
                   {PRINCIPLES.map((p) => (
                     <li key={p} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <CheckCircle2
@@ -263,9 +278,7 @@ function Process() {
       <section className="oz-section oz-section--dark" aria-label="Start your project today">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Ready to begin?
-            </span>
+            <span className="oz-eyebrow">Ready to begin?</span>
             <h2>Let's walk through your project together.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               A free 30-minute discovery call is all it takes. No commitment, no pressure - just an

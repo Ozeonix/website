@@ -185,18 +185,28 @@ export default function HeroIllustration() {
         // Outer soft pulse halo
         ctx.beginPath();
         ctx.arc(pt.x, pt.y, radius * 2, 0, Math.PI * 2);
-        ctx.fillStyle = color === "#ea580c"
-          ? "rgba(234, 88, 12, 0.25)"
-          : color === "#38bdf8"
-          ? "rgba(56, 189, 248, 0.25)"
-          : "rgba(0, 169, 130, 0.25)";
+        ctx.fillStyle =
+          color === "#ea580c"
+            ? "rgba(234, 88, 12, 0.25)"
+            : color === "#38bdf8"
+              ? "rgba(56, 189, 248, 0.25)"
+              : "rgba(0, 169, 130, 0.25)";
         ctx.fill();
         ctx.restore();
       };
 
       // 1. BACK ORBIT ARCS (Passes BEHIND laptop screen: theta from PI to 2*PI)
       drawArc(backCtx, rx, ry, Math.PI, Math.PI * 2, "rgba(234, 88, 12, 0.35)", 1.4, [8, 10]);
-      drawArc(backCtx, rxInner, ryInner, Math.PI, Math.PI * 2, "rgba(56, 189, 248, 0.28)", 1.1, [4, 8]);
+      drawArc(
+        backCtx,
+        rxInner,
+        ryInner,
+        Math.PI,
+        Math.PI * 2,
+        "rgba(56, 189, 248, 0.28)",
+        1.1,
+        [4, 8],
+      );
 
       // 2. FRONT ORBIT ARCS (Sweeps IN FRONT of laptop keyboard: theta from 0 to PI)
       drawArc(frontCtx, rx, ry, 0, Math.PI, "rgba(234, 88, 12, 0.75)", 1.8, [8, 10]);
@@ -283,7 +293,7 @@ export default function HeroIllustration() {
         setIsHovered(true);
       });
     },
-    [prefersReducedMotion]
+    [prefersReducedMotion],
   );
 
   // Smooth reset on mouse leave

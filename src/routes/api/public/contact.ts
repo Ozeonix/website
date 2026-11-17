@@ -33,6 +33,7 @@ const bodySchema = z.object({
   start_time: oneOf(START_TIMES, "Please select when you want to start."),
   budget: z.string().trim().min(1, "Please enter your approximate budget.").max(80),
   message: z.string().trim().min(10).max(1200),
+  market: z.string().trim().max(20).optional(),
   referral_code: z
     .string()
     .trim()

@@ -258,9 +258,7 @@ function FAQ() {
       <section className="oz-section oz-section--dark" aria-label="Still have questions?">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Still have questions?
-            </span>
+            <span className="oz-eyebrow">Still have questions?</span>
             <h2>We're happy to answer anything.</h2>
             <p className="oz-muted" style={{ maxWidth: 480, margin: "12px auto 0" }}>
               Reach out via WhatsApp, email or our contact form. We reply within a few hours on

@@ -4,6 +4,7 @@ import { CITIES, COUNTRIES, REQUIREMENTS, START_TIMES } from "../lib/constants.j
 import { getReferralCode } from "../lib/referral.js";
 import { trackConversion, trackEvent } from "../lib/analytics.js";
 import { PROJECT_BRIEF_FIELDS, projectBriefSchema, readProjectBrief } from "../lib/projectBrief.js";
+import { useMarket } from "../lib/market/MarketContext";
 
 const IDS = {
   name: "name",
@@ -19,6 +20,7 @@ const IDS = {
 };
 
 export default function ProjectBriefForm({ formLocation = "contact_page", heading = true }) {
+  const { currentMarket, marketCode } = useMarket();
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");
   const [submitError, setSubmitError] = useState("");
@@ -53,7 +55,11 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
       const response = await fetch("/api/public/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...result.data, referral_code: getReferralCode() }),
+        body: JSON.stringify({
+          ...result.data,
+          market: marketCode,
+          referral_code: getReferralCode(),
+        }),
       });
       const body = await response.json().catch(() => ({}));
       if (!response.ok || !body.ok)
@@ -194,7 +200,8 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           id={id("country")}
           name="country"
           autoComplete="country-name"
-          defaultValue=""
+          defaultValue={marketCode === "NP" ? "Nepal" : marketCode === "IN" ? "India" : ""}
+          key={`country-${marketCode}`}
           required
           aria-required="true"
           aria-invalid={!!errors.country}
@@ -282,7 +289,7 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
       </fieldset>
       <fieldset className={fieldClass("budget", true)}>
         <legend className="oz-field__legend">
-          <label htmlFor={id("budget")}>Approximate budget</label>
+          <label htmlFor={id("budget")}>Approximate budget ({currentMarket.currency})</label>
         </legend>
         <input
           id={id("budget")}
@@ -290,13 +297,25 @@ export default function ProjectBriefForm({ formLocation = "contact_page", headin
           type="text"
           inputMode="text"
           maxLength={80}
-          placeholder="e.g. Rs 2,00,000 or Not sure yet"
+          placeholder={
+            marketCode === "NP"
+              ? "e.g. NPR 85,000 or Not sure yet"
+              : marketCode === "IN"
+                ? "e.g. ₹65,000 or Not sure yet"
+                : "e.g. $1,200 or Not sure yet"
+          }
+          list={`${id("budget")}-list`}
           required
           aria-required="true"
           aria-invalid={!!errors.budget}
           aria-describedby={describedBy("budget")}
           onChange={() => clearError("budget")}
         />
+        <datalist id={`${id("budget")}-list`}>
+          {currentMarket.budgets.map((b) => (
+            <option key={b} value={b} />
+          ))}
+        </datalist>
         {errorFor("budget")}
       </fieldset>
       <fieldset className={fieldClass("message", true)}>

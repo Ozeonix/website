@@ -16,6 +16,7 @@ import Footer from "../components/Footer.jsx";
 import PageTranslator from "../components/PageTranslator.jsx";
 import WhatsAppButton from "../components/WhatsAppButton.jsx";
 import { LanguageProvider } from "../lib/i18n/LanguageContext";
+import { MarketProvider } from "../lib/market/MarketContext.jsx";
 import { applyRevealConfig } from "../lib/revealConfig";
 import { captureReferralCode } from "../lib/referral.js";
 
@@ -187,16 +188,18 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <a href="#main-content" className="oz-skip-link">
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content" tabIndex={-1}>
-          <Outlet />
-        </main>
-        <Footer />
-        <WhatsAppButton />
-        <PageTranslator />
+        <MarketProvider>
+          <a href="#main-content" className="oz-skip-link">
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content" tabIndex={-1}>
+            <Outlet />
+          </main>
+          <Footer />
+          <WhatsAppButton />
+          <PageTranslator />
+        </MarketProvider>
       </LanguageProvider>
     </QueryClientProvider>
   );

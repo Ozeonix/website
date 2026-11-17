@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MapPin, Phone, Mail, Check } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-footer-logo.png.asset.json";
+import { useMarket } from "../lib/market/MarketContext";
+import MarketSelector from "./MarketSelector.jsx";
 
 export default function Footer() {
+  const { currentMarket } = useMarket();
   const year = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -292,24 +295,45 @@ export default function Footer() {
           {/* Column 3: Contact & Hours */}
           <div className="oz-footer__col oz-footer__col--contact">
             <h4 className="oz-footer__col-title">
-              <span className="oz-footer__dot" aria-hidden="true" /> Contact Us
+              <span className="oz-footer__dot" aria-hidden="true" /> Contact ({currentMarket.name})
             </h4>
             <address className="oz-footer__contact-items">
-              <div className="oz-footer__contact-row oz-footer__contact-row--address">
-                <span className="oz-footer__contact-icon">
-                  <MapPin size={16} aria-hidden="true" />
-                </span>
-                <span className="oz-footer__contact-text">
-                  Opposite Gyankoop School, <br /> 13 Ward, Janakpur, <br /> Madhesh Province 45600,
-                  Nepal
-                </span>
-              </div>
+              {currentMarket.address ? (
+                <div className="oz-footer__contact-row oz-footer__contact-row--address">
+                  <span className="oz-footer__contact-icon">
+                    <MapPin size={16} aria-hidden="true" />
+                  </span>
+                  <span className="oz-footer__contact-text">{currentMarket.address}</span>
+                </div>
+              ) : (
+                <div className="oz-footer__contact-row oz-footer__contact-row--address">
+                  <span className="oz-footer__contact-icon">
+                    <MapPin size={16} aria-hidden="true" />
+                  </span>
+                  <span className="oz-footer__contact-text">
+                    Worldwide Client Engineering &amp; Support
+                  </span>
+                </div>
+              )}
+              {currentMarket.phone && (
+                <div className="oz-footer__contact-row">
+                  <span className="oz-footer__contact-icon">
+                    <Phone size={16} aria-hidden="true" />
+                  </span>
+                  <a
+                    href={`tel:${currentMarket.phone.replace(/[^+\d]/g, "")}`}
+                    className="oz-footer__contact-link"
+                  >
+                    {currentMarket.phone}
+                  </a>
+                </div>
+              )}
               <div className="oz-footer__contact-row">
                 <span className="oz-footer__contact-icon">
-                  <Phone size={16} aria-hidden="true" />
+                  <Mail size={16} aria-hidden="true" />
                 </span>
-                <a href="tel:+9779769294624" className="oz-footer__contact-link">
-                  +977-9769294624
+                <a href={`mailto:${currentMarket.email}`} className="oz-footer__contact-link">
+                  {currentMarket.email}
                 </a>
               </div>
               <div className="oz-footer__contact-row">
@@ -324,13 +348,13 @@ export default function Footer() {
                   />
                 </span>
                 <a
-                  href="https://wa.me/9779769294624"
+                  href={`https://wa.me/${currentMarket.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="oz-footer__contact-link"
                 >
                   <span className="oz-footer__contact-label">WhatsApp:</span>
-                  <span className="oz-footer__contact-val">+977-9769294624</span>
+                  <span className="oz-footer__contact-val">{currentMarket.whatsappDisplay}</span>
                 </a>
               </div>
             </address>
@@ -388,25 +412,37 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="oz-footer__bottom">
+        <div
+          className="oz-footer__bottom"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "16px",
+          }}
+        >
           <p className="oz-footer__copyright">
             © {year} <strong className="oz-footer__brand-strong">Ozeonix Infinity</strong>. All
             rights reserved.
           </p>
-          <nav className="oz-footer__legal-links" aria-label="Legal">
-            <Link to="/privacy" className="oz-footer__legal-link">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="oz-footer__legal-link">
-              Terms &amp; Conditions
-            </Link>
-            <Link to="/refund" className="oz-footer__legal-link">
-              Refund Policy
-            </Link>
-            <Link to="/cookies" className="oz-footer__legal-link">
-              Cookie Policy
-            </Link>
-          </nav>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+            <MarketSelector variant="footer" />
+            <nav className="oz-footer__legal-links" aria-label="Legal">
+              <Link to="/privacy" className="oz-footer__legal-link">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="oz-footer__legal-link">
+                Terms &amp; Conditions
+              </Link>
+              <Link to="/refund" className="oz-footer__legal-link">
+                Refund Policy
+              </Link>
+              <Link to="/cookies" className="oz-footer__legal-link">
+                Cookie Policy
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>

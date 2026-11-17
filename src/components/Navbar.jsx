@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-nav-logo.png.asset.json";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
+import MarketSelector from "./MarketSelector.jsx";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "./ui/dialog";
 import { useAuth } from "../hooks/useAuth.jsx";
 
@@ -83,6 +84,7 @@ const MENUS = [
       { to: "/portfolio", label: "Portfolio", d: "Selected work & demos" },
     ],
   },
+  { label: "Pricing", to: "/pricing" },
   {
     label: "Resources",
     children: [{ to: "/faq", label: "FAQ", d: "Common questions answered" }],
@@ -281,7 +283,11 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="oz-nav__right">
+        <div
+          className="oz-nav__right"
+          style={{ display: "flex", alignItems: "center", gap: "8px" }}
+        >
+          <MarketSelector variant="navbar" />
           <LanguageSwitcher />
         </div>
 
@@ -398,7 +404,11 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="oz-nav__mobile-language">
+            <div
+              className="oz-nav__mobile-language"
+              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            >
+              <MarketSelector variant="navbar" />
               <LanguageSwitcher />
             </div>
             <Link

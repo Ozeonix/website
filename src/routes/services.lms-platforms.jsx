@@ -217,14 +217,24 @@ function LmsPlatforms() {
               <Reveal key={title} index={i % 3}>
                 <article
                   className="oz-card"
-                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
                   <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
                     <img
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                     />
                   </div>
                   <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1 }}>
@@ -258,7 +268,15 @@ function LmsPlatforms() {
                   The difference is always in the details - the right workflows for your teachers,
                   not generic ones.
                 </p>
-                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 12 }}>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: "20px 0 0",
+                    display: "grid",
+                    gap: 12,
+                  }}
+                >
                   {WHY_US.map((pt) => (
                     <li key={pt} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <CheckCircle2
@@ -319,19 +337,26 @@ function LmsPlatforms() {
       </section>
 
       {/* CTA */}
-      <section className="oz-section oz-section--dark" aria-label="Ready to digitize your classrooms?">
+      <section
+        className="oz-section oz-section--dark"
+        aria-label="Ready to digitize your classrooms?"
+      >
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Digitize your classrooms
-            </span>
+            <span className="oz-eyebrow">Digitize your classrooms</span>
             <h2>Ready to take your teaching online?</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               Get an LMS tailored for your school, college or training team. We'll walk you through
               a live demo and answer all your questions before you commit to anything.
             </p>
             <div
-              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
+              style={{
+                display: "flex",
+                gap: 12,
+                justifyContent: "center",
+                marginTop: 28,
+                flexWrap: "wrap",
+              }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
                 Request a free demo <ArrowRight size={16} aria-hidden="true" />

@@ -1,6 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Reveal from "../components/Reveal.jsx";
-import { ExternalLink, ArrowRight, Layers, Smartphone, Building2, Palette, Sparkles } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  Layers,
+  Smartphone,
+  Building2,
+  Palette,
+  Sparkles,
+} from "lucide-react";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -141,7 +149,8 @@ function Portfolio() {
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: "linear-gradient(to right, rgba(10,12,30,0.65) 0%, transparent 60%)",
+                      background:
+                        "linear-gradient(to right, rgba(10,12,30,0.65) 0%, transparent 60%)",
                     }}
                   />
                   <div
@@ -167,7 +176,9 @@ function Portfolio() {
                     >
                       {FEATURED.tag} · Featured
                     </span>
-                    <h2 style={{ margin: 0, color: "#fff", fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)" }}>
+                    <h2
+                      style={{ margin: 0, color: "#fff", fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)" }}
+                    >
                       {FEATURED.t}
                     </h2>
                   </div>
@@ -230,7 +241,12 @@ function Portfolio() {
                 <Reveal key={p.t} index={i % 3}>
                   <article
                     className="oz-card"
-                    style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+                    style={{
+                      padding: 0,
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
                   >
                     <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
                       <img
@@ -263,8 +279,19 @@ function Portfolio() {
                         {p.tag}
                       </div>
                     </div>
-                    <div style={{ padding: "clamp(1rem, 2vw, 1.25rem)", flex: 1, display: "flex", flexDirection: "column" }}>
-                      <span className="oz-card__icon" style={{ marginBottom: 10 }} aria-hidden="true">
+                    <div
+                      style={{
+                        padding: "clamp(1rem, 2vw, 1.25rem)",
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <span
+                        className="oz-card__icon"
+                        style={{ marginBottom: 10 }}
+                        aria-hidden="true"
+                      >
                         <Icon size={18} strokeWidth={1.75} />
                       </span>
                       <h3 style={{ marginTop: 0 }}>{p.t}</h3>
@@ -292,9 +319,7 @@ function Portfolio() {
       <section className="oz-section oz-section--dark" aria-label="Start your project">
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Your project could be next
-            </span>
+            <span className="oz-eyebrow">Your project could be next</span>
             <h2>Let's build something great together.</h2>
             <p className="oz-muted" style={{ maxWidth: 480, margin: "12px auto 0" }}>
               Tell us what you need. We'll review your requirements and come back with an honest

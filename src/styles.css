@@ -136,7 +136,9 @@
   --duration-slow-reveal-09: opacity 1s ease-in-out 0.9s, transform 1s ease-in-out 0.9s;
 
   /* Card Composite Motion Token */
-  --card-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.2s ease-out, background-color 0.3s ease;
+  --card-transition:
+    transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.2s ease-out,
+    background-color 0.3s ease;
 
   /* Ozeonix Infinity Token Aliases (Mapped to Orange & Neutral Canonical Tokens) */
   --oz-primary: var(--text-primary);
@@ -658,7 +660,10 @@ p {
   font-weight: 700;
   font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
   border: 1px solid var(--oz-primary);
-  transition: transform 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
 }
 .oz-card:hover .oz-card__icon,
 .oz-svc-card:hover .oz-svc-card__icon,
@@ -3657,7 +3662,9 @@ fieldset.oz-field {
 .oz-reveal {
   opacity: 1;
   transform: none;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transition:
+    opacity 1s ease-in-out,
+    transform 1s ease-in-out;
   transition-delay: var(--oz-reveal-delay, 0s);
   will-change: opacity, transform;
 }

@@ -15,35 +15,67 @@ export const Route = createFileRoute("/sitemap.xml")({
     handlers: {
       GET: async () => {
         const entries: SitemapEntry[] = [
-          { path: "/", lastmod: "2026-11-17", changefreq: "weekly", priority: "1.0" },
-          { path: "/services", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.9" },
+          { path: "/", lastmod: "2026-11-18", changefreq: "weekly", priority: "1.0" },
+          { path: "/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
+          { path: "/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
           {
             path: "/services/erp-development",
-            lastmod: "2026-11-17",
+            lastmod: "2026-11-18",
             changefreq: "weekly",
             priority: "0.9",
           },
           {
             path: "/services/crm-solutions",
-            lastmod: "2026-11-17",
+            lastmod: "2026-11-18",
             changefreq: "weekly",
             priority: "0.9",
           },
           {
             path: "/services/lms-platforms",
-            lastmod: "2026-11-17",
+            lastmod: "2026-11-18",
             changefreq: "weekly",
             priority: "0.9",
           },
-          { path: "/products", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.9" },
-          { path: "/industries", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.8" },
-          { path: "/about", lastmod: "2026-11-17", changefreq: "monthly", priority: "0.8" },
-          { path: "/process", lastmod: "2026-11-17", changefreq: "monthly", priority: "0.8" },
-          { path: "/portfolio", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.8" },
-          { path: "/faq", lastmod: "2026-11-17", changefreq: "monthly", priority: "0.7" },
-          { path: "/contact", lastmod: "2026-11-17", changefreq: "monthly", priority: "0.8" },
-          { path: "/careers", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.8" },
-          { path: "/blog", lastmod: "2026-11-17", changefreq: "weekly", priority: "0.7" },
+          { path: "/products", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
+          { path: "/industries", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          { path: "/process", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          { path: "/portfolio", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/faq", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.7" },
+          { path: "/contact", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          { path: "/careers", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/blog", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.7" },
+
+          // Regional Market - Nepal
+          { path: "/np", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
+          { path: "/np/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          { path: "/np/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/np/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/np/contact", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+
+          // Regional Market - India
+          { path: "/in", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
+          { path: "/in/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          { path: "/in/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/in/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          { path: "/in/contact", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+
+          // Regional Market - Global
+          { path: "/global", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
+          { path: "/global/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
+          {
+            path: "/global/services",
+            lastmod: "2026-11-18",
+            changefreq: "weekly",
+            priority: "0.8",
+          },
+          { path: "/global/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
+          {
+            path: "/global/contact",
+            lastmod: "2026-11-18",
+            changefreq: "monthly",
+            priority: "0.8",
+          },
           {
             path: "/industries/e-commerce",
             lastmod: "2026-11-17",

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MarketRouteImport } from './routes/$market'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -20,6 +21,7 @@ import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as ProductsRouteImport } from './routes/products'
@@ -28,6 +30,11 @@ import { Route as RevealPreviewRouteImport } from './routes/reveal-preview'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as MarketIndexRouteImport } from './routes/$market.index'
+import { Route as MarketAboutRouteImport } from './routes/$market.about'
+import { Route as MarketContactRouteImport } from './routes/$market.contact'
+import { Route as MarketPricingRouteImport } from './routes/$market.pricing'
+import { Route as MarketServicesRouteImport } from './routes/$market.services'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedPartnerRouteImport } from './routes/_authenticated/partner'
 import { Route as EmailPreviewRouteImport } from './routes/email.preview'
@@ -43,6 +50,11 @@ import { Route as ApiPublicContactRouteImport } from './routes/api/public/contac
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketRoute = MarketRouteImport.update({
+  id: '/$market',
+  path: '/$market',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
@@ -94,6 +106,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -133,6 +150,31 @@ const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MarketIndexRoute = MarketIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MarketRoute,
+} as any)
+const MarketAboutRoute = MarketAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => MarketRoute,
+} as any)
+const MarketContactRoute = MarketContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => MarketRoute,
+} as any)
+const MarketPricingRoute = MarketPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => MarketRoute,
+} as any)
+const MarketServicesRoute = MarketServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => MarketRoute,
 } as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
@@ -192,6 +234,7 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$market': typeof MarketRouteWithChildren
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
@@ -201,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -209,6 +253,10 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/$market/about': typeof MarketAboutRoute
+  '/$market/contact': typeof MarketContactRoute
+  '/$market/pricing': typeof MarketPricingRoute
+  '/$market/services': typeof MarketServicesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/partner': typeof AuthenticatedPartnerRoute
   '/email/preview': typeof EmailPreviewRoute
@@ -218,6 +266,7 @@ export interface FileRoutesByFullPath {
   '/services/crm-solutions': typeof ServicesCrmSolutionsRoute
   '/services/erp-development': typeof ServicesErpDevelopmentRoute
   '/services/lms-platforms': typeof ServicesLmsPlatformsRoute
+  '/$market/': typeof MarketIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -232,6 +281,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -239,6 +289,10 @@ export interface FileRoutesByTo {
   '/reveal-preview': typeof RevealPreviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/$market/about': typeof MarketAboutRoute
+  '/$market/contact': typeof MarketContactRoute
+  '/$market/pricing': typeof MarketPricingRoute
+  '/$market/services': typeof MarketServicesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/partner': typeof AuthenticatedPartnerRoute
   '/email/preview': typeof EmailPreviewRoute
@@ -248,6 +302,7 @@ export interface FileRoutesByTo {
   '/services/crm-solutions': typeof ServicesCrmSolutionsRoute
   '/services/erp-development': typeof ServicesErpDevelopmentRoute
   '/services/lms-platforms': typeof ServicesLmsPlatformsRoute
+  '/$market': typeof MarketIndexRoute
   '/services': typeof ServicesIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -255,6 +310,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/$market': typeof MarketRouteWithChildren
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
@@ -264,6 +320,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -272,6 +329,10 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/$market/about': typeof MarketAboutRoute
+  '/$market/contact': typeof MarketContactRoute
+  '/$market/pricing': typeof MarketPricingRoute
+  '/$market/services': typeof MarketServicesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/partner': typeof AuthenticatedPartnerRoute
   '/email/preview': typeof EmailPreviewRoute
@@ -281,6 +342,7 @@ export interface FileRoutesById {
   '/services/crm-solutions': typeof ServicesCrmSolutionsRoute
   '/services/erp-development': typeof ServicesErpDevelopmentRoute
   '/services/lms-platforms': typeof ServicesLmsPlatformsRoute
+  '/$market/': typeof MarketIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -288,6 +350,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$market'
     | '/about'
     | '/blog'
     | '/careers'
@@ -297,6 +360,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
+    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -305,6 +369,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/$market/about'
+    | '/$market/contact'
+    | '/$market/pricing'
+    | '/$market/services'
     | '/admin'
     | '/partner'
     | '/email/preview'
@@ -314,6 +382,7 @@ export interface FileRouteTypes {
     | '/services/crm-solutions'
     | '/services/erp-development'
     | '/services/lms-platforms'
+    | '/$market/'
     | '/services/'
     | '/api/public/contact'
   fileRoutesByTo: FileRoutesByTo
@@ -328,6 +397,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
+    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -335,6 +405,10 @@ export interface FileRouteTypes {
     | '/reveal-preview'
     | '/sitemap.xml'
     | '/terms'
+    | '/$market/about'
+    | '/$market/contact'
+    | '/$market/pricing'
+    | '/$market/services'
     | '/admin'
     | '/partner'
     | '/email/preview'
@@ -344,12 +418,14 @@ export interface FileRouteTypes {
     | '/services/crm-solutions'
     | '/services/erp-development'
     | '/services/lms-platforms'
+    | '/$market'
     | '/services'
     | '/api/public/contact'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/$market'
     | '/about'
     | '/blog'
     | '/careers'
@@ -359,6 +435,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
+    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -367,6 +444,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/$market/about'
+    | '/$market/contact'
+    | '/$market/pricing'
+    | '/$market/services'
     | '/_authenticated/admin'
     | '/_authenticated/partner'
     | '/email/preview'
@@ -376,6 +457,7 @@ export interface FileRouteTypes {
     | '/services/crm-solutions'
     | '/services/erp-development'
     | '/services/lms-platforms'
+    | '/$market/'
     | '/services/'
     | '/api/public/contact'
   fileRoutesById: FileRoutesById
@@ -383,6 +465,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  MarketRoute: typeof MarketRouteWithChildren
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
@@ -392,6 +475,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PortfolioRoute: typeof PortfolioRoute
+  PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   ProductsRoute: typeof ProductsRoute
@@ -413,6 +497,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$market': {
+      id: '/$market'
+      path: '/$market'
+      fullPath: '/$market'
+      preLoaderRoute: typeof MarketRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -485,6 +576,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -540,6 +638,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/$market/': {
+      id: '/$market/'
+      path: '/'
+      fullPath: '/$market/'
+      preLoaderRoute: typeof MarketIndexRouteImport
+      parentRoute: typeof MarketRoute
+    }
+    '/$market/about': {
+      id: '/$market/about'
+      path: '/about'
+      fullPath: '/$market/about'
+      preLoaderRoute: typeof MarketAboutRouteImport
+      parentRoute: typeof MarketRoute
+    }
+    '/$market/contact': {
+      id: '/$market/contact'
+      path: '/contact'
+      fullPath: '/$market/contact'
+      preLoaderRoute: typeof MarketContactRouteImport
+      parentRoute: typeof MarketRoute
+    }
+    '/$market/pricing': {
+      id: '/$market/pricing'
+      path: '/pricing'
+      fullPath: '/$market/pricing'
+      preLoaderRoute: typeof MarketPricingRouteImport
+      parentRoute: typeof MarketRoute
+    }
+    '/$market/services': {
+      id: '/$market/services'
+      path: '/services'
+      fullPath: '/$market/services'
+      preLoaderRoute: typeof MarketServicesRouteImport
+      parentRoute: typeof MarketRoute
     }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
@@ -634,6 +767,25 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface MarketRouteChildren {
+  MarketAboutRoute: typeof MarketAboutRoute
+  MarketContactRoute: typeof MarketContactRoute
+  MarketPricingRoute: typeof MarketPricingRoute
+  MarketServicesRoute: typeof MarketServicesRoute
+  MarketIndexRoute: typeof MarketIndexRoute
+}
+
+const MarketRouteChildren: MarketRouteChildren = {
+  MarketAboutRoute: MarketAboutRoute,
+  MarketContactRoute: MarketContactRoute,
+  MarketPricingRoute: MarketPricingRoute,
+  MarketServicesRoute: MarketServicesRoute,
+  MarketIndexRoute: MarketIndexRoute,
+}
+
+const MarketRouteWithChildren =
+  MarketRoute._addFileChildren(MarketRouteChildren)
+
 interface IndustriesRouteChildren {
   IndustriesSlugRoute: typeof IndustriesSlugRoute
 }
@@ -667,6 +819,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  MarketRoute: MarketRouteWithChildren,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
@@ -676,6 +829,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PortfolioRoute: PortfolioRoute,
+  PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   ProductsRoute: ProductsRoute,

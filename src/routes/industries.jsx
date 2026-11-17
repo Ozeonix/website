@@ -204,7 +204,8 @@ function Industries() {
                         style={{
                           position: "absolute",
                           inset: 0,
-                          background: "linear-gradient(to bottom, transparent 55%, rgba(10,12,30,0.65) 100%)",
+                          background:
+                            "linear-gradient(to bottom, transparent 55%, rgba(10,12,30,0.65) 100%)",
                         }}
                       />
                       <div
@@ -284,19 +285,26 @@ function Industries() {
       </section>
 
       {/* CTA */}
-      <section className="oz-section oz-section--dark" aria-label="Start a project in your industry">
+      <section
+        className="oz-section oz-section--dark"
+        aria-label="Start a project in your industry"
+      >
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Your industry, our expertise
-            </span>
+            <span className="oz-eyebrow">Your industry, our expertise</span>
             <h2>Don't see your industry? We can still help.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               We've worked across 10+ verticals. If you don't see yours listed, tell us about your
               business - we'll figure out the right approach together.
             </p>
             <div
-              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
+              style={{
+                display: "flex",
+                gap: 12,
+                justifyContent: "center",
+                marginTop: 28,
+                flexWrap: "wrap",
+              }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
                 Discuss your project <ArrowRight size={16} aria-hidden="true" />

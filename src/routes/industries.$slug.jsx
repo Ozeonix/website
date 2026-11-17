@@ -7,7 +7,8 @@ const DETAILS = {
   "e-commerce": {
     tagline: "Online stores that convert",
     lead: "From a first Shopify launch to a custom multi-vendor marketplace - we build storefronts that load fast, rank on Google, and keep customers coming back.",
-    heroImg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "E-commerce store with shopping cart and product listings",
     solutions: [
       "Custom storefronts (React, Shopify, WooCommerce)",
@@ -17,7 +18,8 @@ const DETAILS = {
       "SEO, analytics & abandoned-cart recovery",
     ],
     outcomes: ["Faster checkout", "Higher conversion", "Lower CAC"],
-    featureImg: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Online shopping interface with product catalog",
     stats: [
       { n: "3x", l: "Average checkout speed improvement" },
@@ -28,7 +30,8 @@ const DETAILS = {
   "on-demand": {
     tagline: "Uber-style apps, done right",
     lead: "Delivery, taxi, home-services, rentals - the on-demand model is a solved pattern. We wire up the maps, tracking, dispatching and payments so you can focus on operations.",
-    heroImg: "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "On-demand delivery app with live tracking on mobile",
     solutions: [
       "Customer + provider + admin apps (Flutter)",
@@ -38,7 +41,8 @@ const DETAILS = {
       "Wallet, tips and driver payouts",
     ],
     outcomes: ["Faster dispatch", "Repeat orders", "Operational control"],
-    featureImg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Delivery driver using on-demand service app",
     stats: [
       { n: "2 min", l: "Average dispatch time" },
@@ -49,7 +53,8 @@ const DETAILS = {
   fitness: {
     tagline: "Software for gyms, coaches & studios",
     lead: "Bookings, membership renewals, workout plans and progress tracking - one branded app for your members and a clean admin for your team.",
-    heroImg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Modern gym facility with fitness management app on screen",
     solutions: [
       "Class & PT bookings with capacity limits",
@@ -59,7 +64,8 @@ const DETAILS = {
       "Community feed and challenges",
     ],
     outcomes: ["More renewals", "Less admin work", "Stronger community"],
-    featureImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Fitness class booking and member management app",
     stats: [
       { n: "35%", l: "Increase in membership renewals" },
@@ -70,7 +76,8 @@ const DETAILS = {
   payments: {
     tagline: "Fintech flows built to clear compliance",
     lead: "Wallets, subscriptions, split payouts, KYC - we build the parts of a payment product that regulators, auditors and users all care about.",
-    heroImg: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Digital payment and fintech application interface",
     solutions: [
       "Wallet, top-up and P2P transfers",
@@ -80,7 +87,8 @@ const DETAILS = {
       "Ledger, reconciliation and reporting",
     ],
     outcomes: ["Audit-ready books", "Fewer failed payments", "Faster onboarding"],
-    featureImg: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Mobile payment app with wallet and transaction history",
     stats: [
       { n: "99%", l: "Payment success rate" },
@@ -91,7 +99,8 @@ const DETAILS = {
   entertainment: {
     tagline: "Streaming, media & fan platforms",
     lead: "OTT, podcasts, ticketed live streams, fan communities - media apps live and die by playback quality and content ops. We handle both.",
-    heroImg: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Video streaming platform with content library",
     solutions: [
       "Video / audio streaming (HLS, DRM)",
@@ -101,7 +110,8 @@ const DETAILS = {
       "Live streaming with chat and reactions",
     ],
     outcomes: ["Smoother playback", "Higher watch time", "Scalable content ops"],
-    featureImg: "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Media streaming on multiple devices and platforms",
     stats: [
       { n: "4K", l: "Streaming quality supported" },
@@ -112,7 +122,8 @@ const DETAILS = {
   education: {
     tagline: "LMS, coaching & school platforms",
     lead: "From a single coaching centre to a multi-branch institute, we build the ERP, LMS, parent app and student portal - connected, not siloed.",
-    heroImg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "School management system with student and teacher interface",
     solutions: [
       "School / college ERP with fees, attendance & exams",
@@ -122,7 +133,8 @@ const DETAILS = {
       "Live classes with Zoom / Jitsi integration",
     ],
     outcomes: ["Better parent trust", "Less paperwork", "Higher enrolment"],
-    featureImg: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Students and teachers using digital education platform",
     stats: [
       { n: "90%", l: "Reduction in manual paperwork" },
@@ -133,7 +145,8 @@ const DETAILS = {
   event: {
     tagline: "Ticketing & event management",
     lead: "Concerts, conferences, weddings, meetups - we build the ticketing, check-in, and attendee experience end to end.",
-    heroImg: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Event management with ticketing and crowd at venue",
     solutions: [
       "Ticketing with tiered pricing and promo codes",
@@ -143,7 +156,8 @@ const DETAILS = {
       "Post-event analytics and lead capture",
     ],
     outcomes: ["Faster check-in", "Higher ticket sales", "Sponsor ROI"],
-    featureImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Event ticketing app with QR code check-in system",
     stats: [
       { n: "5s", l: "Average QR check-in time" },
@@ -154,7 +168,8 @@ const DETAILS = {
   restaurant: {
     tagline: "POS, online ordering & delivery",
     lead: "One system for the counter, the kitchen, the delivery driver and the customer's phone - with reports the owner can actually read.",
-    heroImg: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Modern restaurant with POS system and food ordering",
     solutions: [
       "POS with KOT printing and table management",
@@ -164,7 +179,8 @@ const DETAILS = {
       "Loyalty, offers and WhatsApp marketing",
     ],
     outcomes: ["More table turns", "Higher delivery orders", "Wastage control"],
-    featureImg: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Restaurant kitchen display and food delivery tracking",
     stats: [
       { n: "20%", l: "Increase in table turn rate" },
@@ -175,7 +191,8 @@ const DETAILS = {
   health: {
     tagline: "Clinics, EHR & telehealth",
     lead: "Appointment booking, patient records, prescriptions and telehealth - we build the digital layer that makes a clinic run smoothly and patients feel cared for.",
-    heroImg: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    heroImg:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     heroImgAlt: "Healthcare clinic with digital patient management system",
     solutions: [
       "Appointment booking with reminders & rescheduling",
@@ -185,7 +202,8 @@ const DETAILS = {
       "Billing, insurance and analytics",
     ],
     outcomes: ["No-show reduction", "Faster consultations", "Better patient records"],
-    featureImg: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80",
+    featureImg:
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80",
     featureImgAlt: "Doctor using digital health records and patient management",
     stats: [
       { n: "60%", l: "Reduction in appointment no-shows" },
@@ -221,9 +239,7 @@ export const Route = createFileRoute("/industries/$slug")({
         },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [
-        { rel: "canonical", href: `https://ozeonix.com/industries/${item.slug}` },
-      ],
+      links: [{ rel: "canonical", href: `https://ozeonix.com/industries/${item.slug}` }],
     };
   },
   notFoundComponent: IndustryNotFound,
@@ -316,7 +332,10 @@ function IndustryDetail() {
           <div className="oz-grid oz-grid-3">
             {detail.stats.map((s, i) => (
               <Reveal key={s.l} index={i % 3}>
-                <div className="oz-card" style={{ textAlign: "center", padding: "clamp(1.5rem, 3vw, 2rem)" }}>
+                <div
+                  className="oz-card"
+                  style={{ textAlign: "center", padding: "clamp(1.5rem, 3vw, 2rem)" }}
+                >
                   <strong
                     style={{
                       display: "block",
@@ -347,21 +366,27 @@ function IndustryDetail() {
               <article className="oz-card" style={{ height: "100%" }}>
                 <span
                   className="oz-card__icon"
-                  style={{ marginBottom: "var(--oz-space-3)", background: "var(--oz-primary)", color: "#fff" }}
+                  style={{
+                    marginBottom: "var(--oz-space-3)",
+                    background: "var(--oz-primary)",
+                    color: "#fff",
+                  }}
                   aria-hidden="true"
                 >
                   <Icon size={22} strokeWidth={1.75} />
                 </span>
-                <h2 style={{ marginTop: 0 }}>
-                  What we build for {item.label.toLowerCase()}
-                </h2>
+                <h2 style={{ marginTop: 0 }}>What we build for {item.label.toLowerCase()}</h2>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 12 }}>
                   {detail.solutions.map((s) => (
                     <li key={s} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <CheckCircle2
                         size={18}
                         strokeWidth={2}
-                        style={{ flexShrink: 0, marginTop: 2, color: "var(--brand-green, #00A982)" }}
+                        style={{
+                          flexShrink: 0,
+                          marginTop: 2,
+                          color: "var(--brand-green, #00A982)",
+                        }}
                         aria-hidden="true"
                       />
                       <span>{s}</span>
@@ -372,7 +397,14 @@ function IndustryDetail() {
             </Reveal>
 
             <Reveal index={1}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(1rem, 2vw, 1.5rem)", height: "100%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "clamp(1rem, 2vw, 1.5rem)",
+                  height: "100%",
+                }}
+              >
                 <article className="oz-card">
                   <h2 style={{ marginTop: 0 }}>Outcomes you can expect</h2>
                   <div style={{ display: "grid", gap: 12, marginBottom: "var(--oz-space-5)" }}>
@@ -460,11 +492,21 @@ function IndustryDetail() {
                     }}
                     aria-label={`Explore ${i.label} solutions`}
                   >
-                    <span className="oz-card__icon" style={{ margin: "0 auto var(--oz-space-3)" }} aria-hidden="true">
+                    <span
+                      className="oz-card__icon"
+                      style={{ margin: "0 auto var(--oz-space-3)" }}
+                      aria-hidden="true"
+                    >
                       <OtherIcon size={20} strokeWidth={1.75} />
                     </span>
                     <h3 style={{ fontSize: "0.95rem", margin: 0 }}>{i.label}</h3>
-                    <p style={{ fontSize: "0.78rem", color: "var(--oz-muted-foreground)", margin: "6px 0 0" }}>
+                    <p
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--oz-muted-foreground)",
+                        margin: "6px 0 0",
+                      }}
+                    >
                       {i.d}
                     </p>
                   </Link>
@@ -479,16 +521,20 @@ function IndustryDetail() {
       <section className="oz-section oz-section--dark" aria-label={`Start a ${item.label} project`}>
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              {item.label} · Ready to build?
-            </span>
+            <span className="oz-eyebrow">{item.label} · Ready to build?</span>
             <h2>Let's talk about your {item.label.toLowerCase()} project.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               A free 30-minute discovery call. We'll understand your needs, propose the right
               solution and quote you honestly before any work begins.
             </p>
             <div
-              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
+              style={{
+                display: "flex",
+                gap: 12,
+                justifyContent: "center",
+                marginTop: 28,
+                flexWrap: "wrap",
+              }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
                 Start a project <ArrowRight size={16} aria-hidden="true" />

@@ -148,7 +148,11 @@ const INDUSTRY_SOLUTIONS = [
     desc: "Manage raw materials, machine capacity, bill of materials (BOM), and factory floor work-orders from a central command center.",
     img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Automated robotic precision manufacturing facility",
-    highlights: ["Multi-tier Bill of Materials", "Shop-floor machine schedules", "Batch scrap & QA logs"],
+    highlights: [
+      "Multi-tier Bill of Materials",
+      "Shop-floor machine schedules",
+      "Batch scrap & QA logs",
+    ],
     Icon: Factory,
   },
   {
@@ -166,7 +170,11 @@ const INDUSTRY_SOLUTIONS = [
     desc: "Control high-volume container shipments, palletized warehouse dispatch, dynamic price tiers, and delivery driver fleets.",
     img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
     imgAlt: "Logistics distribution warehouse with commercial freight operations",
-    highlights: ["Dispatch route tracking", "Bulk volume pricing rules", "Vendor credit limit controls"],
+    highlights: [
+      "Dispatch route tracking",
+      "Bulk volume pricing rules",
+      "Vendor credit limit controls",
+    ],
     Icon: Truck,
   },
   {
@@ -396,8 +404,8 @@ function ErpDevelopment() {
             </Reveal>
             <Reveal index={2}>
               <p className="oz-muted" style={{ maxWidth: 650, margin: "12px auto 0" }}>
-                Eliminate disconnected spreadsheets and siloed tools. Every department shares a single,
-                real-time source of truth.
+                Eliminate disconnected spreadsheets and siloed tools. Every department shares a
+                single, real-time source of truth.
               </p>
             </Reveal>
           </div>
@@ -406,14 +414,25 @@ function ErpDevelopment() {
               <Reveal key={title} index={i % 3}>
                 <article
                   className="oz-card"
-                  style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                  }}
                 >
                   <div style={{ aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
                     <img
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                     />
                     <div
                       style={{
@@ -436,9 +455,23 @@ function ErpDevelopment() {
                       <Icon size={18} strokeWidth={2} />
                     </div>
                   </div>
-                  <div style={{ padding: "clamp(1.2rem, 2vw, 1.5rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                  <div
+                    style={{
+                      padding: "clamp(1.2rem, 2vw, 1.5rem)",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <h3 style={{ marginTop: 0, marginBottom: 8, fontSize: "1.15rem" }}>{title}</h3>
-                    <p style={{ margin: 0, color: "var(--text-secondary, #374151)", fontSize: "0.93rem", lineHeight: 1.6 }}>
+                    <p
+                      style={{
+                        margin: 0,
+                        color: "var(--text-secondary, #374151)",
+                        fontSize: "0.93rem",
+                        lineHeight: 1.6,
+                      }}
+                    >
                       {desc}
                     </p>
                   </div>
@@ -461,8 +494,8 @@ function ErpDevelopment() {
             </Reveal>
             <Reveal index={2}>
               <p className="oz-muted" style={{ maxWidth: 640, margin: "12px auto 0" }}>
-                A generic template won't cut it. We configure logic, tax structures, and shop-floor flows
-                customized for your business reality.
+                A generic template won't cut it. We configure logic, tax structures, and shop-floor
+                flows customized for your business reality.
               </p>
             </Reveal>
           </div>
@@ -485,7 +518,12 @@ function ErpDevelopment() {
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                     />
                     <div
                       style={{
@@ -506,8 +544,17 @@ function ErpDevelopment() {
                       {badge}
                     </div>
                   </div>
-                  <div style={{ padding: "clamp(1.25rem, 2.2vw, 1.6rem)", flex: 1, display: "flex", flexDirection: "column" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                  <div
+                    style={{
+                      padding: "clamp(1.25rem, 2.2vw, 1.6rem)",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div
+                      style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}
+                    >
                       <span
                         style={{
                           width: 32,
@@ -526,7 +573,14 @@ function ErpDevelopment() {
                       </span>
                       <h3 style={{ margin: 0, fontSize: "1.2rem" }}>{title}</h3>
                     </div>
-                    <p style={{ margin: "0 0 16px", color: "var(--text-secondary, #374151)", fontSize: "0.93rem", lineHeight: 1.6 }}>
+                    <p
+                      style={{
+                        margin: "0 0 16px",
+                        color: "var(--text-secondary, #374151)",
+                        fontSize: "0.93rem",
+                        lineHeight: 1.6,
+                      }}
+                    >
                       {desc}
                     </p>
                     <ul
@@ -541,8 +595,22 @@ function ErpDevelopment() {
                       }}
                     >
                       {highlights.map((h) => (
-                        <li key={h} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.88rem", fontWeight: 550 }}>
-                          <CheckCircle2 size={16} strokeWidth={2.2} style={{ color: "var(--brand-orange, #ea580c)", flexShrink: 0 }} aria-hidden="true" />
+                        <li
+                          key={h}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 8,
+                            fontSize: "0.88rem",
+                            fontWeight: 550,
+                          }}
+                        >
+                          <CheckCircle2
+                            size={16}
+                            strokeWidth={2.2}
+                            style={{ color: "var(--brand-orange, #ea580c)", flexShrink: 0 }}
+                            aria-hidden="true"
+                          />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -567,8 +635,8 @@ function ErpDevelopment() {
             </Reveal>
             <Reveal index={2}>
               <p className="oz-muted" style={{ maxWidth: 660, margin: "12px auto 0" }}>
-                Most ERP projects stall because staff are overwhelmed. We run parallel pilots, migrate
-                all legacy data, and train your departments hand-in-hand.
+                Most ERP projects stall because staff are overwhelmed. We run parallel pilots,
+                migrate all legacy data, and train your departments hand-in-hand.
               </p>
             </Reveal>
           </div>
@@ -591,7 +659,12 @@ function ErpDevelopment() {
                       src={img}
                       alt={imgAlt}
                       loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                     />
                     <span
                       style={{
@@ -627,9 +700,23 @@ function ErpDevelopment() {
                       {duration}
                     </span>
                   </div>
-                  <div style={{ padding: "clamp(1rem, 1.5vw, 1.25rem)", flex: 1, display: "flex", flexDirection: "column" }}>
+                  <div
+                    style={{
+                      padding: "clamp(1rem, 1.5vw, 1.25rem)",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <h3 style={{ marginTop: 0, marginBottom: 8, fontSize: "1.05rem" }}>{title}</h3>
-                    <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--text-secondary, #374151)", lineHeight: 1.55 }}>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: "0.88rem",
+                        color: "var(--text-secondary, #374151)",
+                        lineHeight: 1.55,
+                      }}
+                    >
                       {desc}
                     </p>
                   </div>
@@ -677,13 +764,25 @@ function ErpDevelopment() {
                   }}
                 >
                   <div>
-                    <strong style={{ display: "block", fontSize: "1.35rem", color: "var(--brand-orange, #ea580c)" }}>
+                    <strong
+                      style={{
+                        display: "block",
+                        fontSize: "1.35rem",
+                        color: "var(--brand-orange, #ea580c)",
+                      }}
+                    >
                       99.9%
                     </strong>
                     <span style={{ fontSize: "0.75rem", opacity: 0.85 }}>Uptime SLA Guarantee</span>
                   </div>
                   <div>
-                    <strong style={{ display: "block", fontSize: "1.35rem", color: "var(--brand-orange, #ea580c)" }}>
+                    <strong
+                      style={{
+                        display: "block",
+                        fontSize: "1.35rem",
+                        color: "var(--brand-orange, #ea580c)",
+                      }}
+                    >
                       100%
                     </strong>
                     <span style={{ fontSize: "0.75rem", opacity: 0.85 }}>Your Data Ownership</span>
@@ -696,8 +795,9 @@ function ErpDevelopment() {
                 <span className="oz-eyebrow">Why Us</span>
                 <h2>Enterprise software that respects how your team actually works.</h2>
                 <p className="oz-muted">
-                  Off-the-shelf ERP platforms charge steep per-user license fees while forcing your company
-                  to bend into rigid workflows. We engineer the exact software you need - owned completely by you.
+                  Off-the-shelf ERP platforms charge steep per-user license fees while forcing your
+                  company to bend into rigid workflows. We engineer the exact software you need -
+                  owned completely by you.
                 </p>
                 <div style={{ display: "grid", gap: 14, marginTop: 24 }}>
                   {WHY_US_POINTS.map(({ title, desc }) => (
@@ -709,10 +809,23 @@ function ErpDevelopment() {
                         aria-hidden="true"
                       />
                       <div>
-                        <strong style={{ display: "block", fontSize: "0.95rem", color: "var(--text-primary, #111827)" }}>
+                        <strong
+                          style={{
+                            display: "block",
+                            fontSize: "0.95rem",
+                            color: "var(--text-primary, #111827)",
+                          }}
+                        >
                           {title}
                         </strong>
-                        <p style={{ margin: "2px 0 0", fontSize: "0.88rem", color: "var(--text-secondary, #4b5563)", lineHeight: 1.5 }}>
+                        <p
+                          style={{
+                            margin: "2px 0 0",
+                            fontSize: "0.88rem",
+                            color: "var(--text-secondary, #4b5563)",
+                            lineHeight: 1.5,
+                          }}
+                        >
                           {desc}
                         </p>
                       </div>
@@ -750,19 +863,26 @@ function ErpDevelopment() {
       </section>
 
       {/* CTA */}
-      <section className="oz-section oz-section--dark" aria-label="Get a custom ERP built for your business">
+      <section
+        className="oz-section oz-section--dark"
+        aria-label="Get a custom ERP built for your business"
+      >
         <div className="oz-container oz-center">
           <Reveal>
-            <span className="oz-eyebrow">
-              Ready to streamline?
-            </span>
+            <span className="oz-eyebrow">Ready to streamline?</span>
             <h2>Get a custom ERP built for your business.</h2>
             <p className="oz-muted" style={{ maxWidth: 500, margin: "12px auto 0" }}>
               A free consultation is the first step. We'll listen to how your business runs, propose
               the right modules, and quote you honestly before anything is built.
             </p>
             <div
-              style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}
+              style={{
+                display: "flex",
+                gap: 12,
+                justifyContent: "center",
+                marginTop: 28,
+                flexWrap: "wrap",
+              }}
             >
               <Link to="/contact" className="oz-btn oz-btn--primary">
                 Book a free consultation <ArrowRight size={16} aria-hidden="true" />
