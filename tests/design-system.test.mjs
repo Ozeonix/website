@@ -66,8 +66,37 @@ describe("Brand Design System & CSS Invariants", () => {
     assert.ok(content.includes("--duration-slow-reveal"), "Must define duration-slow reveal");
     assert.ok(content.includes("moveCursor1"), "Must define moveCursor1 keyframe animation");
 
-    // Card application
+    // Card application & noticeable interaction
     assert.ok(content.includes("--card-transition"), "Must define --card-transition");
     assert.ok(content.includes(".oz-card"), "Must style .oz-card");
+    assert.ok(
+      content.includes("transform: translateY(-6px)"),
+      "Cards must have visible -6px elevation on hover",
+    );
+    assert.ok(
+      content.includes(".oz-card:hover img"),
+      "Card images must have hover zoom transition",
+    );
+    assert.ok(
+      content.includes("transition: transform 0.4s ease-in-out"),
+      "Card images must use duration-slow 0.4s",
+    );
+    assert.ok(
+      content.includes(".oz-grid > .oz-reveal:nth-child(1)"),
+      "Staggered reveal tokens must match grid reveal children",
+    );
+  });
+
+  it("navigation bar is fixed to the viewport and does not scroll away", () => {
+    const cssPath = path.join(rootDir, "src", "styles.css");
+    const content = fs.readFileSync(cssPath, "utf-8");
+
+    assert.ok(content.includes("position: fixed"), "Navbar must be position fixed");
+    assert.ok(content.includes("--oz-nav-height"), "Must define --oz-nav-height");
+    assert.ok(content.includes("main#main-content"), "Must offset main content below fixed navbar");
+    assert.ok(
+      content.includes("padding-top: var(--oz-nav-height"),
+      "Main content must have padding-top offset",
+    );
   });
 });
