@@ -104,9 +104,6 @@ function PaymentSuccess() {
           <Link to="/" className="oz-btn oz-btn--primary">
             Back to home
           </Link>
-          <Link to="/pay" className="oz-btn oz-btn--outline">
-            Make another payment
-          </Link>
           <Link to="/contact" className="oz-btn oz-btn--outline">
             Contact support
           </Link>

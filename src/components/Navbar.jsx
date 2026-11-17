@@ -403,13 +403,6 @@ export default function Navbar() {
               <LanguageSwitcher />
             </div>
             <Link
-              to="/pay"
-              onClick={() => setOpen(false)}
-              className="oz-btn oz-btn--outline oz-nav__mobile-cta"
-            >
-              Pay online
-            </Link>
-            <Link
               to="/contact"
               onClick={() => setOpen(false)}
               className="oz-btn oz-btn--primary oz-nav__mobile-cta"

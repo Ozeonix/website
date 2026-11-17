@@ -4,7 +4,6 @@ import {
   Sparkles,
   ChevronDown,
   ChevronRight,
-  CreditCard,
   MessageSquare,
   Globe,
   Check,
@@ -92,22 +91,6 @@ export default function NavActionsDropdown({ className = "" }) {
               <span>Discuss your project</span>
             </div>
             <span className="oz-actions-item-badge">New</span>
-          </Link>
-
-          {/* Pay online */}
-          <Link
-            to="/pay"
-            className="oz-actions-item"
-            role="menuitem"
-            onClick={closeAll}
-          >
-            <div className="oz-actions-item-left">
-              <span className="oz-actions-item-icon">
-                <CreditCard size={15} aria-hidden="true" />
-              </span>
-              <span>Pay online</span>
-            </div>
-            <ChevronRight size={13} style={{ opacity: 0.5 }} aria-hidden="true" />
           </Link>
 
           <div className="oz-actions-divider" role="separator" />

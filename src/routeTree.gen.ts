@@ -19,7 +19,6 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as PayRouteImport } from './routes/pay'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -88,11 +87,6 @@ const FaqRoute = FaqRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PayRoute = PayRouteImport.update({
-  id: '/pay',
-  path: '/pay',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -206,7 +200,6 @@ export interface FileRoutesByFullPath {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -238,7 +231,6 @@ export interface FileRoutesByTo {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -271,7 +263,6 @@ export interface FileRoutesById {
   '/design-tokens': typeof DesignTokensRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/pay': typeof PayRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -305,7 +296,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/pay'
     | '/portfolio'
     | '/privacy'
     | '/process'
@@ -337,7 +327,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/pay'
     | '/portfolio'
     | '/privacy'
     | '/process'
@@ -369,7 +358,6 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/faq'
     | '/industries'
-    | '/pay'
     | '/portfolio'
     | '/privacy'
     | '/process'
@@ -403,7 +391,6 @@ export interface RootRouteChildren {
   DesignTokensRoute: typeof DesignTokensRoute
   FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
-  PayRoute: typeof PayRoute
   PortfolioRoute: typeof PortfolioRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -489,13 +476,6 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pay': {
-      id: '/pay'
-      path: '/pay'
-      fullPath: '/pay'
-      preLoaderRoute: typeof PayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -695,7 +675,6 @@ const rootRouteChildren: RootRouteChildren = {
   DesignTokensRoute: DesignTokensRoute,
   FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
-  PayRoute: PayRoute,
   PortfolioRoute: PortfolioRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,

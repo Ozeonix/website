@@ -33,11 +33,11 @@ function PaymentFailed() {
           try again, or reach out and we will send you a payment link directly.
         </p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          <Link to="/pay" className="oz-btn oz-btn--primary">
-            Try again
+          <Link to="/contact" className="oz-btn oz-btn--primary">
+            Contact support
           </Link>
-          <Link to="/contact" className="oz-btn oz-btn--outline">
-            Discuss your project
+          <Link to="/" className="oz-btn oz-btn--outline">
+            Back to home
           </Link>
         </div>
       </div>
