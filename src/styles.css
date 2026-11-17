@@ -866,6 +866,13 @@ p {
   flex: 0 0 auto;
   width: clamp(7.5rem, 9.5vw, 8.75rem);
   min-height: 32px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+.oz-brand--logo:hover {
+  opacity: 0.92;
 }
 .oz-brand__logo {
   display: block;
@@ -2970,9 +2977,51 @@ fieldset.oz-field {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  cursor: pointer;
   transition:
     transform 0.25s ease,
     opacity 0.25s ease;
+}
+
+.oz-footer__logo-link:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.oz-footer__logo-link:focus-visible {
+  outline: 2px solid var(--focus-ring, #f97316);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.oz-footer__slogan-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.oz-footer__slogan-link:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.oz-footer__slogan-link:focus-visible {
+  outline: 2px solid var(--focus-ring, #f97316);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.oz-footer__brand-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.oz-footer__brand-link:hover {
+  color: var(--brand-orange-500, #f97316);
 }
 
 @media (min-width: 768px) {

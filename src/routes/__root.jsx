@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ScrollRestoration,
 } from "@tanstack/react-router";
 import { useEffect } from "react";
 
@@ -180,6 +181,7 @@ function RootShell({ children }) {
           />
         </noscript>
         <div id="google_translate_element" style={{ display: "none" }} aria-hidden="true" />
+        <ScrollRestoration />
         {children}
         <Scripts />
       </body>

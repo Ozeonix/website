@@ -119,4 +119,40 @@ describe("Route Files & Structured Data Integrity", () => {
       "Must use verified certificate image photo-1589330694653-ded6df03f754",
     );
   });
+
+  it("hyperlinks logo in footer and navbar to home with smooth scroll handler", () => {
+    const footerPath = path.join(rootDir, "src", "components", "Footer.jsx");
+    const footerContent = fs.readFileSync(footerPath, "utf-8");
+
+    assert.ok(
+      footerContent.includes("to={homePath}") && footerContent.includes("oz-footer__logo-link"),
+      "Footer logo must link to homePath",
+    );
+    assert.ok(
+      footerContent.includes("handleLogoClick"),
+      "Footer logo must attach handleLogoClick handler for smooth top scrolling",
+    );
+    assert.ok(
+      footerContent.includes("oz-footer__slogan-link"),
+      "Footer slogan must also be hyperlinked to homePath",
+    );
+    assert.ok(
+      footerContent.includes("oz-footer__brand-link"),
+      "Footer copyright brand name must be hyperlinked to homePath",
+    );
+
+    const navbarPath = path.join(rootDir, "src", "components", "Navbar.jsx");
+    const navbarContent = fs.readFileSync(navbarPath, "utf-8");
+    assert.ok(
+      navbarContent.includes("to={homePath}") && navbarContent.includes("oz-brand oz-brand--logo"),
+      "Navbar logo must link to homePath",
+    );
+
+    const rootPath = path.join(rootDir, "src", "routes", "__root.jsx");
+    const rootContent = fs.readFileSync(rootPath, "utf-8");
+    assert.ok(
+      rootContent.includes("ScrollRestoration"),
+      "Root document must include ScrollRestoration component",
+    );
+  });
 });

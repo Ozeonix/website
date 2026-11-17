@@ -101,6 +101,18 @@ export default function Navbar() {
   const triggerRefs = useRef({});
   const mobileToggleRef = useRef(null);
 
+  const homePath = (() => {
+    const match = currentPath?.match(/^\/(np|in|global)(\/.*)?$/i);
+    return match ? `/${match[1].toLowerCase()}` : "/";
+  })();
+
+  const handleLogoClick = () => {
+    setOpen(false);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -149,9 +161,9 @@ export default function Navbar() {
     <header className={`oz-nav ${scrolled ? "is-scrolled" : ""}`}>
       <div className="oz-container oz-nav__inner">
         <Link
-          to="/"
+          to={homePath}
           className="oz-brand oz-brand--logo"
-          onClick={() => setOpen(false)}
+          onClick={handleLogoClick}
           aria-label="Ozeonix Infinity home"
         >
           <img
@@ -329,9 +341,9 @@ export default function Navbar() {
           </DialogDescription>
           <div className="oz-container">
             <Link
-              to="/"
+              to={homePath}
               className="oz-brand oz-brand--logo oz-nav__mbrand"
-              onClick={() => setOpen(false)}
+              onClick={handleLogoClick}
               aria-label="Ozeonix Infinity home"
             >
               <img

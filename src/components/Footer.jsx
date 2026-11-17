@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { ChevronRight, MapPin, Phone, Mail, Check } from "lucide-react";
 import logoAsset from "../assets/ozeonix-infinity-footer-logo.png.asset.json";
 import { useMarket } from "../lib/market/MarketContext";
@@ -7,9 +7,22 @@ import MarketSelector from "./MarketSelector.jsx";
 
 export default function Footer() {
   const { currentMarket } = useMarket();
+  const location = useLocation();
+  const currentPath = location.pathname;
   const year = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
+  const homePath = (() => {
+    const match = currentPath?.match(/^\/(np|in|global)(\/.*)?$/i);
+    return match ? `/${match[1].toLowerCase()}` : "/";
+  })();
+
+  const handleLogoClick = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -75,7 +88,12 @@ export default function Footer() {
         {/* Top Header Row - Logo + Two-Color Slogan with Curved Underline + Social Circles */}
         <header className="oz-footer__header">
           <div className="oz-footer__header-brand">
-            <Link to="/" aria-label="Ozeonix Infinity Home" className="oz-footer__logo-link">
+            <Link
+              to={homePath}
+              onClick={handleLogoClick}
+              aria-label="Ozeonix Infinity Home"
+              className="oz-footer__logo-link"
+            >
               <img
                 className="oz-brand__logo oz-brand__logo--footer oz-footer__header-logo"
                 src={logoAsset.url}
@@ -85,7 +103,12 @@ export default function Footer() {
                 decoding="async"
               />
             </Link>
-            <div className="oz-footer__slogan-box">
+            <Link
+              to={homePath}
+              onClick={handleLogoClick}
+              aria-label="Shape Thought. Power Tomorrow - Ozeonix Infinity Home"
+              className="oz-footer__slogan-box oz-footer__slogan-link"
+            >
               <p className="oz-footer__slogan handwritingText HeroSection-module__YGMWTW__handwritingText">
                 <span className="oz-footer__slogan-p1">Shape Thought.</span>{" "}
                 <span className="oz-footer__slogan-p2">Power Tomorrow</span>
@@ -112,7 +135,7 @@ export default function Footer() {
                   strokeLinecap="round"
                 />
               </svg>
-            </div>
+            </Link>
           </div>
 
           <nav className="oz-footer__socials" aria-label="Social media profiles">
@@ -212,7 +235,7 @@ export default function Footer() {
             <nav aria-label="Footer Navigation">
               <ul className="oz-footer__nav-list">
                 <li>
-                  <Link to="/" className="oz-footer__nav-link">
+                  <Link to={homePath} onClick={handleLogoClick} className="oz-footer__nav-link">
                     <ChevronRight size={13} className="oz-footer__arrow" aria-hidden="true" />
                     <span>Home</span>
                   </Link>
@@ -423,8 +446,15 @@ export default function Footer() {
           }}
         >
           <p className="oz-footer__copyright">
-            © {year} <strong className="oz-footer__brand-strong">Ozeonix Infinity</strong>. All
-            rights reserved.
+            © {year}{" "}
+            <Link
+              to={homePath}
+              onClick={handleLogoClick}
+              className="oz-footer__brand-strong oz-footer__brand-link"
+            >
+              Ozeonix Infinity
+            </Link>
+            . All rights reserved.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
             <MarketSelector variant="footer" />
