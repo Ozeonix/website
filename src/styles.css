@@ -101,9 +101,39 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
 
-  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.06);
-  --shadow-md: 0 4px 12px rgba(17, 24, 39, 0.08);
+  --shadow-sm: rgba(72, 86, 100, 0.1) 0px 2px 20px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 25px 0px;
   --shadow-lg: 0 12px 32px rgba(17, 24, 39, 0.12);
+
+  /* Canonical Motion Tokens (20 Tokens System) */
+  /* duration-fast */
+  --duration-fast-all: all;
+  --duration-fast-transform: transform;
+  --duration-fast-none: none;
+
+  /* duration-base */
+  --duration-base-ease-out: 0.2s ease-out;
+  --duration-base-ease-in-out: 0.3s ease-in-out;
+  --duration-base: 0.3s;
+  --duration-base-opacity: opacity 0.3s;
+
+  /* duration-slow */
+  --duration-slow-400: 0.4s;
+  --duration-slow-500: 0.5s;
+  --duration-slow-cursor: 0.5s infinite alternate moveCursor1;
+  --duration-slow-600: 0.6s;
+  --duration-slow-reveal: opacity 1s ease-in-out, transform 1s ease-in-out;
+  --duration-slow-reveal-02: opacity 1s ease-in-out 0.2s, transform 1s ease-in-out 0.2s;
+  --duration-slow-reveal-03: opacity 1s ease-in-out 0.3s, transform 1s ease-in-out 0.3s;
+  --duration-slow-reveal-04: opacity 1s ease-in-out 0.4s, transform 1s ease-in-out 0.4s;
+  --duration-slow-reveal-05: opacity 1s ease-in-out 0.5s, transform 1s ease-in-out 0.5s;
+  --duration-slow-reveal-06: opacity 1s ease-in-out 0.6s, transform 1s ease-in-out 0.6s;
+  --duration-slow-reveal-07: opacity 1s ease-in-out 0.7s, transform 1s ease-in-out 0.7s;
+  --duration-slow-reveal-08: opacity 1s ease-in-out 0.8s, transform 1s ease-in-out 0.8s;
+  --duration-slow-reveal-09: opacity 1s ease-in-out 0.9s, transform 1s ease-in-out 0.9s;
+
+  /* Card Composite Motion Token */
+  --card-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.2s ease-out, background-color 0.3s ease;
 
   /* Ozeonix Infinity Token Aliases (Mapped to Orange & Neutral Canonical Tokens) */
   --oz-primary: var(--text-primary);
@@ -573,14 +603,14 @@ p {
 }
 
 .card {
-  background-color: #ffffff;
-  border-radius: 0.75rem;
+  background-color: var(--surface, #ffffff);
+  border-radius: var(--radius-md, 0.75rem);
   border: 1px solid var(--border, #e5e7eb);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  transition: var(--card-transition);
 }
 .card:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
@@ -595,21 +625,18 @@ p {
 .oz-card {
   background-color: var(--oz-background);
   border: 1px solid color-mix(in oklab, var(--oz-primary) 14%, var(--oz-border));
-  border-radius: 8px;
+  border-radius: var(--radius-md, 10px);
   padding: var(--oz-card-pad);
-  box-shadow: 0 18px 42px -34px color-mix(in oklab, var(--oz-primary) 38%, transparent);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
+  box-shadow: var(--shadow-sm);
+  transition: var(--card-transition);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 @media (hover: hover) and (pointer: fine) {
   .oz-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 24px 48px -32px color-mix(in oklab, var(--oz-primary) 48%, transparent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
     border-color: color-mix(in oklab, var(--oz-action) 55%, var(--oz-border));
   }
 }
@@ -634,6 +661,65 @@ p {
   color: var(--oz-muted-foreground);
   font-size: var(--oz-fs-small);
   margin: 0;
+}
+
+/* Card Staggered Entrance Motion Tokens */
+.oz-card-stagger > :nth-child(1),
+.oz-grid > .oz-card:nth-child(1),
+.oz-grid-3 > .oz-card:nth-child(1),
+.oz-auto-grid > .oz-card:nth-child(1) {
+  transition: var(--duration-slow-reveal-02), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(2),
+.oz-grid > .oz-card:nth-child(2),
+.oz-grid-3 > .oz-card:nth-child(2),
+.oz-auto-grid > .oz-card:nth-child(2) {
+  transition: var(--duration-slow-reveal-03), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(3),
+.oz-grid > .oz-card:nth-child(3),
+.oz-grid-3 > .oz-card:nth-child(3),
+.oz-auto-grid > .oz-card:nth-child(3) {
+  transition: var(--duration-slow-reveal-04), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(4),
+.oz-grid > .oz-card:nth-child(4),
+.oz-grid-3 > .oz-card:nth-child(4),
+.oz-auto-grid > .oz-card:nth-child(4) {
+  transition: var(--duration-slow-reveal-05), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(5),
+.oz-grid > .oz-card:nth-child(5),
+.oz-grid-3 > .oz-card:nth-child(5),
+.oz-auto-grid > .oz-card:nth-child(5) {
+  transition: var(--duration-slow-reveal-06), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(6),
+.oz-grid > .oz-card:nth-child(6),
+.oz-grid-3 > .oz-card:nth-child(6),
+.oz-auto-grid > .oz-card:nth-child(6) {
+  transition: var(--duration-slow-reveal-07), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(7),
+.oz-grid > .oz-card:nth-child(7),
+.oz-grid-3 > .oz-card:nth-child(7),
+.oz-auto-grid > .oz-card:nth-child(7) {
+  transition: var(--duration-slow-reveal-08), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+.oz-card-stagger > :nth-child(8),
+.oz-grid > .oz-card:nth-child(8),
+.oz-grid-3 > .oz-card:nth-child(8),
+.oz-auto-grid > .oz-card:nth-child(8) {
+  transition: var(--duration-slow-reveal-09), box-shadow 0.3s ease-in-out, border-color 0.2s ease-out;
+}
+
+@keyframes moveCursor1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(6px, -6px);
+  }
 }
 
 .oz-form__privacy {
@@ -1620,14 +1706,9 @@ p {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
-  box-shadow:
-    0 2px 5px rgba(15, 23, 42, 0.03),
-    0 1px 2px rgba(15, 23, 42, 0.02);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  transition: var(--card-transition);
 }
 
 .oz-faq-card::before {
@@ -1648,10 +1729,8 @@ p {
 
 .oz-faq-card:hover {
   border-color: rgba(234, 88, 12, 0.35);
-  box-shadow:
-    0 8px 24px -6px rgba(234, 88, 12, 0.1),
-    0 2px 6px rgba(15, 23, 42, 0.04);
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .oz-faq-card:hover::before {
@@ -4117,11 +4196,7 @@ h6 {
 
 /* --- Colored cards (all light, no dark blue) --- */
 .oz-card {
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease;
+  transition: var(--card-transition);
 }
 
 .oz-card--accent {
@@ -4867,12 +4942,10 @@ h6 {
   border-radius: 18px;
   background: var(--oz-card, var(--oz-background));
   border: 1px solid var(--oz-border);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   isolation: isolate;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  transition: var(--card-transition);
   will-change: transform;
 }
 .oz-svc-card::before {
@@ -4886,9 +4959,7 @@ h6 {
 .oz-svc-card:hover {
   transform: translate3d(0, -4px, 0);
   border-color: color-mix(in oklab, var(--svc-accent) 45%, var(--oz-border));
-  box-shadow:
-    0 20px 40px -24px color-mix(in oklab, var(--svc-accent) 40%, transparent),
-    0 2px 6px -2px color-mix(in oklab, var(--oz-foreground) 8%, transparent);
+  box-shadow: var(--shadow-md);
 }
 .oz-svc-card__glow {
   position: absolute;
@@ -5403,14 +5474,13 @@ summary:focus-visible {
   border: 1px solid var(--border, #e5e7eb);
   border-radius: var(--oz-radius-lg, 16px);
   overflow: hidden;
-  box-shadow: 0 10px 30px -10px rgba(17, 24, 39, 0.08);
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  box-shadow: var(--shadow-sm);
+  transition: var(--card-transition);
 }
 .oz-process-overview-card:hover {
   border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 35%, transparent);
-  box-shadow: 0 16px 36px -12px color-mix(in oklab, var(--brand-orange, #ea580c) 15%, transparent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 .oz-process-hero {
   position: relative;
@@ -5782,6 +5852,11 @@ summary:focus-visible {
   border-radius: clamp(0.875rem, 2vw, 1.125rem);
   padding: var(--oz-card-pad);
   background: var(--oz-background);
+  box-shadow: var(--shadow-sm);
+  transition: var(--card-transition);
+}
+.oz-app-card:hover {
+  box-shadow: var(--shadow-md);
 }
 .oz-app-form {
   display: grid;
@@ -6887,15 +6962,10 @@ a.oz-btn,
   border-radius: 14px;
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow:
-    0 4px 16px -2px rgba(15, 23, 42, 0.04),
-    0 2px 4px -1px rgba(15, 23, 42, 0.02);
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
   overflow: hidden;
-  transition:
-    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.22s ease,
-    box-shadow 0.22s ease;
+  transition: var(--card-transition);
 }
 
 .oz-home-quicklink-card::after {
@@ -6912,11 +6982,9 @@ a.oz-btn,
 }
 
 .oz-home-quicklink-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: rgba(249, 115, 22, 0.45);
-  box-shadow:
-    0 14px 28px -4px rgba(249, 115, 22, 0.12),
-    0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--shadow-md);
 }
 
 .oz-home-quicklink-card:hover::after {

@@ -80,9 +80,32 @@ All UI components, pages, forms, navigation, buttons, and layouts across the app
   --radius-lg: 16px;
   --radius-xl: 24px;
 
-  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.06);
-  --shadow-md: 0 4px 12px rgba(17, 24, 39, 0.08);
+  --shadow-sm: rgba(72, 86, 100, 0.1) 0px 2px 20px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 25px 0px;
   --shadow-lg: 0 12px 32px rgba(17, 24, 39, 0.12);
+
+  /* Canonical Motion Tokens (20 Tokens System) */
+  --duration-fast-all: all;
+  --duration-fast-transform: transform;
+  --duration-fast-none: none;
+  --duration-base-ease-out: 0.2s ease-out;
+  --duration-base-ease-in-out: 0.3s ease-in-out;
+  --duration-base: 0.3s;
+  --duration-base-opacity: opacity 0.3s;
+  --duration-slow-400: 0.4s;
+  --duration-slow-500: 0.5s;
+  --duration-slow-cursor: 0.5s infinite alternate moveCursor1;
+  --duration-slow-600: 0.6s;
+  --duration-slow-reveal: opacity 1s ease-in-out, transform 1s ease-in-out;
+  --duration-slow-reveal-02: opacity 1s ease-in-out 0.2s, transform 1s ease-in-out 0.2s;
+  --duration-slow-reveal-03: opacity 1s ease-in-out 0.3s, transform 1s ease-in-out 0.3s;
+  --duration-slow-reveal-04: opacity 1s ease-in-out 0.4s, transform 1s ease-in-out 0.4s;
+  --duration-slow-reveal-05: opacity 1s ease-in-out 0.5s, transform 1s ease-in-out 0.5s;
+  --duration-slow-reveal-06: opacity 1s ease-in-out 0.6s, transform 1s ease-in-out 0.6s;
+  --duration-slow-reveal-07: opacity 1s ease-in-out 0.7s, transform 1s ease-in-out 0.7s;
+  --duration-slow-reveal-08: opacity 1s ease-in-out 0.8s, transform 1s ease-in-out 0.8s;
+  --duration-slow-reveal-09: opacity 1s ease-in-out 0.9s, transform 1s ease-in-out 0.9s;
+  --card-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.2s ease-out, background-color 0.3s ease;
 }
 ```
 

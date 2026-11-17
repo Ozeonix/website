@@ -39,4 +39,35 @@ describe("Brand Design System & CSS Invariants", () => {
     assert.ok(content.includes("gap: 2px"), "Must have 2px gap on desktop");
     assert.ok(content.includes("justify-content: center"), "Must center buttons on mobile");
   });
+
+  it("defines motion tokens and shadow tokens for card animations", () => {
+    const cssPath = path.join(rootDir, "src", "styles.css");
+    const content = fs.readFileSync(cssPath, "utf-8");
+
+    // Shadow tokens
+    assert.ok(
+      content.includes("rgba(72, 86, 100, 0.1) 0px 2px 20px 0px"),
+      "Must define shadow-sm as rgba(72, 86, 100, 0.1) 0px 2px 20px 0px",
+    );
+    assert.ok(
+      content.includes("rgba(0, 0, 0, 0.1) 0px 0px 25px 0px"),
+      "Must define shadow-md as rgba(0, 0, 0, 0.1) 0px 0px 25px 0px",
+    );
+
+    // Motion tokens
+    assert.ok(content.includes("--duration-fast-all"), "Must define duration-fast all");
+    assert.ok(content.includes("--duration-fast-transform"), "Must define duration-fast transform");
+    assert.ok(content.includes("--duration-fast-none"), "Must define duration-fast none");
+    assert.ok(content.includes("--duration-base-ease-out"), "Must define duration-base ease-out");
+    assert.ok(
+      content.includes("--duration-base-ease-in-out"),
+      "Must define duration-base ease-in-out",
+    );
+    assert.ok(content.includes("--duration-slow-reveal"), "Must define duration-slow reveal");
+    assert.ok(content.includes("moveCursor1"), "Must define moveCursor1 keyframe animation");
+
+    // Card application
+    assert.ok(content.includes("--card-transition"), "Must define --card-transition");
+    assert.ok(content.includes(".oz-card"), "Must style .oz-card");
+  });
 });
