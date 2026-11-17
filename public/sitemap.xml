@@ -7,12 +7,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ozeonix.com/pricing</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://ozeonix.com/np</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -26,12 +20,6 @@
   </url>
   <url>
     <loc>https://ozeonix.com/np/services</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ozeonix.com/np/pricing</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -61,12 +49,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ozeonix.com/in/pricing</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ozeonix.com/in/contact</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -86,12 +68,6 @@
   </url>
   <url>
     <loc>https://ozeonix.com/global/services</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ozeonix.com/global/pricing</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

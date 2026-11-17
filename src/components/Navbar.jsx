@@ -83,7 +83,6 @@ const MENUS = [
       { to: "/portfolio", label: "Portfolio", d: "Selected work & demos" },
     ],
   },
-  { label: "Pricing", to: "/pricing" },
   {
     label: "Resources",
     children: [{ to: "/faq", label: "FAQ", d: "Common questions answered" }],

@@ -176,8 +176,8 @@ describe("International SEO & Hreflang Tags", () => {
   });
 
   it("generates valid canonical links", () => {
-    assert.equal(buildCanonicalLink("/np/pricing").href, "https://ozeonix.com/np/pricing");
-    assert.equal(buildCanonicalLink("/pricing").href, "https://ozeonix.com/pricing");
+    assert.equal(buildCanonicalLink("/np/services").href, "https://ozeonix.com/np/services");
+    assert.equal(buildCanonicalLink("/services").href, "https://ozeonix.com/services");
   });
 });
 
@@ -189,16 +189,13 @@ describe("File Architecture & Routing Integrity", () => {
     "src/routes/$market.index.jsx",
     "src/routes/$market.about.jsx",
     "src/routes/$market.services.jsx",
-    "src/routes/$market.pricing.jsx",
     "src/routes/$market.contact.jsx",
-    "src/routes/pricing.jsx",
   ];
 
   const expectedSharedViews = [
     "src/components/pages/HomePageView.jsx",
     "src/components/pages/AboutPageView.jsx",
     "src/components/pages/ServicesPageView.jsx",
-    "src/components/pages/PricingPageView.jsx",
     "src/components/pages/ContactPageView.jsx",
     "src/components/MarketSelector.jsx",
   ];
@@ -209,18 +206,55 @@ describe("File Architecture & Routing Integrity", () => {
     }
   });
 
+  it("ensures pricing routes and views have been completely removed", () => {
+    const deletedFiles = [
+      "src/routes/pricing.jsx",
+      "src/routes/$market.pricing.jsx",
+      "src/components/pages/PricingPageView.jsx",
+    ];
+    for (const rel of deletedFiles) {
+      assert.strictEqual(fs.existsSync(path.join(root, rel)), false, `File ${rel} must be deleted`);
+    }
+
+    const navbarContent = fs.readFileSync(path.join(root, "src/components/Navbar.jsx"), "utf-8");
+    assert.strictEqual(
+      navbarContent.includes('"Pricing"') || navbarContent.includes("to: '/pricing'"),
+      false,
+      "Navbar must not have Pricing link",
+    );
+  });
+
   it("contains all shared reusable page views and UI selector", () => {
     for (const rel of expectedSharedViews) {
       assert.ok(fs.existsSync(path.join(root, rel)), `Component ${rel} must exist`);
     }
   });
 
-  it("updates sitemaps to include all regional URLs", () => {
+  it("updates sitemaps to include all regional URLs and omit pricing", () => {
     const sitemapXml = fs.readFileSync(path.join(root, "public", "sitemap.xml"), "utf-8");
     assert.ok(sitemapXml.includes("https://ozeonix.com/np"), "Must include /np");
     assert.ok(sitemapXml.includes("https://ozeonix.com/in"), "Must include /in");
     assert.ok(sitemapXml.includes("https://ozeonix.com/global"), "Must include /global");
-    assert.ok(sitemapXml.includes("https://ozeonix.com/pricing"), "Must include /pricing");
+    assert.strictEqual(
+      sitemapXml.includes("https://ozeonix.com/pricing"),
+      false,
+      "Must not include /pricing",
+    );
+    assert.strictEqual(
+      sitemapXml.includes("https://ozeonix.com/np/pricing"),
+      false,
+      "Must not include /np/pricing",
+    );
+    assert.strictEqual(
+      sitemapXml.includes("https://ozeonix.com/in/pricing"),
+      false,
+      "Must not include /in/pricing",
+    );
+    assert.strictEqual(
+      sitemapXml.includes("https://ozeonix.com/global/pricing"),
+      false,
+      "Must not include /global/pricing",
+    );
   });
 
   it("does not use flag emojis and enables Google Translate auto-suggestion", () => {

@@ -21,7 +21,6 @@ import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as ProductsRouteImport } from './routes/products'
@@ -33,7 +32,6 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as MarketIndexRouteImport } from './routes/$market.index'
 import { Route as MarketAboutRouteImport } from './routes/$market.about'
 import { Route as MarketContactRouteImport } from './routes/$market.contact'
-import { Route as MarketPricingRouteImport } from './routes/$market.pricing'
 import { Route as MarketServicesRouteImport } from './routes/$market.services'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedPartnerRouteImport } from './routes/_authenticated/partner'
@@ -106,11 +104,6 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -164,11 +157,6 @@ const MarketAboutRoute = MarketAboutRouteImport.update({
 const MarketContactRoute = MarketContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => MarketRoute,
-} as any)
-const MarketPricingRoute = MarketPricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
   getParentRoute: () => MarketRoute,
 } as any)
 const MarketServicesRoute = MarketServicesRouteImport.update({
@@ -244,7 +232,6 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -255,7 +242,6 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/$market/about': typeof MarketAboutRoute
   '/$market/contact': typeof MarketContactRoute
-  '/$market/pricing': typeof MarketPricingRoute
   '/$market/services': typeof MarketServicesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/partner': typeof AuthenticatedPartnerRoute
@@ -281,7 +267,6 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -291,7 +276,6 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/$market/about': typeof MarketAboutRoute
   '/$market/contact': typeof MarketContactRoute
-  '/$market/pricing': typeof MarketPricingRoute
   '/$market/services': typeof MarketServicesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/partner': typeof AuthenticatedPartnerRoute
@@ -320,7 +304,6 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/portfolio': typeof PortfolioRoute
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
@@ -331,7 +314,6 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/$market/about': typeof MarketAboutRoute
   '/$market/contact': typeof MarketContactRoute
-  '/$market/pricing': typeof MarketPricingRoute
   '/$market/services': typeof MarketServicesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/partner': typeof AuthenticatedPartnerRoute
@@ -360,7 +342,6 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
-    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -371,7 +352,6 @@ export interface FileRouteTypes {
     | '/terms'
     | '/$market/about'
     | '/$market/contact'
-    | '/$market/pricing'
     | '/$market/services'
     | '/admin'
     | '/partner'
@@ -397,7 +377,6 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
-    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -407,7 +386,6 @@ export interface FileRouteTypes {
     | '/terms'
     | '/$market/about'
     | '/$market/contact'
-    | '/$market/pricing'
     | '/$market/services'
     | '/admin'
     | '/partner'
@@ -435,7 +413,6 @@ export interface FileRouteTypes {
     | '/faq'
     | '/industries'
     | '/portfolio'
-    | '/pricing'
     | '/privacy'
     | '/process'
     | '/products'
@@ -446,7 +423,6 @@ export interface FileRouteTypes {
     | '/terms'
     | '/$market/about'
     | '/$market/contact'
-    | '/$market/pricing'
     | '/$market/services'
     | '/_authenticated/admin'
     | '/_authenticated/partner'
@@ -475,7 +451,6 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PortfolioRoute: typeof PortfolioRoute
-  PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   ProductsRoute: typeof ProductsRoute
@@ -576,13 +551,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -658,13 +626,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/$market/contact'
       preLoaderRoute: typeof MarketContactRouteImport
-      parentRoute: typeof MarketRoute
-    }
-    '/$market/pricing': {
-      id: '/$market/pricing'
-      path: '/pricing'
-      fullPath: '/$market/pricing'
-      preLoaderRoute: typeof MarketPricingRouteImport
       parentRoute: typeof MarketRoute
     }
     '/$market/services': {
@@ -770,7 +731,6 @@ const AuthenticatedRouteRouteWithChildren =
 interface MarketRouteChildren {
   MarketAboutRoute: typeof MarketAboutRoute
   MarketContactRoute: typeof MarketContactRoute
-  MarketPricingRoute: typeof MarketPricingRoute
   MarketServicesRoute: typeof MarketServicesRoute
   MarketIndexRoute: typeof MarketIndexRoute
 }
@@ -778,7 +738,6 @@ interface MarketRouteChildren {
 const MarketRouteChildren: MarketRouteChildren = {
   MarketAboutRoute: MarketAboutRoute,
   MarketContactRoute: MarketContactRoute,
-  MarketPricingRoute: MarketPricingRoute,
   MarketServicesRoute: MarketServicesRoute,
   MarketIndexRoute: MarketIndexRoute,
 }
@@ -829,7 +788,6 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PortfolioRoute: PortfolioRoute,
-  PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   ProductsRoute: ProductsRoute,

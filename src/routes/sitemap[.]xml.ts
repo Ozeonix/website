@@ -16,7 +16,6 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", lastmod: "2026-11-18", changefreq: "weekly", priority: "1.0" },
-          { path: "/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
           { path: "/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
           {
             path: "/services/erp-development",
@@ -50,14 +49,12 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/np", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
           { path: "/np/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
           { path: "/np/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
-          { path: "/np/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
           { path: "/np/contact", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
 
           // Regional Market - India
           { path: "/in", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.9" },
           { path: "/in/about", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
           { path: "/in/services", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
-          { path: "/in/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
           { path: "/in/contact", lastmod: "2026-11-18", changefreq: "monthly", priority: "0.8" },
 
           // Regional Market - Global
@@ -69,7 +66,6 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly",
             priority: "0.8",
           },
-          { path: "/global/pricing", lastmod: "2026-11-18", changefreq: "weekly", priority: "0.8" },
           {
             path: "/global/contact",
             lastmod: "2026-11-18",
