@@ -80,4 +80,25 @@ describe("Route Files & Structured Data Integrity", () => {
       "Navbar must render LanguageSwitcher",
     );
   });
+
+  it("NotFoundComponent does not duplicate Navbar or Footer", () => {
+    const rootPath = path.join(rootDir, "src", "routes", "__root.jsx");
+    const rootContent = fs.readFileSync(rootPath, "utf-8");
+
+    // Extract NotFoundComponent block
+    const notFoundMatch = rootContent.match(/function NotFoundComponent\(\)\s*\{([\s\S]*?)\n\}/);
+    assert.ok(notFoundMatch, "NotFoundComponent must be defined in __root.jsx");
+    const notFoundBody = notFoundMatch[1];
+
+    assert.strictEqual(
+      notFoundBody.includes("<Navbar"),
+      false,
+      "NotFoundComponent must not render <Navbar /> directly to avoid duplicate navigation",
+    );
+    assert.strictEqual(
+      notFoundBody.includes("<Footer"),
+      false,
+      "NotFoundComponent must not render <Footer /> directly to avoid duplicate footers",
+    );
+  });
 });

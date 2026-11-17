@@ -21,22 +21,16 @@ import { captureReferralCode } from "../lib/referral.js";
 
 function NotFoundComponent() {
   return (
-    <LanguageProvider>
-      <Navbar />
-      <main id="main-content" tabIndex={-1}>
-        <section className="oz-section">
-          <div className="oz-container oz-center">
-            <span className="oz-eyebrow">404</span>
-            <h1>We couldn’t find that page</h1>
-            <p className="oz-muted">The link may be broken, or the page may have moved.</p>
-            <Link to="/" className="oz-btn oz-btn--primary" style={{ marginTop: 16 }}>
-              Go home
-            </Link>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </LanguageProvider>
+    <section className="oz-section" aria-label="Page not found">
+      <div className="oz-container oz-center">
+        <span className="oz-eyebrow">404</span>
+        <h1>We couldn’t find that page</h1>
+        <p className="oz-muted">The link may be broken, or the page may have moved.</p>
+        <Link to="/" className="oz-btn oz-btn--primary" style={{ marginTop: 16 }}>
+          Go home
+        </Link>
+      </div>
+    </section>
   );
 }
 
@@ -48,33 +42,27 @@ function ErrorComponent({ error, reset }) {
   }, [error]);
 
   return (
-    <LanguageProvider>
-      <Navbar />
-      <main id="main-content" tabIndex={-1}>
-        <section className="oz-section">
-          <div className="oz-container oz-center">
-            <span className="oz-eyebrow">Something went wrong</span>
-            <h1>This page didn’t load</h1>
-            <p className="oz-muted">You can try again, or head back to the homepage.</p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 16 }}>
-              <button
-                className="oz-btn oz-btn--primary"
-                onClick={() => {
-                  router.invalidate();
-                  reset();
-                }}
-              >
-                Try again
-              </button>
-              <Link to="/" className="oz-btn oz-btn--outline">
-                Go home
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </LanguageProvider>
+    <section className="oz-section" aria-label="Something went wrong">
+      <div className="oz-container oz-center">
+        <span className="oz-eyebrow">Something went wrong</span>
+        <h1>This page didn’t load</h1>
+        <p className="oz-muted">You can try again, or head back to the homepage.</p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 16 }}>
+          <button
+            className="oz-btn oz-btn--primary"
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+          >
+            Try again
+          </button>
+          <Link to="/" className="oz-btn oz-btn--outline">
+            Go home
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 
