@@ -129,8 +129,8 @@ const FEATURES = [
     Icon: Award,
     title: "Certificates & Badges",
     desc: "Automated certificate generation and digital badges to recognize and motivate learner achievement.",
-    img: "https://images.unsplash.com/photo-1569533086760-99470c35b6e5?auto=format&fit=crop&w=600&q=80",
-    imgAlt: "Digital certificates and achievement badges",
+    img: "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80",
+    imgAlt: "Digital educational certificate with official seal and signatures",
   },
 ];
 

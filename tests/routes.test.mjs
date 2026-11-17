@@ -101,4 +101,20 @@ describe("Route Files & Structured Data Integrity", () => {
       "NotFoundComponent must not render <Footer /> directly to avoid duplicate footers",
     );
   });
+
+  it("LMS platforms route defines valid photographic feature cards without missing images", () => {
+    const lmsPath = path.join(rootDir, "src", "routes", "services.lms-platforms.jsx");
+    const content = fs.readFileSync(lmsPath, "utf-8");
+
+    assert.ok(content.includes("Certificates & Badges"), "Must include Certificates & Badges card");
+    assert.strictEqual(
+      content.includes("photo-1569533086760-99470c35b6e5"),
+      false,
+      "Broken 404 Unsplash image photo-1569533086760-99470c35b6e5 must be replaced",
+    );
+    assert.ok(
+      content.includes("photo-1589330694653-ded6df03f754"),
+      "Must use verified certificate image photo-1589330694653-ded6df03f754",
+    );
+  });
 });
