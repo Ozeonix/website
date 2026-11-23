@@ -246,6 +246,39 @@
   --oz-focus-ring:
     0 0 0 3px color-mix(in oklab, var(--oz-accent) 60%, transparent),
     0 0 0 5px color-mix(in oklab, var(--oz-primary) 92%, transparent);
+
+  /* ================================================================
+     Gopalan Workspace Design Tokens (Reverse-Engineered)
+     Source: https://gopalanworkspace.com/
+     Applied: shadows, motion, radius from .ozeonix/Design inspector/
+     ================================================================ */
+
+  /* Gopalan shadows — precise, elevation-aware */
+  --gw-shadow-sm: rgba(0, 0, 0, 0.1) 0px 3px 7px 0px;
+  --gw-shadow-md: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+
+  /* Gopalan motion — all interactions use ease-in-out */
+  --gw-transition-fast: 0.2s ease-in-out;
+  --gw-transition-interact: background, border, border-radius, box-shadow, transform 0.2s ease-in-out;
+  --gw-transition-motion: transform, opacity, width 0.2s ease-in-out;
+
+  /* Gopalan radius scale */
+  --gw-radius-xs: 3px;
+  --gw-radius-sm: 7px;
+  --gw-radius-md: 14px;
+  --gw-radius-pill: 15px;
+  --gw-radius-full: 150px;
+
+  /* Lazy entrance animation durations */
+  --gw-enter-duration: 0.55s;
+  --gw-enter-easing: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Card composite transition using Gopalan tokens */
+  --gw-card-transition:
+    transform var(--gw-transition-fast),
+    box-shadow var(--gw-transition-fast),
+    border-color var(--gw-transition-fast),
+    background-color var(--gw-transition-fast);
 }
 
 /* Base reset */
@@ -467,7 +500,7 @@ p {
   }
 }
 
-/* Buttons */
+/* Buttons — upgraded with Gopalan ease-in-out transitions */
 .oz-btn {
   display: inline-flex;
   align-items: center;
@@ -480,11 +513,11 @@ p {
   font-weight: var(--oz-fw-btn);
   font-size: var(--oz-fs-btn);
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   border: 1px solid transparent;
   line-height: 1;
   white-space: nowrap;
@@ -610,16 +643,17 @@ p {
 
 .card {
   background-color: var(--surface, #ffffff);
-  border-radius: var(--radius-md, 0.75rem);
+  border-radius: var(--gw-radius-md, 14px);
   border: 1px solid var(--border, #e5e7eb);
-  box-shadow: var(--shadow-sm);
-  transition: var(--card-transition);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-card-transition);
+  will-change: transform, box-shadow;
 }
 .card:hover,
 .card:focus-within {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-6px);
-  border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 45%, var(--border, #e5e7eb));
+  box-shadow: var(--gw-shadow-md);
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 40%, var(--border, #e5e7eb));
 }
 
 .glass-effect {
@@ -629,23 +663,24 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Card */
+/* Card — Gopalan-spec elevation, motion, and radius */
 .oz-card {
   background-color: var(--oz-background);
   border: 1px solid color-mix(in oklab, var(--oz-primary) 14%, var(--oz-border));
-  border-radius: var(--radius-md, 10px);
+  border-radius: var(--gw-radius-md, 14px);
   padding: var(--oz-card-pad);
-  box-shadow: var(--shadow-sm);
-  transition: var(--card-transition);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-card-transition);
   height: 100%;
   display: flex;
   flex-direction: column;
+  will-change: transform, box-shadow;
 }
 .oz-card:hover,
 .oz-card:focus-within {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 55%, var(--oz-border));
+  transform: translateY(-4px);
+  box-shadow: var(--gw-shadow-md);
+  border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 45%, var(--oz-border));
 }
 .oz-card__icon {
   width: var(--oz-icon-size);
@@ -679,7 +714,7 @@ p {
   margin: 0;
 }
 
-/* Card Image Motion (duration-slow: 0.4s) */
+/* Card Image Motion (Gopalan duration-fast: transform 0.2s ease-in-out) */
 .oz-card img,
 .oz-card .oz-card__media img,
 .oz-process-overview-card img,
@@ -690,21 +725,26 @@ p {
 .oz-card:hover .oz-card__media img,
 .oz-process-overview-card:hover img,
 .oz-svc-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* Card Action Link Motion (duration-base: 0.2s ease-out) */
+/* Card Action Link Motion (Gopalan: transform, opacity, width 0.2s ease-in-out) */
 .oz-card:hover .oz-home-solution__link svg,
 .oz-card:hover a > svg,
 .oz-card:hover button > svg,
 .oz-home-quicklink-card:hover .oz-home-quicklink__arrow {
   transform: translateX(4px);
-  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Card Staggered Entrance Motion Tokens */
+/* ================================================================
+   Card Grid Stagger — Gopalan-inspired delay scale
+   Cards fade-in and rise in sequence when entering the viewport.
+   Pairs with the Reveal component (IntersectionObserver).
+   ================================================================ */
+
+/* Grid stagger: children get increasing delays via --oz-reveal-delay */
 .oz-card-stagger > :nth-child(1),
-.oz-card-stagger > :nth-child(1) .oz-card,
 .oz-grid > .oz-card:nth-child(1),
 .oz-grid > .oz-reveal:nth-child(1),
 .oz-grid-3 > .oz-card:nth-child(1),
@@ -713,10 +753,9 @@ p {
 .oz-auto-grid > .oz-reveal:nth-child(1),
 .oz-home-solutions__grid > :nth-child(1),
 .oz-home-work__grid > :nth-child(1) {
-  transition: var(--duration-slow-reveal-02);
+  --oz-reveal-delay: 0.05s;
 }
 .oz-card-stagger > :nth-child(2),
-.oz-card-stagger > :nth-child(2) .oz-card,
 .oz-grid > .oz-card:nth-child(2),
 .oz-grid > .oz-reveal:nth-child(2),
 .oz-grid-3 > .oz-card:nth-child(2),
@@ -725,10 +764,9 @@ p {
 .oz-auto-grid > .oz-reveal:nth-child(2),
 .oz-home-solutions__grid > :nth-child(2),
 .oz-home-work__grid > :nth-child(2) {
-  transition: var(--duration-slow-reveal-03);
+  --oz-reveal-delay: 0.12s;
 }
 .oz-card-stagger > :nth-child(3),
-.oz-card-stagger > :nth-child(3) .oz-card,
 .oz-grid > .oz-card:nth-child(3),
 .oz-grid > .oz-reveal:nth-child(3),
 .oz-grid-3 > .oz-card:nth-child(3),
@@ -737,10 +775,9 @@ p {
 .oz-auto-grid > .oz-reveal:nth-child(3),
 .oz-home-solutions__grid > :nth-child(3),
 .oz-home-work__grid > :nth-child(3) {
-  transition: var(--duration-slow-reveal-04);
+  --oz-reveal-delay: 0.19s;
 }
 .oz-card-stagger > :nth-child(4),
-.oz-card-stagger > :nth-child(4) .oz-card,
 .oz-grid > .oz-card:nth-child(4),
 .oz-grid > .oz-reveal:nth-child(4),
 .oz-grid-3 > .oz-card:nth-child(4),
@@ -749,47 +786,43 @@ p {
 .oz-auto-grid > .oz-reveal:nth-child(4),
 .oz-home-solutions__grid > :nth-child(4),
 .oz-home-work__grid > :nth-child(4) {
-  transition: var(--duration-slow-reveal-05);
+  --oz-reveal-delay: 0.26s;
 }
 .oz-card-stagger > :nth-child(5),
-.oz-card-stagger > :nth-child(5) .oz-card,
 .oz-grid > .oz-card:nth-child(5),
 .oz-grid > .oz-reveal:nth-child(5),
 .oz-grid-3 > .oz-card:nth-child(5),
 .oz-grid-3 > .oz-reveal:nth-child(5),
 .oz-auto-grid > .oz-card:nth-child(5),
 .oz-auto-grid > .oz-reveal:nth-child(5) {
-  transition: var(--duration-slow-reveal-06);
+  --oz-reveal-delay: 0.33s;
 }
 .oz-card-stagger > :nth-child(6),
-.oz-card-stagger > :nth-child(6) .oz-card,
 .oz-grid > .oz-card:nth-child(6),
 .oz-grid > .oz-reveal:nth-child(6),
 .oz-grid-3 > .oz-card:nth-child(6),
 .oz-grid-3 > .oz-reveal:nth-child(6),
 .oz-auto-grid > .oz-card:nth-child(6),
 .oz-auto-grid > .oz-reveal:nth-child(6) {
-  transition: var(--duration-slow-reveal-07);
+  --oz-reveal-delay: 0.40s;
 }
 .oz-card-stagger > :nth-child(7),
-.oz-card-stagger > :nth-child(7) .oz-card,
 .oz-grid > .oz-card:nth-child(7),
 .oz-grid > .oz-reveal:nth-child(7),
 .oz-grid-3 > .oz-card:nth-child(7),
 .oz-grid-3 > .oz-reveal:nth-child(7),
 .oz-auto-grid > .oz-card:nth-child(7),
 .oz-auto-grid > .oz-reveal:nth-child(7) {
-  transition: var(--duration-slow-reveal-08);
+  --oz-reveal-delay: 0.47s;
 }
 .oz-card-stagger > :nth-child(8),
-.oz-card-stagger > :nth-child(8) .oz-card,
 .oz-grid > .oz-card:nth-child(8),
 .oz-grid > .oz-reveal:nth-child(8),
 .oz-grid-3 > .oz-card:nth-child(8),
 .oz-grid-3 > .oz-reveal:nth-child(8),
 .oz-auto-grid > .oz-card:nth-child(8),
 .oz-auto-grid > .oz-reveal:nth-child(8) {
-  transition: var(--duration-slow-reveal-09);
+  --oz-reveal-delay: 0.54s;
 }
 
 @keyframes moveCursor1 {
@@ -836,7 +869,6 @@ p {
 }
 .oz-nav.is-scrolled {
   background-color: rgba(255, 255, 255, 0.98);
-  border-bottom-color: #e5e7eb;
   box-shadow:
     0 4px 20px -2px rgba(17, 24, 39, 0.08),
     0 2px 6px -1px rgba(17, 24, 39, 0.04);
@@ -970,7 +1002,6 @@ p {
 .oz-navitem.is-open > .oz-navitem__trigger {
   color: var(--brand-orange, #ea580c);
   font-weight: 600;
-  border-bottom-color: var(--brand-orange, #ea580c);
 }
 .oz-nav__cta {
   display: none;
@@ -1012,7 +1043,7 @@ p {
 }
 .oz-nav__mobile {
   display: none;
-  border-top: 1px solid var(--oz-border);
+
   padding: var(--oz-space-4) 0;
   max-height: calc(100dvh - clamp(4rem, 6vw, 4.5rem));
   overflow-y: auto;
@@ -1365,8 +1396,6 @@ p {
   overflow: hidden;
   background: #ffffff;
   padding-block: clamp(4rem, 7vw, 6rem);
-  border-top: 1px solid rgba(226, 232, 240, 0.8);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 /* Ambient Corner Glows, Wave Line & Grid Accents */
@@ -1797,10 +1826,11 @@ p {
   position: relative;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--gw-radius-md, 14px);
+  box-shadow: var(--gw-shadow-sm);
   overflow: hidden;
-  transition: var(--card-transition);
+  transition: var(--gw-card-transition);
+  will-change: transform, box-shadow;
 }
 
 .oz-faq-card::before {
@@ -1821,7 +1851,7 @@ p {
 
 .oz-faq-card:hover {
   border-color: rgba(234, 88, 12, 0.35);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--gw-shadow-md);
   transform: translateY(-2px);
 }
 
@@ -2508,7 +2538,6 @@ fieldset.oz-field {
   gap: 0.65rem;
   padding-top: 0.75rem;
   margin-top: 0.25rem;
-  border-top: 1px solid #f3f4f6;
 }
 @media (min-width: 540px) {
   .oz-form__submit-row {
@@ -2618,7 +2647,6 @@ fieldset.oz-field {
   color: var(--oz-primary-foreground);
   padding: clamp(3rem, 6vw, 5.25rem) 0 0;
   margin-top: var(--oz-space-9);
-  border-top: 4px solid var(--oz-accent);
 }
 .oz-footer h4 {
   color: var(--oz-primary-foreground);
@@ -2707,14 +2735,12 @@ fieldset.oz-field {
 .oz-footer__local {
   margin-top: var(--oz-space-5);
   padding-top: var(--oz-space-4);
-  border-top: 1px solid hsl(0 0% 100% / 0.12);
   color: hsl(0 0% 100% / 0.68);
   font-size: 0.82rem;
   line-height: 1.65;
 }
 .oz-footer__bottom {
   width: 100%;
-  border-top: 1px solid hsl(0 0% 100% / 0.12);
   padding: var(--oz-space-5) 0;
   display: flex;
   flex-wrap: wrap;
@@ -2779,7 +2805,6 @@ fieldset.oz-field {
   color: #ffffff;
   padding: 0;
   margin-top: var(--oz-space-9);
-  border-top: 4px solid var(--brand-orange, #ea580c);
 }
 
 /* Ambient Kinetic Wave Vector Background */
@@ -3631,7 +3656,6 @@ fieldset.oz-field {
 }
 
 .oz-footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.25rem;
   margin-top: 1.25rem;
   display: flex;
@@ -5650,20 +5674,21 @@ summary:focus-visible {
   align-items: flex-start;
   gap: 1.25rem;
   padding: 1.35rem 1.5rem;
-  border-radius: var(--oz-radius-lg, 16px);
+  border-radius: var(--gw-radius-md, 14px);
   background: var(--surface, #ffffff);
   border: 1px solid var(--border, #e5e7eb);
-  box-shadow: 0 4px 16px -4px rgba(17, 24, 39, 0.05);
+  box-shadow: var(--gw-shadow-sm);
   transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    transform var(--gw-transition-fast),
+    border-color var(--gw-transition-fast),
+    box-shadow var(--gw-transition-fast);
+  will-change: transform, box-shadow;
 }
 
 .oz-process-step:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: color-mix(in oklab, var(--brand-orange, #ea580c) 40%, transparent);
-  box-shadow: 0 12px 28px -8px color-mix(in oklab, var(--brand-orange, #ea580c) 14%, transparent);
+  box-shadow: var(--gw-shadow-md);
 }
 
 .oz-process-step-icon-wrap {
@@ -5685,11 +5710,11 @@ summary:focus-visible {
   );
   color: #ffffff;
   box-shadow: 0 6px 16px -4px color-mix(in oklab, var(--brand-orange, #ea580c) 45%, transparent);
-  transition: transform 0.25s ease;
+  transition: transform var(--gw-transition-fast);
 }
 
 .oz-process-step:hover .oz-process-icon-circle {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .oz-process-step-content {
@@ -6365,7 +6390,6 @@ a.oz-btn,
 }
 .oz-token-section {
   padding-block: var(--oz-space-5);
-  border-top: var(--oz-border-width) solid var(--oz-border);
 }
 .oz-token-grid {
   display: grid;
@@ -6609,7 +6633,6 @@ a.oz-btn,
   max-width: 38rem;
   margin: 0;
   padding-top: var(--oz-space-5);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 .oz-home-hero__proof div {
   min-width: 0;
@@ -7181,8 +7204,6 @@ a.oz-btn,
    ========================================================================== */
 .oz-home-trust {
   position: relative;
-  border-top: 1px solid var(--oz-border);
-  border-bottom: 1px solid var(--oz-border);
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   padding-block: clamp(2.5rem, 5vw, 3.75rem);
 }
@@ -7286,13 +7307,14 @@ a.oz-btn,
   width: 100%;
   min-height: 5.25rem;
   padding: 1.15rem 1.25rem;
-  border-radius: 14px;
+  border-radius: var(--gw-radius-md, 14px);
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--gw-shadow-sm);
   text-decoration: none;
   overflow: hidden;
-  transition: var(--card-transition);
+  transition: var(--gw-card-transition);
+  will-change: transform, box-shadow;
 }
 
 .oz-home-quicklink-card::after {
@@ -7310,9 +7332,9 @@ a.oz-btn,
 
 .oz-home-quicklink-card:hover,
 .oz-home-quicklink-card:focus-within {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(249, 115, 22, 0.55);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--gw-shadow-md);
 }
 
 .oz-home-quicklink-card:hover::after {
@@ -7402,11 +7424,8 @@ a.oz-btn,
   position: relative;
   overflow: hidden;
   min-height: 100%;
-  border-top: 0.25rem solid var(--oz-action);
 }
-.oz-home-solutions__grid > :nth-child(even) .oz-home-solution {
-  border-top-color: var(--oz-accent);
-}
+
 .oz-home-solution__number {
   color: var(--oz-primary);
   font-size: 0.8rem;
@@ -7418,7 +7437,6 @@ a.oz-btn,
 .oz-home-solution__proof {
   margin-top: auto;
   padding-top: var(--oz-space-4);
-  border-top: 1px solid var(--oz-border);
   color: var(--oz-muted-foreground);
 }
 .oz-home-solution__proof strong {
@@ -7441,9 +7459,10 @@ a.oz-btn,
   display: grid;
   gap: var(--oz-space-5);
 }
+/* Solutions & Work Cards — Gopalan-spec elevation */
 .oz-home-work .oz-card--media {
   height: 100%;
-  border-radius: 8px;
+  border-radius: var(--gw-radius-md, 14px);
 }
 .oz-home-work .oz-card--media {
   border-bottom: 0.25rem solid var(--oz-action);
