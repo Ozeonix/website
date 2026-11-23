@@ -218,71 +218,24 @@ export default function ServicesPageView() {
           <div className="oz-grid oz-grid-3">
             {GROUPS.map(({ title, Icon, img, imgAlt, items }, i) => (
               <Reveal key={title} index={i % 3}>
-                <article
-                  className="oz-card"
-                  style={{
-                    padding: 0,
-                    overflow: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
-                    <img
-                      src={img}
-                      alt={imgAlt}
-                      loading="lazy"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
-                    />
+                <article className="oz-svc-feature-card">
+                  <div className="oz-svc-media">
+                    <img src={img} alt={imgAlt} loading="lazy" />
                   </div>
-                  <div
-                    style={{
-                      padding: "clamp(1rem, 2vw, 1.25rem)",
-                      flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <span
-                      className="oz-card__icon"
-                      style={{
-                        marginBottom: 10,
-                        background: "var(--brand-orange, #ea580c)",
-                        color: "#fff",
-                      }}
-                      aria-hidden="true"
-                    >
-                      <Icon size={20} strokeWidth={1.75} />
+                  <div className="oz-svc-body">
+                    <span className="oz-svc-icon-badge" aria-hidden="true">
+                      <Icon size={20} strokeWidth={2} />
                     </span>
                     <h3 style={{ marginTop: 0 }}>{title}</h3>
-                    <ul
-                      style={{
-                        listStyle: "none",
-                        padding: 0,
-                        margin: 0,
-                        display: "grid",
-                        gap: 7,
-                        flex: 1,
-                      }}
-                    >
+                    <ul className="oz-svc-list">
                       {items.map((it) => (
-                        <li key={it} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                        <li key={it}>
                           <CheckCircle2
                             size={15}
                             strokeWidth={2}
-                            style={{
-                              flexShrink: 0,
-                              marginTop: 2,
-                              color: "var(--brand-orange, #ea580c)",
-                            }}
                             aria-hidden="true"
                           />
-                          <span style={{ fontSize: "0.875rem" }}>{it}</span>
+                          <span>{it}</span>
                         </li>
                       ))}
                     </ul>
@@ -308,38 +261,13 @@ export default function ServicesPageView() {
           <div className="oz-grid oz-grid-3">
             {SPECIALIZED.map(({ t, d, to, label, img, imgAlt }, i) => (
               <Reveal key={t} index={i % 3}>
-                <article
-                  className="oz-card"
-                  style={{
-                    padding: 0,
-                    overflow: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
-                    <img
-                      src={img}
-                      alt={imgAlt}
-                      loading="lazy"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
-                    />
+                <article className="oz-specialized-card">
+                  <div className="oz-svc-media">
+                    <img src={img} alt={imgAlt} loading="lazy" />
                   </div>
-                  <div
-                    style={{
-                      padding: "clamp(1.25rem, 2vw, 1.5rem)",
-                      flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <h3 style={{ marginTop: 0 }}>{t}</h3>
-                    <p style={{ flex: 1 }}>{d}</p>
+                  <div className="oz-specialized-body">
+                    <h3>{t}</h3>
+                    <p>{d}</p>
                     <Link
                       to={to}
                       className="oz-btn oz-btn--primary"

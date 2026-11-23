@@ -99,23 +99,18 @@ export default function ContactPageView() {
                 <h3 style={{ fontSize: "1.1rem", marginBottom: 12, fontWeight: 700 }}>
                   Working Hours &amp; Response Times
                 </h3>
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "14px" }}
-                  className="oz-muted"
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div className="oz-contact-hours">
+                  <div className="oz-contact-hours-item">
                     <LuClock
                       size={16}
                       aria-hidden="true"
-                      style={{ color: "var(--brand-orange)" }}
                     />
                     <span>Active Timezone: {currentMarket.timezone}</span>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div className="oz-contact-hours-item">
                     <LuClock
                       size={16}
                       aria-hidden="true"
-                      style={{ color: "var(--brand-orange)" }}
                     />
                     <span>Direct engineering consultation 7 days a week</span>
                   </div>

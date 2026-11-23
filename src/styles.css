@@ -208,7 +208,7 @@
 
   /* ---- Typography tokens (WordPress-style, responsive) ---- */
   --oz-font-sans:
-    "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    "Mulish", "Inter", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
   --oz-fs-body: clamp(1rem, 0.965rem + 0.15vw, 1.0625rem);
   --oz-lh-body: clamp(1.58, 1.52 + 0.2vw, 1.7);
@@ -5201,6 +5201,202 @@ h6 {
 }
 
 /* =========================================================
+   Gopalan-Inspired Showcase & Inner Page Components
+   Clean, responsive, data-driven cards with lazy motion
+   ========================================================= */
+
+.oz-svc-feature-card {
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: var(--gw-radius-md, 14px);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-card-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.oz-svc-feature-card:hover,
+.oz-svc-feature-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--gw-shadow-md);
+  border-color: rgba(234, 88, 12, 0.45);
+}
+
+.oz-svc-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+}
+.oz-svc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-in-out;
+}
+.oz-svc-feature-card:hover .oz-svc-media img,
+.oz-specialized-card:hover .oz-svc-media img {
+  transform: scale(1.05);
+}
+
+.oz-svc-body {
+  padding: clamp(1.15rem, 2vw, 1.45rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.oz-svc-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--gw-radius-sm, 7px);
+  background: var(--brand-orange, #ea580c);
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 4px 12px -2px rgba(234, 88, 12, 0.35);
+  transition: var(--gw-transition-fast);
+}
+.oz-svc-feature-card:hover .oz-svc-icon-badge {
+  transform: scale(1.08);
+}
+
+.oz-svc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  flex: 1;
+}
+.oz-svc-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.875rem;
+  color: #374151;
+  transition: color 0.18s ease;
+}
+.oz-svc-list li:hover {
+  color: var(--brand-orange, #ea580c);
+}
+.oz-svc-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand-orange, #ea580c);
+}
+
+/* Specialized service cards */
+.oz-specialized-card {
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: var(--gw-radius-md, 14px);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-card-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.oz-specialized-card:hover,
+.oz-specialized-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--gw-shadow-md);
+  border-color: rgba(234, 88, 12, 0.45);
+}
+
+.oz-specialized-body {
+  padding: clamp(1.25rem, 2vw, 1.5rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.oz-specialized-body h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.oz-specialized-body p {
+  flex: 1;
+  color: var(--oz-muted-foreground);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* About page media and cards */
+.oz-split-media {
+  border-radius: var(--gw-radius-md, 14px);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--gw-shadow-md);
+  background: #f1f5f9;
+}
+.oz-split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-in-out;
+}
+.oz-split-media:hover img {
+  transform: scale(1.04);
+}
+
+.oz-what-we-do-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 10px;
+}
+.oz-what-we-do-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+.oz-what-we-do-list li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--brand-orange, #ea580c);
+}
+
+.oz-impact-card {
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--gw-radius-md, 14px);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-card-transition);
+}
+.oz-impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--gw-shadow-md);
+  border-color: rgba(234, 88, 12, 0.4);
+}
+.oz-impact-card strong {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--brand-orange, #ea580c);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+.oz-impact-card span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted, #64748b);
+}
+
+/* =========================================================
    Responsive component layer
    Shared intrinsic sizing for public pages, forms and apps.
    ========================================================= */
@@ -6235,6 +6431,23 @@ summary:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.oz-contact-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--oz-muted-foreground);
+}
+.oz-contact-hours-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.oz-contact-hours-item svg {
+  color: var(--brand-orange, #ea580c);
+  flex-shrink: 0;
 }
 .oz-auth-shell {
   width: min(100%, 30rem);
@@ -7427,33 +7640,61 @@ a.oz-btn,
 }
 
 .oz-home-solution__number {
-  color: var(--oz-primary);
-  font-size: 0.8rem;
-  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--gw-radius-sm, 7px);
+  background: var(--brand-orange-50, #fff7ed);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: var(--brand-orange, #ea580c);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: var(--oz-space-3);
+  box-shadow: var(--gw-shadow-sm);
+  transition: var(--gw-transition-fast);
+}
+.oz-home-solution:hover .oz-home-solution__number {
+  background: var(--brand-orange, #ea580c);
+  color: #ffffff;
+  transform: scale(1.06);
 }
 .oz-home-solution h3 {
   max-width: 30ch;
+  margin-bottom: var(--oz-space-2);
 }
 .oz-home-solution__proof {
   margin-top: auto;
-  padding-top: var(--oz-space-4);
+  padding: 0.85rem 1rem;
+  background: #f8fafc;
+  border-radius: var(--gw-radius-sm, 7px);
+  border: 1px solid #e2e8f0;
   color: var(--oz-muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 .oz-home-solution__proof strong {
   display: block;
-  margin-bottom: 0.25rem;
-  color: var(--oz-primary);
-  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+  color: var(--brand-orange, #ea580c);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .oz-home-solution__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
   min-height: 44px;
-  color: var(--oz-primary);
-  font-weight: 800;
+  color: var(--brand-orange, #ea580c);
+  font-weight: 750;
+  font-size: 0.9rem;
   text-decoration: none;
+  transition: var(--gw-transition-fast);
+}
+.oz-home-solution__link:hover {
+  color: var(--brand-orange-hover, #c2410c);
 }
 .oz-home-work__grid {
   display: grid;

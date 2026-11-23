@@ -145,21 +145,13 @@ export default function AboutPageView() {
               </div>
             </Reveal>
             <Reveal index={1}>
-              <div
-                style={{
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  aspectRatio: "4 / 3",
-                  boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
-                }}
-              >
+              <div className="oz-split-media">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
                   alt="Ozeonix Infinity team collaborating on digital projects"
                   width={800}
                   height={600}
                   loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
               </div>
             </Reveal>
@@ -172,21 +164,13 @@ export default function AboutPageView() {
         <div className="oz-container">
           <div className="oz-split">
             <Reveal>
-              <div
-                style={{
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  aspectRatio: "4 / 3",
-                  boxShadow: "0 24px 56px -16px rgba(15,23,42,0.22)",
-                }}
-              >
+              <div className="oz-split-media">
                 <img
                   src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80"
                   alt="Developer working on modern software solutions"
                   width={800}
                   height={600}
                   loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
               </div>
             </Reveal>
@@ -194,25 +178,12 @@ export default function AboutPageView() {
               <div>
                 <span className="oz-eyebrow">What We Do</span>
                 <h2>Everything your business needs to grow digitally.</h2>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: "20px 0 0",
-                    display: "grid",
-                    gap: 12,
-                  }}
-                >
+                <ul className="oz-what-we-do-list">
                   {WHAT_WE_DO.map((item) => (
-                    <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                    <li key={item}>
                       <CheckCircle2
                         size={18}
                         strokeWidth={2}
-                        style={{
-                          flexShrink: 0,
-                          marginTop: 2,
-                          color: "var(--brand-orange, #ea580c)",
-                        }}
                         aria-hidden="true"
                       />
                       <span>{item}</span>
@@ -266,25 +237,9 @@ export default function AboutPageView() {
           <div className="oz-grid oz-grid-4">
             {STATS.map((s, i) => (
               <Reveal key={s.l} index={i % 4}>
-                <div
-                  className="oz-card"
-                  style={{ textAlign: "center", padding: "clamp(1.5rem, 3vw, 2.5rem)" }}
-                >
-                  <strong
-                    style={{
-                      display: "block",
-                      fontSize: "clamp(2rem, 4vw, 3rem)",
-                      fontWeight: 800,
-                      color: "var(--brand-orange, #ea580c)",
-                      lineHeight: 1,
-                      marginBottom: 8,
-                    }}
-                  >
-                    {s.n}
-                  </strong>
-                  <span style={{ fontSize: "0.9rem", color: "var(--text-muted, #64748b)" }}>
-                    {s.l}
-                  </span>
+                <div className="oz-impact-card">
+                  <strong>{s.n}</strong>
+                  <span>{s.l}</span>
                 </div>
               </Reveal>
             ))}
