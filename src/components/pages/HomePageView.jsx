@@ -9,6 +9,8 @@ import { useMarket } from "../../lib/market/MarketContext";
 import processTeam480 from "../../assets/process-team-480.webp";
 import processTeam768 from "../../assets/process-team-768.webp";
 import processTeam1024 from "../../assets/process-team-1024.webp";
+import processDesignSprint from "../../assets/process-design-sprint.webp";
+import processCodeQuality from "../../assets/process-code-quality.webp";
 
 import {
   Rocket,
@@ -443,108 +445,26 @@ export default function HomePageView() {
       <section className="oz-section oz-process-section" aria-label="Development Process">
         <div className="oz-process-bg-glow" aria-hidden="true" />
         <div className="oz-container" style={{ position: "relative" }}>
-          <div className="oz-section-head">
-            <Reveal>
-              <span className="oz-eyebrow">Development Process</span>
-            </Reveal>
-            <Reveal index={1} as="h2">
-              A calm, predictable path from idea to launch.
-            </Reveal>
-          </div>
-
           <div className="oz-process-grid">
-            {/* LEFT: Overview Card (Sticky) */}
-            <Reveal>
-              <div className="oz-process-sticky">
-                <div className="oz-process-overview-card">
-                  <div className="oz-process-hero">
-                    <ResponsiveImage
-                      src={processTeam1024}
-                      alt="Ozeonix Infinity software engineering team collaborating on project architecture"
-                      width={1024}
-                      height={1280}
-                      widths={[480, 768, 1024]}
-                      srcSet={`${processTeam480} 480w, ${processTeam768} 768w, ${processTeam1024} 1024w`}
-                      sizes="(max-width: 900px) calc(100vw - 2rem), (max-width: 1280px) 42vw, 500px"
-                      pictureClassName="oz-process-picture"
-                      className="oz-process-image"
-                    />
-                    <div className="oz-process-hero-overlay" aria-hidden="true" />
-                    <div className="oz-process-hero-badge">
-                      <span className="oz-process-pulse-dot" aria-hidden="true" />
-                      Structured Delivery
-                    </div>
-                    <div className="oz-process-hero-caption">
-                      <h3 className="oz-process-hero-title">Engineering Discipline</h3>
-                      <p className="oz-process-hero-desc">
-                        A proven six-step framework used across custom CRM, ERP, and enterprise web
-                        solutions.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="oz-process-card-body">
-                    <div className="oz-process-stats">
-                      <div className="oz-process-stat-tile">
-                        <div className="oz-process-stat-val">6</div>
-                        <div className="oz-process-stat-lbl">Structured Phases</div>
-                      </div>
-                      <div className="oz-process-stat-tile">
-                        <div className="oz-process-stat-val">2×</div>
-                        <div className="oz-process-stat-lbl">Weekly Sprint Demos</div>
-                      </div>
-                      <div className="oz-process-stat-tile">
-                        <div className="oz-process-stat-val">100%</div>
-                        <div className="oz-process-stat-lbl">Code &amp; IP Ownership</div>
-                      </div>
-                      <div className="oz-process-stat-tile">
-                        <div className="oz-process-stat-val">Zero</div>
-                        <div className="oz-process-stat-lbl">Surprise Scope Creep</div>
-                      </div>
-                    </div>
-
-                    <ul className="oz-process-guarantees" aria-label="Process guarantees">
-                      <li className="oz-process-guarantee-item">
-                        <CheckCircle2
-                          size={16}
-                          className="oz-process-guarantee-icon"
-                          aria-hidden="true"
-                        />
-                        <span>Milestone-based delivery with fixed scopes</span>
-                      </li>
-                      <li className="oz-process-guarantee-item">
-                        <CheckCircle2
-                          size={16}
-                          className="oz-process-guarantee-icon"
-                          aria-hidden="true"
-                        />
-                        <span>Direct communication with senior engineers</span>
-                      </li>
-                      <li className="oz-process-guarantee-item">
-                        <CheckCircle2
-                          size={16}
-                          className="oz-process-guarantee-icon"
-                          aria-hidden="true"
-                        />
-                        <span>Comprehensive documentation &amp; post-launch warranty</span>
-                      </li>
-                    </ul>
-
-                    <Link
-                      to={getLocalizedPath("/contact")}
-                      className="oz-btn oz-btn--primary oz-btn--block"
-                    >
-                      Discuss your project
-                      <ArrowRight size={18} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </div>
+            {/* LEFT COLUMN: Header, Process Steps (Icon-Boxes), Guarantees & Action CTA */}
+            <div className="oz-process-content-col">
+              <div className="oz-process-head">
+                <Reveal>
+                  <span className="oz-eyebrow">Development Process</span>
+                </Reveal>
+                <Reveal index={1} as="h2" className="oz-process-main-title">
+                  A calm, predictable path from idea to launch.
+                </Reveal>
+                <Reveal index={2}>
+                  <p className="oz-process-lead">
+                    Our proven six-step framework combines agile velocity with enterprise rigor,
+                    enabling greater efficiency, agility, and transparency across custom CRM, ERP,
+                    and modern enterprise software.
+                  </p>
+                </Reveal>
               </div>
-            </Reveal>
 
-            {/* RIGHT: Timeline & Step Cards */}
-            <div className="oz-process-timeline">
-              <div aria-hidden="true" className="oz-process-timeline-spine" />
+              {/* 6 Step Icon-Boxes */}
               <ol className="oz-process-steps-list">
                 {PROCESS.map((p, i) => {
                   const I = p.Icon;
@@ -552,7 +472,9 @@ export default function HomePageView() {
                     <Reveal key={p.s} index={i % 3} as="li">
                       <article className="oz-process-step">
                         <div className="oz-process-step-icon-wrap" aria-hidden="true">
-                          <I size={24} strokeWidth={2} />
+                          <span className="oz-process-icon-circle">
+                            <I size={22} strokeWidth={2} />
+                          </span>
                         </div>
                         <div className="oz-process-step-content">
                           <div className="oz-process-step-meta">
@@ -580,29 +502,173 @@ export default function HomePageView() {
                 })}
               </ol>
 
+              {/* Guarantees & Lead CTA Button */}
               <Reveal>
-                <div className="oz-process-cta">
-                  <div className="oz-process-cta-left">
-                    <div className="oz-process-cta-icon" aria-hidden="true">
-                      <ShieldCheck size={22} />
-                    </div>
-                    <div>
-                      <h4 className="oz-process-cta-title">
-                        Ready to turn your vision into a clear, predictable plan?
-                      </h4>
-                      <p className="oz-process-cta-sub">
-                        Get an actionable roadmap, timeline, and fixed quote within 48 hours.
-                      </p>
-                    </div>
-                  </div>
-                  <Link to={getLocalizedPath("/contact")} className="oz-btn oz-btn--primary">
-                    Start Your Project
+                <div className="oz-process-content-footer">
+                  <ul className="oz-process-guarantees" aria-label="Process guarantees">
+                    <li className="oz-process-guarantee-item">
+                      <CheckCircle2
+                        size={16}
+                        className="oz-process-guarantee-icon"
+                        aria-hidden="true"
+                      />
+                      <span>Milestone-based delivery with fixed scopes</span>
+                    </li>
+                    <li className="oz-process-guarantee-item">
+                      <CheckCircle2
+                        size={16}
+                        className="oz-process-guarantee-icon"
+                        aria-hidden="true"
+                      />
+                      <span>Direct communication with senior engineers</span>
+                    </li>
+                    <li className="oz-process-guarantee-item">
+                      <CheckCircle2
+                        size={16}
+                        className="oz-process-guarantee-icon"
+                        aria-hidden="true"
+                      />
+                      <span>Comprehensive documentation &amp; post-launch warranty</span>
+                    </li>
+                  </ul>
+
+                  <Link
+                    to={getLocalizedPath("/contact")}
+                    className="oz-btn oz-btn--primary oz-process-lead-btn"
+                  >
+                    Discuss your project
                     <ArrowRight size={18} aria-hidden="true" />
                   </Link>
                 </div>
               </Reveal>
             </div>
+
+            {/* RIGHT COLUMN: Layered Multi-Image Showcase Collage & Stats */}
+            <div className="oz-process-showcase-col">
+              <Reveal>
+                <div className="oz-process-sticky">
+                  {/* Layered Image Composition */}
+                  <div className="oz-process-collage">
+                    {/* Primary Anchor / Base Image */}
+                    <div className="oz-process-collage__main">
+                      <ResponsiveImage
+                        src={processTeam1024}
+                        alt="Ozeonix Infinity software engineering team collaborating on project architecture"
+                        width={1024}
+                        height={1280}
+                        widths={[480, 768, 1024]}
+                        srcSet={`${processTeam480} 480w, ${processTeam768} 768w, ${processTeam1024} 1024w`}
+                        sizes="(max-width: 900px) calc(100vw - 2rem), (max-width: 1280px) 44vw, 520px"
+                        pictureClassName="oz-process-picture"
+                        className="oz-process-image"
+                      />
+                      <div className="oz-process-hero-overlay" aria-hidden="true" />
+                      <div className="oz-process-hero-badge">
+                        <span className="oz-process-pulse-dot" aria-hidden="true" />
+                        Structured Delivery
+                      </div>
+                      <div className="oz-process-hero-caption">
+                        <h3 className="oz-process-hero-title">Engineering Discipline</h3>
+                        <p className="oz-process-hero-desc">
+                          A proven six-step framework used across custom CRM, ERP, and enterprise
+                          web solutions.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Absolute Floating Card 1: UI/UX & Architecture Sprint */}
+                    <div className="oz-process-collage__float oz-process-collage__float--top">
+                      <div className="oz-process-float-card">
+                        <div className="oz-process-float-img-wrap">
+                          <img
+                            src={processDesignSprint}
+                            alt="UI/UX design tokens and architecture prototyping"
+                            loading="lazy"
+                            width={800}
+                            height={533}
+                            className="oz-process-float-img"
+                          />
+                          <div className="oz-process-float-overlay" />
+                        </div>
+                        <div className="oz-process-float-content">
+                          <span className="oz-process-float-tag">Phase 03 · Design Sprint</span>
+                          <span className="oz-process-float-text">
+                            Interactive Prototypes &amp; Demos
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Absolute Floating Card 2: Code Quality & CI/CD */}
+                    <div className="oz-process-collage__float oz-process-collage__float--bottom">
+                      <div className="oz-process-float-card">
+                        <div className="oz-process-float-img-wrap">
+                          <img
+                            src={processCodeQuality}
+                            alt="Clean code engineering and automated CI/CD pipeline"
+                            loading="lazy"
+                            width={800}
+                            height={533}
+                            className="oz-process-float-img"
+                          />
+                          <div className="oz-process-float-overlay" />
+                        </div>
+                        <div className="oz-process-float-content">
+                          <span className="oz-process-float-tag">Phase 04 · Engineering</span>
+                          <span className="oz-process-float-text">
+                            Clean Codebase &amp; 100% IP Ownership
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 4 Stat Tiles */}
+                  <div className="oz-process-stats">
+                    <div className="oz-process-stat-tile">
+                      <div className="oz-process-stat-val">6</div>
+                      <div className="oz-process-stat-lbl">Structured Phases</div>
+                    </div>
+                    <div className="oz-process-stat-tile">
+                      <div className="oz-process-stat-val">2×</div>
+                      <div className="oz-process-stat-lbl">Weekly Sprint Demos</div>
+                    </div>
+                    <div className="oz-process-stat-tile">
+                      <div className="oz-process-stat-val">100%</div>
+                      <div className="oz-process-stat-lbl">Code &amp; IP Ownership</div>
+                    </div>
+                    <div className="oz-process-stat-tile">
+                      <div className="oz-process-stat-val">Zero</div>
+                      <div className="oz-process-stat-lbl">Surprise Scope Creep</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
           </div>
+
+          {/* Bottom Process CTA Banner */}
+          <Reveal>
+            <div className="oz-process-cta">
+              <div className="oz-process-cta-left">
+                <div className="oz-process-cta-icon" aria-hidden="true">
+                  <ShieldCheck size={22} />
+                </div>
+                <div>
+                  <h4 className="oz-process-cta-title">
+                    Ready to turn your vision into a clear, predictable plan?
+                  </h4>
+                  <p className="oz-process-cta-sub">
+                    Get an actionable roadmap, timeline, and fixed quote within 48 hours.
+                  </p>
+                </div>
+              </div>
+              <Link to={getLocalizedPath("/contact")} className="oz-btn oz-btn--primary">
+                Start Your Project
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

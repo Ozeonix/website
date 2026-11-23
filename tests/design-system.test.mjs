@@ -99,4 +99,46 @@ describe("Brand Design System & CSS Invariants", () => {
       "Main content must have padding-top offset",
     );
   });
+
+  it("upgrades development process section with icon-box layout and multi-image collage", () => {
+    const homePath = path.join(rootDir, "src", "components", "pages", "HomePageView.jsx");
+    const homeContent = fs.readFileSync(homePath, "utf-8");
+
+    assert.ok(
+      homeContent.includes("oz-process-content-col"),
+      "Must define oz-process-content-col for process steps",
+    );
+    assert.ok(
+      homeContent.includes("oz-process-showcase-col"),
+      "Must define oz-process-showcase-col for visual collage",
+    );
+    assert.ok(
+      homeContent.includes("oz-process-collage"),
+      "Must render oz-process-collage with multi-image showcase",
+    );
+    assert.ok(
+      homeContent.includes("processDesignSprint"),
+      "Must include processDesignSprint asset in collage",
+    );
+    assert.ok(
+      homeContent.includes("processCodeQuality"),
+      "Must include processCodeQuality asset in collage",
+    );
+    assert.ok(
+      homeContent.includes("oz-process-icon-circle"),
+      "Must render circular icon badges for process steps",
+    );
+
+    const cssPath = path.join(rootDir, "src", "styles.css");
+    const cssContent = fs.readFileSync(cssPath, "utf-8");
+    assert.ok(cssContent.includes(".oz-process-collage"), "CSS must style .oz-process-collage");
+    assert.ok(
+      cssContent.includes(".oz-process-collage__float"),
+      "CSS must style floating collage cards",
+    );
+    assert.ok(
+      cssContent.includes(".oz-process-icon-circle"),
+      "CSS must style .oz-process-icon-circle",
+    );
+  });
 });
