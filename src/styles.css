@@ -6151,6 +6151,17 @@ summary:focus-visible {
 .oz-process-collage__float--bottom {
   bottom: 0;
   left: -0.75rem;
+  width: 42%;
+  max-width: 190px;
+}
+
+.oz-process-collage__float--bottom .oz-process-float-card {
+  aspect-ratio: 1 / 1;
+}
+
+.oz-process-collage__float--bottom .oz-process-float-img-wrap {
+  aspect-ratio: 1 / 1;
+  height: 100%;
 }
 
 .oz-process-float-card {
@@ -6357,6 +6368,8 @@ summary:focus-visible {
   }
   .oz-process-collage__float--bottom {
     left: 0;
+    width: 36%;
+    max-width: 136px;
   }
   .oz-process-stats {
     grid-template-columns: repeat(2, 1fr);

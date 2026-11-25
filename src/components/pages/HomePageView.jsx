@@ -590,12 +590,6 @@ export default function HomePageView() {
                           />
                           <div className="oz-process-float-overlay" />
                         </div>
-                        <div className="oz-process-float-content">
-                          <span className="oz-process-float-tag">Phase 03 · Design Sprint</span>
-                          <span className="oz-process-float-text">
-                            Interactive Prototypes &amp; Demos
-                          </span>
-                        </div>
                       </div>
                     </div>
 
@@ -612,12 +606,6 @@ export default function HomePageView() {
                             className="oz-process-float-img"
                           />
                           <div className="oz-process-float-overlay" />
-                        </div>
-                        <div className="oz-process-float-content">
-                          <span className="oz-process-float-tag">Phase 04 · Engineering</span>
-                          <span className="oz-process-float-text">
-                            Clean Codebase &amp; 100% IP Ownership
-                          </span>
                         </div>
                       </div>
                     </div>
